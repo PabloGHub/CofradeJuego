@@ -83,8 +83,10 @@ public class Navegacion : MonoBehaviour
                     v_caminosPosible_Transform[v_difurcacion_i][j].GetComponent<Punto>().v_elegido_b = false;
                 }
             }
-            else
+            else if (args[i].Int <= v_caminosPosible_Transform[v_difurcacion_i].Count)
                 v_caminosPosible_Transform[v_difurcacion_i][args[i].Int].GetComponent<Punto>().v_elegido_b = true;
+            else
+                Debug.LogError("**(El camino " + args[i].Int + " no existe en la difurcacion " + v_difurcacion_i + ")**");
         }
     }
 

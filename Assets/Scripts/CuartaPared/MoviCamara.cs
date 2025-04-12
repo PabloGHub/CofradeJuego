@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class MoviCamara : MonoBehaviour
 {
+    // TODO: Que la camara se pueda alejar y acercar con la rueda del raton.
     // ***********************( Declaraciones )*********************** //
     [Header("*--- Atributos ---*")]
     [SerializeField]

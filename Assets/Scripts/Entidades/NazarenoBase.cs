@@ -3,9 +3,10 @@ using UnityEngine;
 public class NazarenoBase : MonoBehaviour
 {
     // ***********************( Declaraciones )*********************** //
-    private float cercaniaAlObjetivo = 3f;
-    private int v_objetivoIndex_i = 0;
-    private Movimiento v_movimiento;
+    private float cercaniaAlObjetivo = 2.5f;
+    public int v_objetivoIndex_i = 0;
+    public Movimiento v_movimiento;
+    private Transform v_objetivo_Transform;
 
     // ***********************( Funciones Unity )*********************** //
     private void Start()
@@ -17,44 +18,75 @@ public class NazarenoBase : MonoBehaviour
             return;
         }
 
-        v_movimiento.v_objetivo_Transform = Navegacion.nav.trayectoria[v_objetivoIndex_i];
+        v_objetivo_Transform = Navegacion.nav.trayectoria[v_objetivoIndex_i];
+        v_movimiento.v_objetivo_Transform = v_objetivo_Transform;
     }
 
-    private void Update()
-    {
-        if (ControladorPPAL.v_pausado_b)
-            return;
-
-        if (Vector3.Distance(transform.position, v_movimiento.v_objetivo_Transform.position) < cercaniaAlObjetivo)
+    /*
+        private void Update()
         {
-            Debug.Log("PuntoControl Alcanzado");
+            if (ControladorPPAL.v_pausado_b)
+                return;
 
-            v_objetivoIndex_i++;
-
-            while (true)
+            bool v_lejosPeloton_b = Vector3.Distance(transform.position, Peloton.peloton.transform.position) > Peloton.peloton.v_distanciaAlPeloton_f;
+            if (v_lejosPeloton_b && v_objetivoIndex_i < Peloton.peloton.v_objetivoIndex_i)
             {
-                Punto punto = Navegacion.nav.trayectoria[v_objetivoIndex_i].GetComponent<Punto>();
-
-                if (!punto.difurcacion)
-                {
-                    break;
-                }
-                else if (!punto.v_elegido_b)
-                {
-                    v_objetivoIndex_i++;
-                }
-                else
-                {
-                    break;
-                }
-            }
             
+            }
+            else if (v_lejosPeloton_b)
+            {
+                v_movimiento.v_esperando_b = true;
+            }
+            else 
+            {
+                v_movimiento.v_esperando_b = false;
+            }
+        }
+     */
 
-            if (v_objetivoIndex_i >= Navegacion.nav.trayectoria.Length)
-                v_objetivoIndex_i = 0; // Creara un bucle.
-
-            v_movimiento.v_objetivo_Transform = Navegacion.nav.trayectoria[v_objetivoIndex_i];
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("puntoControl") && collision.gameObject == v_objetivo_Transform.gameObject)
+        {
+            if (Vector3.Distance(transform.position, v_movimiento.v_objetivo_Transform.position) < cercaniaAlObjetivo)
+            {
+                actualizarObjetivo();
+            }
         }
     }
+
     // ***********************( Funciones Nuestras )*********************** //
+    void extracion()
+    {
+        // TODO: cuando llega a carrera destuir o ocular al nazareno.
+    }
+
+    private void actualizarObjetivo()
+    {
+        v_objetivoIndex_i++;
+
+        if (v_objetivoIndex_i >= Navegacion.nav.trayectoria.Length)
+            extracion();
+
+        while (true)
+        {
+            Punto punto = Navegacion.nav.trayectoria[v_objetivoIndex_i].GetComponent<Punto>();
+
+            if (!punto.difurcacion)
+            {
+                break;
+            }
+            else if (!punto.v_elegido_b)
+            {
+                v_objetivoIndex_i++;
+            }
+            else
+            {
+                break;
+            }
+        }
+
+        v_objetivo_Transform = Navegacion.nav.trayectoria[v_objetivoIndex_i];
+        v_movimiento.v_objetivo_Transform = v_objetivo_Transform;
+    }
 }

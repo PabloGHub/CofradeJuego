@@ -8,13 +8,19 @@ public class Movimiento : MonoBehaviour
     [Header("*-- Atributos --*")]
     [SerializeField]
     private float aceleracion = 10f;
+    private float v_aceleracionExodia_f;
     [SerializeField]
     private float fuerzaRotacion = 5f;
+
+    //HideInInspector]
+    public bool v_esperando_b = false;
+    public bool v_exodia_b = false;
 
     [HideInInspector]
     public Transform v_objetivo_Transform;
     private NavMeshAgent v_agente_NavMeshAgent;
     private Rigidbody2D v_rb_rb2D;
+    
 
     // ***********************( Funciones Unity )*********************** //
     private void Awake()
@@ -32,6 +38,8 @@ public class Movimiento : MonoBehaviour
 
     private void Start()
     {
+        v_aceleracionExodia_f = aceleracion * 1.5f;
+
         v_agente_NavMeshAgent.updatePosition = false;
         v_agente_NavMeshAgent.updateRotation = false;
         v_agente_NavMeshAgent.updateUpAxis = false;
@@ -39,7 +47,7 @@ public class Movimiento : MonoBehaviour
 
     private void Update()
     {
-        if (ControladorPPAL.v_pausado_b)
+        if (ControladorPPAL.v_pausado_b || v_esperando_b)
             return;
 
         if (v_agente_NavMeshAgent != null)
@@ -50,7 +58,7 @@ public class Movimiento : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (ControladorPPAL.v_pausado_b)
+        if (ControladorPPAL.v_pausado_b || v_esperando_b)
             return;
 
         if (v_agente_NavMeshAgent != null)
@@ -69,8 +77,12 @@ public class Movimiento : MonoBehaviour
                 v_torque_f = -fuerzaRotacion * Time.fixedDeltaTime;
 
             v_rb_rb2D.AddTorque(v_torque_f);
+
             // TODO: Que no acelere si tiene una pared delante.
-            v_rb_rb2D.AddForce(transform.up * aceleracion * Time.fixedDeltaTime);
+            if (!v_exodia_b)
+                v_rb_rb2D.AddForce(transform.up * aceleracion * Time.fixedDeltaTime);
+            else
+                v_rb_rb2D.AddForce(transform.up * v_aceleracionExodia_f * Time.fixedDeltaTime);
 
             v_agente_NavMeshAgent.nextPosition = transform.position;
         }
