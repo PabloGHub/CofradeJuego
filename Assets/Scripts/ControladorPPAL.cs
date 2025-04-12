@@ -18,11 +18,18 @@ public class ControladorPPAL : MonoBehaviour
         }
     }
     // ***********************( Funciones Nuestras )*********************** //
+    private void cabiarPausa()
+    {
+        if (Navegacion.nav.comprobarCaminos())
+            v_pausado_b = !v_pausado_b;
+
+        Terminal.Log("Pausado: " + v_pausado_b);
+    }
+
 
     [RegisterCommand(Help = "pausa/desapausa")]
     static void CommandPausa(CommandArg[] args)
     {
-        v_pausado_b = !v_pausado_b;
-        Terminal.Log("Pausado: " + v_pausado_b);
+        ControladorPPAL.ppal.cabiarPausa();
     }
 }
