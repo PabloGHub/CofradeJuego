@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Peloton : MonoBehaviour
@@ -16,11 +17,6 @@ public class Peloton : MonoBehaviour
     private float cercaniaAlObjetivo = 2.5f;
     private Transform v_objetivo_Transform;
 
-    // --- Control de distancia --- //
-    private List<Transform> v_integranteLejosAtrasado;
-    private List<Transform> v_integranteLejosMedio;
-    private List<Transform> v_integranteLejosAdelantado;
-    private List<Transform> v_integranteCerca;
 
     // ***********************( Metodos UNITY )*********************** //
     private void Awake()
@@ -34,11 +30,6 @@ public class Peloton : MonoBehaviour
     private void Start()
     {
         v_objetivo_Transform = Navegacion.nav.trayectoria[v_objetivoIndex_i];
-
-        v_integranteLejosAtrasado = new List<Transform>();
-        v_integranteLejosMedio = new List<Transform>();
-        v_integranteLejosAdelantado = new List<Transform>();
-        v_integranteCerca = new List<Transform>();
     }
 
     private void Update()
@@ -114,7 +105,25 @@ public class Peloton : MonoBehaviour
 
     private void gestionarIntegrantes()
     {
+        List<Transform> v_integranteLejosAtrasado = new List<Transform>();
+        List<Transform> v_integranteLejosMedio = new List<Transform>();
+        List<Transform> v_integranteLejosAdelantado = new List<Transform>();
+        List<Transform> v_integranteCerca = new List<Transform>();
+
         bool v_alguienAtrasado_b = false;
+        int? v_max_i = null;
+        int? v_min_i = null;
+
+
+        foreach (Transform v_integrante in integrantes)
+        {
+            NazarenoBase v_nazareno = v_integrante.GetComponent<NazarenoBase>();
+            if (v_nazareno == null)
+                return;
+
+            v_max_i = (v_nazareno.v_objetivoIndex_i > v_max_i || v_max_i == null) ? v_nazareno.v_objetivoIndex_i : v_max_i;
+            v_min_i = (v_nazareno.v_objetivoIndex_i < v_min_i || v_min_i == null) ? v_nazareno.v_objetivoIndex_i : v_min_i;
+        }
 
         foreach (Transform v_integrante in integrantes)
         {
@@ -126,14 +135,14 @@ public class Peloton : MonoBehaviour
                 if (v_nazareno == null)
                     return;
 
-                // El integrante esta adelante.
-                if (v_nazareno.v_objetivoIndex_i > v_objetivoIndex_i)
+                // El integrante esta delante.
+                if (v_nazareno.v_objetivoIndex_i > (v_max_i * 0.66f))
                 {
                     v_integranteLejosAdelantado.Add(v_integrante);
                 }
 
                 // El integrante esta atrasado.
-                else if (v_nazareno.v_objetivoIndex_i < v_objetivoIndex_i)
+                else if (v_nazareno.v_objetivoIndex_i < (v_min_i * 0.66f))
                 {
                      v_integranteLejosAtrasado.Add(v_integrante);
                 }
@@ -152,33 +161,17 @@ public class Peloton : MonoBehaviour
             }
         }
 
-        if (v_integranteLejosAdelantado.Count < (integrantes.Length * 0.4f))
-        {
-            // LEJOS ADELANTADOS
-            foreach (Transform v_integrante in v_integranteLejosAdelantado)
-            {
-                NazarenoBase v_nazareno = v_integrante.GetComponent<NazarenoBase>();
-                if (v_nazareno == null)
-                    return;
-                v_nazareno.v_movimiento.v_esperando_b = true;
-                v_nazareno.v_movimiento.v_exodia_b = false;
-            }
-        }
-        // Peloton se a saltado un punto de control.
-        else // No se como es de probable.
-        {
-            v_objetivoIndex_i++;
 
-            // LEJOS ADELANTADOS
-            foreach (Transform v_integrante in v_integranteLejosAdelantado)
-            {
-                NazarenoBase v_nazareno = v_integrante.GetComponent<NazarenoBase>();
-                if (v_nazareno == null)
-                    return;
-                v_nazareno.v_movimiento.v_esperando_b = false;
-                v_nazareno.v_movimiento.v_exodia_b = false;
-            }
+        // LEJOS ADELANTADOS
+        foreach (Transform v_integrante in v_integranteLejosAdelantado)
+        {
+            NazarenoBase v_nazareno = v_integrante.GetComponent<NazarenoBase>();
+            if (v_nazareno == null)
+                return;
+            v_nazareno.v_movimiento.v_esperando_b = true;
+            v_nazareno.v_movimiento.v_exodia_b = false;
         }
+
 
         // LEJOS ATRASADOS
         foreach (Transform v_integrante in v_integranteLejosAtrasado)
@@ -190,6 +183,7 @@ public class Peloton : MonoBehaviour
             v_nazareno.v_movimiento.v_exodia_b = true;
             v_alguienAtrasado_b = true;
         }
+
 
         if (v_alguienAtrasado_b)
         {
@@ -216,6 +210,7 @@ public class Peloton : MonoBehaviour
             }
         }
 
+
         // LEJOS MEDIO
         foreach (Transform v_integrante in v_integranteLejosMedio)
         {
@@ -225,11 +220,5 @@ public class Peloton : MonoBehaviour
             v_nazareno.v_movimiento.v_esperando_b = false;
             v_nazareno.v_movimiento.v_exodia_b = false;
         }
-
-        // Limpiar listas
-        v_integranteLejosAtrasado.Clear();
-        v_integranteLejosMedio.Clear();
-        v_integranteLejosAdelantado.Clear();
-        v_integranteCerca.Clear();
     }
 }
