@@ -45,24 +45,22 @@ public class Ataque : MonoBehaviour
             return;
         }
 
-        if (v_tiempoDeRecargaAtual_f <= 0)
-        {
-            Vector2 _direccion = new Vector2(v_direcion_f.Value, 0);
-            Vector3 _inicio = (v_inicio_V3 != null) ? v_inicio_V3.Value : transform.position;
 
-            RaycastHit2D v_golpe = Physics2D.Raycast(_inicio, _direccion, alcance, v_capaAtacado_LM.Value);
-            if (v_golpe)
+        Vector2 _direccion = new Vector2(v_direcion_f.Value, 0);
+        Vector3 _inicio = (v_inicio_V3 != null) ? v_inicio_V3.Value : transform.position;
+
+        RaycastHit2D v_golpe = Physics2D.Raycast(_inicio, _direccion, alcance, v_capaAtacado_LM.Value);
+        if (v_golpe)
+        {
+            if (v_tiempoDeRecargaAtual_f <= 0)
             {
                 Debug.Log("Golpeado: " + v_golpe.collider.name);
                 // Aqui se puede aplicar el daño al objeto golpeado
                 // v_golpe.collider.GetComponent<Salud>().RecibirDano(danno);
             }
+        }
 
-            v_tiempoDeRecargaAtual_f = tiempoRecarga;
-        }
-        else
-        {
-            Debug.Log("Ataque en recarga. Tiempo restante: " + v_tiempoDeRecargaAtual_f);
-        }
+        v_tiempoDeRecargaAtual_f = tiempoRecarga;
+        
     }
 }
