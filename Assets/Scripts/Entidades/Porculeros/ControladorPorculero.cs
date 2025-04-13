@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PorculeroBase : MonoBehaviour
+public class ControladorPorculero : MonoBehaviour
 {
     // ***********************( Declaraciones )*********************** //
     private float cercaniaAlObjetivo = 2.5f;

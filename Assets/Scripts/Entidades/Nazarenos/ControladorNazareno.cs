@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class NazarenoBase : MonoBehaviour
+public class ControladorNazareno : MonoBehaviour
 {
     // ***********************( Declaraciones )*********************** //
     private float cercaniaAlObjetivo = 2.5f;

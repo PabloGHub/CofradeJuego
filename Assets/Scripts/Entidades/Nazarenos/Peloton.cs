@@ -118,7 +118,7 @@ public class Peloton : MonoBehaviour
 
         foreach (Transform v_integrante in integrantes)
         {
-            NazarenoBase v_nazareno = v_integrante.GetComponent<NazarenoBase>();
+            ControladorNazareno v_nazareno = v_integrante.GetComponent<ControladorNazareno>();
             if (v_nazareno == null)
                 return;
 
@@ -131,7 +131,7 @@ public class Peloton : MonoBehaviour
             // El integrante esta lejos del peloton.
             if (Vector3.Distance(v_integrante.position, transform.position) > v_distanciaAlPeloton_f)
             {
-                NazarenoBase v_nazareno = v_integrante.GetComponent<NazarenoBase>();
+                ControladorNazareno v_nazareno = v_integrante.GetComponent<ControladorNazareno>();
 
                 if (v_nazareno == null)
                     return;
@@ -166,7 +166,7 @@ public class Peloton : MonoBehaviour
         // LEJOS ADELANTADOS
         foreach (Transform v_integrante in v_integranteLejosAdelantado)
         {
-            NazarenoBase v_nazareno = v_integrante.GetComponent<NazarenoBase>();
+            ControladorNazareno v_nazareno = v_integrante.GetComponent<ControladorNazareno>();
             if (v_nazareno == null)
                 return;
             v_nazareno.v_movimiento.v_esperando_b = true;
@@ -177,7 +177,7 @@ public class Peloton : MonoBehaviour
         // LEJOS ATRASADOS
         foreach (Transform v_integrante in v_integranteLejosAtrasado)
         {
-            NazarenoBase v_nazareno = v_integrante.GetComponent<NazarenoBase>();
+            ControladorNazareno v_nazareno = v_integrante.GetComponent<ControladorNazareno>();
             if (v_nazareno == null)
                 return;
             v_nazareno.v_movimiento.v_esperando_b = false;
@@ -191,7 +191,7 @@ public class Peloton : MonoBehaviour
             // CERCA
             foreach (Transform v_integrante in v_integranteCerca)
             {
-                NazarenoBase v_nazareno = v_integrante.GetComponent<NazarenoBase>();
+                ControladorNazareno v_nazareno = v_integrante.GetComponent<ControladorNazareno>();
                 if (v_nazareno == null)
                     return;
                 v_nazareno.v_movimiento.v_esperando_b = true;
@@ -203,7 +203,7 @@ public class Peloton : MonoBehaviour
             // CERCA
             foreach (Transform v_integrante in v_integranteCerca)
             {
-                NazarenoBase v_nazareno = v_integrante.GetComponent<NazarenoBase>();
+                ControladorNazareno v_nazareno = v_integrante.GetComponent<ControladorNazareno>();
                 if (v_nazareno == null)
                     return;
                 v_nazareno.v_movimiento.v_esperando_b = false;
@@ -215,7 +215,7 @@ public class Peloton : MonoBehaviour
         // LEJOS MEDIO
         foreach (Transform v_integrante in v_integranteLejosMedio)
         {
-            NazarenoBase v_nazareno = v_integrante.GetComponent<NazarenoBase>();
+            ControladorNazareno v_nazareno = v_integrante.GetComponent<ControladorNazareno>();
             if (v_nazareno == null)
                 return;
             v_nazareno.v_movimiento.v_esperando_b = false;
