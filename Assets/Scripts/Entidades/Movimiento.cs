@@ -40,9 +40,12 @@ public class Movimiento : MonoBehaviour
     {
         v_aceleracionExodia_f = aceleracion * 1.5f;
 
-        v_agente_NavMeshAgent.updatePosition = false;
-        v_agente_NavMeshAgent.updateRotation = false;
-        v_agente_NavMeshAgent.updateUpAxis = false;
+        if (v_agente_NavMeshAgent != null)
+        {
+            v_agente_NavMeshAgent.updatePosition = false;
+            v_agente_NavMeshAgent.updateRotation = false;
+            v_agente_NavMeshAgent.updateUpAxis = false;
+        }
     }
 
     private void Update()
