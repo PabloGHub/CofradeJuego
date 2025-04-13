@@ -12,7 +12,13 @@ public abstract class EstadoBase : MonoBehaviour
         set { estadoActual = value; }
     }
 
-    public EstadoBase subEstadoActual;
+    private EstadoBase subEstadoActual;
+    public EstadoBase SubEstadoActual
+    {
+        get { return subEstadoActual; }
+        set { subEstadoActual = value; }
+    }
+
     private Dictionary<Func<bool>, EstadoBase> transiciones = new Dictionary<Func<bool>, EstadoBase>();
 
 
