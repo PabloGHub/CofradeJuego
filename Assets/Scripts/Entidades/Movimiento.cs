@@ -56,6 +56,9 @@ public class Movimiento : MonoBehaviour
         if (v_agente_NavMeshAgent != null)
         {
             v_agente_NavMeshAgent.SetDestination(v_objetivo_Transform.position);
+
+            if (v_agente_NavMeshAgent != null)
+                v_agente_NavMeshAgent.nextPosition = transform.position;
         }
     }
 
@@ -66,6 +69,8 @@ public class Movimiento : MonoBehaviour
 
         if (v_agente_NavMeshAgent != null)
         {
+            v_agente_NavMeshAgent.nextPosition = transform.position;
+
             if (!v_agente_NavMeshAgent.isOnNavMesh)
             {
                 Debug.LogWarning("El agente está fuera del NavMesh. Redirigiendo...");
@@ -87,6 +92,7 @@ public class Movimiento : MonoBehaviour
 
         float v_diferenciaAngulo_f = Mathf.DeltaAngle(v_anguloActual_f, v_anguloObjetivo_f);
 
+        // TODO: cambiar a como antes para que gire mas rapido.
         float v_torque_f;// = v_diferenciaAngulo_f * fuerzaRotacion * Time.fixedDeltaTime;
         if (v_diferenciaAngulo_f > 0)
             v_torque_f = fuerzaRotacion * Time.fixedDeltaTime;
@@ -107,6 +113,7 @@ public class Movimiento : MonoBehaviour
 
         v_agente_NavMeshAgent.nextPosition = transform.position;
     }
+
 
     private void RedirigirHaciaNavMesh()
     {
@@ -138,6 +145,12 @@ public class Movimiento : MonoBehaviour
         {
             Debug.LogWarning("No se pudo encontrar un punto válido en el NavMesh.");
         }
+    }
+
+
+    public void Empujar(float v_fuerza_f)
+    {
+
     }
 }
 
