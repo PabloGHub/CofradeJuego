@@ -8,6 +8,7 @@ public class ShopManager : MonoBehaviour
     public GameObject shopEntryPrefab;
     public Transform shopListContainer;
 
+
     void Start()
     {
         GenerateShop();

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Peloton : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class Peloton : MonoBehaviour
     [HideInInspector] public float v_distanciaAlPeloton_f = 0f;
     [HideInInspector] public float v_distanciaAlPelotonReal_f = 0f;
 
-    [SerializeField] private Transform[] integrantes;
+    [SerializeField] private List<Transform> integrantes;
     [SerializeField] private float tamannoNazareno = 1.1f;
 
     // --- Control de puntosControl --- //
@@ -34,9 +35,9 @@ public class Peloton : MonoBehaviour
 
     private void Update()
     {
-        v_distanciaAlPeloton_f = (integrantes.Length * tamannoNazareno) * 0.5f;
-        v_distanciaAlPelotonReal_f = (integrantes.Length * tamannoNazareno);
-        transform.position = F_calcularCentro_Vector3(integrantes);
+        v_distanciaAlPeloton_f = (integrantes.Count * tamannoNazareno) * 0.5f;
+        v_distanciaAlPelotonReal_f = (integrantes.Count * tamannoNazareno);
+        transform.position = F_calcularCentro_Vector3(integrantes.ToArray());
 
         gestionarIntegrantes();
     }
@@ -220,5 +221,34 @@ public class Peloton : MonoBehaviour
             v_nazareno.v_movimiento.v_esperando_b = false;
             v_nazareno.v_movimiento.v_exodia_b = false;
         }
+    }
+
+
+    // Only instantiate Member if it's not colliding with the rest of the members of the Peloton
+    // Only instantiate Member if it's on the Navmesh
+    public void TryToDropMember(GameObject member, Vector3 position)
+    {
+        float memberRadius = transform.GetComponent<CircleCollider2D>().radius;
+        Transform memberTransform = member.transform;
+        Debug.Log(position.ToString());
+        NavMeshHit hit;
+        float maxDistance = 1.0f;
+
+        if (!NavMesh.SamplePosition(position, out hit, maxDistance, NavMesh.AllAreas))
+        {
+            return;
+        }
+
+        //foreach (Transform transform in integrantes)
+        //{
+        //    float radius = transform.GetComponent<CircleCollider2D>().radius;
+        //    float distanceSQ = (transform.position - position).sqrMagnitude;
+        //    if (distanceSQ < (radius + memberRadius) * (radius + memberRadius))
+        //    {
+        //        return;
+        //    }
+        //}
+        GameObject droppedMember = Instantiate(member, position, Quaternion.identity);
+        integrantes.Add(droppedMember.transform);
     }
 }

@@ -41,25 +41,6 @@ public class DraggingBehavior : MonoBehaviour
         gameObject.SetActive(true);
     }
 
-    void Drop()
-    {
-        isDragging = false;
-        gameObject.SetActive(false);
-
-        Vector3 mouseWorldPos = worldCamera.ScreenToWorldPoint(Input.mousePosition);
-
-        if (itemToPlace != null && CanDrop())
-        {
-            GameObject droppedItem = Instantiate(itemToPlace, mouseWorldPos, Quaternion.identity);
-
-        }
-    }
-
-    public bool CanDrop()
-    {
-        return true;
-    }
-
     void SetPosition()
     {
         Vector2 mousePos;
@@ -71,4 +52,19 @@ public class DraggingBehavior : MonoBehaviour
         );
         dragIcon.rectTransform.anchoredPosition = mousePos;
     }
+
+    void Drop()
+    {
+        isDragging = false;
+        gameObject.SetActive(false);
+
+        Vector3 mouseWorldPos = worldCamera.ScreenToWorldPoint(Input.mousePosition);
+        mouseWorldPos.z = 0;
+
+        if (itemToPlace != null && Peloton.peloton != null)
+        {
+            Peloton.peloton.TryToDropMember(itemToPlace, mouseWorldPos);
+        }
+    }
+
 }
