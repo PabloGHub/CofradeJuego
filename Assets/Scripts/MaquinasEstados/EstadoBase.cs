@@ -12,7 +12,7 @@ public abstract class EstadoBase : MonoBehaviour
         set { estadoActual = value; }
     }
 
-    public List<EstadoBase> subEstados;
+    public EstadoBase subEstadoActual;
     private Dictionary<Func<bool>, EstadoBase> transiciones = new Dictionary<Func<bool>, EstadoBase>();
 
 
@@ -37,10 +37,6 @@ public abstract class EstadoBase : MonoBehaviour
 
 
     // ***********************( Metodos Funcionales )*********************** //
-    public void AgregarTransicion(Func<bool> condicion, EstadoBase estadoDestino)
-    {
-        transiciones[condicion] = estadoDestino;
-    }
     public void CambiarEstado(EstadoBase nuevoEstado)
     {
         if (estadoActual != null)
@@ -49,6 +45,31 @@ public abstract class EstadoBase : MonoBehaviour
         estadoActual = nuevoEstado;
         estadoActual.Entrar();
     }
+    public void CambiarSubEstado(EstadoBase nuevoSubEstado)
+    {
+        if (subEstadoActual != null)
+            subEstadoActual.Salir();
+
+        subEstadoActual = nuevoSubEstado;
+        subEstadoActual.Entrar();
+    }
+
+    public void AgregarTransicion(Func<bool> condicion, EstadoBase estadoDestino)
+    {
+        transiciones[condicion] = estadoDestino;
+    }
+    public virtual void ActualizarTransiciones()
+    {
+        foreach (var transicion in transiciones)
+        {
+            if (transicion.Key.Invoke())
+            {
+                CambiarEstado(transicion.Value);
+                break;
+            }
+        }
+    }
+    
 
 
 
