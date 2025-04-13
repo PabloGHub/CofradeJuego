@@ -150,7 +150,11 @@ public class Movimiento : MonoBehaviour
 
     public void Empujar(float v_fuerza_f)
     {
-
+        v_rb_rb2D.AddForce
+        (
+            -(transform.up * (v_fuerza_f + aceleracion)),
+            ForceMode2D.Impulse
+        );
     }
 }
 

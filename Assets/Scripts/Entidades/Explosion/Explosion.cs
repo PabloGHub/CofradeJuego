@@ -53,10 +53,10 @@ public class Explosion : MonoBehaviour
                 float _distancia = Vector2.Distance(_c.transform.position, transform.position);
                 float _forca = Mathf.Clamp(v_fuerza_f / _distancia, 0f, v_fuerza_f);
                 _salud.RecibirDano(_forca);
-                v_rb_c.AddExplosionForce
-                (
-
-                );
+                // v_rb_c.AddExplosionForce
+                // (
+                // 
+                // );
             }
         }
     }

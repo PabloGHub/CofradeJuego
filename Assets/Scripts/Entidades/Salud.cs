@@ -25,6 +25,7 @@ public class Salud : MonoBehaviour
 
     // ----( Componentes )---- //
     private Rigidbody2D v_rb_c;
+    private Movimiento v_movimiento_c;
 
     // ***********************( Metodos UNITY )*********************** //
     private void Start()
@@ -32,6 +33,7 @@ public class Salud : MonoBehaviour
         v_saludActual_f = saludMaxima;
 
         v_rb_c = GetComponent<Rigidbody2D>();
+        v_movimiento_c = GetComponent<Movimiento>();
     }
 
     private void Update()
@@ -52,11 +54,7 @@ public class Salud : MonoBehaviour
         v_saludActual_f -= v_danno_f * (1 - resistencia);
         v_tiempoInmunidadActual_f = tiempoInmunidad;
 
-        v_rb_c.AddForce
-        (
-            new Vector2(v_fuerzaRetroceso_f , 0), // v_fuerzaRetroceso_f * v_danno_f * (1 - resistencia)
-            ForceMode2D.Impulse
-        );
+        v_movimiento_c.Empujar(v_fuerzaRetroceso_f);
 
         return v_danno_f * (1 - reflejoDanno);
     }
