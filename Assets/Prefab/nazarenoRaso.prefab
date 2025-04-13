@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 334823073828494146}
   - component: {fileID: 4511138051772036248}
   - component: {fileID: 5540195768467288394}
+  - component: {fileID: 8502888566637005104}
   - component: {fileID: -1415956992591167559}
   - component: {fileID: 2117523678077096734}
-  - component: {fileID: 3769545720831885334}
+  - component: {fileID: 2154580671732403552}
   m_Layer: 0
   m_Name: nazarenoRaso
   m_TagString: Untagged
@@ -128,6 +129,28 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!195 &8502888566637005104
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3268243802848412950}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!50 &-1415956992591167559
 Rigidbody2D:
   serializedVersion: 5
@@ -140,7 +163,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 2
+  m_Mass: 0.7853982
   m_LinearDamping: 2
   m_AngularDamping: 2
   m_GravityScale: 0
@@ -172,7 +195,7 @@ MonoBehaviour:
   v_esperando_b: 0
   v_exodia_b: 0
   v_objetivo_Transform: {fileID: 0}
---- !u!114 &3769545720831885334
+--- !u!114 &2154580671732403552
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -181,7 +204,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3268243802848412950}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8c9b83005c474c46a92e397fdf6fe53, type: 3}
+  m_Script: {fileID: 11500000, guid: b5f1146026d5d8a4c8e19c4cd61eab53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   v_objetivoIndex_i: 0

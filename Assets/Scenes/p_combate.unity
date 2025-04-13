@@ -327,6 +327,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: porculero (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 9219646106814485027, guid: eaf499ba2aef47c40bffd0980a50feed, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -464,6 +468,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: porculero (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 9219646106814485027, guid: eaf499ba2aef47c40bffd0980a50feed, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -520,6 +528,10 @@ PrefabInstance:
     - target: {fileID: 9219646106814485027, guid: eaf499ba2aef47c40bffd0980a50feed, type: 3}
       propertyPath: m_Name
       value: porculero (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219646106814485027, guid: eaf499ba2aef47c40bffd0980a50feed, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -733,6 +745,10 @@ PrefabInstance:
     - target: {fileID: 9219646106814485027, guid: eaf499ba2aef47c40bffd0980a50feed, type: 3}
       propertyPath: m_Name
       value: porculero (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219646106814485027, guid: eaf499ba2aef47c40bffd0980a50feed, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -961,33 +977,6 @@ Transform:
   - {fileID: 230217335}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1926449013 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3268243802848412950, guid: f727e7ddffe0f39459cf5f94754d7c5d, type: 3}
-  m_PrefabInstance: {fileID: 5732772967281414408}
-  m_PrefabAsset: {fileID: 0}
---- !u!195 &1926449020
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1926449013}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!4 &1926449026 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 334823073828494146, guid: f727e7ddffe0f39459cf5f94754d7c5d, type: 3}
@@ -1238,6 +1227,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: porculero
       objectReference: {fileID: 0}
+    - target: {fileID: 9219646106814485027, guid: eaf499ba2aef47c40bffd0980a50feed, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1251,18 +1244,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -1415956992591167559, guid: f727e7ddffe0f39459cf5f94754d7c5d, type: 3}
-      propertyPath: m_Mass
-      value: 0.7853982
-      objectReference: {fileID: 0}
-    - target: {fileID: -1415956992591167559, guid: f727e7ddffe0f39459cf5f94754d7c5d, type: 3}
-      propertyPath: m_Constraints
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -1415956992591167559, guid: f727e7ddffe0f39459cf5f94754d7c5d, type: 3}
-      propertyPath: m_UseAutoMass
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 334823073828494146, guid: f727e7ddffe0f39459cf5f94754d7c5d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.11
@@ -1307,17 +1288,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: nazarenoRaso
       objectReference: {fileID: 0}
-    - target: {fileID: 5300398314160768389, guid: f727e7ddffe0f39459cf5f94754d7c5d, type: 3}
-      propertyPath: objetivo
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3268243802848412950, guid: f727e7ddffe0f39459cf5f94754d7c5d, type: 3}
-      insertIndex: 3
-      addedObject: {fileID: 1926449020}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f727e7ddffe0f39459cf5f94754d7c5d, type: 3}
 --- !u!1001 &7369413687294931959
 PrefabInstance:

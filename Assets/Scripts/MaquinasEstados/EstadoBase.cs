@@ -1,34 +1,41 @@
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 public abstract class EstadoBase : MonoBehaviour
 {
     // ***********************( Variables/Declaraciones )*********************** //
-    private EstadoBase estadoActual;
+    private EstadoBase _estadoActual;
     public EstadoBase EstadoActual
     {
-        get { return estadoActual; }
-        private set
+        get { return _estadoActual; }
+        set
         {
-            if (estadoActual != null)
-                estadoActual.Salir();
+            if (_estadoActual != null)
+            {
+                _estadoActual.Salir(); 
+                Destroy(_estadoActual);
+            }
 
-            estadoActual = value;
-            OnEstadoCambiado?.Invoke(estadoActual);
+            _estadoActual = _go.AddComponent(value.GetType()) as EstadoBase;
+            //_estadoActual = value;
 
-            estadoActual.Entrar();
+            OnEstadoCambiado?.Invoke(_estadoActual);
+
+            _estadoActual.Entrar();
         }
     }
 
-    private EstadoBase subEstadoActual;
+    private EstadoBase _subEstadoActual;
     public EstadoBase SubEstadoActual
     {
-        get { return subEstadoActual; }
-        set { subEstadoActual = value; }
+        get { return _subEstadoActual; }
+        set { _subEstadoActual = value; }
     }
 
-    private Dictionary<Func<bool>, EstadoBase> transiciones = new Dictionary<Func<bool>, EstadoBase>();
+    private Dictionary<Func<bool>, EstadoBase> _transiciones = new Dictionary<Func<bool>, EstadoBase>();
+    private GameObject _go;
 
 
     // ***********************( Eventos )*********************** //
@@ -37,7 +44,7 @@ public abstract class EstadoBase : MonoBehaviour
     public event Action OnSalir;
 
 
-    // ***********************( Metodos Abstractos )*********************** //
+    // ***********************( Metodos de Control )*********************** //
     public virtual void Entrar() { }
     public virtual void Actualizar() { }
     public virtual void Salir() { }
@@ -47,39 +54,37 @@ public abstract class EstadoBase : MonoBehaviour
     public virtual void MiAwake() { }
     public virtual void MiStart() { }
     public virtual void MiFixedUpdate() { }
-    public virtual void MiUpdate() { }
+    public virtual void MiUpdate() { Debug.Log("MIUPDATE EN BASE"); }
 
 
     // ***********************( Metodos Funcionales )*********************** //
-    public void Inicializar(ref EstadoBase nuevoEstado)
+    public void Inicializar(out EstadoBase nuevoEstado, GameObject goHost)
     {
-        estadoActual = nuevoEstado;
+        //nuevoEstado = new EstadoNulo();
+        nuevoEstado = goHost.AddComponent<MaquinaDeEstados>();
+        _estadoActual = nuevoEstado;
     }
 
-    private void CambiarEstado(EstadoBase nuevoEstado)
+    public void CambiarEstado(EstadoBase nuevoEstado)
     {
-        if (estadoActual != null)
-            estadoActual.Salir();
-
-        estadoActual = nuevoEstado;
-        estadoActual.Entrar();
+        EstadoActual = nuevoEstado;
     }
     public void CambiarSubEstado(EstadoBase nuevoSubEstado)
     {
-        if (subEstadoActual != null)
-            subEstadoActual.Salir();
+        if (_subEstadoActual != null)
+            _subEstadoActual.Salir();
 
-        subEstadoActual = nuevoSubEstado;
-        subEstadoActual.Entrar();
+        _subEstadoActual = nuevoSubEstado;
+        _subEstadoActual.Entrar();
     }
 
     public void AgregarTransicion(Func<bool> condicion, EstadoBase estadoDestino)
     {
-        transiciones[condicion] = estadoDestino;
+        _transiciones[condicion] = estadoDestino;
     }
     public virtual void ActualizarTransiciones()
     {
-        foreach (var transicion in transiciones)
+        foreach (var transicion in _transiciones)
         {
             if (transicion.Key.Invoke())
             {
@@ -113,8 +118,27 @@ public abstract class EstadoBase : MonoBehaviour
     //    if (estadoActual != null)
     //        estadoActual.OnEntrar += Entrar;
     //}
+
+    // ***********************( Contructores )*********************** //
+    public EstadoBase() { }
+    public EstadoBase(ref EstadoBase nuevoEstado)
+    {
+        // No funca.
+        _estadoActual = nuevoEstado;
+    }
+    public EstadoBase(out EstadoBase nuevoEstado, GameObject goHost)
+    {
+        nuevoEstado = new MaquinaDeEstados();
+        nuevoEstado = goHost.AddComponent<MaquinaDeEstados>();
+        _estadoActual = nuevoEstado;
+        _go = goHost;
+
+        _estadoActual.Entrar();
+    }
 }
 
+public class MaquinaDeEstados : EstadoBase
+{ }
 
 /* // EJEMPLO DE COPILOT //
  public abstract class EstadoBase
