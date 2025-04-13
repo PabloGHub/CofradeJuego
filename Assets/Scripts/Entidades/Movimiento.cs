@@ -88,7 +88,7 @@ public class Movimiento : MonoBehaviour
 
             // TODO: Que no acelere si tiene una pared delante.
             RaycastHit2D v_hit = Physics2D.Raycast(transform.position, transform.up, 1.15f);
-            if (!v_hit)
+            if (true)
             {
                 if (!v_exodia_b)
                     v_rb_rb2D.AddForce(transform.up * aceleracion * Time.fixedDeltaTime);

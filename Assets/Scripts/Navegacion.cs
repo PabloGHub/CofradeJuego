@@ -23,8 +23,19 @@ public class Navegacion : MonoBehaviour
 
     private void Start()
     {
-        int c = 0;
+        determinarDifurcaciones();
 
+        Debug.Log("Cantidad de Difurcaciones: " + v_cantidadDifurcaciones_i);
+        for (int i = 0; i < v_cantidadDifurcaciones_i; i++)
+        {
+            Debug.Log("Difurcacion " + i + ": " + v_caminosPosible_Transform[i].Count);
+        }
+    }
+
+    // ***********************( Funciones Nuestras )*********************** //
+    private void determinarDifurcaciones()
+    {
+        int c = 0;
         for (int i = 0; i < trayectoria.Length; i++)
         {
             Punto p = trayectoria[i].GetComponent<Punto>();
@@ -41,16 +52,9 @@ public class Navegacion : MonoBehaviour
             }
             else
                 c = 0;
-            
-        }
-
-        Debug.Log("Cantidad de Difurcaciones: " + v_cantidadDifurcaciones_i);
-        for (int i = 0; i < v_cantidadDifurcaciones_i; i++)
-        {
-            Debug.Log("Difurcacion " + i + ": " + v_caminosPosible_Transform[i].Count);
         }
     }
-    // ***********************( Funciones Nuestras )*********************** //
+
     public bool comprobarCaminos()
     {
         int v_verificado_i = 0;
