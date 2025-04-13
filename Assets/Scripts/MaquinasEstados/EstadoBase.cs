@@ -11,8 +11,13 @@ public abstract class EstadoBase : MonoBehaviour
         get { return estadoActual; }
         private set
         {
+            if (estadoActual != null)
+                estadoActual.Salir();
+
             estadoActual = value;
             OnEstadoCambiado?.Invoke(estadoActual);
+
+            estadoActual.Entrar();
         }
     }
 
@@ -46,7 +51,12 @@ public abstract class EstadoBase : MonoBehaviour
 
 
     // ***********************( Metodos Funcionales )*********************** //
-    public void CambiarEstado(ref EstadoBase nuevoEstado)
+    public void Inicializar(ref EstadoBase nuevoEstado)
+    {
+        estadoActual = nuevoEstado;
+    }
+
+    private void CambiarEstado(EstadoBase nuevoEstado)
     {
         if (estadoActual != null)
             estadoActual.Salir();
@@ -54,7 +64,7 @@ public abstract class EstadoBase : MonoBehaviour
         estadoActual = nuevoEstado;
         estadoActual.Entrar();
     }
-    public void CambiarSubEstado(ref EstadoBase nuevoSubEstado)
+    public void CambiarSubEstado(EstadoBase nuevoSubEstado)
     {
         if (subEstadoActual != null)
             subEstadoActual.Salir();
@@ -73,9 +83,8 @@ public abstract class EstadoBase : MonoBehaviour
         {
             if (transicion.Key.Invoke())
             {
-                //CambiarEstado(ref transicion.Value);
-                var estadoDestino = transicion.Value; // Almacenar el valor en una variable local
-                CambiarEstado(ref estadoDestino);    // Usar la variable local como referencia
+                CambiarEstado(transicion.Value);
+                var estadoDestino = transicion.Value;
                 break;
             }
         }
@@ -105,3 +114,40 @@ public abstract class EstadoBase : MonoBehaviour
     //        estadoActual.OnEntrar += Entrar;
     //}
 }
+
+
+/* // EJEMPLO DE COPILOT //
+ public abstract class EstadoBase
+{
+    public abstract void Entrar();
+    public abstract void Actualizar();
+    public abstract void Salir();
+}
+
+public class EstadoCaminar : EstadoBase
+{
+    public override void Entrar() { Debug.Log("Entrando en estado Caminar"); }
+    public override void Actualizar() { Debug.Log("Actualizando estado Caminar"); }
+    public override void Salir() { Debug.Log("Saliendo de estado Caminar"); }
+}
+
+public class ControladorNazareno : MonoBehaviour
+{
+    private EstadoBase estadoActual;
+
+    public void CambiarEstado(EstadoBase nuevoEstado)
+    {
+        if (estadoActual != null)
+            estadoActual.Salir();
+
+        estadoActual = nuevoEstado;
+        estadoActual.Entrar();
+    }
+
+    private void Update()
+    {
+        if (estadoActual != null)
+            estadoActual.Actualizar();
+    }
+}
+ */

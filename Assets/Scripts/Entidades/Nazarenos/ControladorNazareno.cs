@@ -8,12 +8,14 @@ public class ControladorNazareno : MonoBehaviour
     public Movimiento v_movimiento;
     private Transform v_objetivo_Transform;
 
-    private EstadoBase estadoActual;
+    // --- Maquina de Estados --- //
+    private EstadoBase estadoMovimiento;
+    private EstadoBase estadoAtaque;
 
     // ***********************( Funciones Unity )*********************** //
     private void Start()
     {
-        estadoActual.CambiarEstado(ref estadoActual);
+        estadoMovimiento.Inicializar(ref estadoMovimiento);
 
         v_movimiento = GetComponent<Movimiento>();
         if (v_movimiento == null)
