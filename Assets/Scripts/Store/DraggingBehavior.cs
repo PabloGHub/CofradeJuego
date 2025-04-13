@@ -6,6 +6,7 @@ public class DraggingBehavior : MonoBehaviour
     public Image dragIcon;
     private Camera worldCamera;
     private GameObject itemToPlace;
+    private ItemInfo itemInfo;
 
     private bool isDragging = false;
 
@@ -33,12 +34,17 @@ public class DraggingBehavior : MonoBehaviour
         }
     }
 
+    public void SetItemInfo(ItemInfo info) { itemInfo = info; }
+
     public void Drag(GameObject item)
     {
-        isDragging = true;
-        itemToPlace = item;
-        SetPosition();
-        gameObject.SetActive(true);
+        if (ShopManager.instance.MoneyAvailable >= itemInfo.Price)
+        {
+            isDragging = true;
+            itemToPlace = item;
+            SetPosition();
+            gameObject.SetActive(true);
+        }
     }
 
     void SetPosition()
@@ -63,8 +69,13 @@ public class DraggingBehavior : MonoBehaviour
 
         if (itemToPlace != null && Peloton.peloton != null)
         {
-            Peloton.peloton.TryToDropMember(itemToPlace, mouseWorldPos);
+            bool success = Peloton.peloton.TryToDropMember(itemToPlace, mouseWorldPos);
+            if (success)
+            {
+                ShopManager.instance.AddMoney(-itemInfo.Price);
+            }
         }
     }
+
 
 }

@@ -226,7 +226,7 @@ public class Peloton : MonoBehaviour
 
     // Only instantiate Member if it's not colliding with the rest of the members of the Peloton
     // Only instantiate Member if it's on the Navmesh
-    public void TryToDropMember(GameObject member, Vector3 position)
+    public bool TryToDropMember(GameObject member, Vector3 position)
     {
         float memberRadius = transform.GetComponent<CircleCollider2D>().radius;
         Transform memberTransform = member.transform;
@@ -236,7 +236,7 @@ public class Peloton : MonoBehaviour
 
         if (!NavMesh.SamplePosition(position, out hit, maxDistance, NavMesh.AllAreas))
         {
-            return;
+            return false;
         }
 
         //foreach (Transform transform in integrantes)
@@ -245,10 +245,11 @@ public class Peloton : MonoBehaviour
         //    float distanceSQ = (transform.position - position).sqrMagnitude;
         //    if (distanceSQ < (radius + memberRadius) * (radius + memberRadius))
         //    {
-        //        return;
+        //        return false;
         //    }
         //}
         GameObject droppedMember = Instantiate(member, position, Quaternion.identity);
         integrantes.Add(droppedMember.transform);
+        return true;
     }
 }

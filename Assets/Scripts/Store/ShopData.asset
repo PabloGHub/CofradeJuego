@@ -26,7 +26,7 @@ MonoBehaviour:
       Name: Nazareno2
       Description: Nazareno test
       Type: 0
-      Price: 15.5
+      Price: 3
       dragObject: {fileID: 7017575348717090563, guid: 1d95d96308ced7f4885ef2564268462e, type: 3}
       dropObject: {fileID: 3268243802848412950, guid: f727e7ddffe0f39459cf5f94754d7c5d, type: 3}
   - key: Nazareno3

@@ -26,6 +26,11 @@ public class ShopItemUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         }
     }
 
+    private void Start()
+    {
+        ShopManager.OnMoneyUpdated += UpdateMoneyState;
+    }
+
     public void Setup(ItemInfo item)
     {
         nameText.text = item.Name;
@@ -39,6 +44,7 @@ public class ShopItemUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             GameObject dragger = Instantiate(itemInfo.dragObject, draggerContainer);
             dragger.SetActive(false);
             draggingBehavior = dragger.GetComponent<DraggingBehavior>();
+            draggingBehavior.SetItemInfo(itemInfo);
         }
         else
         {
@@ -70,4 +76,15 @@ public class ShopItemUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         }
     }
 
+    private void UpdateMoneyState()
+    {
+        if (ShopManager.instance.MoneyAvailable < itemInfo.Price)
+        {
+            priceText.color = Color.red;
+        }
+        else
+        {
+            priceText.color = Color.black;
+        }
+    }
 }
