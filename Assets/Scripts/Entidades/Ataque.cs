@@ -46,8 +46,9 @@ public class Ataque : MonoBehaviour
         {
             Debug.LogError
             (
-                "v_direcion_f: " + ((v_direcion_f == null) ? "null" : v_direcion_f) +
-                "v_capaAtacado_LM: " + ((v_capaAtacado_LM == null) ? "null" : v_capaAtacado_LM) +
+                "Error: Ataque.cs - Atacar() - Alguno de los atributos es null.\n" +
+                "v_direcion_f: " + ((v_direcion_f == null) ? "null" : v_direcion_f) + "\n" + 
+                "v_capaAtacado_LM: " + ((v_capaAtacado_LM == null) ? "null" : v_capaAtacado_LM) + "\n" +
                 "v_inicio_V3: " + ((v_inicio_V3 == null) ? "null" : v_inicio_V3)
             );
             return;
