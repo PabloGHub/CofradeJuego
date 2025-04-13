@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6172356424790280672}
   m_Layer: 0
   m_Name: punto
-  m_TagString: Untagged
+  m_TagString: puntoControl
   m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   difurcacion: 0
-  elegido: 0
+  v_elegido_b: 0
 --- !u!58 &6172356424790280672
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -54,7 +54,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 585095847568859773}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -82,4 +82,4 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 1
+  m_Radius: 2

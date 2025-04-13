@@ -140,9 +140,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 1
-  m_AngularDamping: 1
+  m_Mass: 2
+  m_LinearDamping: 2
+  m_AngularDamping: 2
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -167,8 +167,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7aa48fbb2b7e1f4c89a3349b01f8fcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aceleracion: 25
-  fuerzaRotacion: 5
+  aceleracion: 100
+  fuerzaRotacion: 10
+  v_esperando_b: 0
+  v_exodia_b: 0
   v_objetivo_Transform: {fileID: 0}
 --- !u!114 &6096622664829122591
 MonoBehaviour:
@@ -182,6 +184,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 660d34bca02062146b0f5e28e1eabd5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  v_objetivoIndex_i: 0
+  v_movimiento: {fileID: 0}
 --- !u!1 &6503466655238777684
 GameObject:
   m_ObjectHideFlags: 0
