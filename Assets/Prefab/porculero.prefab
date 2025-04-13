@@ -300,6 +300,7 @@ MonoBehaviour:
   tiempoRecarga: 1
   fuerzaEmpuje: 5
   explosion: 0
+  prefabExplosion: {fileID: 0}
 --- !u!114 &1762534043936020592
 MonoBehaviour:
   m_ObjectHideFlags: 0

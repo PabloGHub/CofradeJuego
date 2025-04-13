@@ -8,8 +8,8 @@ public class Ataque : MonoBehaviour
     [SerializeField] private float danno = 1f;
     [SerializeField] private float alcance = 1f;
     [SerializeField] private float tiempoRecarga = 1f;
-    [SerializeField] public bool explosion = false;
     [SerializeField] private float fuerzaEmpuje = 5f;
+    [SerializeField] public bool explosion = false;
     public GameObject prefabExplosion;
 
     private float v_tiempoDeRecargaAtual_f;
@@ -66,7 +66,8 @@ public class Ataque : MonoBehaviour
                 Debug.Log("Golpeado: " + _golpe.collider.name);
 
                 Salud _salud = _golpe.collider.GetComponent<Salud>();
-                if (explosion)
+                // TODO: Que instancie Bala en vez de explosion.
+                if (explosion) 
                 {
                     GameObject v_objetoExplosion_go = Instantiate(prefabExplosion, _golpe.point, Quaternion.identity);
                     Explosion v_explosion_s = v_objetoExplosion_go.GetComponent<Explosion>();
