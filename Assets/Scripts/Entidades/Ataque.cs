@@ -10,6 +10,7 @@ public class Ataque : MonoBehaviour
     [SerializeField] private float tiempoRecarga = 1f;
     [SerializeField] public bool explosion = false;
     [SerializeField] private float fuerzaEmpuje = 5f;
+    public GameObject prefabExplosion;
 
     private float v_tiempoDeRecargaAtual_f;
 
@@ -64,7 +65,15 @@ public class Ataque : MonoBehaviour
                 Debug.Log("Golpeado: " + _golpe.collider.name);
 
                 Salud _salud = _golpe.collider.GetComponent<Salud>();
-                if (_salud != null)
+                if (explosion)
+                {
+                    GameObject v_objetoExplosion_go = Instantiate(prefabExplosion, _golpe.point, Quaternion.identity);
+                    Explosion v_explosion_s = v_objetoExplosion_go.GetComponent<Explosion>();
+                    if (v_explosion_s != null)
+                        v_explosion_s.Personalizar(fuerzaEmpuje, alcance, v_capaAtacado_LM.Value);
+                    
+                }
+                else if (_salud != null)
                 {
                     float? _ref = _salud.RecibirDano(danno, fuerzaEmpuje);
 
