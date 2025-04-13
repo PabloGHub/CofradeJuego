@@ -8,8 +8,8 @@ public class Ataque : MonoBehaviour
     [SerializeField] private float danno = 1f;
     [SerializeField] private float alcance = 1f;
     [SerializeField] private float tiempoRecarga = 1f;
+    [SerializeField] public bool explosion = false;
     [SerializeField] private float fuerzaEmpuje = 5f;
-    [SerializeField] private bool explosion = false;
 
     private float v_tiempoDeRecargaAtual_f;
 
@@ -26,6 +26,8 @@ public class Ataque : MonoBehaviour
     private void Start()
     {
         v_tiempoDeRecargaAtual_f = 0f;
+        fuerzaEmpuje = (explosion == true) ? 0f : fuerzaEmpuje;
+
 
         v_salud_s = GetComponent<Salud>();
     }

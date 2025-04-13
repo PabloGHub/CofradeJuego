@@ -73,37 +73,41 @@ public class Movimiento : MonoBehaviour
                 return;
             }
 
-
-            Vector3 v_direccion_v3 = v_agente_NavMeshAgent.desiredVelocity.normalized;
-
-            float v_anguloActual_f = Mathf.Atan2(transform.up.y, transform.up.x) * Mathf.Rad2Deg;
-            float v_anguloObjetivo_f = Mathf.Atan2(v_direccion_v3.y, v_direccion_v3.x) * Mathf.Rad2Deg;
-
-            float v_diferenciaAngulo_f = Mathf.DeltaAngle(v_anguloActual_f, v_anguloObjetivo_f);
-
-            float v_torque_f;// = v_diferenciaAngulo_f * fuerzaRotacion * Time.fixedDeltaTime;
-            if (v_diferenciaAngulo_f > 0)
-                v_torque_f = fuerzaRotacion * Time.fixedDeltaTime;
-            else
-                v_torque_f = -fuerzaRotacion * Time.fixedDeltaTime;
-
-            v_rb_rb2D.AddTorque(v_torque_f);
-
-            // TODO: Que no acelere si tiene una pared delante.
-            RaycastHit2D v_hit = Physics2D.Raycast(transform.position, transform.up, 1.15f);
-            if (true)
-            {
-                if (!v_exodia_b)
-                    v_rb_rb2D.AddForce(transform.up * aceleracion * Time.fixedDeltaTime);
-                else
-                    v_rb_rb2D.AddForce(transform.up * v_aceleracionExodia_f * Time.fixedDeltaTime);
-            }
-
-            v_agente_NavMeshAgent.nextPosition = transform.position;
+            irAlDestino();
         }
     }
 
     // ***********************( Funciones Nuestras )*********************** //
+    private void irAlDestino()
+    {
+        Vector3 v_direccion_v3 = v_agente_NavMeshAgent.desiredVelocity.normalized;
+
+        float v_anguloActual_f = Mathf.Atan2(transform.up.y, transform.up.x) * Mathf.Rad2Deg;
+        float v_anguloObjetivo_f = Mathf.Atan2(v_direccion_v3.y, v_direccion_v3.x) * Mathf.Rad2Deg;
+
+        float v_diferenciaAngulo_f = Mathf.DeltaAngle(v_anguloActual_f, v_anguloObjetivo_f);
+
+        float v_torque_f;// = v_diferenciaAngulo_f * fuerzaRotacion * Time.fixedDeltaTime;
+        if (v_diferenciaAngulo_f > 0)
+            v_torque_f = fuerzaRotacion * Time.fixedDeltaTime;
+        else
+            v_torque_f = -fuerzaRotacion * Time.fixedDeltaTime;
+
+        v_rb_rb2D.AddTorque(v_torque_f);
+
+        // TODO: Que no acelere si tiene una pared delante.
+        RaycastHit2D v_hit = Physics2D.Raycast(transform.position, transform.up, 1.15f);
+        if (true)
+        {
+            if (!v_exodia_b)
+                v_rb_rb2D.AddForce(transform.up * aceleracion * Time.fixedDeltaTime);
+            else
+                v_rb_rb2D.AddForce(transform.up * v_aceleracionExodia_f * Time.fixedDeltaTime);
+        }
+
+        v_agente_NavMeshAgent.nextPosition = transform.position;
+    }
+
     private void RedirigirHaciaNavMesh()
     {
         NavMeshHit hit;
@@ -129,6 +133,10 @@ public class Movimiento : MonoBehaviour
 
             // Aplicar fuerza para mover hacia el NavMesh
             v_rb_rb2D.AddForce(transform.up * aceleracion * Time.fixedDeltaTime);
+        }
+        else
+        {
+            Debug.LogWarning("No se pudo encontrar un punto válido en el NavMesh.");
         }
     }
 }

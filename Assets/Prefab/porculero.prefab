@@ -101,6 +101,8 @@ GameObject:
   - component: {fileID: 1857761133423220880}
   - component: {fileID: 5816687434259112477}
   - component: {fileID: 5170742584716279297}
+  - component: {fileID: 8309723369631539908}
+  - component: {fileID: 1762534043936020592}
   m_Layer: 0
   m_Name: porculero
   m_TagString: Untagged
@@ -281,3 +283,37 @@ MonoBehaviour:
   v_esperando_b: 0
   v_exodia_b: 0
   v_objetivo_Transform: {fileID: 0}
+--- !u!114 &8309723369631539908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9219646106814485027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4908d698a4f16d74b9f2d307d4525876, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  danno: 1
+  alcance: 1
+  tiempoRecarga: 1
+  fuerzaEmpuje: 5
+  explosion: 0
+--- !u!114 &1762534043936020592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9219646106814485027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec8b0c6a18423f438ebe9bfe10a259b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saludMaxima: 100
+  resistencia: 0
+  reflejoDanno: 0
+  tiempoInmunidad: 0
+  prefabsMorir: []
