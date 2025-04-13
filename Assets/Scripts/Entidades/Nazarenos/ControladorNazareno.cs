@@ -90,3 +90,4 @@ public class ControladorNazareno : MonoBehaviour
         v_movimiento.v_objetivo_Transform = v_objetivo_Transform;
     }
 }
+
