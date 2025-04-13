@@ -8,9 +8,13 @@ public class ControladorNazareno : MonoBehaviour
     public Movimiento v_movimiento;
     private Transform v_objetivo_Transform;
 
+    private EstadoBase estadoActual;
+
     // ***********************( Funciones Unity )*********************** //
     private void Start()
     {
+        estadoActual.CambiarEstado(ref estadoActual);
+
         v_movimiento = GetComponent<Movimiento>();
         if (v_movimiento == null)
         {
@@ -91,3 +95,34 @@ public class ControladorNazareno : MonoBehaviour
     }
 }
 
+public class EstadoAdelantado : EstadoBase
+{
+    public override void Entrar()
+    {
+        // TODO: 
+    }
+    public override void Actualizar()
+    {
+        // Implementar la lógica para actualizar el estado "Adelantado"
+    }
+    public override void Salir()
+    {
+        // Implementar la lógica para salir del estado "Adelantado"
+    }
+}
+
+public class EstadoCerca : EstadoBase
+{
+    public override void Entrar()
+    {
+        // TODO: 
+    }
+    public override void Actualizar()
+    {
+        // Implementar la lógica para actualizar el estado "Adelantado"
+    }
+    public override void Salir()
+    {
+        // Implementar la lógica para salir del estado "Adelantado"
+    }
+}

@@ -9,7 +9,11 @@ public abstract class EstadoBase : MonoBehaviour
     public EstadoBase EstadoActual
     {
         get { return estadoActual; }
-        set { estadoActual = value; }
+        private set
+        {
+            estadoActual = value;
+            OnEstadoCambiado?.Invoke(estadoActual);
+        }
     }
 
     private EstadoBase subEstadoActual;
@@ -22,20 +26,19 @@ public abstract class EstadoBase : MonoBehaviour
     private Dictionary<Func<bool>, EstadoBase> transiciones = new Dictionary<Func<bool>, EstadoBase>();
 
 
-
     // ***********************( Eventos )*********************** //
+    public event Action<EstadoBase> OnEstadoCambiado;
     public event Action OnEntrar;
     public event Action OnSalir;
 
 
     // ***********************( Metodos Abstractos )*********************** //
-    public abstract void Entrar();
-    public abstract void Actualizar();
-    public abstract void Salir();
+    public virtual void Entrar() { }
+    public virtual void Actualizar() { }
+    public virtual void Salir() { }
 
 
-
-    // ***********************( Metodos Virtuales )*********************** //
+    // ***********************( Mi Unity )*********************** //
     public virtual void MiAwake() { }
     public virtual void MiStart() { }
     public virtual void MiFixedUpdate() { }
@@ -43,7 +46,7 @@ public abstract class EstadoBase : MonoBehaviour
 
 
     // ***********************( Metodos Funcionales )*********************** //
-    public void CambiarEstado(EstadoBase nuevoEstado)
+    public void CambiarEstado(ref EstadoBase nuevoEstado)
     {
         if (estadoActual != null)
             estadoActual.Salir();
@@ -51,7 +54,7 @@ public abstract class EstadoBase : MonoBehaviour
         estadoActual = nuevoEstado;
         estadoActual.Entrar();
     }
-    public void CambiarSubEstado(EstadoBase nuevoSubEstado)
+    public void CambiarSubEstado(ref EstadoBase nuevoSubEstado)
     {
         if (subEstadoActual != null)
             subEstadoActual.Salir();
@@ -70,14 +73,14 @@ public abstract class EstadoBase : MonoBehaviour
         {
             if (transicion.Key.Invoke())
             {
-                CambiarEstado(transicion.Value);
+                //CambiarEstado(ref transicion.Value);
+                var estadoDestino = transicion.Value; // Almacenar el valor en una variable local
+                CambiarEstado(ref estadoDestino);    // Usar la variable local como referencia
                 break;
             }
         }
     }
     
-
-
 
     // ***********************( Llamas -> Unity )*********************** //
     private void Awake()
@@ -96,4 +99,9 @@ public abstract class EstadoBase : MonoBehaviour
     {
         MiUpdate();
     }
+    //private void OnEnable()
+    //{
+    //    if (estadoActual != null)
+    //        estadoActual.OnEntrar += Entrar;
+    //}
 }
