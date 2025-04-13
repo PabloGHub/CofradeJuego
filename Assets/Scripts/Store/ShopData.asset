@@ -19,39 +19,53 @@ MonoBehaviour:
       Description: Nazareno basic
       Type: 0
       Price: 15
+      dragObject: {fileID: 7017575348717090563, guid: 1d95d96308ced7f4885ef2564268462e, type: 3}
+      dropObject: {fileID: 3268243802848412950, guid: f727e7ddffe0f39459cf5f94754d7c5d, type: 3}
   - key: Nazareno2
     value:
       Name: Nazareno2
       Description: Nazareno test
       Type: 0
       Price: 15.5
+      dragObject: {fileID: 7017575348717090563, guid: 1d95d96308ced7f4885ef2564268462e, type: 3}
+      dropObject: {fileID: 3268243802848412950, guid: f727e7ddffe0f39459cf5f94754d7c5d, type: 3}
   - key: Nazareno3
     value:
       Name: Nazareno3
       Description: Nazareno test
       Type: 0
       Price: 15.5
+      dragObject: {fileID: 7017575348717090563, guid: 1d95d96308ced7f4885ef2564268462e, type: 3}
+      dropObject: {fileID: 3268243802848412950, guid: f727e7ddffe0f39459cf5f94754d7c5d, type: 3}
   - key: Nazareno4
     value:
       Name: Nazareno4
       Description: Nazareno test
       Type: 0
       Price: 15.5
+      dragObject: {fileID: 7017575348717090563, guid: 1d95d96308ced7f4885ef2564268462e, type: 3}
+      dropObject: {fileID: 3268243802848412950, guid: f727e7ddffe0f39459cf5f94754d7c5d, type: 3}
   - key: Nazareno5
     value:
       Name: Nazareno5
       Description: Nazareno test
       Type: 0
       Price: 15.5
+      dragObject: {fileID: 7017575348717090563, guid: 1d95d96308ced7f4885ef2564268462e, type: 3}
+      dropObject: {fileID: 0}
   - key: Nazareno6
     value:
       Name: Nazareno6
       Description: Nazareno test
       Type: 0
       Price: 15.5
+      dragObject: {fileID: 7017575348717090563, guid: 1d95d96308ced7f4885ef2564268462e, type: 3}
+      dropObject: {fileID: 3268243802848412950, guid: f727e7ddffe0f39459cf5f94754d7c5d, type: 3}
   - key: Nazareno7
     value:
       Name: Nazareno7
       Description: Nazareno test
       Type: 0
       Price: 15.5
+      dragObject: {fileID: 7017575348717090563, guid: 1d95d96308ced7f4885ef2564268462e, type: 3}
+      dropObject: {fileID: 3268243802848412950, guid: f727e7ddffe0f39459cf5f94754d7c5d, type: 3}

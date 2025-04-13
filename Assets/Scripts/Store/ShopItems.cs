@@ -16,13 +16,8 @@ public struct ItemInfo
     public ItemType Type;
     public float Price;
 
-    public ItemInfo(string name, string description, ItemType type, float price)
-    {
-        Name = name;
-        Description = description;
-        Type = type;
-        Price = price;
-    }
+    public GameObject dragObject;
+    public GameObject dropObject;
 }
 
 [Serializable]

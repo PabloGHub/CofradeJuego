@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class ShopManager : MonoBehaviour
@@ -20,6 +21,8 @@ public class ShopManager : MonoBehaviour
             ShopItemUI entryUI = entry.GetComponent<ShopItemUI>();
             entryUI.Setup(item.Value);
         }
+        ScrollRect scrollRect = GetComponentInParent<ScrollRect>();
+        scrollRect.verticalNormalizedPosition = 1;
     }
 
 
