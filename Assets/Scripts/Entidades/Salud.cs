@@ -27,6 +27,9 @@ public class Salud : MonoBehaviour
     private Rigidbody2D v_rb_c;
     private Movimiento v_movimiento_c;
 
+    [SerializeField]
+    private Lifebar lifeBar;
+
     // ***********************( Metodos UNITY )*********************** //
     private void Start()
     {
@@ -34,6 +37,13 @@ public class Salud : MonoBehaviour
 
         v_rb_c = GetComponent<Rigidbody2D>();
         v_movimiento_c = GetComponent<Movimiento>();
+
+
+        if (lifeBar != null)
+        {
+            lifeBar.maxHP = saludMaxima;
+            lifeBar.objHP = v_saludActual_f;
+        }
     }
 
     private void Update()
@@ -55,6 +65,11 @@ public class Salud : MonoBehaviour
         v_tiempoInmunidadActual_f = tiempoInmunidad;
 
         v_movimiento_c.Empujar(v_fuerzaRetroceso_f);
+
+        if (lifeBar != null)
+        {
+            lifeBar.objHP = v_saludActual_f;
+        }
 
         return v_danno_f * (1 - reflejoDanno);
     }

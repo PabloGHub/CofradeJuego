@@ -13,12 +13,6 @@ public class NPCInfo : MonoBehaviour
         rectTransform = GetComponent<RectTransform>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void LateUpdate()
     {
         if (target == null || mainCamera == null)
