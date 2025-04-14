@@ -1,6 +1,7 @@
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
-public class NazarenoBase : MonoBehaviour
+public class ControladorNazareno : MonoBehaviour
 {
     // ***********************( Declaraciones )*********************** //
     private float cercaniaAlObjetivo = 2.5f;
@@ -8,18 +9,23 @@ public class NazarenoBase : MonoBehaviour
     public Movimiento v_movimiento;
     private Transform v_objetivo_Transform;
 
+    // --- Maquina de Estados --- //
+    private EstadoBase estadoMovimiento;
+    private EstadoBase estadoAtaque;
+
     // ***********************( Funciones Unity )*********************** //
     private void Start()
     {
         v_movimiento = GetComponent<Movimiento>();
         if (v_movimiento == null)
         {
-            Debug.LogError("El objeto no tiene un componente Movimiento.");
+            Debug.LogError("El Nazareno no tiene un componente Movimiento.");
             return;
         }
 
         v_objetivo_Transform = Navegacion.nav.trayectoria[v_objetivoIndex_i];
         v_movimiento.v_objetivo_Transform = v_objetivo_Transform;
+
     }
 
     /*
@@ -89,4 +95,50 @@ public class NazarenoBase : MonoBehaviour
         v_objetivo_Transform = Navegacion.nav.trayectoria[v_objetivoIndex_i];
         v_movimiento.v_objetivo_Transform = v_objetivo_Transform;
     }
+
+    // ***********************( Estados de la MAQUINA DE ESTADOS )*********************** //
+    // ************ Estado de Movimiento ************ //
+    // --- LEJOS --- //
+    class EstadoLejosAdelantado : EstadoBase
+    {
+        private ControladorNazareno v_controladorNazareno_s;
+
+        public EstadoLejosAdelantado(ControladorNazareno v_controladorNazareno_s)
+        {
+            this.v_controladorNazareno_s = v_controladorNazareno_s;
+        }
+
+        public override void Entrar()
+        {
+            // Código para entrar en el estado
+        }
+        public override void Salir()
+        {
+            // Código para salir del estado
+        }
+    }
+
+    // --- CERCA --- //
+    class EstadoCerca : EstadoBase
+    {
+        private ControladorNazareno v_controladorNazareno_s;
+
+        public EstadoCerca(ControladorNazareno v_controladorNazareno_s)
+        {
+            this.v_controladorNazareno_s = v_controladorNazareno_s;
+        }
+
+        public override void Entrar()
+        {
+            // Código para entrar en el estado
+        }
+        public override void Salir()
+        {
+            // Código para salir del estado
+        }
+    }
+    // --- ATACANDO --- //
+
+
+    // ************ Estado de Movimiento ************ //
 }
