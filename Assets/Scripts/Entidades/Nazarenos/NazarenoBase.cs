@@ -8,6 +8,8 @@ public class NazarenoBase : MonoBehaviour
     public Movimiento v_movimiento;
     private Transform v_objetivo_Transform;
 
+    public string name;
+
     // ***********************( Funciones Unity )*********************** //
     private void Start()
     {

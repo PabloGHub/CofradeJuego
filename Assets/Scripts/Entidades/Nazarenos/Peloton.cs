@@ -224,16 +224,16 @@ public class Peloton : MonoBehaviour
     }
 
 
-    // Only instantiate Member if it's not colliding with the rest of the members of the Peloton
-    // Only instantiate Member if it's on the Navmesh
-    public bool TryToDropMember(GameObject member, Vector3 position)
+    // Solo instanciar Miembro si no está colisionando con ningún otro miembro del Peloton (opcional, desactivado)
+    // Solo instanciar Miembro si está en la Navmesh
+    public bool TryToDropMember(ItemInfo memberInfo, Vector3 position)
     {
-        float memberRadius = transform.GetComponent<CircleCollider2D>().radius;
+        GameObject member = memberInfo.dropObject;
+        float memberRadius = member.transform.GetComponent<CircleCollider2D>().radius;
         Transform memberTransform = member.transform;
-        Debug.Log(position.ToString());
+
         NavMeshHit hit;
         float maxDistance = 1.0f;
-
         if (!NavMesh.SamplePosition(position, out hit, maxDistance, NavMesh.AllAreas))
         {
             return false;
@@ -249,7 +249,14 @@ public class Peloton : MonoBehaviour
         //    }
         //}
         GameObject droppedMember = Instantiate(member, position, Quaternion.identity);
+        droppedMember.GetComponent<NazarenoBase>().name = memberInfo.Name;
         integrantes.Add(droppedMember.transform);
         return true;
+    }
+
+    public void EliminarIntegrante(GameObject integrante)
+    {
+        integrantes.Remove(integrante.transform);
+        Destroy(integrante);
     }
 }

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -1415956992591167559}
   - component: {fileID: 2117523678077096734}
   - component: {fileID: 6096622664829122591}
+  - component: {fileID: 2683900411129833412}
   m_Layer: 0
   m_Name: nazarenoRaso
   m_TagString: Untagged
@@ -186,6 +187,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   v_objetivoIndex_i: 0
   v_movimiento: {fileID: 0}
+  name: 
+--- !u!114 &2683900411129833412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3268243802848412950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a125097a1de87a4588daad190a8e605, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6503466655238777684
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,7 +16,7 @@ public struct ItemInfo
     public ItemType Type;
     public float Price;
 
-    public GameObject dragObject;
+    public Sprite sprite;
     public GameObject dropObject;
 }
 
@@ -48,10 +48,12 @@ public class ShopData : ScriptableObject
     {
         m_Items = new Dictionary<string, ItemInfo>();
 
-        foreach (var entry in itemList)
+        foreach (ItemEntry entry in itemList)
         {
             if (!m_Items.ContainsKey(entry.key))
+            {
                 m_Items.Add(entry.key, entry.value);
+            }
         }
     }
 }

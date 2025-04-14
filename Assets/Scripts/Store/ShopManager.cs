@@ -11,6 +11,8 @@ public class ShopManager : MonoBehaviour
     public ShopData Data;
     public GameObject shopEntryPrefab;
     public Transform shopListContainer;
+    public GameObject dragElement;
+    public GameObject trashElement;
     [SerializeField] private TextMeshProUGUI moneyText;
     [SerializeField] private string MoneyTextStart;
 

@@ -38,23 +38,25 @@ public class ShopItemUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         priceText.text = "$" + item.Price.ToString("F2");
         itemInfo = item;
 
-        Transform draggerContainer = GameObject.Find("DraggerContainer").transform;
-        if (draggerContainer != null)
+        draggingBehavior = ShopManager.instance.dragElement.GetComponent<DraggingBehavior>();
+        if (draggingBehavior == null)
         {
-            GameObject dragger = Instantiate(itemInfo.dragObject, draggerContainer);
-            dragger.SetActive(false);
-            draggingBehavior = dragger.GetComponent<DraggingBehavior>();
-            draggingBehavior.SetItemInfo(itemInfo);
+            Debug.LogWarning("ShopEntryUI: No draggingBehavior found");
         }
-        else
-        {
-            Debug.LogWarning("ShopEntryUI: No DraggerContainer found");
-        }
+
+        //Transform draggerContainer = GameObject.Find("DraggerContainer").transform;
+        //if (draggerContainer != null)
+        //{
+        //    GameObject dragger = Instantiate(itemInfo.dragObject, draggerContainer);
+        //    dragger.SetActive(false);
+        //    draggingBehavior = dragger.GetComponent<DraggingBehavior>();
+        //    draggingBehavior.SetItemInfo(itemInfo);
+        //}
     }
 
     void Buy()
     {
-        draggingBehavior.Drag(itemInfo.dropObject);
+        draggingBehavior.Drag(itemInfo);
     }
 
     public void OnPointerDown(PointerEventData eventData)
