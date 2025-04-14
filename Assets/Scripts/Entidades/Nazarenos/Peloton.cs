@@ -1,3 +1,4 @@
+using CommandTerminal;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -250,5 +251,20 @@ public class Peloton : MonoBehaviour
         //}
         GameObject droppedMember = Instantiate(member, position, Quaternion.identity);
         integrantes.Add(droppedMember.transform);
+    }
+
+
+
+    // ***********************( Metodos Comandos )*********************** //
+    [RegisterCommand(Help = "Muestra el estado de los integrantes")]
+    static void CommandEstados(CommandArg[] args)
+    {
+        foreach (Transform v_integrante in Peloton.peloton.integrantes)
+        {
+            ControladorNazareno v_nazareno = v_integrante.GetComponent<ControladorNazareno>();
+            if (v_nazareno == null)
+                return;
+            Terminal.Log(v_integrante.name + " - " + v_nazareno.v_movimiento.v_estado.ToSafeString());
+        }
     }
 }

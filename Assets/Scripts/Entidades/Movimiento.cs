@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -23,11 +24,13 @@ public class Movimiento : MonoBehaviour
     private Rigidbody2D v_rb_rb2D;
 
     // --- Maquina de Estados --- //
-    protected EstadoBase v_estado;
+    public EstadoBase v_estado;
 
     // ***********************( Funciones Unity )*********************** //
-    private void Awake()
+    private void Start()
     {
+        v_aceleracionExodia_f = aceleracion + aceleracion;
+
         if (v_agente_NavMeshAgent == null)
             v_agente_NavMeshAgent = GetComponent<NavMeshAgent>();
 
@@ -36,15 +39,19 @@ public class Movimiento : MonoBehaviour
 
         if (v_estado == null)
         {
-            v_estado = new EstadoInicio(out v_estado, gameObject);
-            v_estado.AgregarTransicion(() => v_esperando_b == true,  new EstadoQuieto(this));
-            v_estado.AgregarTransicion(() => v_esperando_b == false, new EstadoMoviendose(this));
-        }
-    }
+            //v_estado = new EstadoInicio(out v_estado, gameObject);
+            v_estado = gameObject.AddComponent<MaquinaDeEstados>();
+            v_estado.Inicializar(out v_estado, gameObject);
+            v_estado.estadosPosibles = new List<EstadoBase>
+            {
+                new EstadoMoviendose(this),
+                new EstadoQuieto(this)
+            };
+            v_estado.AgregarTransicion(() => v_esperando_b == true, 1);
+            v_estado.AgregarTransicion(() => v_esperando_b == false, 0);
 
-    private void Start()
-    {
-        v_aceleracionExodia_f = aceleracion + aceleracion;
+            v_estado.CambiarEstado(0);
+        }
 
         if (v_agente_NavMeshAgent != null)
         {
@@ -53,6 +60,7 @@ public class Movimiento : MonoBehaviour
             v_agente_NavMeshAgent.updateUpAxis = false;
         }
     }
+
 
     private void FixedUpdate()
     {
@@ -168,10 +176,13 @@ public class Movimiento : MonoBehaviour
 
         public override void Entrar()
         {
+            Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
             v_movimiento.Empujar(-(v_movimiento.aceleracion * 2));
         }
         public override void Salir()
-        { }
+        {
+            Debug.Log("SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
+        }
 
         public override void MiFixedUpdate()
         {
@@ -203,11 +214,14 @@ public class Movimiento : MonoBehaviour
 
         public override void Entrar()
         {
+            Debug.Log("DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD");
             v_movimiento.Empujar(0f);
         }
 
         public override void Salir()
-        { }
+        {
+            Debug.Log("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF");
+        }
 
         public override void MiFixedUpdate()
         {

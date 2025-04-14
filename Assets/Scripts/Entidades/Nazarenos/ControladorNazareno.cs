@@ -26,8 +26,6 @@ public class ControladorNazareno : MonoBehaviour
         v_objetivo_Transform = Navegacion.nav.trayectoria[v_objetivoIndex_i];
         v_movimiento.v_objetivo_Transform = v_objetivo_Transform;
 
-
-        
     }
 
     /*
@@ -99,9 +97,17 @@ public class ControladorNazareno : MonoBehaviour
     }
 
     // ***********************( Estados de la MAQUINA DE ESTADOS )*********************** //
-    class EstadoCerca : EstadoBase
+    // ************ Estado de Movimiento ************ //
+    // --- LEJOS --- //
+    class EstadoLejosAdelantado : EstadoBase
     {
-        
+        private ControladorNazareno v_controladorNazareno_s;
+
+        public EstadoLejosAdelantado(ControladorNazareno v_controladorNazareno_s)
+        {
+            this.v_controladorNazareno_s = v_controladorNazareno_s;
+        }
+
         public override void Entrar()
         {
             // Código para entrar en el estado
@@ -111,3 +117,28 @@ public class ControladorNazareno : MonoBehaviour
             // Código para salir del estado
         }
     }
+
+    // --- CERCA --- //
+    class EstadoCerca : EstadoBase
+    {
+        private ControladorNazareno v_controladorNazareno_s;
+
+        public EstadoCerca(ControladorNazareno v_controladorNazareno_s)
+        {
+            this.v_controladorNazareno_s = v_controladorNazareno_s;
+        }
+
+        public override void Entrar()
+        {
+            // Código para entrar en el estado
+        }
+        public override void Salir()
+        {
+            // Código para salir del estado
+        }
+    }
+    // --- ATACANDO --- //
+
+
+    // ************ Estado de Movimiento ************ //
+}

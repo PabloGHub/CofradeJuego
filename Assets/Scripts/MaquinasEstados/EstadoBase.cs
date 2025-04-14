@@ -35,6 +35,7 @@ public abstract class EstadoBase : MonoBehaviour
     }
 
     private Dictionary<Func<bool>, EstadoBase> _transiciones = new Dictionary<Func<bool>, EstadoBase>();
+    public List<EstadoBase> estadosPosibles { get; set; } = new List<EstadoBase>();
     private GameObject _go;
 
 
@@ -49,23 +50,47 @@ public abstract class EstadoBase : MonoBehaviour
 
     // ***********************( Mi Unity )*********************** //
     public virtual void MiAwake() { }
+    public virtual void MiOnEnable() { }
     public virtual void MiStart() { }
     public virtual void MiFixedUpdate() { }
     public virtual void MiUpdate() { }
+    public virtual void MiLateUpdate() { }
+    public virtual void MiOnDisable() { }
     public virtual void MiOnDestroy() { }
 
 
     // ***********************( Metodos Funcionales )*********************** //
+    // Inicializar no funcionara porque necesita que lo añadas antes al gameobject PERO eso es lo que quiero evitar.
+    public void Inicializar(out EstadoBase nuevoEstado, GameObject goHost, List<EstadoBase> estadosPosibles)
+    {
+        this.estadosPosibles = estadosPosibles;
+        Inicializar(out nuevoEstado, goHost);
+    }
     public void Inicializar(out EstadoBase nuevoEstado, GameObject goHost)
     {
-        //nuevoEstado = new EstadoNulo();
         nuevoEstado = goHost.AddComponent<EstadoNulo>();
         _estadoActual = nuevoEstado;
+        _go = goHost;
+
+        if (_estadoActual != null)
+        {
+            _estadoActual.Salir();
+            Destroy(_estadoActual);
+        }
+
+        _estadoActual = _go.AddComponent(nuevoEstado.GetType()) as EstadoBase;
+        //_estadoActual = nuevoEstado;
+
+        _estadoActual.Entrar();
     }
 
     public void CambiarEstado(EstadoBase nuevoEstado)
     {
         EstadoActual = nuevoEstado;
+    }
+    public void CambiarEstado(int nuevoEstado)
+    {
+        EstadoActual = estadosPosibles[nuevoEstado];
     }
     public void CambiarSubEstado(EstadoBase nuevoSubEstado)
     {
@@ -80,10 +105,15 @@ public abstract class EstadoBase : MonoBehaviour
     {
         _transiciones[condicion] = estadoDestino;
     }
+    public void AgregarTransicion(Func<bool> condicion, int estadoDestino)
+    {
+        _transiciones[condicion] = estadosPosibles[estadoDestino];
+    }
     public virtual void ActualizarTransiciones()
     {
         foreach (var transicion in _transiciones)
         {
+            Debug.Log("transicion: " + transicion.ToString());
             if (transicion.Key.Invoke())
             {
                 CambiarEstado(transicion.Value);
@@ -99,6 +129,10 @@ public abstract class EstadoBase : MonoBehaviour
     {
         MiAwake();
     }
+    private void OnEnable()
+    {
+        MiOnEnable();
+    }
     private void Start()
     {
         MiStart();
@@ -113,6 +147,14 @@ public abstract class EstadoBase : MonoBehaviour
 
         if (_transiciones.Count > 0)
             ActualizarTransiciones();
+    }
+    private void LateUpdate()
+    {
+        MiLateUpdate();
+    }
+    private void OnDisable()
+    {
+        MiOnDisable();
     }
     private void OnDestroy()
     {
