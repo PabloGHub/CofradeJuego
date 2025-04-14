@@ -1,4 +1,3 @@
-using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class ControladorNazareno : MonoBehaviour
@@ -8,6 +7,7 @@ public class ControladorNazareno : MonoBehaviour
     public int v_objetivoIndex_i = 0;
     public Movimiento v_movimiento;
     private Transform v_objetivo_Transform;
+    public string nombre;
 
     // --- Maquina de Estados --- //
     private EstadoBase estadoMovimiento;

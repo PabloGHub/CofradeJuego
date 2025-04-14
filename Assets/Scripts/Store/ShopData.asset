@@ -19,15 +19,15 @@ MonoBehaviour:
       Description: Nazareno basic
       Type: 0
       Price: 15
-      dragObject: {fileID: 7017575348717090563, guid: 1d95d96308ced7f4885ef2564268462e, type: 3}
+      sprite: {fileID: 1208040086343421634, guid: 00612b129f61cec40803a8391581e954, type: 3}
       dropObject: {fileID: 3268243802848412950, guid: f727e7ddffe0f39459cf5f94754d7c5d, type: 3}
   - key: Nazareno2
     value:
       Name: Nazareno2
       Description: Nazareno test
       Type: 0
-      Price: 15.5
-      dragObject: {fileID: 7017575348717090563, guid: 1d95d96308ced7f4885ef2564268462e, type: 3}
+      Price: 3
+      sprite: {fileID: 21300000, guid: 6ed2441c7f0a09f40a472e48d7eea364, type: 3}
       dropObject: {fileID: 3268243802848412950, guid: f727e7ddffe0f39459cf5f94754d7c5d, type: 3}
   - key: Nazareno3
     value:
@@ -35,7 +35,7 @@ MonoBehaviour:
       Description: Nazareno test
       Type: 0
       Price: 15.5
-      dragObject: {fileID: 7017575348717090563, guid: 1d95d96308ced7f4885ef2564268462e, type: 3}
+      sprite: {fileID: 1208040086343421634, guid: 00612b129f61cec40803a8391581e954, type: 3}
       dropObject: {fileID: 3268243802848412950, guid: f727e7ddffe0f39459cf5f94754d7c5d, type: 3}
   - key: Nazareno4
     value:
@@ -43,7 +43,7 @@ MonoBehaviour:
       Description: Nazareno test
       Type: 0
       Price: 15.5
-      dragObject: {fileID: 7017575348717090563, guid: 1d95d96308ced7f4885ef2564268462e, type: 3}
+      sprite: {fileID: 1208040086343421634, guid: 00612b129f61cec40803a8391581e954, type: 3}
       dropObject: {fileID: 3268243802848412950, guid: f727e7ddffe0f39459cf5f94754d7c5d, type: 3}
   - key: Nazareno5
     value:
@@ -51,15 +51,15 @@ MonoBehaviour:
       Description: Nazareno test
       Type: 0
       Price: 15.5
-      dragObject: {fileID: 7017575348717090563, guid: 1d95d96308ced7f4885ef2564268462e, type: 3}
-      dropObject: {fileID: 0}
+      sprite: {fileID: 1208040086343421634, guid: 00612b129f61cec40803a8391581e954, type: 3}
+      dropObject: {fileID: 3268243802848412950, guid: f727e7ddffe0f39459cf5f94754d7c5d, type: 3}
   - key: Nazareno6
     value:
       Name: Nazareno6
       Description: Nazareno test
       Type: 0
       Price: 15.5
-      dragObject: {fileID: 7017575348717090563, guid: 1d95d96308ced7f4885ef2564268462e, type: 3}
+      sprite: {fileID: 1208040086343421634, guid: 00612b129f61cec40803a8391581e954, type: 3}
       dropObject: {fileID: 3268243802848412950, guid: f727e7ddffe0f39459cf5f94754d7c5d, type: 3}
   - key: Nazareno7
     value:
@@ -67,5 +67,5 @@ MonoBehaviour:
       Description: Nazareno test
       Type: 0
       Price: 15.5
-      dragObject: {fileID: 7017575348717090563, guid: 1d95d96308ced7f4885ef2564268462e, type: 3}
+      sprite: {fileID: 1208040086343421634, guid: 00612b129f61cec40803a8391581e954, type: 3}
       dropObject: {fileID: 3268243802848412950, guid: f727e7ddffe0f39459cf5f94754d7c5d, type: 3}

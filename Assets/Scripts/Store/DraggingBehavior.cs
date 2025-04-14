@@ -1,13 +1,19 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class DraggingBehavior : MonoBehaviour
 {
-    public Image dragIcon;
+    private Image dragIcon;
     private Camera worldCamera;
-    private GameObject itemToPlace;
+    private ItemInfo itemInfo;
+    private GameObject NPC;
 
     private bool isDragging = false;
+
+    private GraphicRaycaster raycaster;
+    private EventSystem eventSystem;
 
 
     void Awake()
@@ -18,6 +24,13 @@ public class DraggingBehavior : MonoBehaviour
             Debug.LogWarning("DraggingBehavior: Some UI elements are missing!");
         }
         worldCamera = Camera.main;
+        gameObject.SetActive(false);
+    }
+
+    private void Start()
+    {
+        raycaster = GetComponentInParent<Canvas>().GetComponent<GraphicRaycaster>();
+        eventSystem = EventSystem.current;
     }
 
     void Update()
@@ -33,12 +46,26 @@ public class DraggingBehavior : MonoBehaviour
         }
     }
 
-    public void Drag(GameObject item)
+    public void Setup(ItemInfo info, GameObject go = null)
     {
-        isDragging = true;
-        itemToPlace = item;
-        SetPosition();
-        gameObject.SetActive(true);
+        dragIcon.sprite = info.sprite;
+        itemInfo = info;
+        NPC = go;
+    }
+
+    public void Drag(ItemInfo info, GameObject go = null)
+    {
+        if (ShopManager.instance.MoneyAvailable >= itemInfo.Price)
+        {
+            Setup(info, go);
+            isDragging = true;
+            SetPosition();
+            gameObject.SetActive(true);
+        }
+        if (go != null)
+        {
+            ShopManager.instance.trashElement.SetActive(true);
+        }
     }
 
     void SetPosition()
@@ -61,9 +88,35 @@ public class DraggingBehavior : MonoBehaviour
         Vector3 mouseWorldPos = worldCamera.ScreenToWorldPoint(Input.mousePosition);
         mouseWorldPos.z = 0;
 
-        if (itemToPlace != null && Peloton.peloton != null)
+        if (NPC == null)
         {
-            Peloton.peloton.TryToDropMember(itemToPlace, mouseWorldPos);
+            if (itemInfo.dropObject != null && Peloton.peloton != null)
+            {
+                bool success = Peloton.peloton.TryToDropMember(itemInfo, mouseWorldPos);
+                if (success)
+                {
+                    ShopManager.instance.AddMoney(-itemInfo.Price);
+                }
+            }
+        }
+        else
+        {
+            PointerEventData pointerEventData = new PointerEventData(eventSystem);
+            pointerEventData.position = Input.mousePosition;
+
+            List<RaycastResult> results = new List<RaycastResult>();
+            raycaster.Raycast(pointerEventData, results);
+
+            foreach (RaycastResult result in results)
+            {
+                if (result.gameObject == ShopManager.instance.trashElement)
+                {
+                    Peloton.peloton.EliminarIntegrante(NPC);
+                    ShopManager.instance.AddMoney(itemInfo.Price);
+                    break;
+                }
+            }
+            ShopManager.instance.trashElement.SetActive(false);
         }
     }
 
