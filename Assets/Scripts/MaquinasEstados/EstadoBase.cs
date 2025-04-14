@@ -40,28 +40,26 @@ public abstract class EstadoBase : MonoBehaviour
 
     // ***********************( Eventos )*********************** //
     public event Action<EstadoBase> OnEstadoCambiado;
-    public event Action OnEntrar;
-    public event Action OnSalir;
 
 
     // ***********************( Metodos de Control )*********************** //
-    public virtual void Entrar() { }
-    public virtual void Actualizar() { }
-    public virtual void Salir() { }
+    public abstract void Entrar();
+    public abstract void Salir();
 
 
     // ***********************( Mi Unity )*********************** //
     public virtual void MiAwake() { }
     public virtual void MiStart() { }
     public virtual void MiFixedUpdate() { }
-    public virtual void MiUpdate() { Debug.Log("MIUPDATE EN BASE"); }
+    public virtual void MiUpdate() { }
+    public virtual void MiOnDestroy() { }
 
 
     // ***********************( Metodos Funcionales )*********************** //
     public void Inicializar(out EstadoBase nuevoEstado, GameObject goHost)
     {
         //nuevoEstado = new EstadoNulo();
-        nuevoEstado = goHost.AddComponent<MaquinaDeEstados>();
+        nuevoEstado = goHost.AddComponent<EstadoNulo>();
         _estadoActual = nuevoEstado;
     }
 
@@ -112,12 +110,14 @@ public abstract class EstadoBase : MonoBehaviour
     private void Update()
     {
         MiUpdate();
+
+        if (_transiciones.Count > 0)
+            ActualizarTransiciones();
     }
-    //private void OnEnable()
-    //{
-    //    if (estadoActual != null)
-    //        estadoActual.OnEntrar += Entrar;
-    //}
+    private void OnDestroy()
+    {
+       MiOnDestroy();
+    }
 
     // ***********************( Contructores )*********************** //
     public EstadoBase() { }
@@ -128,8 +128,8 @@ public abstract class EstadoBase : MonoBehaviour
     }
     public EstadoBase(out EstadoBase nuevoEstado, GameObject goHost)
     {
-        nuevoEstado = new MaquinaDeEstados();
-        nuevoEstado = goHost.AddComponent<MaquinaDeEstados>();
+        nuevoEstado = new EstadoNulo();
+        nuevoEstado = goHost.AddComponent<EstadoNulo>();
         _estadoActual = nuevoEstado;
         _go = goHost;
 
@@ -138,7 +138,50 @@ public abstract class EstadoBase : MonoBehaviour
 }
 
 public class MaquinaDeEstados : EstadoBase
-{ }
+{
+    public MaquinaDeEstados() { }
+    public MaquinaDeEstados(out EstadoBase nuevoEstado, GameObject goHost) : base(out nuevoEstado, goHost)
+    { }
+
+    public override void Entrar()
+    {
+        throw new NotImplementedException();
+    }
+
+    public override void Salir()
+    {
+        throw new NotImplementedException();
+    }
+}
+
+public class EstadoNulo : EstadoBase
+{
+    public override void Entrar()
+    {
+        throw new NotImplementedException();
+    }
+
+    public override void Salir()
+    {
+        throw new NotImplementedException();
+    }
+}
+
+public class EstadoInicio : EstadoBase
+{
+    public EstadoInicio(out EstadoBase nuevoEstado, GameObject goHost) : base(out nuevoEstado, goHost)
+    { }
+
+    public override void Entrar()
+    {
+        throw new NotImplementedException();
+    }
+
+    public override void Salir()
+    {
+        throw new NotImplementedException();
+    }
+}
 
 /* // EJEMPLO DE COPILOT //
  public abstract class EstadoBase

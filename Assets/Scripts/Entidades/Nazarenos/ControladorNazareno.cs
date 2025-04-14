@@ -19,7 +19,7 @@ public class ControladorNazareno : MonoBehaviour
         v_movimiento = GetComponent<Movimiento>();
         if (v_movimiento == null)
         {
-            Debug.LogError("El objeto no tiene un componente Movimiento.");
+            Debug.LogError("El Nazareno no tiene un componente Movimiento.");
             return;
         }
 
@@ -27,9 +27,7 @@ public class ControladorNazareno : MonoBehaviour
         v_movimiento.v_objetivo_Transform = v_objetivo_Transform;
 
 
-        //estadoMovimiento.Inicializar(out estadoMovimiento, gameObject);
-        estadoMovimiento = new EstadoAdelantado(out estadoMovimiento, gameObject);
-        estadoMovimiento.CambiarEstado(new EstadoCerca());
+        estadoMovimiento = new EstadoCerca(out estadoMovimiento, gameObject);
     }
 
     /*
@@ -103,18 +101,9 @@ public class ControladorNazareno : MonoBehaviour
 
 public class EstadoAdelantado : EstadoBase
 {
-    public EstadoAdelantado(out EstadoBase nuevoEstado, GameObject goHost) : base(out nuevoEstado, goHost)
-    {
-
-    }
-
     public override void Entrar()
     {
-        Debug.Log("OOOOOOOOOOOOOOOOOOOOOO");
-    }
-    public override void Actualizar()
-    {
-        // Implementar la lógica para actualizar el estado "Adelantado"
+        
     }
     public override void Salir()
     {
@@ -123,19 +112,18 @@ public class EstadoAdelantado : EstadoBase
 
     public override void MiUpdate()
     {
-        Debug.Log("Estado Adelantado: Actualizando...");
+        
     }
 }
 
 public class EstadoCerca : EstadoBase
 {
+    public EstadoCerca(out EstadoBase nuevoEstado, GameObject goHost) : base(out nuevoEstado, goHost)
+    { }
+
     public override void Entrar()
     {
-        Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAA");
-    }
-    public override void Actualizar()
-    {
-        // Implementar la lógica para actualizar el estado "Adelantado"
+        
     }
     public override void Salir()
     {
@@ -144,6 +132,6 @@ public class EstadoCerca : EstadoBase
 
     public override void MiUpdate()
     {
-        Debug.Log("Estado Cerca: Actualizando...");
+        
     }
 }
