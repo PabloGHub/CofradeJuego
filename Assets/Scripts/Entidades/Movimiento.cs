@@ -41,7 +41,7 @@ public class Movimiento : MonoBehaviour
         {
             //v_estado = new EstadoInicio(out v_estado, gameObject);
             v_estado = gameObject.AddComponent<MaquinaDeEstados>();
-            v_estado.Inicializar(out v_estado, gameObject);
+            v_estado.Inicializar(v_estado, gameObject);
             v_estado.estadosPosibles = new List<EstadoBase>
             {
                 new EstadoMoviendose(this),
@@ -49,6 +49,8 @@ public class Movimiento : MonoBehaviour
             };
             v_estado.AgregarTransicion(() => v_esperando_b == true, 1);
             v_estado.AgregarTransicion(() => v_esperando_b == false, 0);
+
+            Debug.Log("cantidad transiciones: " + v_estado._transiciones.Count);
 
             v_estado.CambiarEstado(0);
         }

@@ -6,6 +6,8 @@ using static UnityEngine.Rendering.DebugUI;
 public abstract class EstadoBase : MonoBehaviour
 {
     // ***********************( Variables/Declaraciones )*********************** //
+    public EstadoBase MaquinaEstados { get; set; }
+
     private EstadoBase _estadoActual;
     public EstadoBase EstadoActual
     {
@@ -34,9 +36,9 @@ public abstract class EstadoBase : MonoBehaviour
         set { _subEstadoActual = value; }
     }
 
-    private Dictionary<Func<bool>, EstadoBase> _transiciones = new Dictionary<Func<bool>, EstadoBase>();
-    public List<EstadoBase> estadosPosibles { get; set; } = new List<EstadoBase>();
-    private GameObject _go;
+    public Dictionary<Func<bool>, EstadoBase> _transiciones;
+    public List<EstadoBase> estadosPosibles { get; set; }
+    public GameObject _go;
 
 
     // ***********************( Eventos )*********************** //
@@ -60,17 +62,16 @@ public abstract class EstadoBase : MonoBehaviour
 
 
     // ***********************( Metodos Funcionales )*********************** //
-    // Inicializar no funcionara porque necesita que lo añadas antes al gameobject PERO eso es lo que quiero evitar.
-    public void Inicializar(out EstadoBase nuevoEstado, GameObject goHost, List<EstadoBase> estadosPosibles)
+    public void Inicializar(EstadoBase maquina, GameObject goHost, List<EstadoBase> estadosPosibles)
     {
         this.estadosPosibles = estadosPosibles;
-        Inicializar(out nuevoEstado, goHost);
+        Inicializar(maquina, goHost);
     }
-    public void Inicializar(out EstadoBase nuevoEstado, GameObject goHost)
+    public void Inicializar(EstadoBase maquina, GameObject goHost)
     {
-        nuevoEstado = goHost.AddComponent<EstadoNulo>();
-        _estadoActual = nuevoEstado;
+        //_estadoActual =  nuevoEstado;
         _go = goHost;
+        MaquinaEstados = maquina;
 
         if (_estadoActual != null)
         {
@@ -78,6 +79,7 @@ public abstract class EstadoBase : MonoBehaviour
             Destroy(_estadoActual);
         }
 
+        EstadoBase nuevoEstado = new EstadoNulo();
         _estadoActual = _go.AddComponent(nuevoEstado.GetType()) as EstadoBase;
         //_estadoActual = nuevoEstado;
 
@@ -86,11 +88,21 @@ public abstract class EstadoBase : MonoBehaviour
 
     public void CambiarEstado(EstadoBase nuevoEstado)
     {
+        if (nuevoEstado == null)
+            Debug.LogError("*- Intento de cambiar estado pasando un nulo -*");
+
         EstadoActual = nuevoEstado;
     }
     public void CambiarEstado(int nuevoEstado)
     {
-        EstadoActual = estadosPosibles[nuevoEstado];
+        var _posibleNovoEstado = MaquinaEstados.estadosPosibles[nuevoEstado];
+        if (_posibleNovoEstado == null)
+        {
+            Debug.LogError("*- Intento de cambiar estado pasando un nulo -*");
+            return;
+        }
+
+        EstadoActual = _posibleNovoEstado;
     }
     public void CambiarSubEstado(EstadoBase nuevoSubEstado)
     {
@@ -103,15 +115,15 @@ public abstract class EstadoBase : MonoBehaviour
 
     public void AgregarTransicion(Func<bool> condicion, EstadoBase estadoDestino)
     {
-        _transiciones[condicion] = estadoDestino;
+        MaquinaEstados._transiciones[condicion] = estadoDestino;
     }
     public void AgregarTransicion(Func<bool> condicion, int estadoDestino)
     {
-        _transiciones[condicion] = estadosPosibles[estadoDestino];
+        MaquinaEstados._transiciones[condicion] = MaquinaEstados.estadosPosibles[estadoDestino];
     }
     public virtual void ActualizarTransiciones()
     {
-        foreach (var transicion in _transiciones)
+        foreach (var transicion in MaquinaEstados._transiciones)
         {
             Debug.Log("transicion: " + transicion.ToString());
             if (transicion.Key.Invoke())
@@ -127,6 +139,9 @@ public abstract class EstadoBase : MonoBehaviour
     // ***********************( Llamas -> Unity )*********************** //
     private void Awake()
     {
+        MaquinaEstados._transiciones = new Dictionary<Func<bool>, EstadoBase>();
+        MaquinaEstados.estadosPosibles = new List<EstadoBase>();
+
         MiAwake();
     }
     private void OnEnable()
@@ -145,7 +160,7 @@ public abstract class EstadoBase : MonoBehaviour
     {
         MiUpdate();
 
-        if (_transiciones.Count > 0)
+        if (MaquinaEstados._transiciones.Count > 0)
             ActualizarTransiciones();
     }
     private void LateUpdate()
@@ -163,12 +178,12 @@ public abstract class EstadoBase : MonoBehaviour
 
     // ***********************( Contructores )*********************** //
     public EstadoBase() { }
-    public EstadoBase(ref EstadoBase nuevoEstado)
+    public EstadoBase(EstadoBase nuevoEstado)
     {
         // No funca.
         _estadoActual = nuevoEstado;
     }
-    public EstadoBase(out EstadoBase nuevoEstado, GameObject goHost)
+    public EstadoBase(EstadoBase nuevoEstado, GameObject goHost)
     {
         nuevoEstado = new EstadoNulo();
         nuevoEstado = goHost.AddComponent<EstadoNulo>();
@@ -182,7 +197,7 @@ public abstract class EstadoBase : MonoBehaviour
 public class MaquinaDeEstados : EstadoBase
 {
     public MaquinaDeEstados() { }
-    public MaquinaDeEstados(out EstadoBase nuevoEstado, GameObject goHost) : base(out nuevoEstado, goHost)
+    public MaquinaDeEstados(EstadoBase nuevoEstado, GameObject goHost) : base(nuevoEstado, goHost)
     { }
 
     public override void Entrar() { }
@@ -197,7 +212,7 @@ public class EstadoNulo : EstadoBase
 
 public class EstadoInicio : EstadoBase
 {
-    public EstadoInicio(out EstadoBase nuevoEstado, GameObject goHost) : base(out nuevoEstado, goHost)
+    public EstadoInicio(EstadoBase nuevoEstado, GameObject goHost) : base(nuevoEstado, goHost)
     { }
 
     public override void Entrar() { }
