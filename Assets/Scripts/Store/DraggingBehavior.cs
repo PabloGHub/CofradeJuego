@@ -101,22 +101,22 @@ public class DraggingBehavior : MonoBehaviour
         }
         else
         {
-            PointerEventData pointerEventData = new PointerEventData(eventSystem);
-            pointerEventData.position = Input.mousePosition;
+            //PointerEventData pointerEventData = new PointerEventData(eventSystem);
+            //pointerEventData.position = Input.mousePosition;
 
-            List<RaycastResult> results = new List<RaycastResult>();
-            raycaster.Raycast(pointerEventData, results);
+            //List<RaycastResult> results = new List<RaycastResult>();
+            //raycaster.Raycast(pointerEventData, results);
 
-            foreach (RaycastResult result in results)
-            {
-                if (result.gameObject == ShopManager.instance.trashElement)
-                {
-                    Peloton.peloton.EliminarIntegrante(NPC);
-                    ShopManager.instance.AddMoney(itemInfo.Price);
-                    break;
-                }
-            }
-            ShopManager.instance.trashElement.SetActive(false);
+            //foreach (RaycastResult result in results)
+            //{
+            //    if (result.gameObject == ShopManager.instance.trashElement)
+            //    {
+            //        Peloton.peloton.EliminarIntegrante(NPC);
+            //        ShopManager.instance.AddMoney(itemInfo.Price);
+            //        break;
+            //    }
+            //}
+            //ShopManager.instance.trashElement.SetActive(false);
         }
     }
 

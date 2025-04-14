@@ -249,7 +249,7 @@ public class Peloton : MonoBehaviour
         //    }
         //}
         GameObject droppedMember = Instantiate(member, position, Quaternion.identity);
-        droppedMember.GetComponent<NazarenoBase>().name = memberInfo.Name;
+        //droppedMember.GetComponent<NazarenoBase>().name = memberInfo.Name;
         integrantes.Add(droppedMember.transform);
         return true;
     }
