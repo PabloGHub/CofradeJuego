@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -1415956992591167559}
   - component: {fileID: 2117523678077096734}
   - component: {fileID: 2154580671732403552}
+  - component: {fileID: 7076684354401601951}
   m_Layer: 0
   m_Name: nazarenoRaso
   m_TagString: Untagged
@@ -195,6 +196,7 @@ MonoBehaviour:
   v_esperando_b: 0
   v_exodia_b: 0
   v_objetivo_Transform: {fileID: 0}
+  v_estado: {fileID: 0}
 --- !u!114 &2154580671732403552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,11 +206,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 3268243802848412950}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5f1146026d5d8a4c8e19c4cd61eab53, type: 3}
+  m_Script: {fileID: 11500000, guid: 71956dbba4ce69549976ea76c275a945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   v_objetivoIndex_i: 0
   v_movimiento: {fileID: 0}
+  nombre: 
+--- !u!114 &7076684354401601951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3268243802848412950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a125097a1de87a4588daad190a8e605, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6503466655238777684
 GameObject:
   m_ObjectHideFlags: 0

@@ -52,7 +52,7 @@ MonoBehaviour:
       Type: 0
       Price: 15.5
       sprite: {fileID: 1208040086343421634, guid: 00612b129f61cec40803a8391581e954, type: 3}
-      dropObject: {fileID: 0}
+      dropObject: {fileID: 3268243802848412950, guid: f727e7ddffe0f39459cf5f94754d7c5d, type: 3}
   - key: Nazareno6
     value:
       Name: Nazareno6
