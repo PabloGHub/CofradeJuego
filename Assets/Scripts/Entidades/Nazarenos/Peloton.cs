@@ -14,6 +14,8 @@ public class Peloton : MonoBehaviour
     [SerializeField] private List<Transform> integrantes;
     [SerializeField] private float tamannoNazareno = 1.1f;
 
+    [SerializeField] private Transform AreaDespliegue;
+
     // --- Control de puntosControl --- //
     public int v_objetivoIndex_i = 0; // [HideInInspector]
     private float cercaniaAlObjetivo = 2.5f;
@@ -32,6 +34,7 @@ public class Peloton : MonoBehaviour
     private void Start()
     {
         v_objetivo_Transform = Navegacion.nav.trayectoria[v_objetivoIndex_i];
+        AreaDespliegue.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -227,18 +230,38 @@ public class Peloton : MonoBehaviour
 
     // Solo instanciar Miembro si no está colisionando con ningún otro miembro del Peloton (opcional, desactivado)
     // Solo instanciar Miembro si está en la Navmesh
+    // Solo instanciar Miembro si está en Area de Despliegue
     public bool TryToDropMember(ItemInfo memberInfo, Vector3 position)
     {
         GameObject member = memberInfo.dropObject;
         float memberRadius = member.transform.GetComponent<CircleCollider2D>().radius;
         Transform memberTransform = member.transform;
 
-        NavMeshHit hit;
+        NavMeshHit hitNav;
         float maxDistance = 1.0f;
-        if (!NavMesh.SamplePosition(position, out hit, maxDistance, NavMesh.AllAreas))
+        if (!NavMesh.SamplePosition(position, out hitNav, maxDistance, NavMesh.AllAreas))
         {
             return false;
         }
+
+        AreaDespliegue.gameObject.SetActive(true);
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        RaycastHit2D hitRay = Physics2D.Raycast(mousePos, Vector2.zero);
+
+        if (hitRay.collider != null)
+        {
+            if (!hitRay.collider.CompareTag("Despliegue"))
+            {
+                AreaDespliegue.gameObject.SetActive(false);
+                return false;
+            }
+        }
+        else
+        {
+            AreaDespliegue.gameObject.SetActive(false);
+            return false;
+        }
+        AreaDespliegue.gameObject.SetActive(false);
 
         //foreach (Transform transform in integrantes)
         //{
