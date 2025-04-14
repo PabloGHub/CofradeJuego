@@ -143,28 +143,14 @@ public class MaquinaDeEstados : EstadoBase
     public MaquinaDeEstados(out EstadoBase nuevoEstado, GameObject goHost) : base(out nuevoEstado, goHost)
     { }
 
-    public override void Entrar()
-    {
-        throw new NotImplementedException();
-    }
-
-    public override void Salir()
-    {
-        throw new NotImplementedException();
-    }
+    public override void Entrar() { }
+    public override void Salir() { }
 }
 
 public class EstadoNulo : EstadoBase
 {
-    public override void Entrar()
-    {
-        throw new NotImplementedException();
-    }
-
-    public override void Salir()
-    {
-        throw new NotImplementedException();
-    }
+    public override void Entrar() { }
+    public override void Salir() { }
 }
 
 public class EstadoInicio : EstadoBase
@@ -172,15 +158,8 @@ public class EstadoInicio : EstadoBase
     public EstadoInicio(out EstadoBase nuevoEstado, GameObject goHost) : base(out nuevoEstado, goHost)
     { }
 
-    public override void Entrar()
-    {
-        throw new NotImplementedException();
-    }
-
-    public override void Salir()
-    {
-        throw new NotImplementedException();
-    }
+    public override void Entrar() { }
+    public override void Salir() { }
 }
 
 /* // EJEMPLO DE COPILOT //

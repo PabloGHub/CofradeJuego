@@ -213,8 +213,6 @@ public class Movimiento : MonoBehaviour
         {
             v_movimiento.dirigirirAlDestino();
         }
-
-        
     }
 }
 

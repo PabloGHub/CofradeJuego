@@ -27,7 +27,7 @@ public class ControladorNazareno : MonoBehaviour
         v_movimiento.v_objetivo_Transform = v_objetivo_Transform;
 
 
-        estadoMovimiento = new EstadoCerca(out estadoMovimiento, gameObject);
+        
     }
 
     /*
@@ -97,41 +97,17 @@ public class ControladorNazareno : MonoBehaviour
         v_objetivo_Transform = Navegacion.nav.trayectoria[v_objetivoIndex_i];
         v_movimiento.v_objetivo_Transform = v_objetivo_Transform;
     }
-}
 
-public class EstadoAdelantado : EstadoBase
-{
-    public override void Entrar()
+    // ***********************( Estados de la MAQUINA DE ESTADOS )*********************** //
+    class EstadoCerca : EstadoBase
     {
         
+        public override void Entrar()
+        {
+            // Código para entrar en el estado
+        }
+        public override void Salir()
+        {
+            // Código para salir del estado
+        }
     }
-    public override void Salir()
-    {
-        // Implementar la lógica para salir del estado "Adelantado"
-    }
-
-    public override void MiUpdate()
-    {
-        
-    }
-}
-
-public class EstadoCerca : EstadoBase
-{
-    public EstadoCerca(out EstadoBase nuevoEstado, GameObject goHost) : base(out nuevoEstado, goHost)
-    { }
-
-    public override void Entrar()
-    {
-        
-    }
-    public override void Salir()
-    {
-        // Implementar la lógica para salir del estado "Adelantado"
-    }
-
-    public override void MiUpdate()
-    {
-        
-    }
-}
