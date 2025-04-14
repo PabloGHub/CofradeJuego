@@ -21,6 +21,7 @@ public abstract class EstadoBase : MonoBehaviour
             }
 
             _estadoActual = _go.AddComponent(value.GetType()) as EstadoBase;
+            _estadoActual.MaquinaEstados = MaquinaEstados;
             //_estadoActual = value;
 
             OnEstadoCambiado?.Invoke(_estadoActual);
@@ -89,7 +90,7 @@ public abstract class EstadoBase : MonoBehaviour
     public void CambiarEstado(EstadoBase nuevoEstado)
     {
         if (nuevoEstado == null)
-            Debug.LogError("*- Intento de cambiar estado pasando un nulo -*");
+            Debug.LogError("*- Intento de cambiar estado pasando un 'EstadoBase' nulo -*");
 
         EstadoActual = nuevoEstado;
     }
@@ -98,7 +99,7 @@ public abstract class EstadoBase : MonoBehaviour
         var _posibleNovoEstado = MaquinaEstados.estadosPosibles[nuevoEstado];
         if (_posibleNovoEstado == null)
         {
-            Debug.LogError("*- Intento de cambiar estado pasando un nulo -*");
+            Debug.LogError("*- Intento de cambiar estado pasando un 'int' nulo -*");
             return;
         }
 
