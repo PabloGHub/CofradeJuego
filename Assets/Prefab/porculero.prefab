@@ -103,9 +103,9 @@ GameObject:
   - component: {fileID: 5170742584716279297}
   - component: {fileID: 8309723369631539908}
   - component: {fileID: 1762534043936020592}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: porculero
-  m_TagString: Untagged
+  m_TagString: Porculeros
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -278,10 +278,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7aa48fbb2b7e1f4c89a3349b01f8fcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _go: {fileID: 0}
   aceleracion: 10
   fuerzaRotacion: 5
   v_esperando_b: 0
   v_exodia_b: 0
+  QuedarteQuieto: 0
   v_objetivo_Transform: {fileID: 0}
 --- !u!114 &8309723369631539908
 MonoBehaviour:
@@ -313,8 +315,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ec8b0c6a18423f438ebe9bfe10a259b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saludMaxima: 100
+  saludMaxima: 5
   resistencia: 0
   reflejoDanno: 0
   tiempoInmunidad: 0
   prefabsMorir: []
+  lifeBar: {fileID: 0}

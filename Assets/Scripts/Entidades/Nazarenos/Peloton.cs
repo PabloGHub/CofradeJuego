@@ -110,12 +110,12 @@ public class Peloton : MonoBehaviour
 
     private void gestionarIntegrantes()
     {
-        List<Transform> v_integranteLejosAtrasado = new List<Transform>();
-        List<Transform> v_integranteLejosMedio = new List<Transform>();
-        List<Transform> v_integranteLejosAdelantado = new List<Transform>();
-        List<Transform> v_integranteCerca = new List<Transform>();
+        //List<Transform> v_integranteLejosAtrasado = new List<Transform>();
+        //List<Transform> v_integranteLejosMedio = new List<Transform>();
+        //List<Transform> v_integranteLejosAdelantado = new List<Transform>();
+        //List<Transform> v_integranteCerca = new List<Transform>();
 
-        bool v_alguienAtrasado_b = false;
+        //bool v_alguienAtrasado_b = false;
         int? v_max_i = null;
         int? v_min_i = null;
 
@@ -130,101 +130,113 @@ public class Peloton : MonoBehaviour
             v_min_i = (v_nazareno.v_objetivoIndex_i < v_min_i || v_min_i == null) ? v_nazareno.v_objetivoIndex_i : v_min_i;
         }
 
+        float v_limiteAdelantado_f = v_max_i.HasValue ? v_max_i.Value * 0.7f : 0;
+        float v_limiteAtrasado_f = v_min_i.HasValue && v_max_i.HasValue ? v_min_i.Value + (v_max_i.Value - v_min_i.Value) * 0.3f : 0;
+
         foreach (Transform v_integrante in integrantes)
         {
+            ControladorNazareno v_nazareno = v_integrante.GetComponent<ControladorNazareno>();
+
+            if (v_nazareno == null)
+                return;
+
+            if (v_nazareno.EstadoActual == null)
+            {
+                Debug.LogError($"EstadoActual es null en el integrante {v_integrante.name}");
+                return;
+            }
+
+            if (v_nazareno.EstadoActual.MiIndex > 0) // Linea 143
+                return;
+
             // El integrante esta lejos del peloton.
             if (Vector3.Distance(v_integrante.position, transform.position) > v_distanciaAlPeloton_f)
             {
-                ControladorNazareno v_nazareno = v_integrante.GetComponent<ControladorNazareno>();
-
-                if (v_nazareno == null)
-                    return;
-
                 // El integrante esta delante.
-                if (v_nazareno.v_objetivoIndex_i > (v_max_i * 0.66f))
+                if (v_nazareno.v_objetivoIndex_i > v_limiteAdelantado_f)
                 {
-                    v_integranteLejosAdelantado.Add(v_integrante);
+                    v_nazareno.CambiarSubEstado(0);
                 }
 
                 // El integrante esta atrasado.
-                else if (v_nazareno.v_objetivoIndex_i < (v_min_i * 0.66f))
+                else if (v_nazareno.v_objetivoIndex_i < v_limiteAtrasado_f)
                 {
-                     v_integranteLejosAtrasado.Add(v_integrante);
+                    v_nazareno.CambiarSubEstado(2);
                 }
 
                 // El integrante esta en el medio.
                 else
                 {
-                    v_integranteLejosMedio.Add(v_integrante);
+                    v_nazareno.CambiarSubEstado(1);
                 }
 
             }
             // El integrante esta cerca del peloton.
             else
             {
-                v_integranteCerca.Add(v_integrante);
+                v_nazareno.CambiarSubEstado(3);
             }
         }
 
 
-        // LEJOS ADELANTADOS
-        foreach (Transform v_integrante in v_integranteLejosAdelantado)
-        {
-            ControladorNazareno v_nazareno = v_integrante.GetComponent<ControladorNazareno>();
-            if (v_nazareno == null)
-                return;
-            v_nazareno.v_movimiento.v_esperando_b = true;
-            v_nazareno.v_movimiento.v_exodia_b = false;
-        }
+        //// LEJOS ADELANTADOS
+        //foreach (Transform v_integrante in v_integranteLejosAdelantado)
+        //{
+        //    ControladorNazareno v_nazareno = v_integrante.GetComponent<ControladorNazareno>();
+        //    if (v_nazareno == null)
+        //        return;
+        //    v_nazareno.v_movimiento.v_esperando_b = true;
+        //    v_nazareno.v_movimiento.v_exodia_b = false;
+        //}
 
 
-        // LEJOS ATRASADOS
-        foreach (Transform v_integrante in v_integranteLejosAtrasado)
-        {
-            ControladorNazareno v_nazareno = v_integrante.GetComponent<ControladorNazareno>();
-            if (v_nazareno == null)
-                return;
-            v_nazareno.v_movimiento.v_esperando_b = false;
-            v_nazareno.v_movimiento.v_exodia_b = true;
-            v_alguienAtrasado_b = true;
-        }
+        //// LEJOS ATRASADOS
+        //foreach (Transform v_integrante in v_integranteLejosAtrasado)
+        //{
+        //    ControladorNazareno v_nazareno = v_integrante.GetComponent<ControladorNazareno>();
+        //    if (v_nazareno == null)
+        //        return;
+        //    v_nazareno.v_movimiento.v_esperando_b = false;
+        //    v_nazareno.v_movimiento.v_exodia_b = true;
+        //    v_alguienAtrasado_b = true;
+        //}
 
 
-        if (v_alguienAtrasado_b)
-        {
-            // CERCA
-            foreach (Transform v_integrante in v_integranteCerca)
-            {
-                ControladorNazareno v_nazareno = v_integrante.GetComponent<ControladorNazareno>();
-                if (v_nazareno == null)
-                    return;
-                v_nazareno.v_movimiento.v_esperando_b = true;
-                v_nazareno.v_movimiento.v_exodia_b = false;
-            }
-        }
-        else
-        {
-            // CERCA
-            foreach (Transform v_integrante in v_integranteCerca)
-            {
-                ControladorNazareno v_nazareno = v_integrante.GetComponent<ControladorNazareno>();
-                if (v_nazareno == null)
-                    return;
-                v_nazareno.v_movimiento.v_esperando_b = false;
-                v_nazareno.v_movimiento.v_exodia_b = false;
-            }
-        }
+        //if (v_alguienAtrasado_b)
+        //{
+        //    // CERCA
+        //    foreach (Transform v_integrante in v_integranteCerca)
+        //    {
+        //        ControladorNazareno v_nazareno = v_integrante.GetComponent<ControladorNazareno>();
+        //        if (v_nazareno == null)
+        //            return;
+        //        v_nazareno.v_movimiento.v_esperando_b = true;
+        //        v_nazareno.v_movimiento.v_exodia_b = false;
+        //    }
+        //}
+        //else
+        //{
+        //    // CERCA
+        //    foreach (Transform v_integrante in v_integranteCerca)
+        //    {
+        //        ControladorNazareno v_nazareno = v_integrante.GetComponent<ControladorNazareno>();
+        //        if (v_nazareno == null)
+        //            return;
+        //        v_nazareno.v_movimiento.v_esperando_b = false;
+        //        v_nazareno.v_movimiento.v_exodia_b = false;
+        //    }
+        //}
 
 
-        // LEJOS MEDIO
-        foreach (Transform v_integrante in v_integranteLejosMedio)
-        {
-            ControladorNazareno v_nazareno = v_integrante.GetComponent<ControladorNazareno>();
-            if (v_nazareno == null)
-                return;
-            v_nazareno.v_movimiento.v_esperando_b = false;
-            v_nazareno.v_movimiento.v_exodia_b = false;
-        }
+        //// LEJOS MEDIO
+        //foreach (Transform v_integrante in v_integranteLejosMedio)
+        //{
+        //    ControladorNazareno v_nazareno = v_integrante.GetComponent<ControladorNazareno>();
+        //    if (v_nazareno == null)
+        //        return;
+        //    v_nazareno.v_movimiento.v_esperando_b = false;
+        //    v_nazareno.v_movimiento.v_exodia_b = false;
+        //}
     }
 
 

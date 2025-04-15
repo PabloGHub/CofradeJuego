@@ -8,7 +8,7 @@ public abstract class MaquinaDeEstados : MonoBehaviour
     public abstract EstadoBase Estado { get; set; } // Representa el estado actual de la maquina
     public abstract EstadoBase SubEstado { get; set; } // Representa el subEstado actual de la maquina
 
-    //private EstadoBase _estadoActual { get; set; }
+   
     public EstadoBase EstadoActual
     {
         get { return Estado; }
@@ -31,19 +31,40 @@ public abstract class MaquinaDeEstados : MonoBehaviour
             Estado.enabled = true;
             Estado.Entrar();
 
-            if (_transiciones.Count > 0)
-                ActualizarTransiciones();
+            //if (Transiciones.Count > 0)
+            //    ActualizarTransiciones();
         }
     }
 
-    private EstadoBase _subEstadoActual;
     public EstadoBase SubEstadoActual
     {
-        get { return _subEstadoActual; }
-        set { _subEstadoActual = value; }
+        get { return SubEstado; }
+        set
+        {
+            if (Estado == value)
+                return;
+
+            if (SubEstado != null)
+            {
+                SubEstado.Salir();
+                SubEstado.enabled = false;
+            }
+
+            SubEstado = value;
+            SubEstado.MaquinaEstados = this;
+
+            OnSubEstadoCambiado?.Invoke(SubEstado);
+
+            SubEstado.enabled = true;
+            SubEstado.Entrar();
+
+            //if (SubTransiciones.Count > 0)
+            //    ActualizarTransiciones();
+        }
     }
 
-    public Dictionary<Func<bool>, EstadoBase> _transiciones;
+    public Dictionary<Func<bool>, EstadoBase> Transiciones;
+    public Dictionary<Func<bool>, EstadoBase> SubTransiciones;
     public List<EstadoBase> estadosPosibles { get; set; }
     public List<EstadoBase> subEstadosPosibles { get; set; }
     public GameObject _go;
@@ -51,17 +72,23 @@ public abstract class MaquinaDeEstados : MonoBehaviour
 
     // ***********************( Eventos )*********************** //
     public event Action<EstadoBase> OnEstadoCambiado;
-    //public event Action<EstadoBase> OnSubEstadoCambiado;
+    public event Action<EstadoBase> OnSubEstadoCambiado;
 
 
     // ***********************( Unity )*********************** //
     private void Awake()
     {
-        if (_transiciones == null)
-            _transiciones = new Dictionary<Func<bool>, EstadoBase>();
+        if (Transiciones == null)
+            Transiciones = new Dictionary<Func<bool>, EstadoBase>();
+
+        if (SubTransiciones == null)
+            SubTransiciones = new Dictionary<Func<bool>, EstadoBase>();
 
         if (estadosPosibles == null)
             estadosPosibles = new List<EstadoBase>();
+
+        if (subEstadosPosibles == null)
+            subEstadosPosibles = new List<EstadoBase>();
     }
 
     // ***********************( Metodos Funcionales )*********************** //
@@ -82,22 +109,23 @@ public abstract class MaquinaDeEstados : MonoBehaviour
             return;
         }
 
-        if (_transiciones == null)
-            _transiciones = new Dictionary<Func<bool>, EstadoBase>();
+        if (Transiciones == null)
+            Transiciones = new Dictionary<Func<bool>, EstadoBase>();
+
+        if (SubTransiciones == null)
+            SubTransiciones = new Dictionary<Func<bool>, EstadoBase>();
 
         if (estadosPosibles == null)
             estadosPosibles = new List<EstadoBase>();
 
+        if (subEstadosPosibles == null)
+            subEstadosPosibles = new List<EstadoBase>();
+
         _go = goHost;
     }
 
-    public void CambiarEstado(EstadoBase nuevoEstado)
-    {
-        if (nuevoEstado == null)
-            Debug.LogError("*- Intento de cambiar estado pasando un 'EstadoBase' nulo -*");
 
-        EstadoActual = nuevoEstado;
-    }
+
     public void CambiarEstado(int nuevoEstado)
     {
         EstadoBase _posibleNovoEstado = estadosPosibles[nuevoEstado];
@@ -112,35 +140,28 @@ public abstract class MaquinaDeEstados : MonoBehaviour
 
         EstadoActual = _posibleNovoEstado;
     }
-    //public void CambiarSubEstado(EstadoBase nuevoSubEstado)
-    //{
-    //    if (_subEstadoActual != null)
-    //        _subEstadoActual.Salir();
+    public void CambiarSubEstado(int nuevoEstado)
+    {
+        EstadoBase _posibleNovoEstado = subEstadosPosibles[nuevoEstado];
+        if (_posibleNovoEstado == null)
+        {
+            Debug.LogError("*- Intento de cambiar subEstado pasando un 'int' nulo -*");
+            return;
+        }
 
-    //    _subEstadoActual = nuevoSubEstado;
-    //    _subEstadoActual.Entrar();
-    //}
+        if (SubEstadoActual == _posibleNovoEstado)
+            return;
 
-    //public void AgregarTransicion(Func<bool> condicion, EstadoBase estadoDestino)
-    //{
-    //    if (_transiciones == null)
-    //        _transiciones = new Dictionary<Func<bool>, EstadoBase>();
+        SubEstadoActual = _posibleNovoEstado;
+    }
 
-    //    if (estadoDestino == null)
-    //    {
-    //        Debug.LogError("El estado destino es null en AgregarTransicion.");
-    //        return;
-    //    }
 
-    //    _transiciones[condicion] = estadoDestino;
-
-    //    if (_transiciones.Count > 0)
-    //        ActualizarTransiciones();
-    //}
+    // TODO: Agregar Restringciones.
+    // TODO: Descubrir porque no funciona.
     public void AgregarTransicion(Func<bool> condicion, int estadoDestino)
     {
-        if (_transiciones == null)
-            _transiciones = new Dictionary<Func<bool>, EstadoBase>();
+        if (Transiciones == null)
+            Transiciones = new Dictionary<Func<bool>, EstadoBase>();
 
         if (estadoDestino < 0 || estadoDestino >= estadosPosibles.Count)
         {
@@ -148,32 +169,62 @@ public abstract class MaquinaDeEstados : MonoBehaviour
             return;
         }
 
-        _transiciones[condicion] = estadosPosibles[estadoDestino];
+        Transiciones[condicion] = estadosPosibles[estadoDestino];
         Debug.Log($"Transición agregada: {estadosPosibles[estadoDestino].GetType().Name}");
-
-        if (_transiciones.Count > 0)
-            ActualizarTransiciones();
     }
+    public void AgregarSubTransicion(Func<bool> condicion, int estadoDestino)
+    {
+        if (SubTransiciones == null)
+            SubTransiciones = new Dictionary<Func<bool>, EstadoBase>();
+
+        if (estadoDestino < 0 || estadoDestino >= estadosPosibles.Count)
+        {
+            Debug.LogError("El índice de estado destino es inválido en AgregarTransicion.");
+            return;
+        }
+
+        SubTransiciones[condicion] = subEstadosPosibles[estadoDestino];
+        Debug.Log($"SubTransición agregada: {subEstadosPosibles[estadoDestino].GetType().Name}");
+    }
+
+
+
     public void ActualizarTransiciones()
     {
-        foreach (var transicion in _transiciones)
+        if (Transiciones.Count > 0)
+            ActualizarTrnas();
+
+        if (SubTransiciones.Count > 0)
+            ActualizarSubTrnas();
+    }
+    public void ActualizarTrnas()
+    {
+        foreach (var transicion in Transiciones)
         {
-            Debug.Log("transicion: " + transicion.ToString());
             if (transicion.Key.Invoke())
             {
-                CambiarEstado(transicion.Value);
-                var estadoDestino = transicion.Value;
+                CambiarEstado(transicion.Value.MiIndex);
+                break;
+            }
+        }
+    }
+    public void ActualizarSubTrnas()
+    {
+        foreach (var transicion in SubTransiciones)
+        {
+            if (transicion.Key.Invoke())
+            {
+                CambiarEstado(transicion.Value.MiIndex);
                 break;
             }
         }
     }
 
     // ***********************( Unity )*********************** //
-    //private void LateUpdate()
-    //{
-    //    if (_transiciones.Count > 0)
-    //        ActualizarTransiciones();
-    //}
+    private void LateUpdate()
+    {
+        ActualizarTransiciones();
+    }
 
     // ***********************( Constructores )*********************** //
     public T CrearEstado<T, D>(D dependencia) where T : EstadoBase where D : class
@@ -181,6 +232,7 @@ public abstract class MaquinaDeEstados : MonoBehaviour
         var estado = _go.AddComponent<T>();
         estado.MaquinaEstados = this;
         estado.enabled = false;
+        estado.MiIndex = estadosPosibles.Count; // ¿?
         estado.Init(dependencia);
         return estado;
     }

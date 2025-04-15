@@ -289,7 +289,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3743548840814345732, guid: eaf499ba2aef47c40bffd0980a50feed, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 3743548840814345732, guid: eaf499ba2aef47c40bffd0980a50feed, type: 3}
       propertyPath: m_LocalPosition.z
@@ -323,13 +323,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5170742584716279297, guid: eaf499ba2aef47c40bffd0980a50feed, type: 3}
+      propertyPath: QuedarteQuieto
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9219646106814485027, guid: eaf499ba2aef47c40bffd0980a50feed, type: 3}
       propertyPath: m_Name
       value: porculero (4)
       objectReference: {fileID: 0}
     - target: {fileID: 9219646106814485027, guid: eaf499ba2aef47c40bffd0980a50feed, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -430,7 +434,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3743548840814345732, guid: eaf499ba2aef47c40bffd0980a50feed, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 3743548840814345732, guid: eaf499ba2aef47c40bffd0980a50feed, type: 3}
       propertyPath: m_LocalPosition.z
@@ -464,13 +468,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5170742584716279297, guid: eaf499ba2aef47c40bffd0980a50feed, type: 3}
+      propertyPath: QuedarteQuieto
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9219646106814485027, guid: eaf499ba2aef47c40bffd0980a50feed, type: 3}
       propertyPath: m_Name
       value: porculero (3)
       objectReference: {fileID: 0}
     - target: {fileID: 9219646106814485027, guid: eaf499ba2aef47c40bffd0980a50feed, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -491,7 +499,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3743548840814345732, guid: eaf499ba2aef47c40bffd0980a50feed, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.95
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 3743548840814345732, guid: eaf499ba2aef47c40bffd0980a50feed, type: 3}
       propertyPath: m_LocalPosition.z
@@ -525,13 +533,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5170742584716279297, guid: eaf499ba2aef47c40bffd0980a50feed, type: 3}
+      propertyPath: QuedarteQuieto
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9219646106814485027, guid: eaf499ba2aef47c40bffd0980a50feed, type: 3}
       propertyPath: m_Name
       value: porculero (1)
       objectReference: {fileID: 0}
     - target: {fileID: 9219646106814485027, guid: eaf499ba2aef47c40bffd0980a50feed, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -699,11 +711,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7242945653419662654, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.96
+      value: -1.02
       objectReference: {fileID: 0}
     - target: {fileID: 7242945653419662654, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.55
+      value: -3.62
       objectReference: {fileID: 0}
     - target: {fileID: 7242945653419662654, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -765,11 +777,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7242945653419662654, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.0200005
+      value: 1.96
       objectReference: {fileID: 0}
     - target: {fileID: 7242945653419662654, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.55
+      value: -3.62
       objectReference: {fileID: 0}
     - target: {fileID: 7242945653419662654, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -840,7 +852,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3743548840814345732, guid: eaf499ba2aef47c40bffd0980a50feed, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.15
+      value: 2.4499998
       objectReference: {fileID: 0}
     - target: {fileID: 3743548840814345732, guid: eaf499ba2aef47c40bffd0980a50feed, type: 3}
       propertyPath: m_LocalPosition.z
@@ -874,13 +886,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5170742584716279297, guid: eaf499ba2aef47c40bffd0980a50feed, type: 3}
+      propertyPath: QuedarteQuieto
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9219646106814485027, guid: eaf499ba2aef47c40bffd0980a50feed, type: 3}
       propertyPath: m_Name
       value: porculero (2)
       objectReference: {fileID: 0}
     - target: {fileID: 9219646106814485027, guid: eaf499ba2aef47c40bffd0980a50feed, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1119,11 +1135,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7242945653419662654, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.13
+      value: 0.80999947
       objectReference: {fileID: 0}
     - target: {fileID: 7242945653419662654, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.26
+      value: -3.33
       objectReference: {fileID: 0}
     - target: {fileID: 7242945653419662654, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1382,7 +1398,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3743548840814345732, guid: eaf499ba2aef47c40bffd0980a50feed, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 3743548840814345732, guid: eaf499ba2aef47c40bffd0980a50feed, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1416,13 +1432,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5170742584716279297, guid: eaf499ba2aef47c40bffd0980a50feed, type: 3}
+      propertyPath: QuedarteQuieto
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9219646106814485027, guid: eaf499ba2aef47c40bffd0980a50feed, type: 3}
       propertyPath: m_Name
       value: porculero
       objectReference: {fileID: 0}
     - target: {fileID: 9219646106814485027, guid: eaf499ba2aef47c40bffd0980a50feed, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1443,7 +1463,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7242945653419662654, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.74
+      value: -2.07
       objectReference: {fileID: 0}
     - target: {fileID: 7242945653419662654, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
       propertyPath: m_LocalPosition.z

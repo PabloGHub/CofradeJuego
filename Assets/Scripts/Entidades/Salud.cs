@@ -30,6 +30,9 @@ public class Salud : MonoBehaviour
     [SerializeField]
     private Lifebar lifeBar;
 
+    // ----( Eventos )---- //
+    public event Action OnMuerto;
+
     // ***********************( Metodos UNITY )*********************** //
     private void Start()
     {
@@ -77,6 +80,7 @@ public class Salud : MonoBehaviour
     private void gestionarMuerte()
     {
         // TODO: Implementar la lógica para manejar la muerte del objeto.
+        OnMuerto?.Invoke();
         gameObject.SetActive(false); // Termporral/PlaceHolder.
     }
 

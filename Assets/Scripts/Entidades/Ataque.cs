@@ -42,7 +42,7 @@ public class Ataque : MonoBehaviour
     // ***********************( Metodos NUESTROS )*********************** //
     public void Atacar()
     {
-        if (v_direcion_f == null || v_capaAtacado_LM == null || v_inicio_V3 == null)
+        if (v_direcion_f == null || v_capaAtacado_LM == null)
         {
             Debug.LogError
             (

@@ -16,6 +16,7 @@ public class Movimiento : MaquinaDeEstados
     //HideInInspector]
     public bool v_esperando_b = false;
     public bool v_exodia_b = false;
+    public bool QuedarteQuieto = false;
 
     // --- Componentes --- //
     [HideInInspector] 
@@ -38,7 +39,6 @@ public class Movimiento : MaquinaDeEstados
         if (v_rb_rb2D == null)
             v_rb_rb2D = GetComponent<Rigidbody2D>();
 
-        
         Inicializar(gameObject);
         estadosPosibles = new List<EstadoBase>
         {
@@ -47,7 +47,6 @@ public class Movimiento : MaquinaDeEstados
         };
         //AgregarTransicion(() => v_esperando_b == true, 1);
         //AgregarTransicion(() => v_esperando_b == false, 0);
-
 
         if (v_agente_NavMeshAgent != null)
         {
@@ -68,7 +67,7 @@ public class Movimiento : MaquinaDeEstados
         if (ControladorPPAL.v_pausado_b)
             return;
 
-        if (v_esperando_b)
+        if (v_esperando_b && !QuedarteQuieto)
             CambiarEstado(1);
         else
             CambiarEstado(0);
@@ -77,7 +76,8 @@ public class Movimiento : MaquinaDeEstados
         {
             v_agente_NavMeshAgent.nextPosition = transform.position;
 
-            v_agente_NavMeshAgent.SetDestination(v_objetivo_Transform.position);
+            if (!QuedarteQuieto)
+                v_agente_NavMeshAgent.SetDestination(v_objetivo_Transform.position);
 
             if (v_agente_NavMeshAgent != null)
                 v_agente_NavMeshAgent.nextPosition = transform.position;

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - puntoControl
   - Despliegue
+  - Nazarenos
+  - Porculeros
   layers:
   - Default
   - TransparentFX

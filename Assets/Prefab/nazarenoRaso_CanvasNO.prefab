@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6919321577517770793}
   - component: {fileID: 6853910003800855352}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: capirote
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,12 +97,15 @@ GameObject:
   m_Component:
   - component: {fileID: 7242945653419662654}
   - component: {fileID: 5462901063633604207}
-  - component: {fileID: 1790735893617223366}
   - component: {fileID: 8250333831329801662}
   - component: {fileID: 1838729931238293569}
+  - component: {fileID: 7368800712833375724}
+  - component: {fileID: 1790735893617223366}
   - component: {fileID: 8013300468090150684}
   - component: {fileID: 8978815985563216395}
-  m_Layer: 0
+  - component: {fileID: 7507113947460566686}
+  - component: {fileID: 8487932697863468914}
+  m_Layer: 10
   m_Name: nazarenoRaso_CanvasNO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,42 +183,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &1790735893617223366
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8226610799400092452}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
 --- !u!195 &8250333831329801662
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -265,6 +232,78 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!58 &7368800712833375724
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8226610799400092452}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.5
+--- !u!58 &1790735893617223366
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8226610799400092452}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.5
 --- !u!114 &8013300468090150684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,6 +321,7 @@ MonoBehaviour:
   fuerzaRotacion: 10
   v_esperando_b: 0
   v_exodia_b: 0
+  QuedarteQuieto: 0
   v_objetivo_Transform: {fileID: 0}
 --- !u!114 &8978815985563216395
 MonoBehaviour:
@@ -295,6 +335,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5f1146026d5d8a4c8e19c4cd61eab53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _go: {fileID: 0}
   v_objetivoIndex_i: 0
   v_movimiento: {fileID: 0}
   nombre: 
+  id: 0
+  mascaraEnemigo:
+    serializedVersion: 2
+    m_Bits: 2048
+  EsDistancia: 0
+  RangoVisibliidad: 0
+--- !u!114 &7507113947460566686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8226610799400092452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec8b0c6a18423f438ebe9bfe10a259b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saludMaxima: 100
+  resistencia: 0
+  reflejoDanno: 0
+  tiempoInmunidad: 0
+  prefabsMorir: []
+  lifeBar: {fileID: 0}
+--- !u!114 &8487932697863468914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8226610799400092452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4908d698a4f16d74b9f2d307d4525876, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  danno: 3
+  alcance: 3
+  tiempoRecarga: 0
+  fuerzaEmpuje: 2
+  explosion: 0
+  prefabExplosion: {fileID: 0}
