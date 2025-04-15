@@ -284,7 +284,17 @@ public class Peloton : MonoBehaviour
         Destroy(integrante);
     }
 
-
+    public float DevolverIntegrantesTotal()
+    {
+        float amount = 0;
+        var integrantesCopy = new List<Transform>(integrantes);
+        foreach (var integrante in integrantesCopy)
+        {
+            amount += ShopManager.instance.Data.Items.ContainsKey(integrante.name) ? ShopManager.instance.Data.Items[integrante.name].Price : 0;
+            EliminarIntegrante(integrante.gameObject);
+        }
+        return amount;
+    }
 
     // ***********************( Metodos Comandos )*********************** //
     [RegisterCommand(Help = "Muestra el estado de los integrantes")]

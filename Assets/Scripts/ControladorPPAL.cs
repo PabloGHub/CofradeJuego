@@ -1,4 +1,5 @@
 using CommandTerminal;
+using TMPro;
 using UnityEngine;
 
 public class ControladorPPAL : MonoBehaviour
@@ -8,6 +9,8 @@ public class ControladorPPAL : MonoBehaviour
 
     [HideInInspector]
     public static bool v_pausado_b = true;
+
+    [SerializeField] private TextMeshProUGUI PausaBotonTexto;
 
     // ***********************( Funciones Unity )*********************** //
     private void Awake()
@@ -31,5 +34,12 @@ public class ControladorPPAL : MonoBehaviour
     static void CommandPausa(CommandArg[] args)
     {
         ControladorPPAL.ppal.cabiarPausa();
+    }
+
+
+    public void PauseFromUI()
+    {
+        cabiarPausa();
+        PausaBotonTexto.text = v_pausado_b ? "RESUME" : "PAUSE";
     }
 }

@@ -62,10 +62,7 @@ public class DraggingBehavior : MonoBehaviour
             SetPosition();
             gameObject.SetActive(true);
         }
-        if (go != null)
-        {
-            ShopManager.instance.trashElement.SetActive(true);
-        }
+        ShopManager.instance.trashElement.SetActive(true);
     }
 
     void SetPosition()
@@ -88,36 +85,39 @@ public class DraggingBehavior : MonoBehaviour
         Vector3 mouseWorldPos = worldCamera.ScreenToWorldPoint(Input.mousePosition);
         mouseWorldPos.z = 0;
 
-        if (NPC == null)
+        PointerEventData pointerEventData = new PointerEventData(eventSystem);
+        pointerEventData.position = Input.mousePosition;
+
+        List<RaycastResult> results = new List<RaycastResult>();
+        raycaster.Raycast(pointerEventData, results);
+
+        bool success = true;
+        foreach (RaycastResult result in results)
+        {
+            if (result.gameObject == ShopManager.instance.trashElement)
+            {
+                if (NPC != null)
+                {
+                    Peloton.peloton.EliminarIntegrante(NPC);
+                    ShopManager.instance.AddMoney(itemInfo.Price);
+                }
+                success = false;
+                break;
+            }
+        }
+
+        if (NPC == null && success)
         {
             if (itemInfo.dropObject != null && Peloton.peloton != null)
             {
-                bool success = Peloton.peloton.TryToDropMember(itemInfo, mouseWorldPos);
+                success = Peloton.peloton.TryToDropMember(itemInfo, mouseWorldPos);
                 if (success)
                 {
                     ShopManager.instance.AddMoney(-itemInfo.Price);
                 }
             }
         }
-        else
-        {
-            PointerEventData pointerEventData = new PointerEventData(eventSystem);
-            pointerEventData.position = Input.mousePosition;
-
-            List<RaycastResult> results = new List<RaycastResult>();
-            raycaster.Raycast(pointerEventData, results);
-
-            foreach (RaycastResult result in results)
-            {
-                if (result.gameObject == ShopManager.instance.trashElement)
-                {
-                    Peloton.peloton.EliminarIntegrante(NPC);
-                    ShopManager.instance.AddMoney(itemInfo.Price);
-                    break;
-                }
-            }
-            ShopManager.instance.trashElement.SetActive(false);
-        }
+        ShopManager.instance.trashElement.SetActive(false);
     }
 
 }

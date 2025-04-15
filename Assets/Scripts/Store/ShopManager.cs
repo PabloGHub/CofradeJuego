@@ -62,4 +62,9 @@ public class ShopManager : MonoBehaviour
         OnMoneyUpdated?.Invoke();
     }
 
+    public void ResetPreparations()
+    {
+        Peloton.peloton.DevolverIntegrantesTotal();
+    }
+
 }
