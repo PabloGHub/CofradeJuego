@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Movimiento : MonoBehaviour
+public class Movimiento : MaquinaDeEstados
 {
     // TODO: Al pausar se detiene y al despausar aplicar fuerza para compensar.
     // ***********************( Declaraciones )*********************** //
@@ -24,7 +24,9 @@ public class Movimiento : MonoBehaviour
     private Rigidbody2D v_rb_rb2D;
 
     // --- Maquina de Estados --- //
-    public EstadoBase v_estado;
+    //public override MaquinaDeEstados v_maquina { get; set; }
+    public override EstadoBase Estado { get; set; }
+    public override EstadoBase SubEstado { get; set; }
 
     // ***********************( Funciones Unity )*********************** //
     private void Start()
@@ -37,23 +39,18 @@ public class Movimiento : MonoBehaviour
         if (v_rb_rb2D == null)
             v_rb_rb2D = GetComponent<Rigidbody2D>();
 
-        if (v_estado == null)
+        
+        Inicializar(gameObject);
+        estadosPosibles = new List<EstadoBase>
         {
-            //v_estado = new EstadoInicio(out v_estado, gameObject);
-            v_estado = gameObject.AddComponent<MaquinaDeEstados>();
-            v_estado.Inicializar(v_estado, gameObject);
-            v_estado.estadosPosibles = new List<EstadoBase>
-            {
-                new EstadoMoviendose(this),
-                new EstadoQuieto(this)
-            };
-            v_estado.AgregarTransicion(() => v_esperando_b == true, 1);
-            v_estado.AgregarTransicion(() => v_esperando_b == false, 0);
+            CrearEstado<EstadoMoviendose, Movimiento>(this),
+            CrearEstado<EstadoQuieto, Movimiento>(this)
+        };
+        AgregarTransicion(() => v_esperando_b == true, 1);
+        AgregarTransicion(() => v_esperando_b == false, 0);
 
-            Debug.Log("cantidad transiciones: " + v_estado._transiciones.Count);
+        Debug.Log("cantidad transiciones: " + _transiciones.Count);
 
-            v_estado.CambiarEstado(0);
-        }
 
         if (v_agente_NavMeshAgent != null)
         {
@@ -61,6 +58,13 @@ public class Movimiento : MonoBehaviour
             v_agente_NavMeshAgent.updateRotation = false;
             v_agente_NavMeshAgent.updateUpAxis = false;
         }
+        Debug.Log
+        (
+        "v_agente_NavMeshAgent: \n" +
+        "updatePosition: " + v_agente_NavMeshAgent.updatePosition + "\n" +
+        "updateRotation: " + v_agente_NavMeshAgent.updateRotation + "\n" +
+        "updateUpAxis: " + v_agente_NavMeshAgent.updateUpAxis
+        );
     }
 
 
@@ -170,20 +174,20 @@ public class Movimiento : MonoBehaviour
     class EstadoMoviendose : EstadoBase
     {
         protected Movimiento v_movimiento;
-
-        public EstadoMoviendose(Movimiento v_movimiento)
+        public override void Init<T>(T dependencia)
         {
-            this.v_movimiento = v_movimiento;
+            v_movimiento = dependencia as Movimiento;
         }
+
 
         public override void Entrar()
         {
-            Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-            v_movimiento.Empujar(-(v_movimiento.aceleracion * 2));
+            Debug.Log("EMPUJANDO HACIA DELANTE");
+            //v_movimiento.Empujar(-(v_movimiento.aceleracion * 2));
         }
         public override void Salir()
         {
-            Debug.Log("SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
+            Debug.Log("SALIENDO DE MOVERSE");
         }
 
         public override void MiFixedUpdate()
@@ -208,21 +212,21 @@ public class Movimiento : MonoBehaviour
     class EstadoQuieto : EstadoBase
     {
         protected Movimiento v_movimiento;
-
-        public EstadoQuieto(Movimiento v_movimiento)
+        public override void Init<T>(T dependencia)
         {
-            this.v_movimiento = v_movimiento;
+            v_movimiento = dependencia as Movimiento;
         }
+
 
         public override void Entrar()
         {
-            Debug.Log("DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD");
-            v_movimiento.Empujar(0f);
+            Debug.Log("EMPUJANDO HACIA ATRAS");
+            //v_movimiento.Empujar(0f);
         }
 
         public override void Salir()
         {
-            Debug.Log("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF");
+            Debug.Log("SALIR DE QUIETO");
         }
 
         public override void MiFixedUpdate()

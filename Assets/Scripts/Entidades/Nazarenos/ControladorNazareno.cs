@@ -99,44 +99,44 @@ public class ControladorNazareno : MonoBehaviour
     // ***********************( Estados de la MAQUINA DE ESTADOS )*********************** //
     // ************ Estado de Movimiento ************ //
     // --- LEJOS --- //
-    class EstadoLejosAdelantado : EstadoBase
-    {
-        private ControladorNazareno v_controladorNazareno_s;
+    //class EstadoLejosAdelantado : EstadoBase
+    //{
+    //    private ControladorNazareno v_controladorNazareno_s;
 
-        public EstadoLejosAdelantado(ControladorNazareno v_controladorNazareno_s)
-        {
-            this.v_controladorNazareno_s = v_controladorNazareno_s;
-        }
+    //    public EstadoLejosAdelantado(ControladorNazareno v_controladorNazareno_s)
+    //    {
+    //        this.v_controladorNazareno_s = v_controladorNazareno_s;
+    //    }
 
-        public override void Entrar()
-        {
-            // Código para entrar en el estado
-        }
-        public override void Salir()
-        {
-            // Código para salir del estado
-        }
-    }
+    //    public override void Entrar()
+    //    {
+    //        // Código para entrar en el estado
+    //    }
+    //    public override void Salir()
+    //    {
+    //        // Código para salir del estado
+    //    }
+    //}
 
     // --- CERCA --- //
-    class EstadoCerca : EstadoBase
-    {
-        private ControladorNazareno v_controladorNazareno_s;
+    //class EstadoCerca : EstadoBase
+    //{
+    //    private ControladorNazareno v_controladorNazareno_s;
 
-        public EstadoCerca(ControladorNazareno v_controladorNazareno_s)
-        {
-            this.v_controladorNazareno_s = v_controladorNazareno_s;
-        }
+    //    public EstadoCerca(ControladorNazareno v_controladorNazareno_s) : base (v_controladorNazareno_s)
+    //    {
+    //        this.v_controladorNazareno_s = v_controladorNazareno_s;
+    //    }
 
-        public override void Entrar()
-        {
-            // Código para entrar en el estado
-        }
-        public override void Salir()
-        {
-            // Código para salir del estado
-        }
-    }
+    //    public override void Entrar()
+    //    {
+    //        // Código para entrar en el estado
+    //    }
+    //    public override void Salir()
+    //    {
+    //        // Código para salir del estado
+    //    }
+    //}
     // --- ATACANDO --- //
 
 

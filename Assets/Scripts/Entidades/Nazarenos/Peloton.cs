@@ -34,7 +34,7 @@ public class Peloton : MonoBehaviour
     private void Start()
     {
         v_objetivo_Transform = Navegacion.nav.trayectoria[v_objetivoIndex_i];
-        AreaDespliegue.gameObject.SetActive(false);
+        //AreaDespliegue.gameObject.SetActive(false); //Me esta salntado un error
     }
 
     private void Update()
@@ -295,7 +295,7 @@ public class Peloton : MonoBehaviour
             ControladorNazareno v_nazareno = v_integrante.GetComponent<ControladorNazareno>();
             if (v_nazareno == null)
                 return;
-            Terminal.Log(v_integrante.name + " - " + v_nazareno.v_movimiento.v_estado.ToSafeString());
+            Terminal.Log(v_integrante.name + " - " + v_nazareno.v_movimiento.Estado.ToSafeString());
         }
     }
 }

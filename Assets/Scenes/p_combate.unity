@@ -977,11 +977,6 @@ Transform:
   - {fileID: 230217335}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1926449026 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 334823073828494146, guid: f727e7ddffe0f39459cf5f94754d7c5d, type: 3}
-  m_PrefabInstance: {fileID: 5732772967281414408}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2093504238
 GameObject:
   m_ObjectHideFlags: 0
@@ -1236,7 +1231,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eaf499ba2aef47c40bffd0980a50feed, type: 3}
---- !u!1001 &5732772967281414408
+--- !u!1001 &5094748398097560535
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1244,55 +1239,64 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 334823073828494146, guid: f727e7ddffe0f39459cf5f94754d7c5d, type: 3}
+    - target: {fileID: 7242945653419662654, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.11
       objectReference: {fileID: 0}
-    - target: {fileID: 334823073828494146, guid: f727e7ddffe0f39459cf5f94754d7c5d, type: 3}
+    - target: {fileID: 7242945653419662654, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
       propertyPath: m_LocalPosition.y
       value: -6.55
       objectReference: {fileID: 0}
-    - target: {fileID: 334823073828494146, guid: f727e7ddffe0f39459cf5f94754d7c5d, type: 3}
+    - target: {fileID: 7242945653419662654, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 334823073828494146, guid: f727e7ddffe0f39459cf5f94754d7c5d, type: 3}
+    - target: {fileID: 7242945653419662654, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 334823073828494146, guid: f727e7ddffe0f39459cf5f94754d7c5d, type: 3}
+    - target: {fileID: 7242945653419662654, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 334823073828494146, guid: f727e7ddffe0f39459cf5f94754d7c5d, type: 3}
+    - target: {fileID: 7242945653419662654, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 334823073828494146, guid: f727e7ddffe0f39459cf5f94754d7c5d, type: 3}
+    - target: {fileID: 7242945653419662654, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 334823073828494146, guid: f727e7ddffe0f39459cf5f94754d7c5d, type: 3}
+    - target: {fileID: 7242945653419662654, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 334823073828494146, guid: f727e7ddffe0f39459cf5f94754d7c5d, type: 3}
+    - target: {fileID: 7242945653419662654, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 334823073828494146, guid: f727e7ddffe0f39459cf5f94754d7c5d, type: 3}
+    - target: {fileID: 7242945653419662654, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3268243802848412950, guid: f727e7ddffe0f39459cf5f94754d7c5d, type: 3}
+    - target: {fileID: 8013300468090150684, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
+      propertyPath: aceleracion
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8226610799400092452, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
       propertyPath: m_Name
-      value: nazarenoRaso
+      value: nazarenoRaso_CanvasNO
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f727e7ddffe0f39459cf5f94754d7c5d, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
+--- !u!4 &5416530094114179658 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7242945653419662654, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
+  m_PrefabInstance: {fileID: 5094748398097560535}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7369413687294931959
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1352,7 +1356,7 @@ PrefabInstance:
     - target: {fileID: 9051521240901392372, guid: c828f32cb4206ed4d8c7b79eb2a0e98f, type: 3}
       propertyPath: 'integrantes.Array.data[0]'
       value: 
-      objectReference: {fileID: 1926449026}
+      objectReference: {fileID: 5416530094114179658}
     - target: {fileID: 9051521240901392372, guid: c828f32cb4206ed4d8c7b79eb2a0e98f, type: 3}
       propertyPath: 'integrantes.Array.data[1]'
       value: 
@@ -1509,7 +1513,7 @@ SceneRoots:
   - {fileID: 1245612744}
   - {fileID: 456211190}
   - {fileID: 345867852}
-  - {fileID: 5732772967281414408}
+  - {fileID: 5094748398097560535}
   - {fileID: 1659117530}
   - {fileID: 2093504239}
   - {fileID: 360287690}
