@@ -14,6 +14,9 @@ public abstract class MaquinaDeEstados : MonoBehaviour
         get { return Estado; }
         set
         {
+            if (Estado == value)
+                return;
+
             if (Estado != null)
             {
                 Estado.Salir();
@@ -27,6 +30,9 @@ public abstract class MaquinaDeEstados : MonoBehaviour
 
             Estado.enabled = true;
             Estado.Entrar();
+
+            if (_transiciones.Count > 0)
+                ActualizarTransiciones();
         }
     }
 
@@ -45,7 +51,7 @@ public abstract class MaquinaDeEstados : MonoBehaviour
 
     // ***********************( Eventos )*********************** //
     public event Action<EstadoBase> OnEstadoCambiado;
-    public event Action<EstadoBase> OnSubEstadoCambiado;
+    //public event Action<EstadoBase> OnSubEstadoCambiado;
 
 
     // ***********************( Unity )*********************** //
@@ -57,12 +63,6 @@ public abstract class MaquinaDeEstados : MonoBehaviour
         if (estadosPosibles == null)
             estadosPosibles = new List<EstadoBase>();
     }
-    private void Update()
-    {
-        if (_transiciones.Count > 0)
-            ActualizarTransiciones();
-    }
-
 
     // ***********************( Metodos Funcionales )*********************** //
     public void Inicializar(GameObject goHost, List<EstadoBase> estadosPosibles)
@@ -100,37 +100,43 @@ public abstract class MaquinaDeEstados : MonoBehaviour
     }
     public void CambiarEstado(int nuevoEstado)
     {
-        var _posibleNovoEstado = estadosPosibles[nuevoEstado];
+        EstadoBase _posibleNovoEstado = estadosPosibles[nuevoEstado];
         if (_posibleNovoEstado == null)
         {
             Debug.LogError("*- Intento de cambiar estado pasando un 'int' nulo -*");
             return;
         }
 
+        if (EstadoActual == _posibleNovoEstado)
+            return;
+
         EstadoActual = _posibleNovoEstado;
     }
-    public void CambiarSubEstado(EstadoBase nuevoSubEstado)
-    {
-        if (_subEstadoActual != null)
-            _subEstadoActual.Salir();
+    //public void CambiarSubEstado(EstadoBase nuevoSubEstado)
+    //{
+    //    if (_subEstadoActual != null)
+    //        _subEstadoActual.Salir();
 
-        _subEstadoActual = nuevoSubEstado;
-        _subEstadoActual.Entrar();
-    }
+    //    _subEstadoActual = nuevoSubEstado;
+    //    _subEstadoActual.Entrar();
+    //}
 
-    public void AgregarTransicion(Func<bool> condicion, EstadoBase estadoDestino)
-    {
-        if (_transiciones == null)
-            _transiciones = new Dictionary<Func<bool>, EstadoBase>();
+    //public void AgregarTransicion(Func<bool> condicion, EstadoBase estadoDestino)
+    //{
+    //    if (_transiciones == null)
+    //        _transiciones = new Dictionary<Func<bool>, EstadoBase>();
 
-        if (estadoDestino == null)
-        {
-            Debug.LogError("El estado destino es null en AgregarTransicion.");
-            return;
-        }
+    //    if (estadoDestino == null)
+    //    {
+    //        Debug.LogError("El estado destino es null en AgregarTransicion.");
+    //        return;
+    //    }
 
-        _transiciones[condicion] = estadoDestino;
-    }
+    //    _transiciones[condicion] = estadoDestino;
+
+    //    if (_transiciones.Count > 0)
+    //        ActualizarTransiciones();
+    //}
     public void AgregarTransicion(Func<bool> condicion, int estadoDestino)
     {
         if (_transiciones == null)
@@ -145,6 +151,8 @@ public abstract class MaquinaDeEstados : MonoBehaviour
         _transiciones[condicion] = estadosPosibles[estadoDestino];
         Debug.Log($"Transición agregada: {estadosPosibles[estadoDestino].GetType().Name}");
 
+        if (_transiciones.Count > 0)
+            ActualizarTransiciones();
     }
     public void ActualizarTransiciones()
     {
@@ -159,6 +167,13 @@ public abstract class MaquinaDeEstados : MonoBehaviour
             }
         }
     }
+
+    // ***********************( Unity )*********************** //
+    //private void LateUpdate()
+    //{
+    //    if (_transiciones.Count > 0)
+    //        ActualizarTransiciones();
+    //}
 
     // ***********************( Constructores )*********************** //
     public T CrearEstado<T, D>(D dependencia) where T : EstadoBase where D : class

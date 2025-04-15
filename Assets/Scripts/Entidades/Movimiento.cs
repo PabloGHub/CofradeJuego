@@ -24,7 +24,6 @@ public class Movimiento : MaquinaDeEstados
     private Rigidbody2D v_rb_rb2D;
 
     // --- Maquina de Estados --- //
-    //public override MaquinaDeEstados v_maquina { get; set; }
     public override EstadoBase Estado { get; set; }
     public override EstadoBase SubEstado { get; set; }
 
@@ -46,10 +45,8 @@ public class Movimiento : MaquinaDeEstados
             CrearEstado<EstadoMoviendose, Movimiento>(this),
             CrearEstado<EstadoQuieto, Movimiento>(this)
         };
-        AgregarTransicion(() => v_esperando_b == true, 1);
-        AgregarTransicion(() => v_esperando_b == false, 0);
-
-        Debug.Log("cantidad transiciones: " + _transiciones.Count);
+        //AgregarTransicion(() => v_esperando_b == true, 1);
+        //AgregarTransicion(() => v_esperando_b == false, 0);
 
 
         if (v_agente_NavMeshAgent != null)
@@ -58,13 +55,6 @@ public class Movimiento : MaquinaDeEstados
             v_agente_NavMeshAgent.updateRotation = false;
             v_agente_NavMeshAgent.updateUpAxis = false;
         }
-        Debug.Log
-        (
-        "v_agente_NavMeshAgent: \n" +
-        "updatePosition: " + v_agente_NavMeshAgent.updatePosition + "\n" +
-        "updateRotation: " + v_agente_NavMeshAgent.updateRotation + "\n" +
-        "updateUpAxis: " + v_agente_NavMeshAgent.updateUpAxis
-        );
     }
 
 
@@ -77,6 +67,11 @@ public class Movimiento : MaquinaDeEstados
     {
         if (ControladorPPAL.v_pausado_b)
             return;
+
+        if (v_esperando_b)
+            CambiarEstado(1);
+        else
+            CambiarEstado(0);
 
         if (v_agente_NavMeshAgent != null)
         {
@@ -129,14 +124,21 @@ public class Movimiento : MaquinaDeEstados
 
         float v_diferenciaAngulo_f = Mathf.DeltaAngle(v_anguloActual_f, v_anguloObjetivo_f);
 
-        // TODO: cambiar a como antes para que gire mas rapido.
-        float v_torque_f;// = v_diferenciaAngulo_f * fuerzaRotacion * Time.fixedDeltaTime;
-        if (v_diferenciaAngulo_f > 0)
-            v_torque_f = fuerzaRotacion * Time.fixedDeltaTime;
-        else
-            v_torque_f = -fuerzaRotacion * Time.fixedDeltaTime;
 
-        v_rb_rb2D.AddTorque(v_torque_f);
+        float v_torque_f;
+        if (v_exodia_b)
+        {
+            v_torque_f = v_diferenciaAngulo_f * fuerzaRotacion * Time.fixedDeltaTime;
+        }
+        else
+        {
+            if (v_diferenciaAngulo_f > 0)
+                v_torque_f = fuerzaRotacion * Time.fixedDeltaTime;
+            else
+                v_torque_f = -fuerzaRotacion * Time.fixedDeltaTime;
+        }
+
+            v_rb_rb2D.AddTorque(v_torque_f);
     }
 
     public void Avanzar()
@@ -162,7 +164,7 @@ public class Movimiento : MaquinaDeEstados
     {
         v_rb_rb2D.AddForce
         (
-            -(transform.up * (v_fuerza_f + aceleracion)),
+            -(transform.up * v_fuerza_f),
             ForceMode2D.Impulse
         );
     }
@@ -182,12 +184,11 @@ public class Movimiento : MaquinaDeEstados
 
         public override void Entrar()
         {
-            Debug.Log("EMPUJANDO HACIA DELANTE");
-            //v_movimiento.Empujar(-(v_movimiento.aceleracion * 2));
+            v_movimiento.Empujar(-(1.025f));
         }
         public override void Salir()
         {
-            Debug.Log("SALIENDO DE MOVERSE");
+
         }
 
         public override void MiFixedUpdate()
@@ -220,13 +221,12 @@ public class Movimiento : MaquinaDeEstados
 
         public override void Entrar()
         {
-            Debug.Log("EMPUJANDO HACIA ATRAS");
-            //v_movimiento.Empujar(0f);
+            v_movimiento.Empujar(0f);
         }
 
         public override void Salir()
         {
-            Debug.Log("SALIR DE QUIETO");
+
         }
 
         public override void MiFixedUpdate()

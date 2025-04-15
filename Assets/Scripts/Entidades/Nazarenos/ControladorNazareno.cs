@@ -1,31 +1,45 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class ControladorNazareno : MonoBehaviour
+public class ControladorNazareno : MaquinaDeEstados
 {
     // ***********************( Declaraciones )*********************** //
     private float cercaniaAlObjetivo = 2.5f;
     public int v_objetivoIndex_i = 0;
     public Movimiento v_movimiento;
     private Transform v_objetivo_Transform;
+
+    // Datos
     public string nombre;
+    public int id;
 
     // --- Maquina de Estados --- //
-    private EstadoBase estadoMovimiento;
-    private EstadoBase estadoAtaque;
+    public override EstadoBase Estado { get; set; }
+    public override EstadoBase SubEstado { get; set; }
 
     // ***********************( Funciones Unity )*********************** //
     private void Start()
     {
+        // Inicializar Maquina de Estados
+        Inicializar(gameObject);
+        estadosPosibles = new List<EstadoBase>
+        {
+            CrearEstado<EstadoLejosAdelantado, ControladorNazareno>(this),
+            CrearEstado<EstadoLejosMedio, ControladorNazareno>(this),
+            CrearEstado<EstadoLejosAtrasado, ControladorNazareno>(this)
+        };
+
+
+        // Movimiento
         v_movimiento = GetComponent<Movimiento>();
         if (v_movimiento == null)
         {
             Debug.LogError("El Nazareno no tiene un componente Movimiento.");
             return;
         }
-
         v_objetivo_Transform = Navegacion.nav.trayectoria[v_objetivoIndex_i];
         v_movimiento.v_objetivo_Transform = v_objetivo_Transform;
-
     }
 
     /*
@@ -99,46 +113,117 @@ public class ControladorNazareno : MonoBehaviour
     // ***********************( Estados de la MAQUINA DE ESTADOS )*********************** //
     // ************ Estado de Movimiento ************ //
     // --- LEJOS --- //
-    //class EstadoLejosAdelantado : EstadoBase
-    //{
-    //    private ControladorNazareno v_controladorNazareno_s;
+    class EstadoLejosAdelantado : EstadoBase
+    {
+        private ControladorNazareno v_controladorNazareno_s;
+        public override void Init<T>(T dependencia)
+        {
+            v_controladorNazareno_s = dependencia as ControladorNazareno;
+        }
 
-    //    public EstadoLejosAdelantado(ControladorNazareno v_controladorNazareno_s)
-    //    {
-    //        this.v_controladorNazareno_s = v_controladorNazareno_s;
-    //    }
+        public override void Entrar()
+        {
+            // Código para entrar en el estado
+        }
 
-    //    public override void Entrar()
-    //    {
-    //        // Código para entrar en el estado
-    //    }
-    //    public override void Salir()
-    //    {
-    //        // Código para salir del estado
-    //    }
-    //}
+        public override void Salir()
+        {
+            // Código para salir del estado
+        }
+    }
+    class EstadoLejosMedio : EstadoBase
+    {
+        private ControladorNazareno v_controladorNazareno_s;
+        public override void Init<T>(T dependencia)
+        {
+            v_controladorNazareno_s = dependencia as ControladorNazareno;
+        }
+
+        public override void Entrar()
+        {
+            // Código para entrar en el estado
+        }
+
+        public override void Salir()
+        {
+            // Código para salir del estado
+        }
+    }
+    class EstadoLejosAtrasado : EstadoBase
+    {
+        private ControladorNazareno v_controladorNazareno_s;
+        public override void Init<T>(T dependencia)
+        {
+            v_controladorNazareno_s = dependencia as ControladorNazareno;
+        }
+
+        public override void Entrar()
+        {
+            // Código para entrar en el estado
+        }
+
+        public override void Salir()
+        {
+            // Código para salir del estado
+        }
+    }
+
 
     // --- CERCA --- //
-    //class EstadoCerca : EstadoBase
-    //{
-    //    private ControladorNazareno v_controladorNazareno_s;
+    class EstadoCerca : EstadoBase
+    {
+        private ControladorNazareno v_controladorNazareno_s;
+        public override void Init<T>(T dependencia)
+        {
+            v_controladorNazareno_s = dependencia as ControladorNazareno;
+        }
 
-    //    public EstadoCerca(ControladorNazareno v_controladorNazareno_s) : base (v_controladorNazareno_s)
-    //    {
-    //        this.v_controladorNazareno_s = v_controladorNazareno_s;
-    //    }
+        public override void Entrar()
+        {
+            // Código para entrar en el estado
+        }
+        public override void Salir()
+        {
+            // Código para salir del estado
+        }
+    }
 
-    //    public override void Entrar()
-    //    {
-    //        // Código para entrar en el estado
-    //    }
-    //    public override void Salir()
-    //    {
-    //        // Código para salir del estado
-    //    }
-    //}
+
     // --- ATACANDO --- //
+    class EstadoNada : EstadoBase
+    {
+        private ControladorNazareno v_controladorNazareno_s;
+        public override void Init<T>(T dependencia)
+        {
+            v_controladorNazareno_s = dependencia as ControladorNazareno;
+        }
 
+        public override void Entrar()
+        {
+            // Código para entrar en el estado
+        }
+        public override void Salir()
+        {
+            // Código para salir del estado
+        }
+    }
+    class EstadoAtacar : EstadoBase
+    {
+        private ControladorNazareno v_controladorNazareno_s;
+        public override void Init<T>(T dependencia)
+        {
+            v_controladorNazareno_s = dependencia as ControladorNazareno;
+        }
+
+        public override void Entrar()
+        {
+            // Código para entrar en el estado
+        }
+        public override void Salir()
+        {
+            // Código para salir del estado
+        }
+    }
 
     // ************ Estado de Movimiento ************ //
 }

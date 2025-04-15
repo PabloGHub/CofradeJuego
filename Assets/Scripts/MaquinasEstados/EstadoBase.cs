@@ -45,13 +45,13 @@ public abstract class EstadoBase : MonoBehaviour
     }
     private void Update()
     {
-        if (MaquinaEstados._transiciones.Count > 0)
-            MaquinaEstados.ActualizarTransiciones();
-
         MiUpdate();
     }
     private void LateUpdate()
     {
+        //if (MaquinaEstados._transiciones.Count > 0)
+        //    MaquinaEstados.ActualizarTransiciones();
+
         MiLateUpdate();
     }
     private void OnDisable()
