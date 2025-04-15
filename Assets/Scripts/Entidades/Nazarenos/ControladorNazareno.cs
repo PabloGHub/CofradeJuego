@@ -10,7 +10,7 @@ public class ControladorNazareno : MaquinaDeEstados
     private float cercaniaAlObjetivo = 2.5f;
     public int v_objetivoIndex_i = 0;
     [HideInInspector] public Movimiento v_movimiento;
-    private Transform v_objetivo_Transform;
+    [HideInInspector] public Transform v_objetivo_Transform;
 
     // Datos
     public string nombre;
@@ -21,11 +21,6 @@ public class ControladorNazareno : MaquinaDeEstados
     public float RangoVisibliidad;
 
     // Ataque
-    private Vector2 v_45_v2 = new Vector2(0, 45);
-    private Vector2 v_pos1_v2;
-    private Vector2 v_pos2_v2;
-    private Vector2 v_pos3_v2;
-    private Vector2 v_pos4_v2;
     private GameObject v_enemigoObjetivo_go;
     private Ataque v_ataque_s;
     private CircleCollider2D v_circle_coll;
@@ -69,10 +64,6 @@ public class ControladorNazareno : MaquinaDeEstados
 
         // Ataque
         RangoVisibliidad += 1;
-        v_pos1_v2 = transform.up;
-        v_pos2_v2 = transform.right;
-        v_pos3_v2 = -transform.up;
-        v_pos4_v2 = -transform.right;
         v_ataque_s = GetComponent<Ataque>();
         v_ataque_s.v_capaAtacado_LM = mascaraEnemigo;
         v_circle_coll = gameObject.AddComponent<CircleCollider2D>();
@@ -186,11 +177,11 @@ public class ControladorNazareno : MaquinaDeEstados
         {
             Punto punto = Navegacion.nav.trayectoria[v_objetivoIndex_i].GetComponent<Punto>();
 
-            if (!punto.difurcacion)
+            if (!punto.Difurcacion)
             {
                 break;
             }
-            else if (!punto.v_elegido_b)
+            else if (!punto.Elegido_b)
             {
                 v_objetivoIndex_i++;
             }

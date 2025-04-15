@@ -3,12 +3,12 @@ using UnityEngine;
 public class Punto : MonoBehaviour
 {
     // ***********************( Declaraciones )*********************** //
-    public bool difurcacion = false;
+    public bool Difurcacion = false;
 
     //[HideInInspector]
-    public bool v_elegido_b = false;
+    public bool Elegido_b = false;
 
-    public float v_distanciaAlSiguiente_f = 0f;
+    public float DistanciaAlSiguiente_f = 0f;
 
     // ***********************( Funciones Unity )*********************** //
     // ***********************( Funciones Nuestras )*********************** //
