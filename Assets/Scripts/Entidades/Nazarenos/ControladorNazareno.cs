@@ -289,9 +289,7 @@ public class ControladorNazareno : MaquinaDeEstados
         public override void Salir() { }
 
         public override void MiUpdate()
-        {
-            
-        }
+        {}
     }
     class EstadoAtacar : EstadoBase
     {
@@ -304,9 +302,13 @@ public class ControladorNazareno : MaquinaDeEstados
         public override void Entrar()
         {
             v_controladorNazareno_s.v_movimiento.v_esperando_b = false;
+            v_controladorNazareno_s.v_movimiento.v_exodia_b = true;
+        }
+        public override void Salir()
+        {
+            v_controladorNazareno_s.v_movimiento.v_esperando_b = false;
             v_controladorNazareno_s.v_movimiento.v_exodia_b = false;
         }
-        public override void Salir() { }
 
         public override void MiUpdate()
         {

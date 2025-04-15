@@ -35,6 +35,7 @@ public class Navegacion : MonoBehaviour
     // ***********************( Funciones Nuestras )*********************** //
     private void determinarDifurcaciones()
     {
+        Punto _puntoAnterior_s = null;
         int c = 0;
         for (int i = 0; i < trayectoria.Length; i++)
         {
@@ -52,6 +53,12 @@ public class Navegacion : MonoBehaviour
             }
             else
                 c = 0;
+
+            if (_puntoAnterior_s != null)
+            {
+                _puntoAnterior_s.v_distanciaAlSiguiente_f = Vector2.Distance(_puntoAnterior_s.transform.position, p.transform.position);
+            }
+            _puntoAnterior_s = p;
         }
     }
 

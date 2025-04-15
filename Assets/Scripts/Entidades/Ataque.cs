@@ -77,14 +77,33 @@ public class Ataque : MonoBehaviour
                 }
                 else if (_salud != null)
                 {
-                    float? _ref = _salud.RecibirDano(danno, fuerzaEmpuje);
+                    float? _ref = _salud.RecibirDano(danno, _direccion, fuerzaEmpuje);
 
                     if (_ref != null && v_salud_s != null)
-                        v_salud_s.RecibirDano((float)_ref);
+                        v_salud_s.RecibirDano((float)_ref, Vector3.one);
                 }
             }
         }
 
         v_tiempoDeRecargaAtual_f = tiempoRecarga;
+    }
+    private void OnDrawGizmos()
+    {
+        if (v_direcion_f == null || v_inicio_V3 == null)
+            return;
+
+        // Configurar el color del Gizmo
+        Gizmos.color = Color.red;
+
+        // Calcular la dirección y el punto final del Raycast
+        Vector3 inicio = v_inicio_V3 ?? transform.position;
+        Vector3 direccion = new Vector3(v_direcion_f.Value, 0, 0).normalized;
+        Vector3 fin = inicio + direccion * alcance;
+
+        // Dibujar la línea del Raycast
+        Gizmos.DrawLine(inicio, fin);
+
+        // Dibujar un pequeño punto en el final del Raycast
+        Gizmos.DrawSphere(fin, 0.1f);
     }
 }

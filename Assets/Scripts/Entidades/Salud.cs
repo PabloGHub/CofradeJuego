@@ -54,12 +54,12 @@ public class Salud : MonoBehaviour
         if (v_tiempoInmunidadActual_f > 0)
             v_tiempoInmunidadActual_f -= Time.deltaTime;
 
-        if (saludMaxima <= 0)
+        if (v_saludActual_f <= 0)
             gestionarMuerte();
     }
 
     // ***********************( Metodos NUESTROS )*********************** //
-    public float? RecibirDano(float v_danno_f, float v_fuerzaRetroceso_f = 0f)
+    public float? RecibirDano(float v_danno_f, Vector3 v_direccion_v3 = default, float v_fuerzaRetroceso_f = 0f)
     {
         if (v_tiempoInmunidadActual_f > 0)
             return null;
@@ -67,7 +67,8 @@ public class Salud : MonoBehaviour
         v_saludActual_f -= v_danno_f * (1 - resistencia);
         v_tiempoInmunidadActual_f = tiempoInmunidad;
 
-        v_movimiento_c.Empujar(v_fuerzaRetroceso_f);
+
+        v_movimiento_c.Empujar(v_fuerzaRetroceso_f, v_direccion_v3);
 
         if (lifeBar != null)
         {

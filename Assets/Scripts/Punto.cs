@@ -8,6 +8,8 @@ public class Punto : MonoBehaviour
     //[HideInInspector]
     public bool v_elegido_b = false;
 
+    public float v_distanciaAlSiguiente_f = 0f;
+
     // ***********************( Funciones Unity )*********************** //
     // ***********************( Funciones Nuestras )*********************** //
 }

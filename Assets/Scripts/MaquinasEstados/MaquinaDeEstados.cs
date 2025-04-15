@@ -174,7 +174,7 @@ public abstract class MaquinaDeEstados : MonoBehaviour
         }
 
         Transiciones[condicion] = estadosPosibles[estadoDestino];
-        Debug.Log($"Transición agregada: {estadosPosibles[estadoDestino].GetType().Name}");
+        //Debug.Log($"Transición agregada: {estadosPosibles[estadoDestino].GetType().Name}");
     }
     public void AgregarSubTransicion(Func<bool> condicion, int estadoDestino)
     {
@@ -188,7 +188,7 @@ public abstract class MaquinaDeEstados : MonoBehaviour
         }
 
         SubTransiciones[condicion] = subEstadosPosibles[estadoDestino];
-        Debug.Log($"SubTransición agregada: {subEstadosPosibles[estadoDestino].GetType().Name}");
+        //Debug.Log($"SubTransición agregada: {subEstadosPosibles[estadoDestino].GetType().Name}");
     }
 
 

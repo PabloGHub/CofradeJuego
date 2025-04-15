@@ -307,7 +307,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   EsDistancia: 0
-  RangoVisibliidad: 0
+  RangoVisibliidad: 2
 --- !u!114 &7507113947460566686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,9 +338,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4908d698a4f16d74b9f2d307d4525876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  danno: 3
-  alcance: 3
+  danno: 1
+  alcance: 1
   tiempoRecarga: 0
-  fuerzaEmpuje: 2
+  fuerzaEmpuje: 1
   explosion: 0
   prefabExplosion: {fileID: 0}

@@ -45,8 +45,8 @@ public class Movimiento : MaquinaDeEstados
             CrearEstado<EstadoMoviendose, Movimiento>(this),
             CrearEstado<EstadoQuieto, Movimiento>(this)
         };
-        //AgregarTransicion(() => v_esperando_b == true, 1);
-        //AgregarTransicion(() => v_esperando_b == false, 0);
+        AgregarTransicion(() => v_esperando_b == true, 1);
+        AgregarTransicion(() => v_esperando_b == false, 0);
 
         if (v_agente_NavMeshAgent != null)
         {
@@ -67,10 +67,10 @@ public class Movimiento : MaquinaDeEstados
         if (ControladorPPAL.v_pausado_b)
             return;
 
-        if (v_esperando_b && !QuedarteQuieto)
-            CambiarEstado(1);
-        else
-            CambiarEstado(0);
+        //if (v_esperando_b && !QuedarteQuieto)
+        //    CambiarEstado(1);
+        //else
+        //    CambiarEstado(0);
 
         if (v_agente_NavMeshAgent != null)
         {
@@ -160,8 +160,11 @@ public class Movimiento : MaquinaDeEstados
     }
 
     
-    public void Empujar(Vector3 v_direccion_v3, float v_fuerza_f)
+    public void Empujar(float v_fuerza_f, Vector3 v_direccion_v3 = default)
     {
+        if (v_direccion_v3 == default)
+            v_direccion_v3 = -Vector3.up;
+
         v_rb_rb2D.AddForce
         (
             (v_direccion_v3 * v_fuerza_f),
@@ -184,7 +187,7 @@ public class Movimiento : MaquinaDeEstados
 
         public override void Entrar()
         {
-            v_movimiento.Empujar(transform.up, 0.025f);
+            v_movimiento.Empujar(0.025f, transform.up);
         }
         public override void Salir()
         {
@@ -221,7 +224,7 @@ public class Movimiento : MaquinaDeEstados
 
         public override void Entrar()
         {
-            v_movimiento.Empujar(-transform.up, 0f);
+            v_movimiento.Empujar(0f, -transform.up);
         }
 
         public override void Salir()
