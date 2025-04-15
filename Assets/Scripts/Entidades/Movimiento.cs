@@ -159,12 +159,12 @@ public class Movimiento : MaquinaDeEstados
         v_agente_NavMeshAgent.nextPosition = transform.position;
     }
 
-    // Empuja hacia atras, tips: si se lo pasas en negativo es hacia adelante.
-    public void Empujar(float v_fuerza_f)
+    
+    public void Empujar(Vector3 v_direccion_v3, float v_fuerza_f)
     {
         v_rb_rb2D.AddForce
         (
-            -(transform.up * v_fuerza_f),
+            (v_direccion_v3 * v_fuerza_f),
             ForceMode2D.Impulse
         );
     }
@@ -184,7 +184,7 @@ public class Movimiento : MaquinaDeEstados
 
         public override void Entrar()
         {
-            v_movimiento.Empujar(-(1.025f));
+            v_movimiento.Empujar(transform.up, 0.025f);
         }
         public override void Salir()
         {
@@ -221,7 +221,7 @@ public class Movimiento : MaquinaDeEstados
 
         public override void Entrar()
         {
-            v_movimiento.Empujar(0f);
+            v_movimiento.Empujar(-transform.up, 0f);
         }
 
         public override void Salir()

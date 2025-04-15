@@ -90,6 +90,10 @@ public abstract class MaquinaDeEstados : MonoBehaviour
         if (subEstadosPosibles == null)
             subEstadosPosibles = new List<EstadoBase>();
     }
+    private void LateUpdate()
+    {
+        ActualizarTransiciones();
+    }
 
     // ***********************( Metodos Funcionales )*********************** //
     public void Inicializar(GameObject goHost, List<EstadoBase> estadosPosibles)
@@ -203,7 +207,7 @@ public abstract class MaquinaDeEstados : MonoBehaviour
         {
             if (transicion.Key.Invoke())
             {
-                CambiarEstado(transicion.Value.MiIndex);
+                CambiarEstado(ObtenerIndiceEstado(transicion.Value));
                 break;
             }
         }
@@ -214,16 +218,62 @@ public abstract class MaquinaDeEstados : MonoBehaviour
         {
             if (transicion.Key.Invoke())
             {
-                CambiarEstado(transicion.Value.MiIndex);
+                CambiarEstado(ObtenerIndiceSubEstado(transicion.Value));
                 break;
             }
         }
     }
 
-    // ***********************( Unity )*********************** //
-    private void LateUpdate()
+    // ***********************( Mios )*********************** //
+    public int ObtenerIndice(EstadoBase estado)
     {
-        ActualizarTransiciones();
+        int indice = -1;
+        if (estado == null)
+        {
+            Debug.LogError("El estado proporcionado es null.");
+            return indice;
+        }
+
+        indice = ObtenerIndiceEstado(estado);
+        if (indice == -1)
+        {
+            indice = ObtenerIndiceSubEstado(estado);
+        }
+
+        return indice;
+    }
+
+    public int ObtenerIndiceEstado(EstadoBase estado)
+    {
+        if (estado == null)
+        {
+            Debug.LogError("El estado proporcionado es null.");
+            return -1;
+        }
+
+        int indice = estadosPosibles.IndexOf(estado);
+        if (indice == -1)
+        {
+            Debug.LogWarning($"El estado {estado.GetType().Name} no se encuentra en la lista de estados posibles.");
+        }
+
+        return indice;
+    }
+    public int ObtenerIndiceSubEstado(EstadoBase subEstado)
+    {
+        if (subEstado == null)
+        {
+            Debug.LogError("El subEstado proporcionado es null.");
+            return -1;
+        }
+
+        int indice = subEstadosPosibles.IndexOf(subEstado);
+        if (indice == -1)
+        {
+            Debug.LogWarning($"El subEstado {subEstado.GetType().Name} no se encuentra en la lista de subEstados posibles.");
+        }
+
+        return indice;
     }
 
     // ***********************( Constructores )*********************** //
@@ -232,7 +282,8 @@ public abstract class MaquinaDeEstados : MonoBehaviour
         var estado = _go.AddComponent<T>();
         estado.MaquinaEstados = this;
         estado.enabled = false;
-        estado.MiIndex = estadosPosibles.Count; // ¿?
+        //estado.MiIndex = ObtenerIndice(estado); // No funciona!
+        //Debug.Log($"Estado creado: {estado.GetType().Name}, Index: {estado.MiIndex}");
         estado.Init(dependencia);
         return estado;
     }

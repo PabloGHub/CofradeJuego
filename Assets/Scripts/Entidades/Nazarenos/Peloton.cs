@@ -146,7 +146,8 @@ public class Peloton : MonoBehaviour
                 return;
             }
 
-            if (v_nazareno.EstadoActual.MiIndex > 0) // Linea 143
+            Debug.Log($"Estado creado: {v_nazareno.EstadoActual.GetType().Name}, Index: {v_nazareno.ObtenerIndice(v_nazareno.EstadoActual)}");
+            if (v_nazareno.ObtenerIndice(v_nazareno.EstadoActual) > 0) 
                 return;
 
             // El integrante esta lejos del peloton.

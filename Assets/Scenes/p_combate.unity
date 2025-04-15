@@ -1497,10 +1497,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8013300468090150684, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
-      propertyPath: aceleracion
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 8226610799400092452, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
       propertyPath: m_Name
       value: nazarenoRaso_CanvasNO

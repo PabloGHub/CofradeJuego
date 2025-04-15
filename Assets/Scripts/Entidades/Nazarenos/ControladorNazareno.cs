@@ -1,5 +1,7 @@
 using NUnit.Framework;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ControladorNazareno : MaquinaDeEstados
@@ -26,6 +28,9 @@ public class ControladorNazareno : MaquinaDeEstados
     private Vector2 v_pos4_v2;
     private GameObject v_enemigoObjetivo_go;
     private Ataque v_ataque_s;
+    private CircleCollider2D v_circle_coll;
+    private List<GameObject> v_listaPorculeros;
+    private Dictionary<GameObject, Action> v_porculeroDelegados = new Dictionary<GameObject, Action>();
 
     // --- Maquina de Estados --- //
     public override EstadoBase Estado { get; set; }
@@ -70,72 +75,17 @@ public class ControladorNazareno : MaquinaDeEstados
         v_pos4_v2 = -transform.right;
         v_ataque_s = GetComponent<Ataque>();
         v_ataque_s.v_capaAtacado_LM = mascaraEnemigo;
+        v_circle_coll = gameObject.AddComponent<CircleCollider2D>();
+        v_circle_coll.isTrigger = true;
+        v_circle_coll.radius = RangoVisibliidad;
+        v_listaPorculeros = new List<GameObject>();
+        v_porculeroDelegados = new Dictionary<GameObject, Action>();
     }
 
     private void Update()
     {
         if (ControladorPPAL.v_pausado_b)
             return;
-        if (!EsDistancia)
-        {
-            RaycastHit2D[] hits = new RaycastHit2D[4];
-            hits[0] = Physics2D.Raycast
-            (
-                transform.position,
-                v_pos1_v2 += v_45_v2,
-                RangoVisibliidad,
-                mascaraEnemigo
-            );
-            hits[1] = Physics2D.Raycast
-            (
-                transform.position,
-                v_pos2_v2 += v_45_v2,
-                RangoVisibliidad,
-                mascaraEnemigo
-            );
-            hits[2] = Physics2D.Raycast
-            (
-                transform.position,
-                v_pos3_v2 += v_45_v2,
-                RangoVisibliidad,
-                mascaraEnemigo
-            );
-            hits[3] = Physics2D.Raycast
-            (
-                transform.position,
-                v_pos4_v2 += v_45_v2,
-                RangoVisibliidad,
-                mascaraEnemigo
-            );
-
-            RaycastHit2D hitMasCercano = default;
-            float distanciaMinima = float.MaxValue;
-
-            foreach (var hit in hits)
-            {
-                if (hit.collider != null)
-                {
-                    float distancia = Vector2.Distance(transform.position, hit.point);
-                    if (distancia < distanciaMinima)
-                    {
-                        distanciaMinima = distancia;
-                        hitMasCercano = hit;
-                    }
-                }
-            }
-
-            if (hitMasCercano.collider != null)
-            {
-                v_enemigoObjetivo_go = hitMasCercano.collider.gameObject;
-                CambiarEstado(1);
-            }
-            else
-            {
-                v_enemigoObjetivo_go = null;
-                CambiarEstado(0);
-            }
-        }
-
     }
 
 
@@ -148,12 +98,81 @@ public class ControladorNazareno : MaquinaDeEstados
                 actualizarObjetivo();
             }
         }
+        else if (collision.CompareTag("Porculeros"))
+        {
+            if (!v_listaPorculeros.Contains(collision.gameObject))
+            {
+                v_listaPorculeros.Add(collision.gameObject);
+                Salud v_salud_s = collision.gameObject.GetComponent<Salud>();
+                if (v_salud_s != null)
+                {
+                    Action v_delegado = () => eliminarPorculero(collision.gameObject);
+                    v_porculeroDelegados[collision.gameObject] = v_delegado;
+                    v_salud_s.OnMuerto += v_delegado;
+                }
+                    
+            }
+        }
+
+        comprobarPorculeros();
     }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Porculeros"))
+        {
+            if (v_listaPorculeros.Contains(collision.gameObject))
+            {
+                v_listaPorculeros.Remove(collision.gameObject);
+                Salud v_salud_s = collision.gameObject.GetComponent<Salud>();
+                if (v_salud_s != null && v_porculeroDelegados.ContainsKey(collision.gameObject))
+                {
+                    v_salud_s.OnMuerto -= v_porculeroDelegados[collision.gameObject];
+                    v_porculeroDelegados.Remove(collision.gameObject);
+                }
+            }
+        }
+
+        comprobarPorculeros();
+    }
+
+
 
     // ***********************( Funciones Nuestras )*********************** //
     void extracion()
     {
         // TODO: cuando llega a carrera destuir o ocular al nazareno.
+    }
+
+    private void eliminarPorculero(GameObject v_elPorculero_go)
+    {
+        if (v_listaPorculeros.Contains(v_elPorculero_go))
+        {
+            v_listaPorculeros.Remove(v_elPorculero_go);
+        }
+    }
+
+    void comprobarPorculeros()
+    {
+        if (v_listaPorculeros.Count <= 0)
+        {
+            CambiarEstado(0);
+            v_enemigoObjetivo_go = null;
+            return;
+        }
+
+        float _distanciaMinima = float.MaxValue;
+        foreach (GameObject v_porculero_go in v_listaPorculeros)
+        {
+            float _distancia = Vector3.Distance(transform.position, v_porculero_go.transform.position);
+            if (_distancia < _distanciaMinima)
+            {
+                _distanciaMinima = _distancia;
+                v_enemigoObjetivo_go = v_porculero_go;
+            }
+        }
+
+        if (v_enemigoObjetivo_go != null)
+            CambiarEstado(1);
     }
 
     private void actualizarObjetivo()
@@ -256,6 +275,7 @@ public class ControladorNazareno : MaquinaDeEstados
     }
 
 
+    // ************ Estado de ATACAR ************ //
     // --- ATACANDO --- //
     class EstadoNada : EstadoBase
     {
@@ -290,41 +310,30 @@ public class ControladorNazareno : MaquinaDeEstados
 
         public override void MiUpdate()
         {
-            v_controladorNazareno_s.v_objetivo_Transform = v_controladorNazareno_s.v_enemigoObjetivo_go.transform;
+            if (v_controladorNazareno_s.v_enemigoObjetivo_go == null)
+            {
+                Debug.LogWarning("No hay enemigo objetivo.");
+                return;
+            }
 
-            v_controladorNazareno_s.v_ataque_s.v_direcion_f = v_controladorNazareno_s.v_objetivo_Transform.position.x;
+            Transform objetivoTransform = v_controladorNazareno_s.v_enemigoObjetivo_go.transform;
+            if (objetivoTransform == null)
+            {
+                Debug.LogWarning("El Transform del enemigo objetivo es null.");
+                return;
+            }
+
+            v_controladorNazareno_s.v_objetivo_Transform = objetivoTransform;
+
+
+            Vector3 direccion = (objetivoTransform.position - v_controladorNazareno_s.transform.position).normalized;
+
+            v_controladorNazareno_s.v_ataque_s.v_direcion_f = direccion.x; 
+
             v_controladorNazareno_s.v_ataque_s.Atacar();
         }
     }
-    private void OnDrawGizmos()
-    {
-        if (!Application.isPlaying)
-            return;
 
-        // Configurar el color de los Gizmos
-        Gizmos.color = Color.red;
-
-        // Dibujar los raycasts
-        Vector3 origen = transform.position;
-
-        // Raycast 1 (hacia arriba)
-        Vector3 direccion1 = v_pos1_v2.normalized * RangoVisibliidad;
-        Gizmos.DrawLine(origen, origen + direccion1);
-
-        // Raycast 2 (hacia la derecha)
-        Vector3 direccion2 = v_pos2_v2.normalized * RangoVisibliidad;
-        Gizmos.DrawLine(origen, origen + direccion2);
-
-        // Raycast 3 (hacia abajo)
-        Vector3 direccion3 = v_pos3_v2.normalized * RangoVisibliidad;
-        Gizmos.DrawLine(origen, origen + direccion3);
-
-        // Raycast 4 (hacia la izquierda)
-        Vector3 direccion4 = v_pos4_v2.normalized * RangoVisibliidad;
-        Gizmos.DrawLine(origen, origen + direccion4);
-    }
-
-    // ************ Estado de Movimiento ************ //
 }
 
 /*

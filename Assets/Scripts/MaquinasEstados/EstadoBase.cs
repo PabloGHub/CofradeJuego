@@ -7,7 +7,7 @@ public abstract class EstadoBase : MonoBehaviour
 {
     // ***********************( Variables/Declaraciones )*********************** //
     public MaquinaDeEstados MaquinaEstados { get; set; }
-    public int MiIndex { get; set; }
+    //public int MiIndex { get; set; }
     //private Component _esteComponente { get; set; }
 
     // ***********************( Metodos de Control )*********************** //
