@@ -212,81 +212,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &7956990287543006700
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7435516504038450453}
-  - component: {fileID: 8870938825315661999}
-  - component: {fileID: 391852061395509902}
-  m_Layer: 10
-  m_Name: movimiento
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7435516504038450453
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7956990287543006700}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7242945653419662654}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!195 &8870938825315661999
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7956990287543006700}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!114 &391852061395509902
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7956990287543006700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7aa48fbb2b7e1f4c89a3349b01f8fcc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _go: {fileID: 0}
-  aceleracion: 100
-  fuerzaRotacion: 10
-  v_esperando_b: 0
-  v_exodia_b: 0
-  QuedarteQuieto: 0
-  v_objetivo_t: {fileID: 0}
-  Direcion: 4
 --- !u!1 &8226610799400092452
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,6 +228,7 @@ GameObject:
   - component: {fileID: 8978815985563216395}
   - component: {fileID: 7507113947460566686}
   - component: {fileID: 8487932697863468914}
+  - component: {fileID: 4060509918818848312}
   m_Layer: 10
   m_Name: nazarenoRaso_CanvasNO
   m_TagString: Nazarenos
@@ -324,7 +250,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2211646944655044845}
-  - {fileID: 7435516504038450453}
   - {fileID: 6919321577517770793}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -390,9 +315,9 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8226610799400092452}
-  m_Enabled: 0
+  m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.4
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -401,8 +326,8 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 0
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
+  m_Height: 0.4
+  m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!50 &1838729931238293569
@@ -528,3 +453,23 @@ MonoBehaviour:
   fuerzaEmpuje: 1
   explosion: 0
   prefabExplosion: {fileID: 0}
+--- !u!114 &4060509918818848312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8226610799400092452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7aa48fbb2b7e1f4c89a3349b01f8fcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _go: {fileID: 0}
+  aceleracion: 10
+  fuerzaRotacion: 5
+  v_esperando_b: 0
+  v_exodia_b: 0
+  QuedarteQuieto: 0
+  v_objetivo_t: {fileID: 0}
+  Direcion: 4

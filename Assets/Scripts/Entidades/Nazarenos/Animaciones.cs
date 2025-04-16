@@ -32,13 +32,9 @@ public class Animaciones : MaquinaDeEstados
             CrearEstado<EstadoAbajo, Animaciones>(this),
             CrearEstado<EstadoLateral, Animaciones>(this)
         };
-    }
-
-    private void Start()
-    {
 
         // Movimiento del padre
-        _movimiento = GetComponentInParent<ControladorNazareno>().v_movimiento;
+        _movimiento = GetComponentInParent<Movimiento>();
 
         // SpriteRenderer
         Sprite = GetComponent<SpriteRenderer>();

@@ -23,7 +23,6 @@ public class Movimiento : MaquinaDeEstados
     public Transform v_objetivo_t = null;
     private NavMeshAgent v_agente_NavMeshAgent;
     private Rigidbody2D v_rb_rb2D;
-    private GameObject _padre_go;
 
     // --- Direcion --- //
     public enum Direcion_e
@@ -41,24 +40,18 @@ public class Movimiento : MaquinaDeEstados
     public override EstadoBase SubEstado { get; set; }
 
     // ***********************( Funciones Unity )*********************** //
-    private void Awake()
+    private void Start()
     {
-        _padre_go = gameObject.transform.parent.gameObject;
-        Direcion = f_obtenerDirecion_e(_padre_go.transform);
+        Direcion = f_obtenerDirecion_e(transform);
 
         v_aceleracionExodia_f = aceleracion + aceleracion;
 
-        
-        v_agente_NavMeshAgent = GetComponent<NavMeshAgent>();
         if (v_agente_NavMeshAgent == null)
-            Debug.LogError("El Movimiento Nazareno no tiene un componente NavMeshAgent.");
-        
-        v_rb_rb2D = GetComponentInParent<Rigidbody2D>();
+            v_agente_NavMeshAgent = GetComponent<NavMeshAgent>();
+
         if (v_rb_rb2D == null)
-            Debug.LogError("El Nazareno no tiene RigidBody2D.");
+            v_rb_rb2D = GetComponent<Rigidbody2D>();
 
-
-        // Maquina de Estados
         Inicializar(gameObject);
         estadosPosibles = new List<EstadoBase>
         {
@@ -79,13 +72,10 @@ public class Movimiento : MaquinaDeEstados
 
     private void FixedUpdate()
     {
-        // No rotar este objeto.
-        transform.rotation = Quaternion.identity;
-
         ActualizarTransiciones();
         establecerDestino();
 
-        v_agente_NavMeshAgent.nextPosition = _padre_go.transform.position;
+        v_agente_NavMeshAgent.nextPosition = transform.position;
     }
 
     private void LateUpdate()
@@ -93,7 +83,7 @@ public class Movimiento : MaquinaDeEstados
         ActualizarTransiciones();
         establecerDestino();
 
-        v_agente_NavMeshAgent.nextPosition = _padre_go.transform.position;
+        v_agente_NavMeshAgent.nextPosition = transform.position;
     }
 
     // ***********************( Funciones Nuestras )*********************** //
@@ -124,13 +114,13 @@ public class Movimiento : MaquinaDeEstados
 
         if (v_agente_NavMeshAgent != null)
         {
-            v_agente_NavMeshAgent.nextPosition = _padre_go.transform.position;
+            v_agente_NavMeshAgent.nextPosition = transform.position;
 
             if (!QuedarteQuieto && v_objetivo_t != null)
                 v_agente_NavMeshAgent.SetDestination(v_objetivo_t.position);
 
             if (v_agente_NavMeshAgent != null)
-                v_agente_NavMeshAgent.nextPosition = _padre_go.transform.position;
+                v_agente_NavMeshAgent.nextPosition = transform.position;
         }
     }
 
@@ -193,7 +183,7 @@ public class Movimiento : MaquinaDeEstados
         if (v_objetivo_t == null)
             return;
 
-        float v_anguloActual_f = Mathf.Atan2(_padre_go.transform.up.y, _padre_go.transform.up.x) * Mathf.Rad2Deg;
+        float v_anguloActual_f = Mathf.Atan2(transform.up.y, transform.up.x) * Mathf.Rad2Deg;
         float v_anguloObjetivo_f = Mathf.Atan2(v_direccion_v3.y, v_direccion_v3.x) * Mathf.Rad2Deg;
 
         float v_diferenciaAngulo_f = Mathf.DeltaAngle(v_anguloActual_f, v_anguloObjetivo_f);
@@ -213,7 +203,7 @@ public class Movimiento : MaquinaDeEstados
 
         v_rb_rb2D.AddTorque(v_torque_f);
 
-        Direcion = f_obtenerDirecion_e(_padre_go.transform);
+        Direcion = f_obtenerDirecion_e(transform);
     }
 
     public void Avanzar()
@@ -224,16 +214,16 @@ public class Movimiento : MaquinaDeEstados
         if (v_objetivo_t == null)
             return;
 
-        RaycastHit2D v_hit = Physics2D.Raycast(_padre_go.transform.position, _padre_go.transform.up, 1.15f, 12);
+        RaycastHit2D v_hit = Physics2D.Raycast(transform.position, transform.up, 1.15f, 12);
         if (!v_hit)
         {
             if (!v_exodia_b)
-                v_rb_rb2D.AddForce(_padre_go.transform.up * aceleracion * Time.fixedDeltaTime);
+                v_rb_rb2D.AddForce(transform.up * aceleracion * Time.fixedDeltaTime);
             else
-                v_rb_rb2D.AddForce(_padre_go.transform.up * v_aceleracionExodia_f * Time.fixedDeltaTime);
+                v_rb_rb2D.AddForce(transform.up * v_aceleracionExodia_f * Time.fixedDeltaTime);
         }
 
-        v_agente_NavMeshAgent.nextPosition = _padre_go.transform.position;
+        v_agente_NavMeshAgent.nextPosition = transform.position;
     }
 
     
@@ -301,7 +291,7 @@ public class Movimiento : MaquinaDeEstados
 
         public override void Entrar()
         {
-            v_movimiento.Empujar(0f, -v_movimiento._padre_go.transform.up);
+            v_movimiento.Empujar(0f, -transform.up);
         }
         public override void Salir()
         { }

@@ -47,22 +47,12 @@ public class ControladorNazareno : MaquinaDeEstados
         v_circle_coll.radius = RangoVisibliidad;
         v_listaPorculeros = new List<GameObject>();
         v_porculeroDelegados = new Dictionary<GameObject, Action>();
+    }
 
-
-        // Movimiento // Animaciones
-        // Componentes de los hijos
-        for (int i = 0; i <= transform.childCount; i++)
-        {
-            Movimiento _movi = transform.GetChild(i).GetComponent<Movimiento>();
-            if (_movi != null)
-                v_movimiento = _movi;
-
-            Animaciones _anim = transform.GetChild(i).GetComponent<Animaciones>();
-            if (_anim != null)
-                _animaciones_s = _anim;
-        }
-        if (_animaciones_s == null)
-            Debug.LogError("El Nazareno no tiene un componente Animaciones.");
+    private void Start()
+    {
+        // Movimiento
+        v_movimiento = GetComponent<Movimiento>();
         if (v_movimiento == null)
         {
             Debug.LogError("El Nazareno no tiene un componente Movimiento.");
@@ -71,11 +61,7 @@ public class ControladorNazareno : MaquinaDeEstados
         v_puntoObjetivo_t = Navegacion.nav.trayectoria[v_objetivoIndex_i];
         v_objetivo_t = v_puntoObjetivo_t;
         v_movimiento.v_objetivo_t = v_objetivo_t; // Puede que si esta atacando, gire raro.
-    }
 
- 
-    private void Start()
-    {
         // Inicializar Maquina de Estados
         Inicializar(gameObject);
         estadosPosibles = new List<EstadoBase>
@@ -92,10 +78,53 @@ public class ControladorNazareno : MaquinaDeEstados
         };
         CambiarEstado(0);
         CambiarSubEstado(3);
+
+        // Animaciones
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            Debug.Log("i: " + i);
+            Animaciones _anim = transform.GetChild(i).GetComponent<Animaciones>();
+            if (_anim != null)
+                _animaciones_s = _anim;
+        }
+        if (_animaciones_s == null)
+            Debug.LogError("El Nazareno no tiene un componente Animaciones.");
+        
     }
 
     private void FixedUpdate()
     {
+        switch (v_movimiento.Direcion)
+        {
+            case Movimiento.Direcion_e.ARRIBA:
+                _animaciones_s.Sprite.flipX = false;
+                _animaciones_s.CambiarEstado(0);
+            break;
+
+
+            case Movimiento.Direcion_e.DERECHA:
+                _animaciones_s.Sprite.flipX = false;
+                _animaciones_s.CambiarEstado(3);
+            break;
+
+
+            case Movimiento.Direcion_e.IZQUIERDA:
+                _animaciones_s.CambiarEstado(3);
+                _animaciones_s.Sprite.flipX = true;
+            break;
+
+
+            case Movimiento.Direcion_e.ABAJO:
+                _animaciones_s.Sprite.flipX = false;
+                _animaciones_s.CambiarEstado(1);
+            break;
+
+            case Movimiento.Direcion_e.NULO:
+                _animaciones_s.Sprite.flipX = false;
+                _animaciones_s.CambiarEstado(1);
+            break;
+        }
+
         if (ControladorPPAL.v_pausado_b)
             return;
 
