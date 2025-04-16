@@ -140,6 +140,11 @@ public abstract class MaquinaDeEstados : MonoBehaviour
     public void CambiarEstado(int nuevoEstado)
     {
         // TODO: comprobar si el int es mayor al tamaño de la lista.
+        /*
+         A veces pasa:
+            ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+            Parameter name: index
+         */
         EstadoBase _posibleNovoEstado = estadosPosibles[nuevoEstado];
         if (_posibleNovoEstado == null)
         {

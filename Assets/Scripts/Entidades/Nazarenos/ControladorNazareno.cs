@@ -89,42 +89,10 @@ public class ControladorNazareno : MaquinaDeEstados
         }
         if (_animaciones_s == null)
             Debug.LogError("El Nazareno no tiene un componente Animaciones.");
-        
     }
 
     private void FixedUpdate()
     {
-        switch (v_movimiento.Direcion)
-        {
-            case Movimiento.Direcion_e.ARRIBA:
-                _animaciones_s.Sprite.flipX = false;
-                _animaciones_s.CambiarEstado(0);
-            break;
-
-
-            case Movimiento.Direcion_e.DERECHA:
-                _animaciones_s.Sprite.flipX = false;
-                _animaciones_s.CambiarEstado(3);
-            break;
-
-
-            case Movimiento.Direcion_e.IZQUIERDA:
-                _animaciones_s.CambiarEstado(3);
-                _animaciones_s.Sprite.flipX = true;
-            break;
-
-
-            case Movimiento.Direcion_e.ABAJO:
-                _animaciones_s.Sprite.flipX = false;
-                _animaciones_s.CambiarEstado(1);
-            break;
-
-            case Movimiento.Direcion_e.NULO:
-                _animaciones_s.Sprite.flipX = false;
-                _animaciones_s.CambiarEstado(1);
-            break;
-        }
-
         if (ControladorPPAL.v_pausado_b)
             return;
 

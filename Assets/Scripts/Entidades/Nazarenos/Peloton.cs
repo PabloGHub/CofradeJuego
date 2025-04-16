@@ -74,6 +74,7 @@ public class Peloton : MonoBehaviour
 
         foreach (Transform v_integrante in integrantes)
         {
+            // TODO: Comprobar si no esta asignado.
             ControladorNazareno v_nazareno = v_integrante.GetComponent<ControladorNazareno>();
             if (v_nazareno == null) continue;
 

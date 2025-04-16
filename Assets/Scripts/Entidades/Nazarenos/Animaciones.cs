@@ -88,6 +88,7 @@ public class Animaciones : MaquinaDeEstados
 
         public override void Entrar()
         {
+            Debug.Log("Entrando en el estado Arriba");
             _animaciones._animator.SetBool("Subiendo", true);
             _animaciones._animator.SetBool("Bajando", false);
             _animaciones._animator.SetBool("Lateralmente", false);
@@ -109,6 +110,7 @@ public class Animaciones : MaquinaDeEstados
 
         public override void Entrar()
         {
+            Debug.Log("Entrando en el estado Abajo");
             _animaciones._animator.SetBool("Subiendo", false);
             _animaciones._animator.SetBool("Bajando", true);
             _animaciones._animator.SetBool("Lateralmente", false);
@@ -130,6 +132,7 @@ public class Animaciones : MaquinaDeEstados
 
         public override void Entrar()
         {
+            Debug.Log("Entrando en el estado Laterla");
             _animaciones._animator.SetBool("Subiendo", false);
             _animaciones._animator.SetBool("Bajando", false);
             _animaciones._animator.SetBool("Lateralmente", true);
