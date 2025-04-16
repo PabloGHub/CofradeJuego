@@ -57,7 +57,7 @@ public class ControladorNazareno : MaquinaDeEstados
         }
         v_puntoObjetivo_t = Navegacion.nav.trayectoria[v_objetivoIndex_i];
         v_objetivo_t = v_puntoObjetivo_t;
-        v_movimiento.v_objetivo_t = v_objetivo_t;
+        v_movimiento.v_objetivo_t = v_objetivo_t; // Puede que si esta atacando, gire raro.
 
         // Inicializar Maquina de Estados
         Inicializar(gameObject);
@@ -95,7 +95,7 @@ public class ControladorNazareno : MaquinaDeEstados
 
             if (Vector3.Distance(transform.position, v_movimiento.v_objetivo_t.position) < cercaniaAlObjetivo)
             {
-                Debug.Log("Llegamos al punto de control: " + v_puntoObjetivo_t.name);
+                //Debug.Log("Llegamos al punto de control: " + v_puntoObjetivo_t.name);
                 actualizarPunto();
             }
         }
@@ -126,7 +126,7 @@ public class ControladorNazareno : MaquinaDeEstados
 
             if (Vector3.Distance(transform.position, v_movimiento.v_objetivo_t.position) < cercaniaAlObjetivo)
             {
-                Debug.Log("Llegamos al punto de control: " + v_puntoObjetivo_t.name);
+                //Debug.Log("Llegamos al punto de control: " + v_puntoObjetivo_t.name);
                 actualizarPunto();
             }
         }
@@ -215,7 +215,7 @@ public class ControladorNazareno : MaquinaDeEstados
 
         v_puntoObjetivo_t = Navegacion.nav.trayectoria[v_objetivoIndex_i];
         v_objetivo_t = v_puntoObjetivo_t;
-        v_movimiento.v_objetivo_t = v_objetivo_t;
+        v_movimiento.v_objetivo_t = v_objetivo_t; // Puede que si esta atacando, gire raro.
     }
 
     // ***********************( Estados de la MAQUINA DE ESTADOS )*********************** //
@@ -343,9 +343,7 @@ public class ControladorNazareno : MaquinaDeEstados
 
 
             Vector3 _direccion_v3 = (_objetivoTransform_t.position - v_controladorNazareno_s.transform.position).normalized;
-
             v_controladorNazareno_s.v_ataque_s._direcion_v2 = _direccion_v3; 
-
             v_controladorNazareno_s.v_ataque_s.Atacar();
         }
     }

@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 5170742584716279297}
   - component: {fileID: 8309723369631539908}
   - component: {fileID: 1762534043936020592}
+  - component: {fileID: 1294876831726405668}
   m_Layer: 11
   m_Name: porculero
   m_TagString: Porculeros
@@ -300,7 +301,7 @@ MonoBehaviour:
   danno: 10
   alcance: 1
   tiempoRecarga: 1
-  fuerzaEmpuje: 5
+  fuerzaEmpuje: 1
   explosion: 0
   prefabExplosion: {fileID: 0}
 --- !u!114 &1762534043936020592
@@ -321,3 +322,22 @@ MonoBehaviour:
   tiempoInmunidad: 0
   prefabsMorir: []
   lifeBar: {fileID: 0}
+--- !u!114 &1294876831726405668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9219646106814485027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4d2e1dd50e60ef49a02bf44a39c1b89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _go: {fileID: 0}
+  Movimiento_s: {fileID: 0}
+  _mascaraObjetivo:
+    serializedVersion: 2
+    m_Bits: 1024
+  EsDistancia: 0
+  RangoVisibliidad: 2

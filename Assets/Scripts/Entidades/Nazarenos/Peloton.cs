@@ -65,6 +65,7 @@ public class Peloton : MonoBehaviour
 
     /// <summary>
     /// Gestiona el estado de los integrantes del peloton.
+    /// Mucho sufrimiento y dolor para tan pocas palabras.
     /// </summary>
     private void gestionarIntegrantes()
     {

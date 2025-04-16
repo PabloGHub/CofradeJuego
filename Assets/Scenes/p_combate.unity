@@ -275,6 +275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f5a14c50115d144bb528de97a84baf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PausaBotonTexto: {fileID: 0}
 --- !u!1001 &345867852
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -325,7 +326,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5170742584716279297, guid: eaf499ba2aef47c40bffd0980a50feed, type: 3}
       propertyPath: QuedarteQuieto
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9219646106814485027, guid: eaf499ba2aef47c40bffd0980a50feed, type: 3}
       propertyPath: m_Name
@@ -470,7 +471,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5170742584716279297, guid: eaf499ba2aef47c40bffd0980a50feed, type: 3}
       propertyPath: QuedarteQuieto
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9219646106814485027, guid: eaf499ba2aef47c40bffd0980a50feed, type: 3}
       propertyPath: m_Name
@@ -535,7 +536,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5170742584716279297, guid: eaf499ba2aef47c40bffd0980a50feed, type: 3}
       propertyPath: QuedarteQuieto
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9219646106814485027, guid: eaf499ba2aef47c40bffd0980a50feed, type: 3}
       propertyPath: m_Name
@@ -888,7 +889,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5170742584716279297, guid: eaf499ba2aef47c40bffd0980a50feed, type: 3}
       propertyPath: QuedarteQuieto
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9219646106814485027, guid: eaf499ba2aef47c40bffd0980a50feed, type: 3}
       propertyPath: m_Name
@@ -1434,7 +1435,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5170742584716279297, guid: eaf499ba2aef47c40bffd0980a50feed, type: 3}
       propertyPath: QuedarteQuieto
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9219646106814485027, guid: eaf499ba2aef47c40bffd0980a50feed, type: 3}
       propertyPath: m_Name

@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 8487932697863468914}
   m_Layer: 10
   m_Name: nazarenoRaso_CanvasNO
-  m_TagString: Untagged
+  m_TagString: Nazarenos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

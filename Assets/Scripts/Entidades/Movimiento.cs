@@ -20,7 +20,7 @@ public class Movimiento : MaquinaDeEstados
 
     // --- Componentes --- //
     [HideInInspector] 
-    public Transform v_objetivo_t;
+    public Transform v_objetivo_t = null;
     private NavMeshAgent v_agente_NavMeshAgent;
     private Rigidbody2D v_rb_rb2D;
 
@@ -59,24 +59,51 @@ public class Movimiento : MaquinaDeEstados
 
     private void FixedUpdate()
     {
+        ActualizarTransiciones();
+        establecerDestino();
+
         v_agente_NavMeshAgent.nextPosition = transform.position;
     }
 
-    private void Update()
+    private void LateUpdate()
+    {
+        ActualizarTransiciones();
+        establecerDestino();
+
+        v_agente_NavMeshAgent.nextPosition = transform.position;
+    }
+
+    // ***********************( Funciones Nuestras )*********************** //
+    protected void establecerDestino()
     {
         if (ControladorPPAL.v_pausado_b)
             return;
 
-        //if (v_esperando_b && !QuedarteQuieto)
-        //    CambiarEstado(1);
-        //else
-        //    CambiarEstado(0);
+        if (QuedarteQuieto)
+            v_objetivo_t = null;
+
+        if (v_objetivo_t == null)
+        {
+            if (v_agente_NavMeshAgent != null)
+            {
+                v_agente_NavMeshAgent.isStopped = true;
+                v_agente_NavMeshAgent.ResetPath();
+            }
+        }
+        else
+        {
+            if (v_agente_NavMeshAgent != null)
+            {
+                v_agente_NavMeshAgent.isStopped = false;
+                v_agente_NavMeshAgent.SetDestination(v_objetivo_t.position);
+            }
+        }
 
         if (v_agente_NavMeshAgent != null)
         {
             v_agente_NavMeshAgent.nextPosition = transform.position;
 
-            if (!QuedarteQuieto)
+            if (!QuedarteQuieto && v_objetivo_t != null)
                 v_agente_NavMeshAgent.SetDestination(v_objetivo_t.position);
 
             if (v_agente_NavMeshAgent != null)
@@ -84,21 +111,29 @@ public class Movimiento : MaquinaDeEstados
         }
     }
 
-    // ***********************( Funciones Nuestras )*********************** //
     protected void irAlDestino()
     {
-        dirigirirAlDestino();
-        Avanzar();
+        if (v_objetivo_t != null)
+        {
+            dirigirirAlDestino();
+            Avanzar();
+        }
     }
 
     protected void dirigirirAlDestino()
     {
-        Vector3 v_direccion_v3 = v_agente_NavMeshAgent.desiredVelocity.normalized;
-        Rotar(v_direccion_v3);
+        if (v_objetivo_t != null)
+        {
+            Vector3 v_direccion_v3 = v_agente_NavMeshAgent.desiredVelocity.normalized;
+            Rotar(v_direccion_v3);
+        }
     }
 
     protected void RedirigirHaciaNavMesh()
     {
+        if (v_objetivo_t == null)
+            return;
+
         NavMeshHit hit;
         if (NavMesh.SamplePosition(transform.position, out hit, 5f, NavMesh.AllAreas))
         {
@@ -117,6 +152,9 @@ public class Movimiento : MaquinaDeEstados
     public void Rotar(Vector3 v_direccion_v3)
     {
         if (ControladorPPAL.v_pausado_b)
+            return;
+
+        if (v_objetivo_t == null)
             return;
 
         float v_anguloActual_f = Mathf.Atan2(transform.up.y, transform.up.x) * Mathf.Rad2Deg;
@@ -146,9 +184,11 @@ public class Movimiento : MaquinaDeEstados
         if (ControladorPPAL.v_pausado_b)
             return;
 
-        // TODO: Que no acelere si tiene una pared delante.
-        RaycastHit2D v_hit = Physics2D.Raycast(transform.position, transform.up, 1.15f);
-        if (true)
+        if (v_objetivo_t == null)
+            return;
+
+        RaycastHit2D v_hit = Physics2D.Raycast(transform.position, transform.up, 1.15f, 12);
+        if (!v_hit)
         {
             if (!v_exodia_b)
                 v_rb_rb2D.AddForce(transform.up * aceleracion * Time.fixedDeltaTime);
@@ -226,11 +266,8 @@ public class Movimiento : MaquinaDeEstados
         {
             v_movimiento.Empujar(0f, -transform.up);
         }
-
         public override void Salir()
-        {
-
-        }
+        { }
 
         public override void MiFixedUpdate()
         {
