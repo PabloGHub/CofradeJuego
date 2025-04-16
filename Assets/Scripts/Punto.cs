@@ -10,6 +10,8 @@ public class Punto : MonoBehaviour
 
     public float DistanciaAlSiguiente_f = 0f;
 
+    public int Indice_i = -1;
+
     // ***********************( Funciones Unity )*********************** //
     // ***********************( Funciones Nuestras )*********************** //
 }

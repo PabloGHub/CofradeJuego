@@ -20,7 +20,7 @@ public class Movimiento : MaquinaDeEstados
 
     // --- Componentes --- //
     [HideInInspector] 
-    public Transform v_objetivo_Transform;
+    public Transform v_objetivo_t;
     private NavMeshAgent v_agente_NavMeshAgent;
     private Rigidbody2D v_rb_rb2D;
 
@@ -77,7 +77,7 @@ public class Movimiento : MaquinaDeEstados
             v_agente_NavMeshAgent.nextPosition = transform.position;
 
             if (!QuedarteQuieto)
-                v_agente_NavMeshAgent.SetDestination(v_objetivo_Transform.position);
+                v_agente_NavMeshAgent.SetDestination(v_objetivo_t.position);
 
             if (v_agente_NavMeshAgent != null)
                 v_agente_NavMeshAgent.nextPosition = transform.position;

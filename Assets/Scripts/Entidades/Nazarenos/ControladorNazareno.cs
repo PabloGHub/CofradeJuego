@@ -7,10 +7,11 @@ using UnityEngine;
 public class ControladorNazareno : MaquinaDeEstados
 {
     // ***********************( Declaraciones )*********************** //
-    private float cercaniaAlObjetivo = 2.5f;
+    private float cercaniaAlObjetivo = 3f;
     public int v_objetivoIndex_i = 0;
     [HideInInspector] public Movimiento v_movimiento;
-    [HideInInspector] public Transform v_objetivo_Transform;
+    [HideInInspector] public Transform v_objetivo_t;
+    [HideInInspector] public Transform v_puntoObjetivo_t;
 
     // Datos
     public string nombre;
@@ -21,7 +22,7 @@ public class ControladorNazareno : MaquinaDeEstados
     public float RangoVisibliidad;
 
     // Ataque
-    private GameObject v_enemigoObjetivo_go;
+    private GameObject _enemigoObjetivo_go;
     private Ataque v_ataque_s;
     private CircleCollider2D v_circle_coll;
     private List<GameObject> v_listaPorculeros;
@@ -32,6 +33,19 @@ public class ControladorNazareno : MaquinaDeEstados
     public override EstadoBase SubEstado { get; set; }
 
     // ***********************( Funciones Unity )*********************** //
+    private void Awake()
+    {
+        // Ataque
+        RangoVisibliidad += 1;
+        v_ataque_s = GetComponent<Ataque>();
+        v_ataque_s.v_capaAtacado_LM = mascaraEnemigo;
+        v_circle_coll = gameObject.AddComponent<CircleCollider2D>();
+        v_circle_coll.isTrigger = true;
+        v_circle_coll.radius = RangoVisibliidad;
+        v_listaPorculeros = new List<GameObject>();
+        v_porculeroDelegados = new Dictionary<GameObject, Action>();
+    }
+
     private void Start()
     {
         // Movimiento
@@ -41,9 +55,9 @@ public class ControladorNazareno : MaquinaDeEstados
             Debug.LogError("El Nazareno no tiene un componente Movimiento.");
             return;
         }
-        v_objetivo_Transform = Navegacion.nav.trayectoria[v_objetivoIndex_i];
-        v_movimiento.v_objetivo_Transform = v_objetivo_Transform;
-
+        v_puntoObjetivo_t = Navegacion.nav.trayectoria[v_objetivoIndex_i];
+        v_objetivo_t = v_puntoObjetivo_t;
+        v_movimiento.v_objetivo_t = v_objetivo_t;
 
         // Inicializar Maquina de Estados
         Inicializar(gameObject);
@@ -61,32 +75,28 @@ public class ControladorNazareno : MaquinaDeEstados
         };
         CambiarEstado(0);
         CambiarSubEstado(3);
-
-        // Ataque
-        RangoVisibliidad += 1;
-        v_ataque_s = GetComponent<Ataque>();
-        v_ataque_s.v_capaAtacado_LM = mascaraEnemigo;
-        v_circle_coll = gameObject.AddComponent<CircleCollider2D>();
-        v_circle_coll.isTrigger = true;
-        v_circle_coll.radius = RangoVisibliidad;
-        v_listaPorculeros = new List<GameObject>();
-        v_porculeroDelegados = new Dictionary<GameObject, Action>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (ControladorPPAL.v_pausado_b)
             return;
+
+        v_movimiento.v_objetivo_t = v_objetivo_t;
     }
 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("puntoControl") && collision.gameObject == v_objetivo_Transform.gameObject)
+        if (collision.CompareTag("puntoControl") && collision.gameObject == v_puntoObjetivo_t.gameObject)
         {
-            if (Vector3.Distance(transform.position, v_movimiento.v_objetivo_Transform.position) < cercaniaAlObjetivo)
+            if (v_movimiento.v_objetivo_t == null)
+                return;
+
+            if (Vector3.Distance(transform.position, v_movimiento.v_objetivo_t.position) < cercaniaAlObjetivo)
             {
-                actualizarObjetivo();
+                Debug.Log("Llegamos al punto de control: " + v_puntoObjetivo_t.name);
+                actualizarPunto();
             }
         }
         else if (collision.CompareTag("Porculeros"))
@@ -109,7 +119,18 @@ public class ControladorNazareno : MaquinaDeEstados
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Porculeros"))
+        if (collision.CompareTag("puntoControl") && collision.gameObject == v_puntoObjetivo_t.gameObject)
+        {
+            if (v_movimiento.v_objetivo_t == null)
+                return;
+
+            if (Vector3.Distance(transform.position, v_movimiento.v_objetivo_t.position) < cercaniaAlObjetivo)
+            {
+                Debug.Log("Llegamos al punto de control: " + v_puntoObjetivo_t.name);
+                actualizarPunto();
+            }
+        }
+        else if (collision.CompareTag("Porculeros"))
         {
             if (v_listaPorculeros.Contains(collision.gameObject))
             {
@@ -147,7 +168,8 @@ public class ControladorNazareno : MaquinaDeEstados
         if (v_listaPorculeros.Count <= 0)
         {
             CambiarEstado(0);
-            v_enemigoObjetivo_go = null;
+            _enemigoObjetivo_go = null;
+            v_objetivo_t = v_puntoObjetivo_t;
             return;
         }
 
@@ -158,15 +180,15 @@ public class ControladorNazareno : MaquinaDeEstados
             if (_distancia < _distanciaMinima)
             {
                 _distanciaMinima = _distancia;
-                v_enemigoObjetivo_go = v_porculero_go;
+                _enemigoObjetivo_go = v_porculero_go;
             }
         }
 
-        if (v_enemigoObjetivo_go != null)
+        if (_enemigoObjetivo_go != null)
             CambiarEstado(1);
     }
 
-    private void actualizarObjetivo()
+    private void actualizarPunto()
     {
         v_objetivoIndex_i++;
 
@@ -191,8 +213,9 @@ public class ControladorNazareno : MaquinaDeEstados
             }
         }
 
-        v_objetivo_Transform = Navegacion.nav.trayectoria[v_objetivoIndex_i];
-        v_movimiento.v_objetivo_Transform = v_objetivo_Transform;
+        v_puntoObjetivo_t = Navegacion.nav.trayectoria[v_objetivoIndex_i];
+        v_objetivo_t = v_puntoObjetivo_t;
+        v_movimiento.v_objetivo_t = v_objetivo_t;
     }
 
     // ***********************( Estados de la MAQUINA DE ESTADOS )*********************** //
@@ -303,25 +326,25 @@ public class ControladorNazareno : MaquinaDeEstados
 
         public override void MiUpdate()
         {
-            if (v_controladorNazareno_s.v_enemigoObjetivo_go == null)
+            if (v_controladorNazareno_s._enemigoObjetivo_go == null)
             {
                 Debug.LogWarning("No hay enemigo objetivo.");
                 return;
             }
 
-            Transform objetivoTransform = v_controladorNazareno_s.v_enemigoObjetivo_go.transform;
-            if (objetivoTransform == null)
+            Transform _objetivoTransform_t = v_controladorNazareno_s._enemigoObjetivo_go.transform;
+            if (_objetivoTransform_t == null)
             {
                 Debug.LogWarning("El Transform del enemigo objetivo es null.");
                 return;
             }
 
-            v_controladorNazareno_s.v_objetivo_Transform = objetivoTransform;
+            v_controladorNazareno_s.v_objetivo_t = _objetivoTransform_t;
 
 
-            Vector3 direccion = (objetivoTransform.position - v_controladorNazareno_s.transform.position).normalized;
+            Vector3 _direccion_v3 = (_objetivoTransform_t.position - v_controladorNazareno_s.transform.position).normalized;
 
-            v_controladorNazareno_s.v_ataque_s.v_direcion_f = direccion.x; 
+            v_controladorNazareno_s.v_ataque_s._direcion_v2 = _direccion_v3; 
 
             v_controladorNazareno_s.v_ataque_s.Atacar();
         }

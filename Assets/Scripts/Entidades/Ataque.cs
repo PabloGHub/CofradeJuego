@@ -15,7 +15,7 @@ public class Ataque : MonoBehaviour
     private float v_tiempoDeRecargaAtual_f;
 
     // ----( Entrantrantes )---- //
-    [HideInInspector] public float? v_direcion_f = null;
+    [HideInInspector] public Vector2? _direcion_v2 = null;
     [HideInInspector] public LayerMask? v_capaAtacado_LM = null;
     [HideInInspector] public Vector3? v_inicio_V3 = null;
     //[HideInInspector] public float v_alcance_f;
@@ -42,12 +42,12 @@ public class Ataque : MonoBehaviour
     // ***********************( Metodos NUESTROS )*********************** //
     public void Atacar()
     {
-        if (v_direcion_f == null || v_capaAtacado_LM == null)
+        if (_direcion_v2 == null || v_capaAtacado_LM == null)
         {
             Debug.LogError
             (
                 "Error: Ataque.cs - Atacar() - Alguno de los atributos es null.\n" +
-                "v_direcion_f: " + ((v_direcion_f == null) ? "null" : v_direcion_f) + "\n" + 
+                "v_direcion_f: " + ((_direcion_v2 == null) ? "null" : _direcion_v2) + "\n" + 
                 "v_capaAtacado_LM: " + ((v_capaAtacado_LM == null) ? "null" : v_capaAtacado_LM) + "\n" +
                 "v_inicio_V3: " + ((v_inicio_V3 == null) ? "null" : v_inicio_V3)
             );
@@ -55,10 +55,9 @@ public class Ataque : MonoBehaviour
         }
 
 
-        Vector2 _direccion = new Vector2(v_direcion_f.Value, 0);
         Vector3 _inicio = (v_inicio_V3 != null) ? v_inicio_V3.Value : transform.position;
 
-        RaycastHit2D _golpe = Physics2D.Raycast(_inicio, _direccion, alcance, v_capaAtacado_LM.Value);
+        RaycastHit2D _golpe = Physics2D.Raycast(_inicio, (Vector2)_direcion_v2, alcance, v_capaAtacado_LM.Value);
         if (_golpe)
         {
             if (v_tiempoDeRecargaAtual_f <= 0)
@@ -77,7 +76,7 @@ public class Ataque : MonoBehaviour
                 }
                 else if (_salud != null)
                 {
-                    float? _ref = _salud.RecibirDano(danno, _direccion, fuerzaEmpuje);
+                    float? _ref = _salud.RecibirDano(danno, _direcion_v2.Value, fuerzaEmpuje);
 
                     if (_ref != null && v_salud_s != null)
                         v_salud_s.RecibirDano((float)_ref, Vector3.one);
@@ -86,24 +85,5 @@ public class Ataque : MonoBehaviour
         }
 
         v_tiempoDeRecargaAtual_f = tiempoRecarga;
-    }
-    private void OnDrawGizmos()
-    {
-        if (v_direcion_f == null || v_inicio_V3 == null)
-            return;
-
-        // Configurar el color del Gizmo
-        Gizmos.color = Color.red;
-
-        // Calcular la dirección y el punto final del Raycast
-        Vector3 inicio = v_inicio_V3 ?? transform.position;
-        Vector3 direccion = new Vector3(v_direcion_f.Value, 0, 0).normalized;
-        Vector3 fin = inicio + direccion * alcance;
-
-        // Dibujar la línea del Raycast
-        Gizmos.DrawLine(inicio, fin);
-
-        // Dibujar un pequeño punto en el final del Raycast
-        Gizmos.DrawSphere(fin, 0.1f);
     }
 }

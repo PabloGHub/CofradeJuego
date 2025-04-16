@@ -10,7 +10,7 @@ public class Navegacion : MonoBehaviour
     public Transform[] trayectoria;
 
     private int v_cantidadDifurcaciones_i = 0;
-    private List<List<Transform>> v_caminosPosible_Transform = new List<List<Transform>>();
+    private List<List<Transform>> v_caminosPosible_Transform;
 
     // ***********************( Funciones Unity )*********************** //
     private void Awake()
@@ -19,10 +19,8 @@ public class Navegacion : MonoBehaviour
         {
             nav = this;
         }
-    }
+        v_caminosPosible_Transform = new List<List<Transform>>();
 
-    private void Start()
-    {
         determinarDifurcaciones();
 
         Debug.Log("Cantidad de Difurcaciones: " + v_cantidadDifurcaciones_i);
@@ -30,6 +28,11 @@ public class Navegacion : MonoBehaviour
         {
             Debug.Log("Difurcacion " + i + ": " + v_caminosPosible_Transform[i].Count);
         }
+    }
+
+    private void Start()
+    {
+        
     }
 
     // ***********************( Funciones Nuestras )*********************** //
@@ -40,6 +43,7 @@ public class Navegacion : MonoBehaviour
         for (int i = 0; i < trayectoria.Length; i++)
         {
             Punto p = trayectoria[i].GetComponent<Punto>();
+            p.Indice_i = i;
             if (p.Difurcacion)
             {
                 if (c == 0)

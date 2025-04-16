@@ -90,7 +90,7 @@ public class Peloton : MonoBehaviour
             // El integrante esta lejos del peloton.
             if (Vector3.Distance(v_integrante.position, transform.position) > v_distanciaAlPeloton_f)
             {
-                float _avance_f = Vector3.Distance(_nazareno.v_objetivo_Transform.position, v_integrante.position);
+                float _avance_f = Vector3.Distance(_nazareno.v_objetivo_t.position, v_integrante.position);
                 float _distanciaAlsiguiente_f = Navegacion.nav.trayectoria[_nazareno.v_objetivoIndex_i].gameObject.GetComponent<Punto>().DistanciaAlSiguiente_f;
                 float _progresoPorcentual_f = _distanciaAlsiguiente_f > 0 ? _avance_f / _distanciaAlsiguiente_f : 0f;
 
