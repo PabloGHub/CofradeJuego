@@ -1,24 +1,35 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Ataque : MonoBehaviour
 {
     // ***********************( Declaraciones )*********************** //x
     // ----( Atribustos )---- //
-    [Header("*-- Atribustos --*")]
+    [Header("**---- Atribustos ----**")]
     [SerializeField] private float danno = 1f;
     [SerializeField] private float alcance = 1f;
     [SerializeField] private float tiempoRecarga = 1f;
     [SerializeField] private float fuerzaEmpuje = 5f;
-    [SerializeField] public bool explosion = false;
+    [SerializeField] public bool EsDistancia = false;
+
+    [Header("**---- Caracteristicas ----**")]
+    public Vector2? _direcion_v2;
+    public LayerMask? v_capaAtacado_LM;
+    public Vector3? v_inicio_V3;
     public GameObject prefabExplosion;
+    public float RangoVisibliidad;
+
 
     private float v_tiempoDeRecargaAtual_f;
+    private GameObject _enemigoObjetivo_go;
+    private CircleCollider2D _circle_coll;
+    private List<GameObject> _listaNazarenos;
+    private Dictionary<GameObject, Action> _nazarenosDelegados = new Dictionary<GameObject, Action>();
 
-    // ----( Entrantrantes )---- //
-    [HideInInspector] public Vector2? _direcion_v2 = null;
-    [HideInInspector] public LayerMask? v_capaAtacado_LM = null;
-    [HideInInspector] public Vector3? v_inicio_V3 = null;
-    //[HideInInspector] public float v_alcance_f;
+
+    // ----( Entrantes )---- //
+    [HideInInspector] public bool _atacar_b;
 
     // ----( Componentes )---- //
     private Salud v_salud_s;
@@ -27,7 +38,7 @@ public class Ataque : MonoBehaviour
     private void Start()
     {
         v_tiempoDeRecargaAtual_f = 0f;
-        fuerzaEmpuje = (explosion == true) ? 0f : fuerzaEmpuje;
+        fuerzaEmpuje = (EsDistancia == true) ? 0f : fuerzaEmpuje;
 
 
         v_salud_s = GetComponent<Salud>();
@@ -39,9 +50,85 @@ public class Ataque : MonoBehaviour
             v_tiempoDeRecargaAtual_f -= Time.deltaTime;
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Nazarenos"))
+        {
+            if (!_listaNazarenos.Contains(collision.gameObject))
+            {
+                _listaNazarenos.Add(collision.gameObject);
+                Salud v_salud_s = collision.gameObject.GetComponent<Salud>();
+                if (v_salud_s != null)
+                {
+                    Action v_delegado = () => eliminarNazareno(collision.gameObject);
+                    _nazarenosDelegados[collision.gameObject] = v_delegado;
+                    v_salud_s.OnMuerto += v_delegado;
+                }
+
+            }
+
+            comprobarListaObjetivos();
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Nazarenos"))
+        {
+            if (_listaNazarenos.Contains(collision.gameObject))
+            {
+                _listaNazarenos.Remove(collision.gameObject);
+                Salud v_salud_s = collision.gameObject.GetComponent<Salud>();
+                if (v_salud_s != null && _nazarenosDelegados.ContainsKey(collision.gameObject))
+                {
+                    v_salud_s.OnMuerto -= _nazarenosDelegados[collision.gameObject];
+                    _nazarenosDelegados.Remove(collision.gameObject);
+                }
+            }
+
+            comprobarListaObjetivos();
+        }
+    }
+
     // ***********************( Metodos NUESTROS )*********************** //
+    void comprobarListaObjetivos()
+    {
+        if (_listaNazarenos.Count <= 0)
+        {
+            CambiarEstado(1);
+            _enemigoObjetivo_go = null;
+            return;
+        }
+
+        float _distanciaMinima = float.MaxValue;
+        foreach (GameObject v_porculero_go in _listaNazarenos)
+        {
+            float _distancia = Vector3.Distance(transform.position, v_porculero_go.transform.position);
+            if (_distancia < _distanciaMinima)
+            {
+                _distanciaMinima = _distancia;
+                _enemigoObjetivo_go = v_porculero_go;
+            }
+        }
+
+        if (_enemigoObjetivo_go != null)
+            CambiarEstado(2);
+    }
+    private void eliminarNazareno(GameObject _objetivo_go)
+    {
+        if (_listaNazarenos.Contains(_objetivo_go))
+        {
+            _listaNazarenos.Remove(_objetivo_go);
+        }
+    }
+
+
+
+
     public void Atacar()
     {
+        if (v_tiempoDeRecargaAtual_f > 0)
+            return;
+
         if (_direcion_v2 == null || v_capaAtacado_LM == null)
         {
             Debug.LogError
@@ -55,7 +142,7 @@ public class Ataque : MonoBehaviour
         }
 
 
-        Vector3 _inicio = (v_inicio_V3 != null) ? v_inicio_V3.Value : transform.position;
+        Vector3 _inicio = v_inicio_V3 ?? transform.position;
 
         RaycastHit2D _golpe = Physics2D.Raycast(_inicio, (Vector2)_direcion_v2, alcance, v_capaAtacado_LM.Value);
         if (_golpe)
@@ -66,7 +153,7 @@ public class Ataque : MonoBehaviour
 
                 Salud _salud = _golpe.collider.GetComponent<Salud>();
                 // TODO: Que instancie Bala en vez de explosion.
-                if (explosion) 
+                if (EsDistancia) 
                 {
                     GameObject v_objetoExplosion_go = Instantiate(prefabExplosion, _golpe.point, Quaternion.identity);
                     Explosion v_explosion_s = v_objetoExplosion_go.GetComponent<Explosion>();

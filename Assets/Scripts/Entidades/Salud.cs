@@ -1,3 +1,4 @@
+using CommandTerminal;
 using System;
 using UnityEngine;
 
@@ -75,12 +76,15 @@ public class Salud : MonoBehaviour
             lifeBar.objHP = v_saludActual_f;
         }
 
+        Terminal.Log("Objeto: " + gameObject.name + ", SaludActual: " + v_saludActual_f);
+
         return v_danno_f * (1 - reflejoDanno);
     }
 
     private void gestionarMuerte()
     {
         // TODO: Implementar la lógica para manejar la muerte del objeto.
+        Terminal.Log("MUERE: " + gameObject.name);
         OnMuerto?.Invoke();
         gameObject.SetActive(false); // Termporral/PlaceHolder.
     }

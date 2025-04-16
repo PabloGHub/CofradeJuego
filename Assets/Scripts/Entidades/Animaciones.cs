@@ -19,10 +19,7 @@ public class Animaciones : MaquinaDeEstados
         // Animator
         _animator = GetComponent<Animator>();
         if (_animator == null)
-        {
-            Debug.LogError("El Nazareno no tiene un componente Animator.");
-            return;
-        }
+            Debug.LogError("El Nazareno no tiene (Animator).");
 
         // Maquina de Estados
         Inicializar(gameObject);
@@ -35,14 +32,25 @@ public class Animaciones : MaquinaDeEstados
 
         // Movimiento del padre
         _movimiento = GetComponentInParent<Movimiento>();
+        if (_movimiento == null)
+            Debug.LogError("El Nazareno no tiene (Movimiento).");
 
         // SpriteRenderer
         Sprite = GetComponent<SpriteRenderer>();
+        if (Sprite == null)
+            Debug.LogError("El Nazareno no tiene (SpriteRenderer).");
     }
 
     private void Update()
     {
+        if (_animator == null || _movimiento == null || Sprite == null)
+        {
+            Debug.LogError("El Nazareno no tiene (Movimiento o SpriteRenderer o Animator).");
+            return;
+        }
+
         transform.rotation = Quaternion.identity;
+        _animator.SetBool("pausa", ControladorPPAL.v_pausado_b);
 
         switch (_movimiento.Direcion)
         {
@@ -88,13 +96,18 @@ public class Animaciones : MaquinaDeEstados
 
         public override void Entrar()
         {
-            Debug.Log("Entrando en el estado Arriba");
+            if (_animaciones._animator == null)
+                return;
+
             _animaciones._animator.SetBool("Subiendo", true);
             _animaciones._animator.SetBool("Bajando", false);
             _animaciones._animator.SetBool("Lateralmente", false);
         }
         public override void Salir()
         {
+            if (_animaciones._animator == null)
+                return;
+
             _animaciones._animator.SetBool("Subiendo", false);
             _animaciones._animator.SetBool("Bajando", false);
             _animaciones._animator.SetBool("Lateralmente", false);
@@ -110,13 +123,18 @@ public class Animaciones : MaquinaDeEstados
 
         public override void Entrar()
         {
-            Debug.Log("Entrando en el estado Abajo");
+            if (_animaciones._animator == null)
+                return;
+
             _animaciones._animator.SetBool("Subiendo", false);
             _animaciones._animator.SetBool("Bajando", true);
             _animaciones._animator.SetBool("Lateralmente", false);
         }
         public override void Salir()
         {
+            if (_animaciones._animator == null)
+                return;
+
             _animaciones._animator.SetBool("Subiendo", false);
             _animaciones._animator.SetBool("Bajando", false);
             _animaciones._animator.SetBool("Lateralmente", false);
@@ -132,13 +150,18 @@ public class Animaciones : MaquinaDeEstados
 
         public override void Entrar()
         {
-            Debug.Log("Entrando en el estado Laterla");
+            if (_animaciones._animator == null)
+                return;
+
             _animaciones._animator.SetBool("Subiendo", false);
             _animaciones._animator.SetBool("Bajando", false);
             _animaciones._animator.SetBool("Lateralmente", true);
         }
         public override void Salir()
         {
+            if (_animaciones._animator == null)
+                return;
+
             _animaciones._animator.SetBool("Subiendo", false);
             _animaciones._animator.SetBool("Bajando", false);
             _animaciones._animator.SetBool("Lateralmente", false);

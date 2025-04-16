@@ -82,7 +82,6 @@ public class ControladorNazareno : MaquinaDeEstados
         // Animaciones
         for (int i = 0; i < transform.childCount; i++)
         {
-            Debug.Log("i: " + i);
             Animaciones _anim = transform.GetChild(i).GetComponent<Animaciones>();
             if (_anim != null)
                 _animaciones_s = _anim;
@@ -363,19 +362,3 @@ public class ControladorNazareno : MaquinaDeEstados
     }
 
 }
-
-/*
-    bool v_lejosPeloton_b = Vector3.Distance(transform.position, Peloton.peloton.transform.position) > Peloton.peloton.v_distanciaAlPeloton_f;
-    if (v_lejosPeloton_b && v_objetivoIndex_i < Peloton.peloton.v_objetivoIndex_i)
-    {
-
-    }
-    else if (v_lejosPeloton_b)
-    {
-        v_movimiento.v_esperando_b = true;
-    }
-    else
-    {
-        v_movimiento.v_esperando_b = false;
-    }
-*/
