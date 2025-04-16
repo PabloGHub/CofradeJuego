@@ -28,6 +28,9 @@ public class ControladorNazareno : MaquinaDeEstados
     private List<GameObject> v_listaPorculeros;
     private Dictionary<GameObject, Action> v_porculeroDelegados = new Dictionary<GameObject, Action>();
 
+    // Animaciones
+    private Animaciones _animaciones_s;
+
     // --- Maquina de Estados --- //
     public override EstadoBase Estado { get; set; }
     public override EstadoBase SubEstado { get; set; }
@@ -44,12 +47,22 @@ public class ControladorNazareno : MaquinaDeEstados
         v_circle_coll.radius = RangoVisibliidad;
         v_listaPorculeros = new List<GameObject>();
         v_porculeroDelegados = new Dictionary<GameObject, Action>();
-    }
 
-    private void Start()
-    {
-        // Movimiento
-        v_movimiento = GetComponent<Movimiento>();
+
+        // Movimiento // Animaciones
+        // Componentes de los hijos
+        for (int i = 0; i <= transform.childCount; i++)
+        {
+            Movimiento _movi = transform.GetChild(i).GetComponent<Movimiento>();
+            if (_movi != null)
+                v_movimiento = _movi;
+
+            Animaciones _anim = transform.GetChild(i).GetComponent<Animaciones>();
+            if (_anim != null)
+                _animaciones_s = _anim;
+        }
+        if (_animaciones_s == null)
+            Debug.LogError("El Nazareno no tiene un componente Animaciones.");
         if (v_movimiento == null)
         {
             Debug.LogError("El Nazareno no tiene un componente Movimiento.");
@@ -58,7 +71,11 @@ public class ControladorNazareno : MaquinaDeEstados
         v_puntoObjetivo_t = Navegacion.nav.trayectoria[v_objetivoIndex_i];
         v_objetivo_t = v_puntoObjetivo_t;
         v_movimiento.v_objetivo_t = v_objetivo_t; // Puede que si esta atacando, gire raro.
+    }
 
+ 
+    private void Start()
+    {
         // Inicializar Maquina de Estados
         Inicializar(gameObject);
         estadosPosibles = new List<EstadoBase>

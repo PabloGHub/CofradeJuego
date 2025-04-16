@@ -63,11 +63,11 @@ public abstract class MaquinaDeEstados : MonoBehaviour
         }
     }
 
-    public Dictionary<Func<bool>, EstadoBase> Transiciones;
-    public Dictionary<Func<bool>, EstadoBase> SubTransiciones;
-    public List<EstadoBase> estadosPosibles { get; set; }
-    public List<EstadoBase> subEstadosPosibles { get; set; }
-    public GameObject _go;
+    [HideInInspector] public Dictionary<Func<bool>, EstadoBase> Transiciones;
+    [HideInInspector] public Dictionary<Func<bool>, EstadoBase> SubTransiciones;
+    [HideInInspector] public List<EstadoBase> estadosPosibles { get; set; }
+    [HideInInspector] public List<EstadoBase> subEstadosPosibles { get; set; }
+    [HideInInspector] public GameObject _go;
 
 
     // ***********************( Eventos )*********************** //
@@ -139,6 +139,7 @@ public abstract class MaquinaDeEstados : MonoBehaviour
     /// <param name="nuevoEstado">Posicion en int del 'estadosPosibles'</param>
     public void CambiarEstado(int nuevoEstado)
     {
+        // TODO: comprobar si el int es mayor al tamaño de la lista.
         EstadoBase _posibleNovoEstado = estadosPosibles[nuevoEstado];
         if (_posibleNovoEstado == null)
         {

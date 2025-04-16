@@ -334,7 +334,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9219646106814485027, guid: eaf499ba2aef47c40bffd0980a50feed, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -479,7 +479,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9219646106814485027, guid: eaf499ba2aef47c40bffd0980a50feed, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -544,7 +544,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9219646106814485027, guid: eaf499ba2aef47c40bffd0980a50feed, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -750,6 +750,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7735312872346727745, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
+      propertyPath: m_LinearOffset.x
+      value: 1.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 7735312872346727745, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
+      propertyPath: m_LinearOffset.y
+      value: 6.63
+      objectReference: {fileID: 0}
     - target: {fileID: 8013300468090150684, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
       propertyPath: aceleracion
       value: 100
@@ -815,6 +823,14 @@ PrefabInstance:
     - target: {fileID: 7242945653419662654, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7735312872346727745, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
+      propertyPath: m_LinearOffset.x
+      value: -1.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 7735312872346727745, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
+      propertyPath: m_LinearOffset.y
+      value: 6.63
       objectReference: {fileID: 0}
     - target: {fileID: 8013300468090150684, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
       propertyPath: aceleracion
@@ -897,7 +913,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9219646106814485027, guid: eaf499ba2aef47c40bffd0980a50feed, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1136,11 +1152,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7242945653419662654, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.56999946
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 7242945653419662654, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.34
+      value: -5.62
       objectReference: {fileID: 0}
     - target: {fileID: 7242945653419662654, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1173,6 +1189,14 @@ PrefabInstance:
     - target: {fileID: 7242945653419662654, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7735312872346727745, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
+      propertyPath: m_LinearOffset.x
+      value: -0.56999946
+      objectReference: {fileID: 0}
+    - target: {fileID: 7735312872346727745, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
+      propertyPath: m_LinearOffset.y
+      value: 6.34
       objectReference: {fileID: 0}
     - target: {fileID: 8013300468090150684, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
       propertyPath: aceleracion
@@ -1443,7 +1467,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9219646106814485027, guid: eaf499ba2aef47c40bffd0980a50feed, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1458,9 +1482,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5462901063633604207, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7242945653419662654, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.13
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7242945653419662654, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1501,6 +1529,18 @@ PrefabInstance:
     - target: {fileID: 8226610799400092452, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
       propertyPath: m_Name
       value: nazarenoRaso_CanvasNO
+      objectReference: {fileID: 0}
+    - target: {fileID: 8250333831329801662, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
+      propertyPath: m_AutoRepath
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8250333831329801662, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
+      propertyPath: m_BaseOffset
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8250333831329801662, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
+      propertyPath: m_AutoTraverseOffMeshLink
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
