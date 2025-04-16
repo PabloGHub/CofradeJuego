@@ -285,7 +285,7 @@ MonoBehaviour:
   v_esperando_b: 0
   v_exodia_b: 0
   QuedarteQuieto: 0
-  v_objetivo_Transform: {fileID: 0}
+  v_objetivo_t: {fileID: 0}
 --- !u!114 &8978815985563216395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,6 +301,8 @@ MonoBehaviour:
   _go: {fileID: 0}
   v_objetivoIndex_i: 0
   v_movimiento: {fileID: 0}
+  v_objetivo_t: {fileID: 0}
+  v_puntoObjetivo_t: {fileID: 0}
   nombre: 
   id: 0
   mascaraEnemigo:
@@ -320,7 +322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ec8b0c6a18423f438ebe9bfe10a259b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saludMaxima: 100
+  saludMaxima: 50
   resistencia: 0
   reflejoDanno: 0
   tiempoInmunidad: 0
@@ -338,9 +340,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4908d698a4f16d74b9f2d307d4525876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  danno: 1
+  danno: 2
   alcance: 1
-  tiempoRecarga: 0
+  tiempoRecarga: 1
   fuerzaEmpuje: 1
   explosion: 0
   prefabExplosion: {fileID: 0}

@@ -31,8 +31,8 @@ public abstract class MaquinaDeEstados : MonoBehaviour
             Estado.enabled = true;
             Estado.Entrar();
 
-            //if (Transiciones.Count > 0)
-            //    ActualizarTransiciones();
+
+            ActualizarTransiciones();
         }
     }
 
@@ -58,8 +58,8 @@ public abstract class MaquinaDeEstados : MonoBehaviour
             SubEstado.enabled = true;
             SubEstado.Entrar();
 
-            //if (SubTransiciones.Count > 0)
-            //    ActualizarTransiciones();
+
+            ActualizarTransiciones();
         }
     }
 
@@ -105,6 +105,10 @@ public abstract class MaquinaDeEstados : MonoBehaviour
 
         Inicializar(goHost);
     }
+    /// <summary>
+    /// Inicializa la máquina de estados con el GameObject host.
+    /// </summary>
+    /// <param name="goHost">gameObject necesario para la maquina de estado</param>
     public void Inicializar(GameObject goHost)
     {
         if (goHost == null)
@@ -129,7 +133,10 @@ public abstract class MaquinaDeEstados : MonoBehaviour
     }
 
 
-
+    /// <summary>
+    /// Cambia el estado actual de la máquina de estados.
+    /// </summary>
+    /// <param name="nuevoEstado">Posicion en int del 'estadosPosibles'</param>
     public void CambiarEstado(int nuevoEstado)
     {
         EstadoBase _posibleNovoEstado = estadosPosibles[nuevoEstado];
@@ -144,6 +151,10 @@ public abstract class MaquinaDeEstados : MonoBehaviour
 
         EstadoActual = _posibleNovoEstado;
     }
+    /// <summary>
+    /// Cambia el subEstado actual de la máquina de estados.
+    /// </summary>
+    /// <param name="nuevoEstado">Posicion en int del 'subEstadosPosibles'</param>
     public void CambiarSubEstado(int nuevoEstado)
     {
         EstadoBase _posibleNovoEstado = subEstadosPosibles[nuevoEstado];
@@ -161,7 +172,12 @@ public abstract class MaquinaDeEstados : MonoBehaviour
 
 
     // TODO: Agregar Restringciones.
-    // TODO: Descubrir porque no funciona.
+    /// <summary>
+    /// Agrega una transición a la máquina de estados.  
+    /// Una transicion es una condición que, al cumplirse, cambia el estado actual de la máquina.
+    /// </summary>
+    /// <param name="condicion">Es la condicion en lamda para cambiar '() => _parar_b == true'</param>
+    /// <param name="estadoDestino">Estado al que cambiara pasando el int de la posicion de 'estadosPosibles'</param>
     public void AgregarTransicion(Func<bool> condicion, int estadoDestino)
     {
         if (Transiciones == null)
@@ -176,6 +192,12 @@ public abstract class MaquinaDeEstados : MonoBehaviour
         Transiciones[condicion] = estadosPosibles[estadoDestino];
         //Debug.Log($"Transición agregada: {estadosPosibles[estadoDestino].GetType().Name}");
     }
+    /// <summary>
+    /// Agrega una transición a la máquina de estados.  
+    /// Una transicion es una condición que, al cumplirse, cambia el estado actual de la máquina.
+    /// </summary>
+    /// <param name="condicion">Es la condicion en lamda para cambiar '() => _parar_b == true'</param>
+    /// <param name="estadoDestino">Estado al que cambiara pasando el int de la posicion de 'subEstadosPosibles'</param>
     public void AgregarSubTransicion(Func<bool> condicion, int estadoDestino)
     {
         if (SubTransiciones == null)
@@ -192,7 +214,10 @@ public abstract class MaquinaDeEstados : MonoBehaviour
     }
 
 
-
+    /// <summary>
+    /// Actualiza TODAS las transiciones de la máquina de estados.
+    /// llama a ActualizarTrnas() y ActualizarSubTrnas()
+    /// </summary>
     public void ActualizarTransiciones()
     {
         if (Transiciones.Count > 0)
@@ -201,6 +226,9 @@ public abstract class MaquinaDeEstados : MonoBehaviour
         if (SubTransiciones.Count > 0)
             ActualizarSubTrnas();
     }
+    /// <summary>
+    /// Actualiza las transiciones de la máquina de estados.
+    /// </summary>
     public void ActualizarTrnas()
     {
         foreach (var transicion in Transiciones)
@@ -212,6 +240,9 @@ public abstract class MaquinaDeEstados : MonoBehaviour
             }
         }
     }
+    /// <summary>
+    /// Actualiza las subtransiciones de la máquina de estados. 
+    /// </summary>
     public void ActualizarSubTrnas()
     {
         foreach (var transicion in SubTransiciones)
@@ -225,6 +256,11 @@ public abstract class MaquinaDeEstados : MonoBehaviour
     }
 
     // ***********************( Mios )*********************** //
+    /// <summary>
+    /// Obtiene el índice del estado o subEstado en la lista de estados posibles.
+    /// </summary>
+    /// <param name="estado">Estado del que se quiere sacar el indice</param>
+    /// <returns>Retona un int del indice</returns>
     public int ObtenerIndice(EstadoBase estado)
     {
         int indice = -1;
@@ -243,6 +279,11 @@ public abstract class MaquinaDeEstados : MonoBehaviour
         return indice;
     }
 
+    /// <summary>
+    /// Obtiene el índice del estado en la lista de estados posibles.
+    /// </summary>
+    /// <param name="estado">Estado del que se quiere sacar el indice</param>
+    /// <returns>Retona un int del indice</returns>
     public int ObtenerIndiceEstado(EstadoBase estado)
     {
         if (estado == null)
@@ -259,6 +300,11 @@ public abstract class MaquinaDeEstados : MonoBehaviour
 
         return indice;
     }
+    /// <summary>
+    /// Obtiene el índice del subEstado en la lista de subEstados posibles.
+    /// </summary>
+    /// <param name="subEstado">SubEstado del que se quiere sacar el indice</param>
+    /// <returns>Retona un int del indice</returns>
     public int ObtenerIndiceSubEstado(EstadoBase subEstado)
     {
         if (subEstado == null)
@@ -277,13 +323,22 @@ public abstract class MaquinaDeEstados : MonoBehaviour
     }
 
     // ***********************( Constructores )*********************** //
+    /// <summary>
+    /// Crea un nuevo estado de tipo T y lo inicializa con la dependencia proporcionada.
+    /// Añade al objeto actual el componente del estado.
+    /// Guarda la maquina de estado el PADRE o this.
+    /// LLama al metodo Init() del estado.
+    /// </summary>
+    /// <typeparam name="T">Estado que se quiera craer</typeparam>
+    /// <typeparam name="D">Clase de la que se quiera pasar la dependencia</typeparam>
+    /// <param name="dependencia">Dependencia que se quiera pasar al nuevo Estado</param>
+    /// <returns>Retonar el nuevo Estado agregado y desactivado</returns>
     public T CrearEstado<T, D>(D dependencia) where T : EstadoBase where D : class
     {
         var estado = _go.AddComponent<T>();
         estado.MaquinaEstados = this;
         estado.enabled = false;
         //estado.MiIndex = ObtenerIndice(estado); // No funciona!
-        //Debug.Log($"Estado creado: {estado.GetType().Name}, Index: {estado.MiIndex}");
         estado.Init(dependencia);
         return estado;
     }

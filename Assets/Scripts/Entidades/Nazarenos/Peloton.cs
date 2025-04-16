@@ -41,16 +41,21 @@ public class Peloton : MonoBehaviour
     }
 
     // ***********************( Metodos NUESTROS )*********************** //
-    private Vector3 f_calcularCentro_Vector3(Transform[] v_cantidad_t)
+    /// <summary>
+    /// Calcula el centro de un array de transform.
+    /// </summary>
+    /// <param name="cantidad_t">Array de transorm</param>
+    /// <returns>Vector3 de la posicion entre todos los transform</returns>
+    private Vector3 f_calcularCentro_Vector3(Transform[] cantidad_t)
     {
         Vector3 v_sumaPosiciones_v3 = Vector3.zero;
         int v_contador_i = 0;
 
-        for (int i = 0; i < v_cantidad_t.Length; i++)
+        for (int i = 0; i < cantidad_t.Length; i++)
         {
-            if (v_cantidad_t[i] != null)
+            if (cantidad_t[i] != null)
             {
-                v_sumaPosiciones_v3 += v_cantidad_t[i].position;
+                v_sumaPosiciones_v3 += cantidad_t[i].position;
                 v_contador_i++;
             }
         }
@@ -58,7 +63,9 @@ public class Peloton : MonoBehaviour
         return v_contador_i > 0 ? v_sumaPosiciones_v3 / v_contador_i : transform.position;
     }
 
-
+    /// <summary>
+    /// Gestiona el estado de los integrantes del peloton.
+    /// </summary>
     private void gestionarIntegrantes()
     {
         int _suma_i = 0;

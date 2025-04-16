@@ -284,7 +284,7 @@ MonoBehaviour:
   v_esperando_b: 0
   v_exodia_b: 0
   QuedarteQuieto: 0
-  v_objetivo_Transform: {fileID: 0}
+  v_objetivo_t: {fileID: 0}
 --- !u!114 &8309723369631539908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,7 +297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4908d698a4f16d74b9f2d307d4525876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  danno: 1
+  danno: 10
   alcance: 1
   tiempoRecarga: 1
   fuerzaEmpuje: 5
@@ -315,7 +315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ec8b0c6a18423f438ebe9bfe10a259b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saludMaxima: 5
+  saludMaxima: 15
   resistencia: 0
   reflejoDanno: 0
   tiempoInmunidad: 0
