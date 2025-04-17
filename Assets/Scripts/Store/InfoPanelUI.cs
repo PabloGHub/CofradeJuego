@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,7 +27,16 @@ public class InfoPanelUI : MonoBehaviour
             Setup();
         }
         nameText.text = info.Name;
-        descriptionText.text = info.Description;
+        string desc = info.Description + (info.Description.Length == 0 ? "":"\n");
+
+        Ataque ataque = info.dropObject.GetComponent<Ataque>();
+        Salud salud = info.dropObject.GetComponent<Salud>();
+        desc += "HP: " + salud.SaludMaxima
+            + "\nAlcance: " + ataque.Alcance
+            + "\nDaño: " + ataque.Danno
+            + "\nTiempo de Recarga: " + ataque.TiempoRecarga;
+
+        descriptionText.text = desc;
         gameObject.SetActive(true);
     }
 

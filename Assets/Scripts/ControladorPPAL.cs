@@ -55,6 +55,6 @@ public class ControladorPPAL : MonoBehaviour
     public void PauseFromUI()
     {
         cabiarPausa();
-        PausaBotonTexto.text = v_pausado_b ? "RESUME" : "PAUSE";
+        PausaBotonTexto.text = v_pausado_b ? "CONTINUAR" : "PAUSAR";
     }
 }
