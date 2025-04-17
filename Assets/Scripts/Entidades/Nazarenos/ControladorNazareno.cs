@@ -2,6 +2,7 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 public class ControladorNazareno : MaquinaDeEstados
@@ -286,6 +287,20 @@ public class ControladorNazareno : MaquinaDeEstados
             else
                 Debug.LogWarning("--- No hay enemigo objetivo ---");
         }
+    }
+
+
+    // ----------( Funciones de Debug )---------- //
+    private void OnDrawGizmos()
+    {
+        #if UNITY_EDITOR
+        {
+            Handles.color = Color.red;
+            Handles.Label(transform.position + Vector3.up * 0.3f,
+                                    $"CONTROLADOR :  id -> {id} | nombre -> {nombre} | " +
+                                    $"estado -> {EstadoActual} | subEstado -> {SubEstadoActual}");
+        }
+        #endif
     }
 
 }

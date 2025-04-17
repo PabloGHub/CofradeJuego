@@ -105,6 +105,22 @@ public class Navegacion : MonoBehaviour
         }
     }
 
+    public void Reiniciar()
+    {
+        
+    }
+
+    private void reiniciarCaminos()
+    {
+        for (int i = 0; i<v_caminosPosible_Transform.Count; i++)
+        {
+            for (int j = 0; j<v_caminosPosible_Transform[i].Count; j++)
+            {
+                v_caminosPosible_Transform[i][j].GetComponent<Punto>().Elegido_b = false;
+            }
+        }
+    }
+
     [RegisterCommand(Help = "Selecionar Caminos")]
     static void CommandCamino(CommandArg[] args)
     {

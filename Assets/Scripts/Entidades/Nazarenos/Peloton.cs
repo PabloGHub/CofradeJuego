@@ -80,6 +80,12 @@ public class Peloton : MonoBehaviour
 
             _suma_i += v_nazareno.ObjetivoIndex_i;
             _conteo_i++;
+
+            // Comprobar si no tiene id, si no tiene id, asignar el id.
+            if (v_nazareno.id <= 0)
+            {
+                v_nazareno.id = _conteo_i;
+            }
         }
         float _promedio_i = _conteo_i > 0 ? (float)_suma_i / _conteo_i : 0f;
 
@@ -175,6 +181,12 @@ public class Peloton : MonoBehaviour
         Destroy(integrante);
     }
 
+    public void EliminarIntegranteLista(GameObject integrante)
+    {
+        if (integrantes.Contains(integrante.transform))
+            integrantes.Remove(integrante.transform);
+    }
+
     public float DevolverIntegrantesTotal()
     {
         float amount = 0;
@@ -198,6 +210,20 @@ public class Peloton : MonoBehaviour
                 return;
             Terminal.Log(v_integrante.name + " - " + v_nazareno.v_movimiento.Estado.ToSafeString());
             Debug.Log($"Estado: {v_nazareno.EstadoActual.GetType().Name}, Index: {v_nazareno.ObtenerIndice(v_nazareno.EstadoActual)}");
+        }
+    }
+    [RegisterCommand(Help = "Mata al nazareno pasando el id (int)")]
+    static void CommandMata(CommandArg[] args)
+    {
+        int _identificador_i = args[0].Int;
+        foreach (Transform v_integrante in Peloton.peloton.integrantes)
+        {
+            ControladorNazareno _cN_s = v_integrante.GetComponent<ControladorNazareno>();
+            if (_cN_s.id == _identificador_i)
+            {
+                Terminal.Log($"Matando a {v_integrante.name}");
+                _cN_s.GetComponent<Salud>().RecibirDano(1000f);
+            }
         }
     }
 
