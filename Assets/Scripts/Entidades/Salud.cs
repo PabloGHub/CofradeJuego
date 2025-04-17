@@ -12,6 +12,7 @@ public class Salud : MonoBehaviour
     [Header("*--- Atribustos ---*")]
     [SerializeField]
     private float saludMaxima = 100f;
+    public float SaludMaxima => saludMaxima;
 
     [SerializeField] [Range(0.0f, 1.0f)]
     private float resistencia = 0f;

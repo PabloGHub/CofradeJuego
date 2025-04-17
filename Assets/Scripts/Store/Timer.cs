@@ -7,7 +7,7 @@ public class Timer : MonoBehaviour
     public float time => currentTime;
     private bool isPaused = true;
     private TextMeshProUGUI timerText;
-    public string textPrefix = "Time: ";
+    public string textPrefix = "Tiempo: ";
 
     void Start()
     {

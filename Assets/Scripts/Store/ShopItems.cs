@@ -3,17 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public enum ItemType
-{
-    Nazareno, PowerUp
-}
 
 [Serializable]
 public struct ItemInfo
 {
     public string Name;
     public string Description;
-    public ItemType Type;
     public float Price;
 
     public Sprite sprite;
