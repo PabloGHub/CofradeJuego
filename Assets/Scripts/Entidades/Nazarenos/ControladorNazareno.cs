@@ -277,15 +277,22 @@ public class ControladorNazareno : MaquinaDeEstados
 
         public override void MiFixedUpdate()
         {
-            if (v_controladorNazareno_s.v_ataque_s == null)
-                return;
+            try
+            {
+                if (v_controladorNazareno_s.v_ataque_s == null)
+                    return;
 
-            v_controladorNazareno_s.v_ataque_s._atacar_b = true;
-            Transform _nuevoObjetivo_t = v_controladorNazareno_s.v_ataque_s.EnemigoObjetivo_go.transform;
-            if (_nuevoObjetivo_t != null)
-                v_controladorNazareno_s.v_objetivo_t = _nuevoObjetivo_t;
-            else
-                Debug.LogWarning("--- No hay enemigo objetivo ---");
+                v_controladorNazareno_s.v_ataque_s._atacar_b = true;
+                Transform _nuevoObjetivo_t = v_controladorNazareno_s.v_ataque_s.EnemigoObjetivo_go.transform;
+                if (_nuevoObjetivo_t != null)
+                    v_controladorNazareno_s.v_objetivo_t = _nuevoObjetivo_t;
+                else
+                    Debug.LogWarning("--- No hay enemigo objetivo ---");
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"****( OBJETO: {gameObject.name} -> {e} )****");
+            }
         }
     }
 
