@@ -1,4 +1,5 @@
 using CommandTerminal;
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ public class ControladorPPAL : MonoBehaviour
 
     [HideInInspector]
     public static bool v_pausado_b = true;
+    private Action v_accionPausa_a;
 
     [SerializeField] private TextMeshProUGUI PausaBotonTexto;
 
