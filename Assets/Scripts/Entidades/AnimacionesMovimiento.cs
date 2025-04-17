@@ -86,6 +86,16 @@ public class AnimacionesMovimiento : MaquinaDeEstados
             break;
         }
     }
+    // ***********************( Funciones Propias )*********************** //
+    private bool f_ieneParametro_b(Animator animator, string nombre)
+    {
+        foreach (AnimatorControllerParameter param in animator.parameters)
+        {
+            if (param.name == nombre)
+                return true;
+        }
+        return false;
+    }
 
 
     // ***********************( ESTADOS DE LA MAQUINA DE ESTADOS )*********************** //
@@ -102,7 +112,8 @@ public class AnimacionesMovimiento : MaquinaDeEstados
             if (_animaciones._animator == null)
                 return;
 
-            _animaciones._animator.SetBool("Subiendo", true);
+            if (_animaciones.f_ieneParametro_b(_animaciones._animator, "Subiendo"))
+                _animaciones._animator.SetBool("Subiendo", true);
 
             if (_animaciones.Sprite != null)
                 _animaciones.Sprite.flipX = false;
@@ -112,7 +123,8 @@ public class AnimacionesMovimiento : MaquinaDeEstados
             if (_animaciones._animator == null)
                 return;
 
-            _animaciones._animator.SetBool("Subiendo", false);
+            if (_animaciones.f_ieneParametro_b(_animaciones._animator, "Subiendo"))
+                _animaciones._animator.SetBool("Subiendo", false);
         }
     }
     class EstadoAbajo : EstadoBase
@@ -128,7 +140,8 @@ public class AnimacionesMovimiento : MaquinaDeEstados
             if (_animaciones._animator == null)
                 return;
 
-            _animaciones._animator.SetBool("Bajando", true);
+            if (_animaciones.f_ieneParametro_b(_animaciones._animator, "Bajando"))
+                _animaciones._animator.SetBool("Bajando", true);
 
             if (_animaciones.Sprite != null)
                 _animaciones.Sprite.flipX = false;
@@ -138,7 +151,8 @@ public class AnimacionesMovimiento : MaquinaDeEstados
             if (_animaciones._animator == null)
                 return;
 
-            _animaciones._animator.SetBool("Bajando", false);
+            if (_animaciones.f_ieneParametro_b(_animaciones._animator, "Bajando"))
+                _animaciones._animator.SetBool("Bajando", false);
         }
     }
     class EstadoIzquierda : EstadoBase
@@ -154,7 +168,8 @@ public class AnimacionesMovimiento : MaquinaDeEstados
             if (_animaciones._animator == null)
                 return;
 
-            _animaciones._animator.SetBool("Lateralmente", true);
+            if (_animaciones.f_ieneParametro_b(_animaciones._animator, "Lateralmente"))
+                _animaciones._animator.SetBool("Lateralmente", true);
 
             if (_animaciones.Sprite != null && _animaciones.Flipear)
                 _animaciones.Sprite.flipX = true;
@@ -164,7 +179,8 @@ public class AnimacionesMovimiento : MaquinaDeEstados
             if (_animaciones._animator == null)
                 return;
 
-            _animaciones._animator.SetBool("Lateralmente", false);
+            if (_animaciones.f_ieneParametro_b(_animaciones._animator, "Lateralmente"))
+                _animaciones._animator.SetBool("Lateralmente", false);
         }
     }
     class EstadoDerecha : EstadoBase
@@ -180,8 +196,12 @@ public class AnimacionesMovimiento : MaquinaDeEstados
             if (_animaciones._animator == null)
                 return;
 
-            _animaciones._animator.SetBool("Lateralmente", true);
-            _animaciones._animator.SetBool("Derecha", true);
+            if (_animaciones.f_ieneParametro_b(_animaciones._animator, "Lateralmente"))
+                _animaciones._animator.SetBool("Lateralmente", true);
+
+            if (_animaciones.f_ieneParametro_b(_animaciones._animator, "Derecha"))
+                _animaciones._animator.SetBool("Derecha", true);
+                
 
             if (_animaciones.Sprite != null)
                 _animaciones.Sprite.flipX = false;
@@ -191,8 +211,12 @@ public class AnimacionesMovimiento : MaquinaDeEstados
             if (_animaciones._animator == null)
                 return;
 
-            _animaciones._animator.SetBool("Lateralmente", false);
-            _animaciones._animator.SetBool("Derecha", false);
+            if (_animaciones.f_ieneParametro_b(_animaciones._animator, "Lateralmente"))
+                _animaciones._animator.SetBool("Lateralmente", false);
+
+            if (_animaciones.f_ieneParametro_b(_animaciones._animator, "Derecha"))
+                _animaciones._animator.SetBool("Derecha", false);
+            
         }
     }
 }
