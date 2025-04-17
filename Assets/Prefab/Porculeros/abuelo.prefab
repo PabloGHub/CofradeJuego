@@ -432,6 +432,7 @@ MonoBehaviour:
   reflejoDanno: 0
   tiempoInmunidad: 0
   prefabsMorir: []
+  _fantasma_go: {fileID: 2902119819957847229, guid: e65e783671e57ec49b9e65072b2787b4, type: 3}
   lifeBar: {fileID: 0}
 --- !u!114 &8309723369631539908
 MonoBehaviour:

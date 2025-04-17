@@ -2,6 +2,7 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 public class ControladorNazareno : MaquinaDeEstados
@@ -276,16 +277,37 @@ public class ControladorNazareno : MaquinaDeEstados
 
         public override void MiFixedUpdate()
         {
-            if (v_controladorNazareno_s.v_ataque_s == null)
-                return;
+            try
+            {
+                if (v_controladorNazareno_s.v_ataque_s == null)
+                    return;
 
-            v_controladorNazareno_s.v_ataque_s._atacar_b = true;
-            Transform _nuevoObjetivo_t = v_controladorNazareno_s.v_ataque_s.EnemigoObjetivo_go.transform;
-            if (_nuevoObjetivo_t != null)
-                v_controladorNazareno_s.v_objetivo_t = _nuevoObjetivo_t;
-            else
-                Debug.LogWarning("--- No hay enemigo objetivo ---");
+                v_controladorNazareno_s.v_ataque_s._atacar_b = true;
+                Transform _nuevoObjetivo_t = v_controladorNazareno_s.v_ataque_s.EnemigoObjetivo_go.transform;
+                if (_nuevoObjetivo_t != null)
+                    v_controladorNazareno_s.v_objetivo_t = _nuevoObjetivo_t;
+                else
+                    Debug.LogWarning("--- No hay enemigo objetivo ---");
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"****( OBJETO: {gameObject.name} -> {e} )****");
+            }
         }
+    }
+
+
+    // ----------( Funciones de Debug )---------- //
+    private void OnDrawGizmos()
+    {
+        #if UNITY_EDITOR
+        {
+            Handles.color = Color.red;
+            Handles.Label(transform.position + Vector3.up * 0.3f,
+                                    $"CONTROLADOR :  id -> {id} | nombre -> {nombre} | " +
+                                    $"estado -> {EstadoActual} | subEstado -> {SubEstadoActual}");
+        }
+        #endif
     }
 
 }

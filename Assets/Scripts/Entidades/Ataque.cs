@@ -4,6 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+#if UNITY_EDITOR
+    using UnityEditor;
+#endif
+
 public class Ataque : MonoBehaviour
 {
     // ***********************( Declaraciones )*********************** //
@@ -161,5 +165,13 @@ public class Ataque : MonoBehaviour
         // Alcance
         Gizmos.color = Color.green;
         Gizmos.DrawLine(transform.position + transform.up * _inicio, transform.position + transform.up * (_inicio + alcance));
+
+        #if UNITY_EDITOR
+        {
+            Handles.color = Color.red;
+            Handles.Label(transform.position + Vector3.up * 0.8f,
+                                    $"ATAQUE : Recarga -> {v_tiempoDeRecargaAtual_f}/{tiempoRecarga}" );
+        }
+        #endif
     }
 }

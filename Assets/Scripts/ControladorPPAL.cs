@@ -13,6 +13,7 @@ public class ControladorPPAL : MonoBehaviour
     public static bool v_pausado_b = true;
     public static event Action<bool> OnCambioPausa;
     public static event Action OnReiniciar;
+    public static event Action OnIniciar;
     public static event Action IntanciarEnemigos;
 
     [SerializeField] private TextMeshProUGUI PausaBotonTexto;
@@ -36,6 +37,12 @@ public class ControladorPPAL : MonoBehaviour
 
         Terminal.Log("Pausado: " + v_pausado_b);
     }
+    private void reiniciar()
+    {
+        Navegacion.nav.Reiniciar(); // No hace nada
+        // TODO: Devolver cuantia al jugador.
+        OnReiniciar?.Invoke();
+    }
 
 
     [RegisterCommand(Help = "pausa/desapausa")]
@@ -45,10 +52,17 @@ public class ControladorPPAL : MonoBehaviour
     }
 
     [RegisterCommand(Help = "Instanciar enemigos")]
-    static void CommandInste(CommandArg[] args)
+    static void CommandInst(CommandArg[] args)
     {
         Debug.Log("Intentando Intanciar");
         ControladorPPAL.IntanciarEnemigos?.Invoke();
+    }
+
+    [RegisterCommand(Help = "Reiniciar Nivel")]
+    static void CommandRei(CommandArg[] args)
+    {
+        Debug.Log("Reiniciando...");
+        ControladorPPAL.ppal.reiniciar();
     }
 
 
