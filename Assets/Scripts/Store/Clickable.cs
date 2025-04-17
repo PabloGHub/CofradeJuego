@@ -5,7 +5,7 @@ public class Clickable : MonoBehaviour
 {
     private bool isPressed = false;
     private float pressTime = 0f;
-    private float longPressThreshold = 0.3f;
+    private float longPressThreshold = 0.2f;
 
     void Update()
     {
