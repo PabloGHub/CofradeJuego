@@ -30,16 +30,27 @@ public class ControladorNazareno : MaquinaDeEstados
     // ***********************( Funciones Unity )*********************** //
     private void Start()
     {
-        // Movimiento
-        v_movimiento = GetComponent<Movimiento>();
-        if (v_movimiento == null)
+        // Ataqie
+        v_ataque_s = GetComponent<Ataque>();
+        if (v_ataque_s != null)
         {
-            Debug.LogError("El Nazareno no tiene un componente Movimiento.");
-            return;
+            v_ataque_s.OnSinEnemigos += () => CambiarEstado(0);
+            v_ataque_s.OnEnemigosCerca += () => CambiarEstado(1);
         }
+        else
+            Debug.LogError($"****** Nazareno: {gameObject.name} NO tiene componente (Ataque) ******");
+
+        
         v_puntoObjetivo_t = Navegacion.nav.trayectoria[v_objetivoIndex_i];
         v_objetivo_t = v_puntoObjetivo_t;
-        v_movimiento.v_objetivo_t = v_objetivo_t; // Puede que si esta atacando, gire raro.
+
+        // Movimiento
+        v_movimiento = GetComponent<Movimiento>();
+        if (v_movimiento != null)
+            v_movimiento.v_objetivo_t = v_objetivo_t; // Puede que si esta atacando, gire raro.
+        else
+            Debug.LogError($"****** Nazareno: {gameObject.name} NO tiene componente (Movimiento) ******");
+        
 
         // Inicializar Maquina de Estados
         Inicializar(gameObject);
@@ -66,15 +77,16 @@ public class ControladorNazareno : MaquinaDeEstados
                 _animaciones_s = _anim;
         }
         if (_animaciones_s == null)
-            Debug.LogError("El Nazareno no tiene un componente Animaciones.");
+            Debug.LogError($"****** Nazareno: {gameObject.name} NO tiene componente (Animaciones) ******");
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (ControladorPPAL.v_pausado_b)
             return;
 
-        v_movimiento.v_objetivo_t = v_objetivo_t;
+        if (v_movimiento != null)
+            v_movimiento.v_objetivo_t = v_objetivo_t;
     }
 
 
@@ -251,9 +263,13 @@ public class ControladorNazareno : MaquinaDeEstados
             v_controladorNazareno_s.v_movimiento.v_exodia_b = false;
         }
 
-        public override void MiUpdate()
+        public override void MiFixedUpdate()
         {
-
+            Transform _nuevoObjetivo_t = v_controladorNazareno_s.v_ataque_s.EnemigoObjetivo_go.transform;
+            if (_nuevoObjetivo_t != null)
+                v_controladorNazareno_s.v_objetivo_t = _nuevoObjetivo_t;
+            else
+                Debug.LogWarning("--- No hay enemigo objetivo ---");
         }
     }
 

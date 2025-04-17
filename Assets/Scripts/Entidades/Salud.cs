@@ -40,8 +40,12 @@ public class Salud : MonoBehaviour
         v_saludActual_f = saludMaxima;
 
         v_rb_c = GetComponent<Rigidbody2D>();
-        v_movimiento_c = GetComponent<Movimiento>();
+        if (v_rb_c == null)
+            Debug.LogError($"****** Entidad: {gameObject.name} NO tiene componente (Rigidbody2D) ******");
 
+        v_movimiento_c = GetComponent<Movimiento>();
+        if (v_movimiento_c == null)
+            Debug.LogError($"****** Entidad: {gameObject.name} NO tiene componente (Movimiento) ******");
 
         if (lifeBar != null)
         {

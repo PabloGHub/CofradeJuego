@@ -32,8 +32,10 @@ public class Ataque : MonoBehaviour
 
 
     private float v_tiempoDeRecargaAtual_f;
-    private GameObject _enemigoObjetivo_go;
     private HashSet<GameObject> _listaEnemigos;
+
+    [HideInInspector]
+    public GameObject EnemigoObjetivo_go;
 
 
     [HideInInspector] public bool _atacar_b;
@@ -51,6 +53,8 @@ public class Ataque : MonoBehaviour
         _inicioR_v3 = (_inicio == 0) ? transform.position : new Vector3(0f, _inicio, 0f);
 
         v_salud_s = GetComponent<Salud>();
+        if (v_salud_s == null)
+            Debug.LogError($"****** Entidad: {gameObject.name} NO tiene componente (Salud) ******");
 
         StartCoroutine(f_detectarPeriodicamente());
     }
@@ -88,12 +92,12 @@ public class Ataque : MonoBehaviour
     void comprobarListaObjetivos()
     {
         _listaEnemigos.RemoveWhere(e => e == null || !e.activeInHierarchy || e.GetComponent<Salud>()?.SaludActual <= 0);
-        _enemigoObjetivo_go = _listaEnemigos
+        EnemigoObjetivo_go = _listaEnemigos
             .OrderBy(e => Vector3.Distance(transform.position, e.transform.position))
             .ThenBy(e => e.GetComponent<Salud>().SaludActual)
             .FirstOrDefault();
 
-        if (_enemigoObjetivo_go != null)
+        if (EnemigoObjetivo_go != null)
             OnEnemigosCerca?.Invoke();
         else
             OnSinEnemigos?.Invoke();

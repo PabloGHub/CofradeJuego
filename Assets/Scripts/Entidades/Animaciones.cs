@@ -19,7 +19,7 @@ public class Animaciones : MaquinaDeEstados
         // Animator
         _animator = GetComponent<Animator>();
         if (_animator == null)
-            Debug.LogError("El Nazareno no tiene (Animator).");
+            Debug.LogError($"****** Entidad: {gameObject.name} NO tiene componente (Animator) ******");
 
         // Maquina de Estados
         Inicializar(gameObject);
@@ -33,19 +33,19 @@ public class Animaciones : MaquinaDeEstados
         // Movimiento del padre
         _movimiento = GetComponentInParent<Movimiento>();
         if (_movimiento == null)
-            Debug.LogError("El Nazareno no tiene (Movimiento).");
+            Debug.LogError($"****** Entidad: {gameObject.name} NO tiene componente (Movimiento) ******");
 
         // SpriteRenderer
         Sprite = GetComponent<SpriteRenderer>();
         if (Sprite == null)
-            Debug.LogError("El Nazareno no tiene (SpriteRenderer).");
+            Debug.LogError($"****** Entidad: {gameObject.name} NO tiene componente (SpriteRenderer) ******");
     }
 
     private void Update()
     {
         if (_animator == null || _movimiento == null || Sprite == null)
         {
-            Debug.LogError("El Nazareno no tiene (Movimiento o SpriteRenderer o Animator).");
+            Debug.LogError($"****** Entidad: {gameObject.name} NO tiene componente (_animator, _movimiento, Sprite) ******");
             return;
         }
 

@@ -46,11 +46,15 @@ public class Movimiento : MaquinaDeEstados
 
         v_aceleracionExodia_f = aceleracion + aceleracion;
 
+      
+        v_agente_NavMeshAgent = GetComponent<NavMeshAgent>();
         if (v_agente_NavMeshAgent == null)
-            v_agente_NavMeshAgent = GetComponent<NavMeshAgent>();
+            Debug.LogError($"****** Entidad: {gameObject.name} NO tiene componente (NavMeshAgent) ******");
 
+        v_rb_rb2D = GetComponent<Rigidbody2D>();
         if (v_rb_rb2D == null)
-            v_rb_rb2D = GetComponent<Rigidbody2D>();
+            Debug.LogError($"****** Entidad: {gameObject.name} NO tiene componente (Rigidbody2D) ******");
+
 
         Inicializar(gameObject);
         estadosPosibles = new List<EstadoBase>
