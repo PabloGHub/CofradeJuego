@@ -44,7 +44,7 @@ public class Proyectil : MonoBehaviour
             }
         }
 
-        transform.Translate(Vector2.right * _velocidad_f * Time.deltaTime);
+        transform.Translate(Vector2.up * _velocidad_f * Time.deltaTime);
 
         RaycastHit2D _hit = Physics2D.Raycast
         (

@@ -415,14 +415,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: nazarenoVerde
       objectReference: {fileID: 0}
-    - target: {fileID: 8487932697863468914, guid: bede82fb065032f428f55132e6a2f4d8, type: 3}
-      propertyPath: alcance
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8487932697863468914, guid: bede82fb065032f428f55132e6a2f4d8, type: 3}
-      propertyPath: RangoVisibliidad
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1315,6 +1307,18 @@ PrefabInstance:
     - target: {fileID: 8226610799400092452, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
       propertyPath: m_Name
       value: nazarenoRaso_CanvasNO
+      objectReference: {fileID: 0}
+    - target: {fileID: 8487932697863468914, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
+      propertyPath: danno
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8487932697863468914, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
+      propertyPath: fuerzaEmpuje
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8487932697863468914, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
+      propertyPath: RangoVisibliidad
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

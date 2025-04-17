@@ -410,14 +410,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4908d698a4f16d74b9f2d307d4525876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alcance: 1
-  RangoVisibliidad: 1
+  RangoVisibliidad: 2
   tiempoRecarga: 1
-  fuerzaEmpuje: 1
+  fuerzaEmpuje: 2
   capaAtacado:
     serializedVersion: 2
     m_Bits: 1024
   danno: 5
+  alcance: 1
   EsDistancia: 1
   prefabProyectil: {fileID: 9169620315529376050, guid: e32e158e3854c9d49b250b6b4e37eb42, type: 3}
   _alcanceExplosion_f: 0
