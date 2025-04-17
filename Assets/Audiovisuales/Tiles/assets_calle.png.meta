@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: 6ee6cf99a80a62e4e904187bf962a073
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5760656900542378672
+    second: assets calle_0
+  - first:
+      213: -3388208627932812661
+    second: assets calle_1
+  - first:
+      213: 5359201294569559991
+    second: assets calle_2
+  - first:
+      213: -7840294940698026281
+    second: assets calle_3
+  - first:
+      213: -1231678655879316584
+    second: assets calle_4
+  - first:
+      213: 8559221805661900247
+    second: assets calle_5
+  - first:
+      213: 613432296317681303
+    second: assets calle_6
+  - first:
+      213: 4658977324224722075
+    second: assets calle_7
+  - first:
+      213: -8091099036367043134
+    second: assets calle_8
+  - first:
+      213: -9159880403739455747
+    second: assets calle_9
+  - first:
+      213: 6997024668673631275
+    second: assets calle_10
+  - first:
+      213: 2263094353385177061
+    second: assets calle_11
+  - first:
+      213: -5854592489824793043
+    second: assets calle_12
+  - first:
+      213: 7775745665148920096
+    second: assets calle_13
+  - first:
+      213: -4510824839996812472
+    second: assets calle_14
+  - first:
+      213: 3830891435859617158
+    second: assets calle_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: assets calle_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 607
+        width: 22
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b23bb50ee6f1ff40800000000000000
+      internalID: 5760656900542378672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: assets calle_1
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 607
+        width: 23
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8aa623543aaaf0d0800000000000000
+      internalID: -3388208627932812661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: assets calle_2
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 639
+        width: 14
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b7d1a2ee25bf5a40800000000000000
+      internalID: 5359201294569559991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: assets calle_3
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 671
+        width: 66
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ded6658a4da13390800000000000000
+      internalID: -7840294940698026281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: assets calle_4
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 639
+        width: 14
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89bf1e6c9c238eee0800000000000000
+      internalID: -1231678655879316584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: assets calle_5
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 639
+        width: 14
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7dd414032e678c670800000000000000
+      internalID: 8559221805661900247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: assets calle_6
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 639
+        width: 14
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79e74c36c69538800800000000000000
+      internalID: 613432296317681303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: assets calle_7
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 607
+        width: 19
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b94b30b213308a040800000000000000
+      internalID: 4658977324224722075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: assets calle_8
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 607
+        width: 19
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c546de7b44a6bf80800000000000000
+      internalID: -8091099036367043134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: assets calle_9
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 615
+        width: 8
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfe4c0ecd4191e080800000000000000
+      internalID: -9159880403739455747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: assets calle_10
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 540
+        width: 98
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b24efe44ddc6a1160800000000000000
+      internalID: 6997024668673631275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: assets calle_11
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 543
+        width: 98
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ef37b2f250286f10800000000000000
+      internalID: 2263094353385177061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: assets calle_12
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 545
+        width: 98
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2ec253462f40cea0800000000000000
+      internalID: -5854592489824793043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: assets calle_13
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 545
+        width: 98
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0212cfa1c7ff8eb60800000000000000
+      internalID: 7775745665148920096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: assets calle_14
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 444
+        width: 98
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8435bf715b45661c0800000000000000
+      internalID: -4510824839996812472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: assets calle_15
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 482
+        width: 67
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 685af77c67f0a2530800000000000000
+      internalID: 3830891435859617158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      assets calle_0: 5760656900542378672
+      assets calle_1: -3388208627932812661
+      assets calle_10: 6997024668673631275
+      assets calle_11: 2263094353385177061
+      assets calle_12: -5854592489824793043
+      assets calle_13: 7775745665148920096
+      assets calle_14: -4510824839996812472
+      assets calle_15: 3830891435859617158
+      assets calle_2: 5359201294569559991
+      assets calle_3: -7840294940698026281
+      assets calle_4: -1231678655879316584
+      assets calle_5: 8559221805661900247
+      assets calle_6: 613432296317681303
+      assets calle_7: 4658977324224722075
+      assets calle_8: -8091099036367043134
+      assets calle_9: -9159880403739455747
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

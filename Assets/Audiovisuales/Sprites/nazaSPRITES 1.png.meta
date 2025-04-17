@@ -1,0 +1,3208 @@
+fileFormatVersion: 2
+guid: d78d1ea8a70d3f548a496ad2717594bb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3613983809978742712
+    second: nazaSPRITES 1_0
+  - first:
+      213: 4039662068483238409
+    second: nazaSPRITES 1_1
+  - first:
+      213: 8304448691766041087
+    second: nazaSPRITES 1_2
+  - first:
+      213: -3335472624520433978
+    second: nazaSPRITES 1_3
+  - first:
+      213: -8302267073966116378
+    second: nazaSPRITES 1_4
+  - first:
+      213: -6248467042442290433
+    second: nazaSPRITES 1_5
+  - first:
+      213: -3321316116095022828
+    second: nazaSPRITES 1_6
+  - first:
+      213: 2565501005214569441
+    second: nazaSPRITES 1_7
+  - first:
+      213: 2822624323200026433
+    second: nazaSPRITES 1_8
+  - first:
+      213: 2124157441665845034
+    second: nazaSPRITES 1_9
+  - first:
+      213: -8291662256324265099
+    second: nazaSPRITES 1_10
+  - first:
+      213: 1150575751458527763
+    second: nazaSPRITES 1_11
+  - first:
+      213: 7236442304989065098
+    second: nazaSPRITES 1_12
+  - first:
+      213: 8787385061117281739
+    second: nazaSPRITES 1_13
+  - first:
+      213: -4600937381700518510
+    second: nazaSPRITES 1_14
+  - first:
+      213: 4449043222185917176
+    second: nazaSPRITES 1_15
+  - first:
+      213: 3182022763876943681
+    second: nazaSPRITES 1_16
+  - first:
+      213: -1221581545225716915
+    second: nazaSPRITES 1_17
+  - first:
+      213: -3143746495218090217
+    second: nazaSPRITES 1_18
+  - first:
+      213: -3110828337394271086
+    second: nazaSPRITES 1_19
+  - first:
+      213: 8911353414494799274
+    second: nazaSPRITES 1_20
+  - first:
+      213: 5653799249161472512
+    second: nazaSPRITES 1_21
+  - first:
+      213: -7835627720666493430
+    second: nazaSPRITES 1_22
+  - first:
+      213: 1674945458954770361
+    second: nazaSPRITES 1_23
+  - first:
+      213: 8221019340498959217
+    second: nazaSPRITES 1_24
+  - first:
+      213: -5549308361729408868
+    second: nazaSPRITES 1_25
+  - first:
+      213: -4454453149947455961
+    second: nazaSPRITES 1_26
+  - first:
+      213: -6120145330726297037
+    second: nazaSPRITES 1_27
+  - first:
+      213: 3320407880411581420
+    second: nazaSPRITES 1_28
+  - first:
+      213: -7186379523848426289
+    second: nazaSPRITES 1_29
+  - first:
+      213: -7006671061264588494
+    second: nazaSPRITES 1_30
+  - first:
+      213: 7457300351159631554
+    second: nazaSPRITES 1_31
+  - first:
+      213: -4931103010716662253
+    second: nazaSPRITES 1_32
+  - first:
+      213: -5283086522765188197
+    second: nazaSPRITES 1_33
+  - first:
+      213: -6020526832708268022
+    second: nazaSPRITES 1_34
+  - first:
+      213: -243117979949170778
+    second: nazaSPRITES 1_35
+  - first:
+      213: -1869638321585097415
+    second: nazaSPRITES 1_36
+  - first:
+      213: 2428294171330950724
+    second: nazaSPRITES 1_37
+  - first:
+      213: -7311835749888807918
+    second: nazaSPRITES 1_38
+  - first:
+      213: -6914483200964509185
+    second: nazaSPRITES 1_39
+  - first:
+      213: 7825244981749247558
+    second: nazaSPRITES 1_40
+  - first:
+      213: -4931933166137557175
+    second: nazaSPRITES 1_41
+  - first:
+      213: 8800765679644721200
+    second: nazaSPRITES 1_42
+  - first:
+      213: 3318768540570475301
+    second: nazaSPRITES 1_43
+  - first:
+      213: 2427000408196382641
+    second: nazaSPRITES 1_44
+  - first:
+      213: -6261212253297858586
+    second: nazaSPRITES 1_45
+  - first:
+      213: 2371987042487807977
+    second: nazaSPRITES 1_46
+  - first:
+      213: -5407317090150205425
+    second: nazaSPRITES 1_47
+  - first:
+      213: -6043866015833536208
+    second: nazaSPRITES 1_48
+  - first:
+      213: 1062281235753184326
+    second: nazaSPRITES 1_49
+  - first:
+      213: 5854654468863250721
+    second: nazaSPRITES 1_50
+  - first:
+      213: -8287593838608311720
+    second: nazaSPRITES 1_51
+  - first:
+      213: 8930531593900863619
+    second: nazaSPRITES 1_52
+  - first:
+      213: 5229000055604923514
+    second: nazaSPRITES 1_53
+  - first:
+      213: -7455311454871895461
+    second: nazaSPRITES 1_54
+  - first:
+      213: 5577139193900672448
+    second: nazaSPRITES 1_55
+  - first:
+      213: -913167206648428610
+    second: nazaSPRITES 1_56
+  - first:
+      213: 5208735462416681954
+    second: nazaSPRITES 1_57
+  - first:
+      213: -8144995512145972380
+    second: nazaSPRITES 1_58
+  - first:
+      213: -7829283888758279525
+    second: nazaSPRITES 1_59
+  - first:
+      213: -1685215785755365933
+    second: nazaSPRITES 1_60
+  - first:
+      213: 6404183863985959733
+    second: nazaSPRITES 1_61
+  - first:
+      213: -7331828771317372770
+    second: nazaSPRITES 1_62
+  - first:
+      213: 4085779677279887039
+    second: nazaSPRITES 1_63
+  - first:
+      213: -912017037416190562
+    second: nazaSPRITES 1_64
+  - first:
+      213: 4709148500532547270
+    second: nazaSPRITES 1_65
+  - first:
+      213: 5613015443383701796
+    second: nazaSPRITES 1_66
+  - first:
+      213: 2661793767124073013
+    second: nazaSPRITES 1_67
+  - first:
+      213: -4630694105060368883
+    second: nazaSPRITES 1_68
+  - first:
+      213: -4675129782498499841
+    second: nazaSPRITES 1_69
+  - first:
+      213: -877349949568763308
+    second: nazaSPRITES 1_70
+  - first:
+      213: 36691022584412579
+    second: nazaSPRITES 1_71
+  - first:
+      213: 7964026563873131987
+    second: nazaSPRITES 1_72
+  - first:
+      213: 90391722950139034
+    second: nazaSPRITES 1_73
+  - first:
+      213: -6923030758744254582
+    second: nazaSPRITES 1_74
+  - first:
+      213: -3350190753512494271
+    second: nazaSPRITES 1_75
+  - first:
+      213: 5877241415048542966
+    second: nazaSPRITES 1_76
+  - first:
+      213: 7000328110501063632
+    second: nazaSPRITES 1_77
+  - first:
+      213: -6180124876180505961
+    second: nazaSPRITES 1_78
+  - first:
+      213: -3420501315055667517
+    second: nazaSPRITES 1_79
+  - first:
+      213: 64052491174930619
+    second: nazaSPRITES 1_80
+  - first:
+      213: 4030044698749769447
+    second: nazaSPRITES 1_81
+  - first:
+      213: 3089224077405626712
+    second: nazaSPRITES 1_82
+  - first:
+      213: -5692926908925755701
+    second: nazaSPRITES 1_83
+  - first:
+      213: -7564188274725152022
+    second: nazaSPRITES 1_84
+  - first:
+      213: 6442731428424161656
+    second: nazaSPRITES 1_85
+  - first:
+      213: 8720474793135810165
+    second: nazaSPRITES 1_86
+  - first:
+      213: 3303067362055554088
+    second: nazaSPRITES 1_87
+  - first:
+      213: -3981812470799450232
+    second: nazaSPRITES 1_88
+  - first:
+      213: 8436146968738077116
+    second: nazaSPRITES 1_89
+  - first:
+      213: 6477256932630109675
+    second: nazaSPRITES 1_90
+  - first:
+      213: -3575809775440001655
+    second: nazaSPRITES 1_91
+  - first:
+      213: -5473484325731534206
+    second: nazaSPRITES 1_92
+  - first:
+      213: -4415845756102322854
+    second: nazaSPRITES 1_93
+  - first:
+      213: -4672660501723513110
+    second: nazaSPRITES 1_94
+  - first:
+      213: 4828426351455221396
+    second: nazaSPRITES 1_95
+  - first:
+      213: 8013376811022808623
+    second: nazaSPRITES 1_96
+  - first:
+      213: 8857752836625894444
+    second: nazaSPRITES 1_97
+  - first:
+      213: -9061495008494628982
+    second: nazaSPRITES 1_98
+  - first:
+      213: 2184524897972383978
+    second: nazaSPRITES 1_99
+  - first:
+      213: -6985392679827410538
+    second: nazaSPRITES 1_100
+  - first:
+      213: 5123218334317123213
+    second: nazaSPRITES 1_101
+  - first:
+      213: 8615699404439177333
+    second: nazaSPRITES 1_102
+  - first:
+      213: -8497512955264514130
+    second: nazaSPRITES 1_103
+  - first:
+      213: -3319838930902981170
+    second: nazaSPRITES 1_104
+  - first:
+      213: -8785563548254779820
+    second: nazaSPRITES 1_105
+  - first:
+      213: -5116157493578935727
+    second: nazaSPRITES 1_106
+  - first:
+      213: 1367061777420534071
+    second: nazaSPRITES 1_107
+  - first:
+      213: -8986627327477843754
+    second: nazaSPRITES 1_108
+  - first:
+      213: 5241674424424886625
+    second: nazaSPRITES 1_109
+  - first:
+      213: -6254951803161824765
+    second: nazaSPRITES 1_110
+  - first:
+      213: -1158241672913268082
+    second: nazaSPRITES 1_111
+  - first:
+      213: 3169583358206182019
+    second: nazaSPRITES 1_112
+  - first:
+      213: 3312155097002333322
+    second: nazaSPRITES 1_113
+  - first:
+      213: -2402868872336238520
+    second: nazaSPRITES 1_114
+  - first:
+      213: -9104090802668375550
+    second: nazaSPRITES 1_115
+  - first:
+      213: 8302661803383233314
+    second: nazaSPRITES 1_116
+  - first:
+      213: 6901099310962994317
+    second: nazaSPRITES 1_117
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: nazaSPRITES 1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 498
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b7bbc1a023772230800000000000000
+      internalID: 3613983809978742712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_1
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 498
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90a209c8f33cf0830800000000000000
+      internalID: 4039662068483238409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_2
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 498
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff91c2816145f3370800000000000000
+      internalID: 8304448691766041087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_3
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 498
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ce6b61f15506b1d0800000000000000
+      internalID: -3335472624520433978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_4
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 498
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e1f3d1651c68cc80800000000000000
+      internalID: -8302267073966116378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_5
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 498
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffadd78a45cf849a0800000000000000
+      internalID: -6248467042442290433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_6
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 498
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4194069e69058e1d0800000000000000
+      internalID: -3321316116095022828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_7
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 498
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e3d8b6529d7a9320800000000000000
+      internalID: 2565501005214569441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_8
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 498
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14707b6fdd9fb2720800000000000000
+      internalID: 2822624323200026433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_9
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 498
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a27ce7d50f58a7d10800000000000000
+      internalID: 2124157441665845034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_10
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 498
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57b3746eb191eec80800000000000000
+      internalID: -8291662256324265099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_11
+      rect:
+        serializedVersion: 2
+        x: 737
+        y: 498
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31a1dd8cc8aa7ff00800000000000000
+      internalID: 1150575751458527763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_12
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 498
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8f6b72afe10d6460800000000000000
+      internalID: 7236442304989065098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_13
+      rect:
+        serializedVersion: 2
+        x: 871
+        y: 498
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc54870d72013f970800000000000000
+      internalID: 8787385061117281739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_14
+      rect:
+        serializedVersion: 2
+        x: 938
+        y: 498
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29dbce104df2620c0800000000000000
+      internalID: -4600937381700518510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_15
+      rect:
+        serializedVersion: 2
+        x: 1005
+        y: 498
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fa30c01d3d2ebd30800000000000000
+      internalID: 4449043222185917176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_16
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 498
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 147871c38d0d82c20800000000000000
+      internalID: 3182022763876943681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_17
+      rect:
+        serializedVersion: 2
+        x: 1139
+        y: 498
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4bf5ac8e021c0fe0800000000000000
+      internalID: -1221581545225716915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 431
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71f75a8083b2f54d0800000000000000
+      internalID: -3143746495218090217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_19
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 431
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29c3568eb1e14d4d0800000000000000
+      internalID: -3110828337394271086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_20
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 431
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa54de257bc7bab70800000000000000
+      internalID: 8911353414494799274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_21
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 431
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00ac3a54674567e40800000000000000
+      internalID: 5653799249161472512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_22
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 431
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0e487d5a12424390800000000000000
+      internalID: -7835627720666493430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_23
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 431
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b7172b450a9e3710800000000000000
+      internalID: 1674945458954770361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_24
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 431
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17b7e0a888de61270800000000000000
+      internalID: 8221019340498959217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_25
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 431
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c90830e4275ecf2b0800000000000000
+      internalID: -5549308361729408868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_26
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 431
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72613c8f57a9e22c0800000000000000
+      internalID: -4454453149947455961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_27
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 431
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3322b446f30e01ba0800000000000000
+      internalID: -6120145330726297037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_28
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 431
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ceb075dff55741e20800000000000000
+      internalID: 3320407880411581420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_29
+      rect:
+        serializedVersion: 2
+        x: 737
+        y: 431
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fccafdbe5e9d44c90800000000000000
+      internalID: -7186379523848426289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_30
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 431
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 231a05feacd43ce90800000000000000
+      internalID: -7006671061264588494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_31
+      rect:
+        serializedVersion: 2
+        x: 871
+        y: 431
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cef34ea827ad7760800000000000000
+      internalID: 7457300351159631554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_32
+      rect:
+        serializedVersion: 2
+        x: 938
+        y: 431
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 316cf5710f3319bb0800000000000000
+      internalID: -4931103010716662253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_33
+      rect:
+        serializedVersion: 2
+        x: 1005
+        y: 431
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b936dec6cc4bea6b0800000000000000
+      internalID: -5283086522765188197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_34
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 431
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0057b76ebac27ca0800000000000000
+      internalID: -6020526832708268022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_35
+      rect:
+        serializedVersion: 2
+        x: 1139
+        y: 431
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6af7e9e3c7540acf0800000000000000
+      internalID: -243117979949170778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 364
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 935767f2ad5bd06e0800000000000000
+      internalID: -1869638321585097415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_37
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 364
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4463554eea803b120800000000000000
+      internalID: 2428294171330950724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_38
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 364
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21c20ef0024278a90800000000000000
+      internalID: -7311835749888807918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_39
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 364
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff1ca19c922da00a0800000000000000
+      internalID: -6914483200964509185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_40
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 364
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64e6299d9dad89c60800000000000000
+      internalID: 7825244981749247558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_41
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 364
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94f37687ae04e8bb0800000000000000
+      internalID: -4931933166137557175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_42
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 364
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0304ca6d1c9922a70800000000000000
+      internalID: 8800765679644721200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_43
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 364
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52bd1707762ae0e20800000000000000
+      internalID: 3318768540570475301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_44
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 364
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bff54033007ea120800000000000000
+      internalID: 2427000408196382641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_45
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 364
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e7abd201a4bb19a0800000000000000
+      internalID: -6261212253297858586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_46
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 364
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9efa057d5adfae020800000000000000
+      internalID: 2371987042487807977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_47
+      rect:
+        serializedVersion: 2
+        x: 737
+        y: 364
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f08b2b571c955f4b0800000000000000
+      internalID: -5407317090150205425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_48
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 364
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 039cf2061efdf1ca0800000000000000
+      internalID: -6043866015833536208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_49
+      rect:
+        serializedVersion: 2
+        x: 871
+        y: 364
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64ca1acd72bfdbe00800000000000000
+      internalID: 1062281235753184326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_50
+      rect:
+        serializedVersion: 2
+        x: 938
+        y: 364
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1215f3b5839ef3150800000000000000
+      internalID: 5854654468863250721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_51
+      rect:
+        serializedVersion: 2
+        x: 1005
+        y: 364
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85a1907305d8cfc80800000000000000
+      internalID: -8287593838608311720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_52
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 364
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3803ddd2b2f9feb70800000000000000
+      internalID: 8930531593900863619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_53
+      rect:
+        serializedVersion: 2
+        x: 1139
+        y: 364
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7c44dc98d3219840800000000000000
+      internalID: 5229000055604923514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_54
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 297
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b52c5725bb9698890800000000000000
+      internalID: -7455311454871895461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_55
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 297
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c5ab534c8af56d40800000000000000
+      internalID: 5577139193900672448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_56
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 297
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb74f238347c353f0800000000000000
+      internalID: -913167206648428610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_57
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 297
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2eb83565e45294840800000000000000
+      internalID: 5208735462416681954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_58
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 297
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46373695cb927fe80800000000000000
+      internalID: -8144995512145972380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_59
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 297
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b92bfd4d8cbc85390800000000000000
+      internalID: -7829283888758279525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_60
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 297
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ddab28eb29ec98e0800000000000000
+      internalID: -1685215785755365933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_61
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 297
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 533fb212b4b30e850800000000000000
+      internalID: 6404183863985959733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_62
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 297
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e98a3a3049c104a90800000000000000
+      internalID: -7331828771317372770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_63
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 297
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbe17c618fa93b830800000000000000
+      internalID: 4085779677279887039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_64
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 297
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9d24b7265dd753f0800000000000000
+      internalID: -912017037416190562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_65
+      rect:
+        serializedVersion: 2
+        x: 737
+        y: 297
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ce4ec07c914a5140800000000000000
+      internalID: 4709148500532547270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_66
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 230
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 421daa58ecf65ed40800000000000000
+      internalID: 5613015443383701796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_67
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 230
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53a77c2145790f420800000000000000
+      internalID: 2661793767124073013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_68
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 230
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0e9164fe387cbfb0800000000000000
+      internalID: -4630694105060368883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_69
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 230
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff2e3539b3a9e1fb0800000000000000
+      internalID: -4675129782498499841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_70
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 230
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45a3f388ed603d3f0800000000000000
+      internalID: -877349949568763308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_71
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 230
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a9f6976a4a528000800000000000000
+      internalID: 36691022584412579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_72
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 230
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ddce61f6f7e58e60800000000000000
+      internalID: 7964026563873131987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_73
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 230
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9c14190bc2214100800000000000000
+      internalID: 90391722950139034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_74
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 230
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8712f764347cef90800000000000000
+      internalID: -6923030758744254582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_75
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 230
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14be61f724bb181d0800000000000000
+      internalID: -3350190753512494271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_76
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 230
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fabe239de7209150800000000000000
+      internalID: 5877241415048542966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_77
+      rect:
+        serializedVersion: 2
+        x: 737
+        y: 230
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dbe891c359262160800000000000000
+      internalID: 7000328110501063632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_78
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 230
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79ab4b73b29cb3aa0800000000000000
+      internalID: -6180124876180505961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_79
+      rect:
+        serializedVersion: 2
+        x: 871
+        y: 230
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c6b9523d20f780d0800000000000000
+      internalID: -3420501315055667517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_80
+      rect:
+        serializedVersion: 2
+        x: 938
+        y: 230
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb8e57fb66f83e000800000000000000
+      internalID: 64052491174930619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_81
+      rect:
+        serializedVersion: 2
+        x: 1005
+        y: 230
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e61de92d489de730800000000000000
+      internalID: 4030044698749769447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_82
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 163
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 851a8555ee02fda20800000000000000
+      internalID: 3089224077405626712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_83
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 163
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bceb7358329aef0b0800000000000000
+      internalID: -5692926908925755701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_84
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 163
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aea15d647da960790800000000000000
+      internalID: -7564188274725152022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_85
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 163
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 879977e591e296950800000000000000
+      internalID: 6442731428424161656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_86
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 163
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 576ab9d0f99550970800000000000000
+      internalID: 8720474793135810165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_87
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 163
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8240280f34ad6dd20800000000000000
+      internalID: 3303067362055554088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_88
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 163
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88f37c387a2cdb8c0800000000000000
+      internalID: -3981812470799450232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_89
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 163
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb91f90b8f6331570800000000000000
+      internalID: 8436146968738077116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_90
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 163
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bed9a5cbcd6d3e950800000000000000
+      internalID: 6477256932630109675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_91
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 163
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 985878664fb206ec0800000000000000
+      internalID: -3575809775440001655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_92
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 163
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28a7a1961074a04b0800000000000000
+      internalID: -5473484325731534206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_93
+      rect:
+        serializedVersion: 2
+        x: 737
+        y: 163
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a55da945ea3c7b2c0800000000000000
+      internalID: -4415845756102322854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_94
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 163
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aee75cec700672fb0800000000000000
+      internalID: -4672660501723513110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_95
+      rect:
+        serializedVersion: 2
+        x: 871
+        y: 163
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 496bf9e3f24020340800000000000000
+      internalID: 4828426351455221396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_96
+      rect:
+        serializedVersion: 2
+        x: 938
+        y: 163
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f26fd50c0cb353f60800000000000000
+      internalID: 8013376811022808623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_97
+      rect:
+        serializedVersion: 2
+        x: 1005
+        y: 163
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2c8b47464f0dea70800000000000000
+      internalID: 8857752836625894444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_98
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 163
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8fc3b4bc4a1f3280800000000000000
+      internalID: -9061495008494628982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_99
+      rect:
+        serializedVersion: 2
+        x: 1139
+        y: 163
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae0f3a212ddf05e10800000000000000
+      internalID: 2184524897972383978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_100
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 691f54e2e56ee0f90800000000000000
+      internalID: -6985392679827410538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_101
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 96
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d869dbb5ee3591740800000000000000
+      internalID: 5123218334317123213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_102
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 96
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 578442dd5fc119770800000000000000
+      internalID: 8615699404439177333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_103
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 96
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea7cd2b2df4c21a80800000000000000
+      internalID: -8497512955264514130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_104
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 96
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec5e304e4109de1d0800000000000000
+      internalID: -3319838930902981170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_105
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 96
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45647a23088631680800000000000000
+      internalID: -8785563548254779820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_106
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 96
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 152564cbdd1cff8b0800000000000000
+      internalID: -5116157493578935727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_107
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 96
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7314a2d8177c8f210800000000000000
+      internalID: 1367061777420534071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_108
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 96
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d87dd01f06194380800000000000000
+      internalID: -8986627327477843754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_109
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 96
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16178101e1b2eb840800000000000000
+      internalID: 5241674424424886625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_110
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 96
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 302b955a972f139a0800000000000000
+      internalID: -6254951803161824765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_111
+      rect:
+        serializedVersion: 2
+        x: 737
+        y: 96
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8253f9c5591defe0800000000000000
+      internalID: -1158241672913268082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_112
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 29
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3828ed7654f9cfb20800000000000000
+      internalID: 3169583358206182019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_113
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 29
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a84d2dd138327fd20800000000000000
+      internalID: 3312155097002333322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_114
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 29
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8481e86dd7b47aed0800000000000000
+      internalID: -2402868872336238520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_115
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 29
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 202fc0886a5c7a180800000000000000
+      internalID: -9104090802668375550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_116
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 29
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22b9cd8bbeaf83370800000000000000
+      internalID: 8302661803383233314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_117
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 29
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8c64ad7241a5cf50800000000000000
+      internalID: 6901099310962994317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nazaSPRITES 1_118
+      rect:
+        serializedVersion: 2
+        x: 737
+        y: 29
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e11608b18693d542a64eb8a56e573b1
+      internalID: -1345721821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 15c1a44cb20b0ad43a8fe43ca7707d06
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      nazaSPRITES 1_0: 3613983809978742712
+      nazaSPRITES 1_1: 4039662068483238409
+      nazaSPRITES 1_10: -8291662256324265099
+      nazaSPRITES 1_100: -6985392679827410538
+      nazaSPRITES 1_101: 5123218334317123213
+      nazaSPRITES 1_102: 8615699404439177333
+      nazaSPRITES 1_103: -8497512955264514130
+      nazaSPRITES 1_104: -3319838930902981170
+      nazaSPRITES 1_105: -8785563548254779820
+      nazaSPRITES 1_106: -5116157493578935727
+      nazaSPRITES 1_107: 1367061777420534071
+      nazaSPRITES 1_108: -8986627327477843754
+      nazaSPRITES 1_109: 5241674424424886625
+      nazaSPRITES 1_11: 1150575751458527763
+      nazaSPRITES 1_110: -6254951803161824765
+      nazaSPRITES 1_111: -1158241672913268082
+      nazaSPRITES 1_112: 3169583358206182019
+      nazaSPRITES 1_113: 3312155097002333322
+      nazaSPRITES 1_114: -2402868872336238520
+      nazaSPRITES 1_115: -9104090802668375550
+      nazaSPRITES 1_116: 8302661803383233314
+      nazaSPRITES 1_117: 6901099310962994317
+      nazaSPRITES 1_118: -1345721821
+      nazaSPRITES 1_12: 7236442304989065098
+      nazaSPRITES 1_13: 8787385061117281739
+      nazaSPRITES 1_14: -4600937381700518510
+      nazaSPRITES 1_15: 4449043222185917176
+      nazaSPRITES 1_16: 3182022763876943681
+      nazaSPRITES 1_17: -1221581545225716915
+      nazaSPRITES 1_18: -3143746495218090217
+      nazaSPRITES 1_19: -3110828337394271086
+      nazaSPRITES 1_2: 8304448691766041087
+      nazaSPRITES 1_20: 8911353414494799274
+      nazaSPRITES 1_21: 5653799249161472512
+      nazaSPRITES 1_22: -7835627720666493430
+      nazaSPRITES 1_23: 1674945458954770361
+      nazaSPRITES 1_24: 8221019340498959217
+      nazaSPRITES 1_25: -5549308361729408868
+      nazaSPRITES 1_26: -4454453149947455961
+      nazaSPRITES 1_27: -6120145330726297037
+      nazaSPRITES 1_28: 3320407880411581420
+      nazaSPRITES 1_29: -7186379523848426289
+      nazaSPRITES 1_3: -3335472624520433978
+      nazaSPRITES 1_30: -7006671061264588494
+      nazaSPRITES 1_31: 7457300351159631554
+      nazaSPRITES 1_32: -4931103010716662253
+      nazaSPRITES 1_33: -5283086522765188197
+      nazaSPRITES 1_34: -6020526832708268022
+      nazaSPRITES 1_35: -243117979949170778
+      nazaSPRITES 1_36: -1869638321585097415
+      nazaSPRITES 1_37: 2428294171330950724
+      nazaSPRITES 1_38: -7311835749888807918
+      nazaSPRITES 1_39: -6914483200964509185
+      nazaSPRITES 1_4: -8302267073966116378
+      nazaSPRITES 1_40: 7825244981749247558
+      nazaSPRITES 1_41: -4931933166137557175
+      nazaSPRITES 1_42: 8800765679644721200
+      nazaSPRITES 1_43: 3318768540570475301
+      nazaSPRITES 1_44: 2427000408196382641
+      nazaSPRITES 1_45: -6261212253297858586
+      nazaSPRITES 1_46: 2371987042487807977
+      nazaSPRITES 1_47: -5407317090150205425
+      nazaSPRITES 1_48: -6043866015833536208
+      nazaSPRITES 1_49: 1062281235753184326
+      nazaSPRITES 1_5: -6248467042442290433
+      nazaSPRITES 1_50: 5854654468863250721
+      nazaSPRITES 1_51: -8287593838608311720
+      nazaSPRITES 1_52: 8930531593900863619
+      nazaSPRITES 1_53: 5229000055604923514
+      nazaSPRITES 1_54: -7455311454871895461
+      nazaSPRITES 1_55: 5577139193900672448
+      nazaSPRITES 1_56: -913167206648428610
+      nazaSPRITES 1_57: 5208735462416681954
+      nazaSPRITES 1_58: -8144995512145972380
+      nazaSPRITES 1_59: -7829283888758279525
+      nazaSPRITES 1_6: -3321316116095022828
+      nazaSPRITES 1_60: -1685215785755365933
+      nazaSPRITES 1_61: 6404183863985959733
+      nazaSPRITES 1_62: -7331828771317372770
+      nazaSPRITES 1_63: 4085779677279887039
+      nazaSPRITES 1_64: -912017037416190562
+      nazaSPRITES 1_65: 4709148500532547270
+      nazaSPRITES 1_66: 5613015443383701796
+      nazaSPRITES 1_67: 2661793767124073013
+      nazaSPRITES 1_68: -4630694105060368883
+      nazaSPRITES 1_69: -4675129782498499841
+      nazaSPRITES 1_7: 2565501005214569441
+      nazaSPRITES 1_70: -877349949568763308
+      nazaSPRITES 1_71: 36691022584412579
+      nazaSPRITES 1_72: 7964026563873131987
+      nazaSPRITES 1_73: 90391722950139034
+      nazaSPRITES 1_74: -6923030758744254582
+      nazaSPRITES 1_75: -3350190753512494271
+      nazaSPRITES 1_76: 5877241415048542966
+      nazaSPRITES 1_77: 7000328110501063632
+      nazaSPRITES 1_78: -6180124876180505961
+      nazaSPRITES 1_79: -3420501315055667517
+      nazaSPRITES 1_8: 2822624323200026433
+      nazaSPRITES 1_80: 64052491174930619
+      nazaSPRITES 1_81: 4030044698749769447
+      nazaSPRITES 1_82: 3089224077405626712
+      nazaSPRITES 1_83: -5692926908925755701
+      nazaSPRITES 1_84: -7564188274725152022
+      nazaSPRITES 1_85: 6442731428424161656
+      nazaSPRITES 1_86: 8720474793135810165
+      nazaSPRITES 1_87: 3303067362055554088
+      nazaSPRITES 1_88: -3981812470799450232
+      nazaSPRITES 1_89: 8436146968738077116
+      nazaSPRITES 1_9: 2124157441665845034
+      nazaSPRITES 1_90: 6477256932630109675
+      nazaSPRITES 1_91: -3575809775440001655
+      nazaSPRITES 1_92: -5473484325731534206
+      nazaSPRITES 1_93: -4415845756102322854
+      nazaSPRITES 1_94: -4672660501723513110
+      nazaSPRITES 1_95: 4828426351455221396
+      nazaSPRITES 1_96: 8013376811022808623
+      nazaSPRITES 1_97: 8857752836625894444
+      nazaSPRITES 1_98: -9061495008494628982
+      nazaSPRITES 1_99: 2184524897972383978
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
