@@ -12,6 +12,7 @@ public class ControladorPPAL : MonoBehaviour
     [HideInInspector]
     public static bool v_pausado_b = true;
     public static event Action<bool> OnCambioPausa;
+    public static event Action OnReiniciar;
     public static event Action IntanciarEnemigos;
 
     [SerializeField] private TextMeshProUGUI PausaBotonTexto;

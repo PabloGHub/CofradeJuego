@@ -7,8 +7,8 @@ using UnityEngine;
 public class ControladorNazareno : MaquinaDeEstados
 {
     // ***********************( Declaraciones )*********************** //
-    private float cercaniaAlObjetivo = 3f;
-    public int v_objetivoIndex_i = 0;
+    private float _cercaniaAlObjetivo = 3f;
+    public int ObjetivoIndex_i = 0;
     [HideInInspector] public Movimiento v_movimiento;
     [HideInInspector] public Transform v_objetivo_t;
     [HideInInspector] public Transform v_puntoObjetivo_t;
@@ -41,7 +41,7 @@ public class ControladorNazareno : MaquinaDeEstados
             Debug.LogError($"****** Nazareno: {gameObject.name} NO tiene componente (Ataque) ******");
 
         
-        v_puntoObjetivo_t = Navegacion.nav.trayectoria[v_objetivoIndex_i];
+        v_puntoObjetivo_t = Navegacion.nav.trayectoria[ObjetivoIndex_i];
         v_objetivo_t = v_puntoObjetivo_t;
 
         // Movimiento
@@ -97,7 +97,7 @@ public class ControladorNazareno : MaquinaDeEstados
             if (v_movimiento.v_objetivo_t == null)
                 return;
 
-            if (Vector3.Distance(transform.position, v_movimiento.v_objetivo_t.position) < cercaniaAlObjetivo)
+            if (Vector3.Distance(transform.position, v_movimiento.v_objetivo_t.position) < _cercaniaAlObjetivo)
             {
                 //Debug.Log("Llegamos al punto de control: " + v_puntoObjetivo_t.name);
                 actualizarPunto();
@@ -111,7 +111,7 @@ public class ControladorNazareno : MaquinaDeEstados
             if (v_movimiento.v_objetivo_t == null)
                 return;
 
-            if (Vector3.Distance(transform.position, v_movimiento.v_objetivo_t.position) < cercaniaAlObjetivo)
+            if (Vector3.Distance(transform.position, v_movimiento.v_objetivo_t.position) < _cercaniaAlObjetivo)
             {
                 //Debug.Log("Llegamos al punto de control: " + v_puntoObjetivo_t.name);
                 actualizarPunto();
@@ -129,14 +129,14 @@ public class ControladorNazareno : MaquinaDeEstados
 
     private void actualizarPunto()
     {
-        v_objetivoIndex_i++;
+        ObjetivoIndex_i++;
 
-        if (v_objetivoIndex_i >= Navegacion.nav.trayectoria.Length)
+        if (ObjetivoIndex_i >= Navegacion.nav.trayectoria.Length)
             extracion();
 
         while (true)
         {
-            Punto punto = Navegacion.nav.trayectoria[v_objetivoIndex_i].GetComponent<Punto>();
+            Punto punto = Navegacion.nav.trayectoria[ObjetivoIndex_i].GetComponent<Punto>();
 
             if (!punto.Difurcacion)
             {
@@ -144,7 +144,7 @@ public class ControladorNazareno : MaquinaDeEstados
             }
             else if (!punto.Elegido_b)
             {
-                v_objetivoIndex_i++;
+                ObjetivoIndex_i++;
             }
             else
             {
@@ -152,7 +152,7 @@ public class ControladorNazareno : MaquinaDeEstados
             }
         }
 
-        v_puntoObjetivo_t = Navegacion.nav.trayectoria[v_objetivoIndex_i];
+        v_puntoObjetivo_t = Navegacion.nav.trayectoria[ObjetivoIndex_i];
         v_objetivo_t = v_puntoObjetivo_t;
         v_movimiento.v_objetivo_t = v_objetivo_t; // Puede que si esta atacando, gire raro.
     }

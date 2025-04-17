@@ -78,7 +78,7 @@ public class Peloton : MonoBehaviour
             ControladorNazareno v_nazareno = v_integrante.GetComponent<ControladorNazareno>();
             if (v_nazareno == null) continue;
 
-            _suma_i += v_nazareno.v_objetivoIndex_i;
+            _suma_i += v_nazareno.ObjetivoIndex_i;
             _conteo_i++;
         }
         float _promedio_i = _conteo_i > 0 ? (float)_suma_i / _conteo_i : 0f;
@@ -100,13 +100,13 @@ public class Peloton : MonoBehaviour
             if (Vector3.Distance(v_integrante.position, transform.position) > v_distanciaAlPeloton_f)
             {
                 float _avance_f = Vector3.Distance(_nazareno.v_objetivo_t.position, v_integrante.position);
-                float _distanciaAlsiguiente_f = Navegacion.nav.trayectoria[_nazareno.v_objetivoIndex_i].gameObject.GetComponent<Punto>().DistanciaAlSiguiente_f;
+                float _distanciaAlsiguiente_f = Navegacion.nav.trayectoria[_nazareno.ObjetivoIndex_i].gameObject.GetComponent<Punto>().DistanciaAlSiguiente_f;
                 float _progresoPorcentual_f = _distanciaAlsiguiente_f > 0 ? _avance_f / _distanciaAlsiguiente_f : 0f;
 
-                if (_nazareno.v_objetivoIndex_i < _limiteAtrasado_f && _progresoPorcentual_f > 0.3f)
+                if (_nazareno.ObjetivoIndex_i < _limiteAtrasado_f && _progresoPorcentual_f > 0.3f)
                     _nazareno.CambiarSubEstado(2); // Atrasado
 
-                else if(_nazareno.v_objetivoIndex_i > _limiteAdelantado_f && _progresoPorcentual_f < 0.7f)
+                else if(_nazareno.ObjetivoIndex_i > _limiteAdelantado_f && _progresoPorcentual_f < 0.7f)
                     _nazareno.CambiarSubEstado(0); // Adelantado
 
                 else
