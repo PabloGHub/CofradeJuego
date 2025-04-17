@@ -133,7 +133,7 @@ public class Ataque : MonoBehaviour
             }
             else
             {
-                Debug.Log("Fallo: " + gameObject.name);
+                //Debug.Log("Fallo: " + gameObject.name);
             }
         }
         
