@@ -9,12 +9,6 @@ public class ControladorPorculero : MaquinaDeEstados
      [HideInInspector] public Movimiento Movimiento_s;
      private Transform v_objetivo_t;
 
-    [Header("*--- Atributos ---*")]
-    [SerializeField]
-    private LayerMask _mascaraObjetivo;
-    public bool EsDistancia;
-    public float RangoVisibliidad;
-
     // Ataque
     private Ataque v_ataque_s;
 

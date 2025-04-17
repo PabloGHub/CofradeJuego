@@ -21,7 +21,7 @@ public class ControladorNazareno : MaquinaDeEstados
     private Ataque v_ataque_s;
 
     // Animaciones
-    private Animaciones _animaciones_s;
+    private AnimacionesMovimiento _animaciones_s;
 
     // --- Maquina de Estados --- //
     public override EstadoBase Estado { get; set; }
@@ -72,7 +72,7 @@ public class ControladorNazareno : MaquinaDeEstados
         // Animaciones
         for (int i = 0; i < transform.childCount; i++)
         {
-            Animaciones _anim = transform.GetChild(i).GetComponent<Animaciones>();
+            AnimacionesMovimiento _anim = transform.GetChild(i).GetComponent<AnimacionesMovimiento>();
             if (_anim != null)
                 _animaciones_s = _anim;
         }

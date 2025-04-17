@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Animaciones : MaquinaDeEstados
+public class AnimacionesMovimiento : MaquinaDeEstados
 {
     // ***********************( Declaraciones )*********************** //
     [SerializeField]
@@ -23,11 +23,12 @@ public class Animaciones : MaquinaDeEstados
         Inicializar(gameObject);
         estadosPosibles = new List<EstadoBase>
         {
-            CrearEstado<EstadoArriba, Animaciones>(this),
-            CrearEstado<EstadoAbajo, Animaciones>(this),
-            CrearEstado<EstadoIzquierda, Animaciones>(this),
-            CrearEstado<EstadoDerecha, Animaciones>(this)
+            CrearEstado<EstadoArriba, AnimacionesMovimiento>(this),
+            CrearEstado<EstadoAbajo, AnimacionesMovimiento>(this),
+            CrearEstado<EstadoIzquierda, AnimacionesMovimiento>(this),
+            CrearEstado<EstadoDerecha, AnimacionesMovimiento>(this)
         };
+        CambiarEstado(1);
     }
 
     private void OnEnable()
@@ -90,10 +91,10 @@ public class Animaciones : MaquinaDeEstados
     // ***********************( ESTADOS DE LA MAQUINA DE ESTADOS )*********************** //
     class EstadoArriba : EstadoBase
     {
-        Animaciones _animaciones;
+        AnimacionesMovimiento _animaciones;
         public override void Init<T>(T dependencia)
         {
-            _animaciones = dependencia as Animaciones;
+            _animaciones = dependencia as AnimacionesMovimiento;
         }
 
         public override void Entrar()
@@ -102,8 +103,6 @@ public class Animaciones : MaquinaDeEstados
                 return;
 
             _animaciones._animator.SetBool("Subiendo", true);
-            _animaciones._animator.SetBool("Bajando", false);
-            _animaciones._animator.SetBool("Lateralmente", false);
 
             if (_animaciones.Sprite != null)
                 _animaciones.Sprite.flipX = false;
@@ -114,16 +113,14 @@ public class Animaciones : MaquinaDeEstados
                 return;
 
             _animaciones._animator.SetBool("Subiendo", false);
-            _animaciones._animator.SetBool("Bajando", false);
-            _animaciones._animator.SetBool("Lateralmente", false);
         }
     }
     class EstadoAbajo : EstadoBase
     {
-        Animaciones _animaciones;
+        AnimacionesMovimiento _animaciones;
         public override void Init<T>(T dependencia)
         {
-            _animaciones = dependencia as Animaciones;
+            _animaciones = dependencia as AnimacionesMovimiento;
         }
 
         public override void Entrar()
@@ -131,9 +128,7 @@ public class Animaciones : MaquinaDeEstados
             if (_animaciones._animator == null)
                 return;
 
-            _animaciones._animator.SetBool("Subiendo", false);
             _animaciones._animator.SetBool("Bajando", true);
-            _animaciones._animator.SetBool("Lateralmente", false);
 
             if (_animaciones.Sprite != null)
                 _animaciones.Sprite.flipX = false;
@@ -143,17 +138,15 @@ public class Animaciones : MaquinaDeEstados
             if (_animaciones._animator == null)
                 return;
 
-            _animaciones._animator.SetBool("Subiendo", false);
             _animaciones._animator.SetBool("Bajando", false);
-            _animaciones._animator.SetBool("Lateralmente", false);
         }
     }
     class EstadoIzquierda : EstadoBase
     {
-        Animaciones _animaciones;
+        AnimacionesMovimiento _animaciones;
         public override void Init<T>(T dependencia)
         {
-            _animaciones = dependencia as Animaciones;
+            _animaciones = dependencia as AnimacionesMovimiento;
         }
 
         public override void Entrar()
@@ -161,8 +154,6 @@ public class Animaciones : MaquinaDeEstados
             if (_animaciones._animator == null)
                 return;
 
-            _animaciones._animator.SetBool("Subiendo", false);
-            _animaciones._animator.SetBool("Bajando", false);
             _animaciones._animator.SetBool("Lateralmente", true);
 
             if (_animaciones.Sprite != null && _animaciones.Flipear)
@@ -173,17 +164,15 @@ public class Animaciones : MaquinaDeEstados
             if (_animaciones._animator == null)
                 return;
 
-            _animaciones._animator.SetBool("Subiendo", false);
-            _animaciones._animator.SetBool("Bajando", false);
             _animaciones._animator.SetBool("Lateralmente", false);
         }
     }
     class EstadoDerecha : EstadoBase
     {
-        Animaciones _animaciones;
+        AnimacionesMovimiento _animaciones;
         public override void Init<T>(T dependencia)
         {
-            _animaciones = dependencia as Animaciones;
+            _animaciones = dependencia as AnimacionesMovimiento;
         }
 
         public override void Entrar()
@@ -191,9 +180,8 @@ public class Animaciones : MaquinaDeEstados
             if (_animaciones._animator == null)
                 return;
 
-            _animaciones._animator.SetBool("Subiendo", false);
-            _animaciones._animator.SetBool("Bajando", false);
             _animaciones._animator.SetBool("Lateralmente", true);
+            _animaciones._animator.SetBool("Derecha", true);
 
             if (_animaciones.Sprite != null)
                 _animaciones.Sprite.flipX = false;
@@ -203,9 +191,8 @@ public class Animaciones : MaquinaDeEstados
             if (_animaciones._animator == null)
                 return;
 
-            _animaciones._animator.SetBool("Subiendo", false);
-            _animaciones._animator.SetBool("Bajando", false);
             _animaciones._animator.SetBool("Lateralmente", false);
+            _animaciones._animator.SetBool("Derecha", false);
         }
     }
 }

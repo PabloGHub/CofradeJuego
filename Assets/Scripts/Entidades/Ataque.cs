@@ -152,7 +152,7 @@ public class Ataque : MonoBehaviour
     private void OnDrawGizmos()
     {
         // Visibilidad
-        Gizmos.color = Color.red;
+        Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, RangoVisibliidad);
 
         // Alcance
