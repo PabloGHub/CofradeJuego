@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _go: {fileID: 0}
-  Flipear: 0
+  Flipear: 1
   Sprite: {fileID: 0}
 --- !u!1 &7194174155887223006
 GameObject:
