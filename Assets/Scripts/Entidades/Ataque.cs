@@ -13,8 +13,6 @@ public class Ataque : MonoBehaviour
     // ***********************( Declaraciones )*********************** //
     // ----( Unity )---- //
     [Header("**---- Atribustos ----**")]
-    [SerializeField] private float alcance = 1f;
-    public float Alcance => alcance;
     [SerializeField] private float RangoVisibliidad;
     [SerializeField] private float tiempoRecarga = 1f;
     public float TiempoRecarga => tiempoRecarga;
@@ -24,6 +22,8 @@ public class Ataque : MonoBehaviour
     [Header("**---- Danno Mele ----**")]
     [SerializeField] private float danno = 1f;
     public float Danno => danno;
+    [SerializeField] private float alcance = 1f;
+    public float Alcance => alcance;
 
     [Header("**---- Danno Distancia ----**")]
     [SerializeField] private bool EsDistancia = false;
@@ -118,7 +118,7 @@ public class Ataque : MonoBehaviour
 
         if (EsDistancia)
         {
-            // TODO: Instanciar un proyectil.
+            GameObject _proyectil = Instantiate(prefabProyectil, transform.position + transform.up * _inicio, Quaternion.identity);
         }
         else
         {

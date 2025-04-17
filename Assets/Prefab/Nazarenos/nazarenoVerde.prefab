@@ -231,6 +231,7 @@ GameObject:
   - component: {fileID: 8487932697863468914}
   - component: {fileID: 4060509918818848312}
   - component: {fileID: 4379630609933709878}
+  - component: {fileID: 8255501253519578330}
   m_Layer: 11
   m_Name: nazarenoVerde
   m_TagString: Nazarenos
@@ -417,9 +418,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   danno: 5
-  EsDistancia: 0
-  prefabProyectil: {fileID: 0}
-  _alcanceExplosion_f: 0
+  EsDistancia: 1
+  prefabProyectil: {fileID: 9169620315529376050, guid: e32e158e3854c9d49b250b6b4e37eb42, type: 3}
+  _alcanceExplosion_f: 1
   _inicio: 0
   EnemigoObjetivo_go: {fileID: 0}
   _atacar_b: 0

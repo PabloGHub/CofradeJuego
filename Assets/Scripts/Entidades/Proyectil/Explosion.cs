@@ -27,7 +27,6 @@ public class Explosion : MonoBehaviour
         else
         {
             detonar(fuerza, tamanno);
-            Destroy(gameObject);
         }
     }
 
@@ -63,5 +62,7 @@ public class Explosion : MonoBehaviour
                 _rb.AddForce(_direccion.normalized * v_fuerza_f, ForceMode2D.Impulse);
             }
         }
+
+        Destroy(gameObject);
     }
 }

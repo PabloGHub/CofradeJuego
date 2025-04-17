@@ -8,31 +8,41 @@ public class Proyectil : MonoBehaviour
 {
     // ***********************( Declaraciones )*********************** //
     [Header("*-- Atributos --*")]
+    [SerializeField] private float danno = 10f;
+    [SerializeField] private float fuerzaEmpuje = 5f;
     [SerializeField] private float _velocidad_f = 10f;
     [SerializeField] private float _maxTiempoVuelo_f = 10f;
 
     [Header("*-- Prefab de Explosion --*")]
+    [SerializeField] private bool _explosionar = false;
     [SerializeField] private GameObject _prefabExplosion_go;
 
     [Header("*-- Lista de capas Colisionar --*")]
-    [SerializeField] private List<LayerMask> _listaCapas;
+    [SerializeField] private LayerMask _capas;
 
     private float _tiempoRestante_f = 0f;
     private RaycastHit2D _anteriorJit;
-    private LayerMask _mascara;
 
     // ***********************( Metodos Unity )*********************** //
     private void Awake()
     {
         _tiempoRestante_f = _maxTiempoVuelo_f;
-        _mascara = F_CombinarCapas_LM(_listaCapas);
     }
 
     private void Update()
     {
         _tiempoRestante_f -= Time.deltaTime;
         if (_tiempoRestante_f <= 0f)
-            colisionar();
+        {
+            if (_explosionar)
+            {
+                colisionar();
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+        }
 
         transform.Translate(Vector2.right * _velocidad_f * Time.deltaTime);
 
@@ -40,16 +50,25 @@ public class Proyectil : MonoBehaviour
         (
             transform.position,
             transform.up,
-            _velocidad_f * Time.deltaTime,
-            _mascara
+            0.15f,
+            _capas
         );
         if (_hit)
         {
             _anteriorJit = _hit;
-            if (_hit.collider.gameObject.layer == LayerMask.NameToLayer("Proyectil"))
-                return;
 
-            colisionar();
+            if (_explosionar)
+            {
+                colisionar();
+            }
+            else
+            {
+                Salud _salud = _hit.collider.GetComponent<Salud>();
+                if (_salud != null)
+                {
+                    _salud.RecibirDano(danno, transform.position, fuerzaEmpuje);
+                }
+            }
         }
     }
 
@@ -78,7 +97,7 @@ public class Proyectil : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, _maxTiempoVuelo_f);
 
         Gizmos.color = Color.yellow;
-        Gizmos.DrawLine(transform.position, transform.position + Vector3.up * _velocidad_f);
+        Gizmos.DrawLine(transform.position, transform.position + transform.up * 0.15f);
 
         {
         #if UNITY_EDITOR
