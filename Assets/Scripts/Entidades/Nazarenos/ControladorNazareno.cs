@@ -1,65 +1,125 @@
+using NUnit.Framework;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-public class ControladorNazareno : MonoBehaviour
+public class ControladorNazareno : MaquinaDeEstados
 {
     // ***********************( Declaraciones )*********************** //
-    private float cercaniaAlObjetivo = 2.5f;
+    private float cercaniaAlObjetivo = 3f;
     public int v_objetivoIndex_i = 0;
-    public Movimiento v_movimiento;
-    private Transform v_objetivo_Transform;
+    [HideInInspector] public Movimiento v_movimiento;
+    [HideInInspector] public Transform v_objetivo_t;
+    [HideInInspector] public Transform v_puntoObjetivo_t;
+
+    // Datos
     public string nombre;
+    [HideInInspector] public int id;
+
+    // Ataque
+    private Ataque v_ataque_s;
+
+    // Animaciones
+    private AnimacionesMovimiento _animaciones_s;
 
     // --- Maquina de Estados --- //
-    private EstadoBase estadoMovimiento;
-    private EstadoBase estadoAtaque;
+    public override EstadoBase Estado { get; set; }
+    public override EstadoBase SubEstado { get; set; }
 
     // ***********************( Funciones Unity )*********************** //
     private void Start()
     {
-        v_movimiento = GetComponent<Movimiento>();
-        if (v_movimiento == null)
+        // Ataqie
+        v_ataque_s = GetComponent<Ataque>();
+        if (v_ataque_s != null)
         {
-            Debug.LogError("El Nazareno no tiene un componente Movimiento.");
-            return;
+            v_ataque_s.OnSinEnemigos += () => CambiarEstado(0);
+            v_ataque_s.OnEnemigosCerca += () => CambiarEstado(1);
         }
+        else
+            Debug.LogError($"****** Nazareno: {gameObject.name} NO tiene componente (Ataque) ******");
 
-        v_objetivo_Transform = Navegacion.nav.trayectoria[v_objetivoIndex_i];
-        v_movimiento.v_objetivo_Transform = v_objetivo_Transform;
+        
+        v_puntoObjetivo_t = Navegacion.nav.trayectoria[v_objetivoIndex_i];
+        v_objetivo_t = v_puntoObjetivo_t;
 
+        // Movimiento
+        v_movimiento = GetComponent<Movimiento>();
+        if (v_movimiento != null)
+            v_movimiento.v_objetivo_t = v_objetivo_t; // Puede que si esta atacando, gire raro.
+        else
+            Debug.LogError($"****** Nazareno: {gameObject.name} NO tiene componente (Movimiento) ******");
+        
+
+        // Inicializar Maquina de Estados
+        Inicializar(gameObject);
+        estadosPosibles = new List<EstadoBase>
+        {
+            CrearEstado<EstadoNada, ControladorNazareno>(this),
+            CrearEstado<EstadoAtacar, ControladorNazareno>(this)
+        };
+        subEstadosPosibles = new List<EstadoBase>
+        {
+            CrearEstado<EstadoLejosAdelantado, ControladorNazareno>(this),
+            CrearEstado<EstadoLejosMedio, ControladorNazareno>(this),
+            CrearEstado<EstadoLejosAtrasado, ControladorNazareno>(this),
+            CrearEstado<EstadoCerca, ControladorNazareno>(this)
+        };
+        CambiarEstado(0);
+        CambiarSubEstado(3);
+
+        // Animaciones
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            AnimacionesMovimiento _anim = transform.GetChild(i).GetComponent<AnimacionesMovimiento>();
+            if (_anim != null)
+                _animaciones_s = _anim;
+        }
+        if (_animaciones_s == null)
+            Debug.LogError($"****** Nazareno: {gameObject.name} NO tiene componente (Animaciones) ******");
     }
 
-    /*
-        private void Update()
-        {
-            if (ControladorPPAL.v_pausado_b)
-                return;
+    private void Update()
+    {
+        if (ControladorPPAL.v_pausado_b)
+            return;
 
-            bool v_lejosPeloton_b = Vector3.Distance(transform.position, Peloton.peloton.transform.position) > Peloton.peloton.v_distanciaAlPeloton_f;
-            if (v_lejosPeloton_b && v_objetivoIndex_i < Peloton.peloton.v_objetivoIndex_i)
-            {
-            
-            }
-            else if (v_lejosPeloton_b)
-            {
-                v_movimiento.v_esperando_b = true;
-            }
-            else 
-            {
-                v_movimiento.v_esperando_b = false;
-            }
-        }
-     */
+        if (v_movimiento != null)
+            v_movimiento.v_objetivo_t = v_objetivo_t;
+    }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("puntoControl") && collision.gameObject == v_objetivo_Transform.gameObject)
+        if (collision.CompareTag("puntoControl") && collision.gameObject == v_puntoObjetivo_t.gameObject)
         {
-            if (Vector3.Distance(transform.position, v_movimiento.v_objetivo_Transform.position) < cercaniaAlObjetivo)
+            if (v_movimiento.v_objetivo_t == null)
+                return;
+
+            if (Vector3.Distance(transform.position, v_movimiento.v_objetivo_t.position) < cercaniaAlObjetivo)
             {
-                actualizarObjetivo();
+                //Debug.Log("Llegamos al punto de control: " + v_puntoObjetivo_t.name);
+                actualizarPunto();
             }
         }
     }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("puntoControl") && collision.gameObject == v_puntoObjetivo_t.gameObject)
+        {
+            if (v_movimiento.v_objetivo_t == null)
+                return;
+
+            if (Vector3.Distance(transform.position, v_movimiento.v_objetivo_t.position) < cercaniaAlObjetivo)
+            {
+                //Debug.Log("Llegamos al punto de control: " + v_puntoObjetivo_t.name);
+                actualizarPunto();
+            }
+        }
+    }
+
+
 
     // ***********************( Funciones Nuestras )*********************** //
     void extracion()
@@ -67,7 +127,7 @@ public class ControladorNazareno : MonoBehaviour
         // TODO: cuando llega a carrera destuir o ocular al nazareno.
     }
 
-    private void actualizarObjetivo()
+    private void actualizarPunto()
     {
         v_objetivoIndex_i++;
 
@@ -78,11 +138,11 @@ public class ControladorNazareno : MonoBehaviour
         {
             Punto punto = Navegacion.nav.trayectoria[v_objetivoIndex_i].GetComponent<Punto>();
 
-            if (!punto.difurcacion)
+            if (!punto.Difurcacion)
             {
                 break;
             }
-            else if (!punto.v_elegido_b)
+            else if (!punto.Elegido_b)
             {
                 v_objetivoIndex_i++;
             }
@@ -92,8 +152,9 @@ public class ControladorNazareno : MonoBehaviour
             }
         }
 
-        v_objetivo_Transform = Navegacion.nav.trayectoria[v_objetivoIndex_i];
-        v_movimiento.v_objetivo_Transform = v_objetivo_Transform;
+        v_puntoObjetivo_t = Navegacion.nav.trayectoria[v_objetivoIndex_i];
+        v_objetivo_t = v_puntoObjetivo_t;
+        v_movimiento.v_objetivo_t = v_objetivo_t; // Puede que si esta atacando, gire raro.
     }
 
     // ***********************( Estados de la MAQUINA DE ESTADOS )*********************** //
@@ -102,43 +163,129 @@ public class ControladorNazareno : MonoBehaviour
     class EstadoLejosAdelantado : EstadoBase
     {
         private ControladorNazareno v_controladorNazareno_s;
-
-        public EstadoLejosAdelantado(ControladorNazareno v_controladorNazareno_s)
+        public override void Init<T>(T dependencia)
         {
-            this.v_controladorNazareno_s = v_controladorNazareno_s;
+            v_controladorNazareno_s = dependencia as ControladorNazareno;
         }
+
 
         public override void Entrar()
         {
-            // Código para entrar en el estado
+            v_controladorNazareno_s.v_movimiento.v_esperando_b = true;
+            v_controladorNazareno_s.v_movimiento.v_exodia_b = false;
         }
-        public override void Salir()
-        {
-            // Código para salir del estado
-        }
+        public override void Salir() { }
     }
+    class EstadoLejosMedio : EstadoBase
+    {
+        private ControladorNazareno v_controladorNazareno_s;
+        public override void Init<T>(T dependencia)
+        {
+            v_controladorNazareno_s = dependencia as ControladorNazareno;
+        }
+
+
+        public override void Entrar()
+        {
+            v_controladorNazareno_s.v_movimiento.v_esperando_b = false;
+            v_controladorNazareno_s.v_movimiento.v_exodia_b = false;
+        }
+        public override void Salir() { }
+    }
+    class EstadoLejosAtrasado : EstadoBase
+    {
+        private ControladorNazareno v_controladorNazareno_s;
+        public override void Init<T>(T dependencia)
+        {
+            v_controladorNazareno_s = dependencia as ControladorNazareno;
+        }
+
+
+        public override void Entrar()
+        {
+            v_controladorNazareno_s.v_movimiento.v_esperando_b = false;
+            v_controladorNazareno_s.v_movimiento.v_exodia_b = true;
+        }
+        public override void Salir() { }
+    }
+
 
     // --- CERCA --- //
     class EstadoCerca : EstadoBase
     {
         private ControladorNazareno v_controladorNazareno_s;
-
-        public EstadoCerca(ControladorNazareno v_controladorNazareno_s)
+        public override void Init<T>(T dependencia)
         {
-            this.v_controladorNazareno_s = v_controladorNazareno_s;
+            v_controladorNazareno_s = dependencia as ControladorNazareno;
         }
 
         public override void Entrar()
         {
-            // Código para entrar en el estado
+            v_controladorNazareno_s.v_movimiento.v_esperando_b = false;
+            v_controladorNazareno_s.v_movimiento.v_exodia_b = false;
+        }
+        public override void Salir() { }
+    }
+
+
+    // ************ Estado de ATACAR ************ //
+    // --- ATACANDO --- //
+    class EstadoNada : EstadoBase
+    {
+        private ControladorNazareno v_controladorNazareno_s;
+        public override void Init<T>(T dependencia)
+        {
+            v_controladorNazareno_s = dependencia as ControladorNazareno;
+        }
+
+        public override void Entrar() 
+        {
+            v_controladorNazareno_s.v_objetivo_t = v_controladorNazareno_s.v_puntoObjetivo_t;
+
+            if (v_controladorNazareno_s.v_ataque_s == null)
+                return;
+
+            v_controladorNazareno_s.v_ataque_s._atacar_b = false;
+        }
+        public override void Salir() { }
+    }
+    class EstadoAtacar : EstadoBase
+    {
+        private ControladorNazareno v_controladorNazareno_s;
+        public override void Init<T>(T dependencia)
+        {
+            v_controladorNazareno_s = dependencia as ControladorNazareno;
+        }
+
+        public override void Entrar()
+        {
+            if (v_controladorNazareno_s.v_movimiento == null)
+                return;
+
+            v_controladorNazareno_s.v_movimiento.v_esperando_b = false;
+            v_controladorNazareno_s.v_movimiento.v_exodia_b = true;
         }
         public override void Salir()
         {
-            // Código para salir del estado
+            if (v_controladorNazareno_s.v_movimiento == null)
+                return;
+
+            v_controladorNazareno_s.v_movimiento.v_esperando_b = false;
+            v_controladorNazareno_s.v_movimiento.v_exodia_b = false;
+        }
+
+        public override void MiFixedUpdate()
+        {
+            if (v_controladorNazareno_s.v_ataque_s == null)
+                return;
+
+            v_controladorNazareno_s.v_ataque_s._atacar_b = true;
+            Transform _nuevoObjetivo_t = v_controladorNazareno_s.v_ataque_s.EnemigoObjetivo_go.transform;
+            if (_nuevoObjetivo_t != null)
+                v_controladorNazareno_s.v_objetivo_t = _nuevoObjetivo_t;
+            else
+                Debug.LogWarning("--- No hay enemigo objetivo ---");
         }
     }
-    // --- ATACANDO --- //
 
-
-    // ************ Estado de Movimiento ************ //
 }

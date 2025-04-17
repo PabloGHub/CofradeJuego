@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System;
 using UnityEngine;
 using static UnityEngine.Rendering.DebugUI;
@@ -6,44 +6,9 @@ using static UnityEngine.Rendering.DebugUI;
 public abstract class EstadoBase : MonoBehaviour
 {
     // ***********************( Variables/Declaraciones )*********************** //
-    public EstadoBase MaquinaEstados { get; set; }
-
-    private EstadoBase _estadoActual;
-    public EstadoBase EstadoActual
-    {
-        get { return _estadoActual; }
-        set
-        {
-            if (_estadoActual != null)
-            {
-                _estadoActual.Salir(); 
-                Destroy(_estadoActual);
-            }
-
-            _estadoActual = _go.AddComponent(value.GetType()) as EstadoBase;
-            //_estadoActual = value;
-
-            OnEstadoCambiado?.Invoke(_estadoActual);
-
-            _estadoActual.Entrar();
-        }
-    }
-
-    private EstadoBase _subEstadoActual;
-    public EstadoBase SubEstadoActual
-    {
-        get { return _subEstadoActual; }
-        set { _subEstadoActual = value; }
-    }
-
-    public Dictionary<Func<bool>, EstadoBase> _transiciones;
-    public List<EstadoBase> estadosPosibles { get; set; }
-    public GameObject _go;
-
-
-    // ***********************( Eventos )*********************** //
-    public event Action<EstadoBase> OnEstadoCambiado;
-
+    public MaquinaDeEstados MaquinaEstados { get; set; }
+    //public int MiIndex { get; set; }
+    //private Component _esteComponente { get; set; }
 
     // ***********************( Metodos de Control )*********************** //
     public abstract void Entrar();
@@ -60,88 +25,11 @@ public abstract class EstadoBase : MonoBehaviour
     public virtual void MiOnDisable() { }
     public virtual void MiOnDestroy() { }
 
-
-    // ***********************( Metodos Funcionales )*********************** //
-    public void Inicializar(EstadoBase maquina, GameObject goHost, List<EstadoBase> estadosPosibles)
-    {
-        this.estadosPosibles = estadosPosibles;
-        Inicializar(maquina, goHost);
-    }
-    public void Inicializar(EstadoBase maquina, GameObject goHost)
-    {
-        //_estadoActual =  nuevoEstado;
-        _go = goHost;
-        MaquinaEstados = maquina;
-
-        if (_estadoActual != null)
-        {
-            _estadoActual.Salir();
-            Destroy(_estadoActual);
-        }
-
-        EstadoBase nuevoEstado = new EstadoNulo();
-        _estadoActual = _go.AddComponent(nuevoEstado.GetType()) as EstadoBase;
-        //_estadoActual = nuevoEstado;
-
-        _estadoActual.Entrar();
-    }
-
-    public void CambiarEstado(EstadoBase nuevoEstado)
-    {
-        if (nuevoEstado == null)
-            Debug.LogError("*- Intento de cambiar estado pasando un nulo -*");
-
-        EstadoActual = nuevoEstado;
-    }
-    public void CambiarEstado(int nuevoEstado)
-    {
-        var _posibleNovoEstado = MaquinaEstados.estadosPosibles[nuevoEstado];
-        if (_posibleNovoEstado == null)
-        {
-            Debug.LogError("*- Intento de cambiar estado pasando un nulo -*");
-            return;
-        }
-
-        EstadoActual = _posibleNovoEstado;
-    }
-    public void CambiarSubEstado(EstadoBase nuevoSubEstado)
-    {
-        if (_subEstadoActual != null)
-            _subEstadoActual.Salir();
-
-        _subEstadoActual = nuevoSubEstado;
-        _subEstadoActual.Entrar();
-    }
-
-    public void AgregarTransicion(Func<bool> condicion, EstadoBase estadoDestino)
-    {
-        MaquinaEstados._transiciones[condicion] = estadoDestino;
-    }
-    public void AgregarTransicion(Func<bool> condicion, int estadoDestino)
-    {
-        MaquinaEstados._transiciones[condicion] = MaquinaEstados.estadosPosibles[estadoDestino];
-    }
-    public virtual void ActualizarTransiciones()
-    {
-        foreach (var transicion in MaquinaEstados._transiciones)
-        {
-            Debug.Log("transicion: " + transicion.ToString());
-            if (transicion.Key.Invoke())
-            {
-                CambiarEstado(transicion.Value);
-                var estadoDestino = transicion.Value;
-                break;
-            }
-        }
-    }
     
 
     // ***********************( Llamas -> Unity )*********************** //
     private void Awake()
     {
-        MaquinaEstados._transiciones = new Dictionary<Func<bool>, EstadoBase>();
-        MaquinaEstados.estadosPosibles = new List<EstadoBase>();
-
         MiAwake();
     }
     private void OnEnable()
@@ -159,12 +47,11 @@ public abstract class EstadoBase : MonoBehaviour
     private void Update()
     {
         MiUpdate();
-
-        if (MaquinaEstados._transiciones.Count > 0)
-            ActualizarTransiciones();
     }
     private void LateUpdate()
     {
+        //MaquinaEstados.ActualizarTransiciones();
+
         MiLateUpdate();
     }
     private void OnDisable()
@@ -177,45 +64,55 @@ public abstract class EstadoBase : MonoBehaviour
     }
 
     // ***********************( Contructores )*********************** //
-    public EstadoBase() { }
-    public EstadoBase(EstadoBase nuevoEstado)
-    {
-        // No funca.
-        _estadoActual = nuevoEstado;
-    }
-    public EstadoBase(EstadoBase nuevoEstado, GameObject goHost)
-    {
-        nuevoEstado = new EstadoNulo();
-        nuevoEstado = goHost.AddComponent<EstadoNulo>();
-        _estadoActual = nuevoEstado;
-        _go = goHost;
+    public abstract void Init<T>(T dependencia);
 
-        _estadoActual.Entrar();
-    }
+    //public EstadoBase(MaquinaDeEstados v_maquina)
+    //{
+    //    _esteComponente = v_maquina.gameObject.AddComponent(this.GetType());
+    //    _esteComponente.enabled = false;
+    //    MaquinaEstados = v_maquina;
+    //}
+    //public EstadoBase(EstadoBase nuevoEstado, GameObject goHost)
+    //{
+    //    nuevoEstado = new EstadoNulo();
+    //    nuevoEstado = goHost.AddComponent<EstadoNulo>();
+    //    _estadoActual = nuevoEstado;
+    //    _go = goHost;
+
+    //    _estadoActual.Entrar();
+    //}
 }
 
-public class MaquinaDeEstados : EstadoBase
-{
-    public MaquinaDeEstados() { }
-    public MaquinaDeEstados(EstadoBase nuevoEstado, GameObject goHost) : base(nuevoEstado, goHost)
-    { }
-
-    public override void Entrar() { }
-    public override void Salir() { }
-}
 
 public class EstadoNulo : EstadoBase
 {
+    //public EstadoNulo(MaquinaDeEstados v_siMismo) : base(v_siMismo)
+    //{ }
+
     public override void Entrar() { }
+
+    public override void Init<T>(T dependencia)
+    {
+        throw new NotImplementedException();
+    }
+
     public override void Salir() { }
 }
 
 public class EstadoInicio : EstadoBase
 {
-    public EstadoInicio(EstadoBase nuevoEstado, GameObject goHost) : base(nuevoEstado, goHost)
-    { }
+    //public EstadoInicio(MaquinaDeEstados v_siMismo) : base(v_siMismo)
+    //{ }
+    //public EstadoInicio(EstadoBase nuevoEstado, GameObject goHost) : base(nuevoEstado, goHost)
+    //{ }
 
     public override void Entrar() { }
+
+    public override void Init<T>(T dependencia)
+    {
+        throw new NotImplementedException();
+    }
+
     public override void Salir() { }
 }
 

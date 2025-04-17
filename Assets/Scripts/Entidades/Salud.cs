@@ -1,3 +1,4 @@
+using CommandTerminal;
 using System;
 using UnityEngine;
 
@@ -30,14 +31,21 @@ public class Salud : MonoBehaviour
     [SerializeField]
     private Lifebar lifeBar;
 
+    // ----( Eventos )---- //
+    public event Action OnMuerto;
+
     // ***********************( Metodos UNITY )*********************** //
     private void Start()
     {
         v_saludActual_f = saludMaxima;
 
         v_rb_c = GetComponent<Rigidbody2D>();
-        v_movimiento_c = GetComponent<Movimiento>();
+        if (v_rb_c == null)
+            Debug.LogError($"****** Entidad: {gameObject.name} NO tiene componente (Rigidbody2D) ******");
 
+        v_movimiento_c = GetComponent<Movimiento>();
+        if (v_movimiento_c == null)
+            Debug.LogError($"****** Entidad: {gameObject.name} NO tiene componente (Movimiento) ******");
 
         if (lifeBar != null)
         {
@@ -51,12 +59,12 @@ public class Salud : MonoBehaviour
         if (v_tiempoInmunidadActual_f > 0)
             v_tiempoInmunidadActual_f -= Time.deltaTime;
 
-        if (saludMaxima <= 0)
+        if (v_saludActual_f <= 0)
             gestionarMuerte();
     }
 
     // ***********************( Metodos NUESTROS )*********************** //
-    public float? RecibirDano(float v_danno_f, float v_fuerzaRetroceso_f = 0f)
+    public float? RecibirDano(float v_danno_f, Vector3 v_direccion_v3 = default, float v_fuerzaRetroceso_f = 0f)
     {
         if (v_tiempoInmunidadActual_f > 0)
             return null;
@@ -64,12 +72,15 @@ public class Salud : MonoBehaviour
         v_saludActual_f -= v_danno_f * (1 - resistencia);
         v_tiempoInmunidadActual_f = tiempoInmunidad;
 
-        v_movimiento_c.Empujar(v_fuerzaRetroceso_f);
+
+        v_movimiento_c.Empujar(v_fuerzaRetroceso_f, v_direccion_v3);
 
         if (lifeBar != null)
         {
             lifeBar.objHP = v_saludActual_f;
         }
+
+        Terminal.Log("Objeto: " + gameObject.name + ", SaludActual: " + v_saludActual_f);
 
         return v_danno_f * (1 - reflejoDanno);
     }
@@ -77,9 +88,12 @@ public class Salud : MonoBehaviour
     private void gestionarMuerte()
     {
         // TODO: Implementar la lógica para manejar la muerte del objeto.
+        Terminal.Log("MUERE: " + gameObject.name);
+        OnMuerto?.Invoke();
         gameObject.SetActive(false); // Termporral/PlaceHolder.
     }
 
     // ***********************( Getters Y Setters )*********************** //
     // TODO: Implementarlos para acceder a traves de la consola.
+    public float SaludActual { get => v_saludActual_f; }
 }

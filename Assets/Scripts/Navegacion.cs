@@ -10,7 +10,7 @@ public class Navegacion : MonoBehaviour
     public Transform[] trayectoria;
 
     private int v_cantidadDifurcaciones_i = 0;
-    private List<List<Transform>> v_caminosPosible_Transform = new List<List<Transform>>();
+    private List<List<Transform>> v_caminosPosible_Transform;
 
     // ***********************( Funciones Unity )*********************** //
     private void Awake()
@@ -19,10 +19,8 @@ public class Navegacion : MonoBehaviour
         {
             nav = this;
         }
-    }
+        v_caminosPosible_Transform = new List<List<Transform>>();
 
-    private void Start()
-    {
         determinarDifurcaciones();
 
         Debug.Log("Cantidad de Difurcaciones: " + v_cantidadDifurcaciones_i);
@@ -32,14 +30,21 @@ public class Navegacion : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        
+    }
+
     // ***********************( Funciones Nuestras )*********************** //
     private void determinarDifurcaciones()
     {
+        Punto _puntoAnterior_s = null;
         int c = 0;
         for (int i = 0; i < trayectoria.Length; i++)
         {
             Punto p = trayectoria[i].GetComponent<Punto>();
-            if (p.difurcacion)
+            p.Indice_i = i;
+            if (p.Difurcacion)
             {
                 if (c == 0)
                 {
@@ -52,6 +57,12 @@ public class Navegacion : MonoBehaviour
             }
             else
                 c = 0;
+
+            if (_puntoAnterior_s != null)
+            {
+                _puntoAnterior_s.DistanciaAlSiguiente_f = Vector2.Distance(_puntoAnterior_s.transform.position, p.transform.position);
+            }
+            _puntoAnterior_s = p;
         }
     }
 
@@ -63,7 +74,7 @@ public class Navegacion : MonoBehaviour
         {
             for (int j = 0; j < v_caminosPosible_Transform[i].Count; j++)
             {
-                if (v_caminosPosible_Transform[i][j].GetComponent<Punto>().v_elegido_b)
+                if (v_caminosPosible_Transform[i][j].GetComponent<Punto>().Elegido_b)
                 {
                     v_verificado_i++;
                     break;
@@ -84,11 +95,11 @@ public class Navegacion : MonoBehaviour
                 v_difurcacion_i = args[i].Int;
                 for (int j = 0; j < v_caminosPosible_Transform[v_difurcacion_i].Count; j++)
                 {
-                    v_caminosPosible_Transform[v_difurcacion_i][j].GetComponent<Punto>().v_elegido_b = false;
+                    v_caminosPosible_Transform[v_difurcacion_i][j].GetComponent<Punto>().Elegido_b = false;
                 }
             }
             else if (args[i].Int <= v_caminosPosible_Transform[v_difurcacion_i].Count)
-                v_caminosPosible_Transform[v_difurcacion_i][args[i].Int].GetComponent<Punto>().v_elegido_b = true;
+                v_caminosPosible_Transform[v_difurcacion_i][args[i].Int].GetComponent<Punto>().Elegido_b = true;
             else
                 Debug.LogError("**(El camino " + args[i].Int + " no existe en la difurcacion " + v_difurcacion_i + ")**");
         }

@@ -16,11 +16,6 @@ public class Peloton : MonoBehaviour
 
     [SerializeField] private Transform AreaDespliegue;
 
-    // --- Control de puntosControl --- //
-    public int v_objetivoIndex_i = 0; // [HideInInspector]
-    private float cercaniaAlObjetivo = 2.5f;
-    private Transform v_objetivo_Transform;
-
 
     // ***********************( Metodos UNITY )*********************** //
     private void Awake()
@@ -33,197 +28,93 @@ public class Peloton : MonoBehaviour
 
     private void Start()
     {
-        v_objetivo_Transform = Navegacion.nav.trayectoria[v_objetivoIndex_i];
-        AreaDespliegue.gameObject.SetActive(false);
+        //AreaDespliegue.gameObject.SetActive(false); //Me esta salntado un error
     }
 
     private void Update()
     {
         v_distanciaAlPeloton_f = (integrantes.Count * tamannoNazareno) * 0.5f;
         v_distanciaAlPelotonReal_f = (integrantes.Count * tamannoNazareno);
-        transform.position = F_calcularCentro_Vector3(integrantes.ToArray());
+        transform.position = f_calcularCentro_Vector3(integrantes.ToArray());
 
         gestionarIntegrantes();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("puntoControl") && collision.gameObject == v_objetivo_Transform.gameObject)
-        {
-            if (Vector3.Distance(transform.position, v_objetivo_Transform.position) < cercaniaAlObjetivo)
-            {
-                actualizarObjetivo();
-            }
-        }
-    }
-
     // ***********************( Metodos NUESTROS )*********************** //
-    void extracion()
-    {
-        Debug.Log("Llegamos a carrera");
-        // TODO: Llegamos a carrera.
-    }
-
-
-    private Vector3 F_calcularCentro_Vector3(Transform[] v_cantidad_t)
+    /// <summary>
+    /// Calcula el centro de un array de transform.
+    /// </summary>
+    /// <param name="cantidad_t">Array de transorm</param>
+    /// <returns>Vector3 de la posicion entre todos los transform</returns>
+    private Vector3 f_calcularCentro_Vector3(Transform[] cantidad_t)
     {
         Vector3 v_sumaPosiciones_v3 = Vector3.zero;
+        int v_contador_i = 0;
 
-        for (int i = 0; i < v_cantidad_t.Length; i++)
+        for (int i = 0; i < cantidad_t.Length; i++)
         {
-            if (v_cantidad_t[i] != null)
-                v_sumaPosiciones_v3 += v_cantidad_t[i].position;
-        }
-
-        return v_sumaPosiciones_v3 / v_cantidad_t.Length;
-    }
-
-
-    private void actualizarObjetivo()
-    {
-        v_objetivoIndex_i++;
-
-        if (v_objetivoIndex_i >= Navegacion.nav.trayectoria.Length)
-            extracion();
-
-        while (true)
-        {
-            Punto punto = Navegacion.nav.trayectoria[v_objetivoIndex_i].GetComponent<Punto>();
-
-            if (!punto.difurcacion)
+            if (cantidad_t[i] != null)
             {
-                break;
-            }
-            else if (!punto.v_elegido_b)
-            {
-                v_objetivoIndex_i++;
-            }
-            else
-            {
-                break;
+                v_sumaPosiciones_v3 += cantidad_t[i].position;
+                v_contador_i++;
             }
         }
 
-        v_objetivo_Transform = Navegacion.nav.trayectoria[v_objetivoIndex_i];
+        return v_contador_i > 0 ? v_sumaPosiciones_v3 / v_contador_i : transform.position;
     }
 
-
+    /// <summary>
+    /// Gestiona el estado de los integrantes del peloton.
+    /// Mucho sufrimiento y dolor para tan pocas palabras.
+    /// </summary>
     private void gestionarIntegrantes()
     {
-        List<Transform> v_integranteLejosAtrasado = new List<Transform>();
-        List<Transform> v_integranteLejosMedio = new List<Transform>();
-        List<Transform> v_integranteLejosAdelantado = new List<Transform>();
-        List<Transform> v_integranteCerca = new List<Transform>();
-
-        bool v_alguienAtrasado_b = false;
-        int? v_max_i = null;
-        int? v_min_i = null;
-
+        int _suma_i = 0;
+        int _conteo_i = 0;
 
         foreach (Transform v_integrante in integrantes)
         {
+            // TODO: Comprobar si no esta asignado.
             ControladorNazareno v_nazareno = v_integrante.GetComponent<ControladorNazareno>();
-            if (v_nazareno == null)
-                return;
+            if (v_nazareno == null) continue;
 
-            v_max_i = (v_nazareno.v_objetivoIndex_i > v_max_i || v_max_i == null) ? v_nazareno.v_objetivoIndex_i : v_max_i;
-            v_min_i = (v_nazareno.v_objetivoIndex_i < v_min_i || v_min_i == null) ? v_nazareno.v_objetivoIndex_i : v_min_i;
+            _suma_i += v_nazareno.v_objetivoIndex_i;
+            _conteo_i++;
         }
+        float _promedio_i = _conteo_i > 0 ? (float)_suma_i / _conteo_i : 0f;
+
+        float _margen_f = 0.3f;
+        float _limiteAdelantado_f = _promedio_i + _margen_f;
+        float _limiteAtrasado_f = _promedio_i - _margen_f;
 
         foreach (Transform v_integrante in integrantes)
         {
+            ControladorNazareno _nazareno = v_integrante.GetComponent<ControladorNazareno>();
+
+            if (_nazareno == null) continue;
+            if (_nazareno.EstadoActual == null) continue;
+            if (_nazareno.ObtenerIndice(_nazareno.EstadoActual) > 0) continue;
+
+
             // El integrante esta lejos del peloton.
             if (Vector3.Distance(v_integrante.position, transform.position) > v_distanciaAlPeloton_f)
             {
-                ControladorNazareno v_nazareno = v_integrante.GetComponent<ControladorNazareno>();
+                float _avance_f = Vector3.Distance(_nazareno.v_objetivo_t.position, v_integrante.position);
+                float _distanciaAlsiguiente_f = Navegacion.nav.trayectoria[_nazareno.v_objetivoIndex_i].gameObject.GetComponent<Punto>().DistanciaAlSiguiente_f;
+                float _progresoPorcentual_f = _distanciaAlsiguiente_f > 0 ? _avance_f / _distanciaAlsiguiente_f : 0f;
 
-                if (v_nazareno == null)
-                    return;
+                if (_nazareno.v_objetivoIndex_i < _limiteAtrasado_f && _progresoPorcentual_f > 0.3f)
+                    _nazareno.CambiarSubEstado(2); // Atrasado
 
-                // El integrante esta delante.
-                if (v_nazareno.v_objetivoIndex_i > (v_max_i * 0.66f))
-                {
-                    v_integranteLejosAdelantado.Add(v_integrante);
-                }
+                else if(_nazareno.v_objetivoIndex_i > _limiteAdelantado_f && _progresoPorcentual_f < 0.7f)
+                    _nazareno.CambiarSubEstado(0); // Adelantado
 
-                // El integrante esta atrasado.
-                else if (v_nazareno.v_objetivoIndex_i < (v_min_i * 0.66f))
-                {
-                     v_integranteLejosAtrasado.Add(v_integrante);
-                }
-
-                // El integrante esta en el medio.
                 else
-                {
-                    v_integranteLejosMedio.Add(v_integrante);
-                }
-
+                    _nazareno.CambiarSubEstado(1); // Medio
             }
             // El integrante esta cerca del peloton.
             else
-            {
-                v_integranteCerca.Add(v_integrante);
-            }
-        }
-
-
-        // LEJOS ADELANTADOS
-        foreach (Transform v_integrante in v_integranteLejosAdelantado)
-        {
-            ControladorNazareno v_nazareno = v_integrante.GetComponent<ControladorNazareno>();
-            if (v_nazareno == null)
-                return;
-            v_nazareno.v_movimiento.v_esperando_b = true;
-            v_nazareno.v_movimiento.v_exodia_b = false;
-        }
-
-
-        // LEJOS ATRASADOS
-        foreach (Transform v_integrante in v_integranteLejosAtrasado)
-        {
-            ControladorNazareno v_nazareno = v_integrante.GetComponent<ControladorNazareno>();
-            if (v_nazareno == null)
-                return;
-            v_nazareno.v_movimiento.v_esperando_b = false;
-            v_nazareno.v_movimiento.v_exodia_b = true;
-            v_alguienAtrasado_b = true;
-        }
-
-
-        if (v_alguienAtrasado_b)
-        {
-            // CERCA
-            foreach (Transform v_integrante in v_integranteCerca)
-            {
-                ControladorNazareno v_nazareno = v_integrante.GetComponent<ControladorNazareno>();
-                if (v_nazareno == null)
-                    return;
-                v_nazareno.v_movimiento.v_esperando_b = true;
-                v_nazareno.v_movimiento.v_exodia_b = false;
-            }
-        }
-        else
-        {
-            // CERCA
-            foreach (Transform v_integrante in v_integranteCerca)
-            {
-                ControladorNazareno v_nazareno = v_integrante.GetComponent<ControladorNazareno>();
-                if (v_nazareno == null)
-                    return;
-                v_nazareno.v_movimiento.v_esperando_b = false;
-                v_nazareno.v_movimiento.v_exodia_b = false;
-            }
-        }
-
-
-        // LEJOS MEDIO
-        foreach (Transform v_integrante in v_integranteLejosMedio)
-        {
-            ControladorNazareno v_nazareno = v_integrante.GetComponent<ControladorNazareno>();
-            if (v_nazareno == null)
-                return;
-            v_nazareno.v_movimiento.v_esperando_b = false;
-            v_nazareno.v_movimiento.v_exodia_b = false;
+                _nazareno.CambiarSubEstado(3);
         }
     }
 
@@ -305,7 +196,19 @@ public class Peloton : MonoBehaviour
             ControladorNazareno v_nazareno = v_integrante.GetComponent<ControladorNazareno>();
             if (v_nazareno == null)
                 return;
-            Terminal.Log(v_integrante.name + " - " + v_nazareno.v_movimiento.v_estado.ToSafeString());
+            Terminal.Log(v_integrante.name + " - " + v_nazareno.v_movimiento.Estado.ToSafeString());
+            Debug.Log($"Estado: {v_nazareno.EstadoActual.GetType().Name}, Index: {v_nazareno.ObtenerIndice(v_nazareno.EstadoActual)}");
         }
+    }
+
+
+
+    // ***********************( Debug/Gizmos )*********************** //
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, v_distanciaAlPeloton_f);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, v_distanciaAlPelotonReal_f);
     }
 }

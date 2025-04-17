@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Movimiento : MonoBehaviour
+public class Movimiento : MaquinaDeEstados
 {
     // TODO: Al pausar se detiene y al despausar aplicar fuerza para compensar.
     // ***********************( Declaraciones )*********************** //
@@ -16,44 +16,54 @@ public class Movimiento : MonoBehaviour
     //HideInInspector]
     public bool v_esperando_b = false;
     public bool v_exodia_b = false;
+    public bool QuedarteQuieto = false;
 
     // --- Componentes --- //
     [HideInInspector] 
-    public Transform v_objetivo_Transform;
+    public Transform v_objetivo_t = null;
     private NavMeshAgent v_agente_NavMeshAgent;
     private Rigidbody2D v_rb_rb2D;
 
+    // --- Direcion --- //
+    public enum Direcion_e
+    {
+        ARRIBA,
+        DERECHA,
+        ABAJO,
+        IZQUIERDA,
+        NULO
+    }
+    public Direcion_e Direcion = Direcion_e.NULO;
+
     // --- Maquina de Estados --- //
-    public EstadoBase v_estado;
+    public override EstadoBase Estado { get; set; }
+    public override EstadoBase SubEstado { get; set; }
 
     // ***********************( Funciones Unity )*********************** //
     private void Start()
     {
+        Direcion = f_obtenerDirecion_e(transform);
+
         v_aceleracionExodia_f = aceleracion + aceleracion;
 
+      
+        v_agente_NavMeshAgent = GetComponent<NavMeshAgent>();
         if (v_agente_NavMeshAgent == null)
-            v_agente_NavMeshAgent = GetComponent<NavMeshAgent>();
+            Debug.LogError($"****** Entidad: {gameObject.name} NO tiene componente (NavMeshAgent) ******");
 
+        v_rb_rb2D = GetComponent<Rigidbody2D>();
         if (v_rb_rb2D == null)
-            v_rb_rb2D = GetComponent<Rigidbody2D>();
+            Debug.LogError($"****** Entidad: {gameObject.name} NO tiene componente (Rigidbody2D) ******");
 
-        if (v_estado == null)
+
+        Inicializar(gameObject);
+        estadosPosibles = new List<EstadoBase>
         {
-            //v_estado = new EstadoInicio(out v_estado, gameObject);
-            v_estado = gameObject.AddComponent<MaquinaDeEstados>();
-            v_estado.Inicializar(v_estado, gameObject);
-            v_estado.estadosPosibles = new List<EstadoBase>
-            {
-                new EstadoMoviendose(this),
-                new EstadoQuieto(this)
-            };
-            v_estado.AgregarTransicion(() => v_esperando_b == true, 1);
-            v_estado.AgregarTransicion(() => v_esperando_b == false, 0);
-
-            Debug.Log("cantidad transiciones: " + v_estado._transiciones.Count);
-
-            v_estado.CambiarEstado(0);
-        }
+            CrearEstado<EstadoMoviendose, Movimiento>(this),
+            CrearEstado<EstadoQuieto, Movimiento>(this)
+        };
+        AgregarTransicion(() => v_esperando_b == true, 1);
+        AgregarTransicion(() => v_esperando_b == false, 0);
 
         if (v_agente_NavMeshAgent != null)
         {
@@ -66,40 +76,94 @@ public class Movimiento : MonoBehaviour
 
     private void FixedUpdate()
     {
+        ActualizarTransiciones();
+        establecerDestino();
+
         v_agente_NavMeshAgent.nextPosition = transform.position;
     }
 
-    private void Update()
+    private void LateUpdate()
+    {
+        ActualizarTransiciones();
+        establecerDestino();
+
+        v_agente_NavMeshAgent.nextPosition = transform.position;
+    }
+
+    // ***********************( Funciones Nuestras )*********************** //
+    protected void establecerDestino()
     {
         if (ControladorPPAL.v_pausado_b)
             return;
+
+        if (QuedarteQuieto)
+            v_objetivo_t = null;
+
+        if (v_objetivo_t == null)
+        {
+            if (v_agente_NavMeshAgent != null)
+            {
+                v_agente_NavMeshAgent.isStopped = true;
+                v_agente_NavMeshAgent.ResetPath();
+            }
+        }
+        else
+        {
+            if (v_agente_NavMeshAgent != null)
+            {
+                v_agente_NavMeshAgent.isStopped = false;
+                v_agente_NavMeshAgent.SetDestination(v_objetivo_t.position);
+            }
+        }
 
         if (v_agente_NavMeshAgent != null)
         {
             v_agente_NavMeshAgent.nextPosition = transform.position;
 
-            v_agente_NavMeshAgent.SetDestination(v_objetivo_Transform.position);
+            if (!QuedarteQuieto && v_objetivo_t != null)
+                v_agente_NavMeshAgent.SetDestination(v_objetivo_t.position);
 
             if (v_agente_NavMeshAgent != null)
                 v_agente_NavMeshAgent.nextPosition = transform.position;
         }
     }
 
-    // ***********************( Funciones Nuestras )*********************** //
+    protected Direcion_e f_obtenerDirecion_e(Transform _transform)
+    {
+        if (_transform == null)
+            return Direcion_e.NULO;
+
+        Vector3 _direcionActual_v3 = _transform.up.normalized;
+
+        if (Mathf.Abs(_direcionActual_v3.x) > Mathf.Abs(_direcionActual_v3.y))
+            return (_direcionActual_v3.x > 0) ? Direcion_e.DERECHA : Direcion_e.IZQUIERDA;
+        else
+            return (_direcionActual_v3.y > 0) ? Direcion_e.ARRIBA : Direcion_e.ABAJO;
+    }
+
     protected void irAlDestino()
     {
-        dirigirirAlDestino();
-        Avanzar();
+        if (v_objetivo_t != null)
+        {
+            dirigirirAlDestino();
+            Avanzar();
+        }
     }
 
     protected void dirigirirAlDestino()
     {
-        Vector3 v_direccion_v3 = v_agente_NavMeshAgent.desiredVelocity.normalized;
-        Rotar(v_direccion_v3);
+        if (v_objetivo_t != null)
+        {
+            Vector3 v_direccion_v3 = v_agente_NavMeshAgent.desiredVelocity.normalized;
+            Rotar(v_direccion_v3);
+        }
     }
 
     protected void RedirigirHaciaNavMesh()
     {
+        if (v_objetivo_t == null)
+            return;
+
         NavMeshHit hit;
         if (NavMesh.SamplePosition(transform.position, out hit, 5f, NavMesh.AllAreas))
         {
@@ -120,19 +184,30 @@ public class Movimiento : MonoBehaviour
         if (ControladorPPAL.v_pausado_b)
             return;
 
+        if (v_objetivo_t == null)
+            return;
+
         float v_anguloActual_f = Mathf.Atan2(transform.up.y, transform.up.x) * Mathf.Rad2Deg;
         float v_anguloObjetivo_f = Mathf.Atan2(v_direccion_v3.y, v_direccion_v3.x) * Mathf.Rad2Deg;
 
         float v_diferenciaAngulo_f = Mathf.DeltaAngle(v_anguloActual_f, v_anguloObjetivo_f);
 
-        // TODO: cambiar a como antes para que gire mas rapido.
-        float v_torque_f;// = v_diferenciaAngulo_f * fuerzaRotacion * Time.fixedDeltaTime;
-        if (v_diferenciaAngulo_f > 0)
-            v_torque_f = fuerzaRotacion * Time.fixedDeltaTime;
+        float v_torque_f;
+        if (v_exodia_b)
+        {
+            v_torque_f = v_diferenciaAngulo_f * fuerzaRotacion * Time.fixedDeltaTime;
+        }
         else
-            v_torque_f = -fuerzaRotacion * Time.fixedDeltaTime;
+        {
+            if (v_diferenciaAngulo_f > 0)
+                v_torque_f = fuerzaRotacion * Time.fixedDeltaTime;
+            else
+                v_torque_f = -fuerzaRotacion * Time.fixedDeltaTime;
+        }
 
         v_rb_rb2D.AddTorque(v_torque_f);
+
+        Direcion = f_obtenerDirecion_e(transform);
     }
 
     public void Avanzar()
@@ -140,9 +215,11 @@ public class Movimiento : MonoBehaviour
         if (ControladorPPAL.v_pausado_b)
             return;
 
-        // TODO: Que no acelere si tiene una pared delante.
-        RaycastHit2D v_hit = Physics2D.Raycast(transform.position, transform.up, 1.15f);
-        if (true)
+        if (v_objetivo_t == null)
+            return;
+
+        RaycastHit2D v_hit = Physics2D.Raycast(transform.position, transform.up, 1.15f, 12);
+        if (!v_hit)
         {
             if (!v_exodia_b)
                 v_rb_rb2D.AddForce(transform.up * aceleracion * Time.fixedDeltaTime);
@@ -153,12 +230,15 @@ public class Movimiento : MonoBehaviour
         v_agente_NavMeshAgent.nextPosition = transform.position;
     }
 
-    // Empuja hacia atras, tips: si se lo pasas en negativo es hacia adelante.
-    public void Empujar(float v_fuerza_f)
+    
+    public void Empujar(float v_fuerza_f, Vector3 v_direccion_v3 = default)
     {
+        if (v_direccion_v3 == default)
+            v_direccion_v3 = -Vector3.up;
+
         v_rb_rb2D.AddForce
         (
-            -(transform.up * (v_fuerza_f + aceleracion)),
+            (v_direccion_v3 * v_fuerza_f),
             ForceMode2D.Impulse
         );
     }
@@ -170,20 +250,19 @@ public class Movimiento : MonoBehaviour
     class EstadoMoviendose : EstadoBase
     {
         protected Movimiento v_movimiento;
-
-        public EstadoMoviendose(Movimiento v_movimiento)
+        public override void Init<T>(T dependencia)
         {
-            this.v_movimiento = v_movimiento;
+            v_movimiento = dependencia as Movimiento;
         }
+
 
         public override void Entrar()
         {
-            Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-            v_movimiento.Empujar(-(v_movimiento.aceleracion * 2));
+            v_movimiento.Empujar(0.025f, transform.up);
         }
         public override void Salir()
         {
-            Debug.Log("SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
+
         }
 
         public override void MiFixedUpdate()
@@ -208,22 +287,18 @@ public class Movimiento : MonoBehaviour
     class EstadoQuieto : EstadoBase
     {
         protected Movimiento v_movimiento;
-
-        public EstadoQuieto(Movimiento v_movimiento)
+        public override void Init<T>(T dependencia)
         {
-            this.v_movimiento = v_movimiento;
+            v_movimiento = dependencia as Movimiento;
         }
+
 
         public override void Entrar()
         {
-            Debug.Log("DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD");
-            v_movimiento.Empujar(0f);
+            v_movimiento.Empujar(0f, -transform.up);
         }
-
         public override void Salir()
-        {
-            Debug.Log("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF");
-        }
+        { }
 
         public override void MiFixedUpdate()
         {
