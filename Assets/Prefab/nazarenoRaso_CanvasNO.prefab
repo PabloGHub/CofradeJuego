@@ -447,12 +447,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4908d698a4f16d74b9f2d307d4525876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  danno: 2
   alcance: 1
+  RangoVisibliidad: 0
   tiempoRecarga: 1
   fuerzaEmpuje: 1
-  explosion: 0
-  prefabExplosion: {fileID: 0}
+  capaAtacado:
+    serializedVersion: 2
+    m_Bits: 0
+  tagAtacado: 
+  danno: 2
+  EsDistancia: 0
+  prefabProyectil: {fileID: 0}
+  _alcanceExplosion_f: 0
+  _direcion_v2: {x: 0, y: 0}
+  _inicio_V3: {x: 0, y: 0, z: 0}
+  _atacar_b: 0
 --- !u!114 &4060509918818848312
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -55,7 +55,7 @@ public class ControladorPorculero : MaquinaDeEstados
             Debug.LogError("El Porculero no tiene un componente Ataque.");
             return;
         }
-        _ataque_s.v_capaAtacado_LM = _mascaraObjetivo;
+        //_ataque_s.capaAtacado = _mascaraObjetivo;
         _circle_coll = gameObject.AddComponent<CircleCollider2D>();
         _circle_coll.isTrigger = true;
         _circle_coll.radius = RangoVisibliidad;
@@ -224,7 +224,7 @@ public class ControladorPorculero : MaquinaDeEstados
             _controladorPorculero_s._objetivo_t = _objetivoTransform_t;
 
             Vector3 _direccion_v3 = (_objetivoTransform_t.position - _controladorPorculero_s.transform.position).normalized;
-            _controladorPorculero_s._ataque_s._direcion_v2 = _direccion_v3;
+            //_controladorPorculero_s._ataque_s._direcion_v2 = _direccion_v3;
             _controladorPorculero_s._ataque_s.Atacar();
         }
     }

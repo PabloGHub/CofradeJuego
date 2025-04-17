@@ -91,4 +91,5 @@ public class Salud : MonoBehaviour
 
     // ***********************( Getters Y Setters )*********************** //
     // TODO: Implementarlos para acceder a traves de la consola.
+    public float SaludActual { get => v_saludActual_f; }
 }
