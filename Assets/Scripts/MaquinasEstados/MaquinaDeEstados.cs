@@ -145,6 +145,9 @@ public abstract class MaquinaDeEstados : MonoBehaviour
             ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
             Parameter name: index
          */
+        if (estadosPosibles == null)
+            return;
+
         EstadoBase _posibleNovoEstado = estadosPosibles[nuevoEstado];
         if (_posibleNovoEstado == null)
         {
@@ -226,6 +229,9 @@ public abstract class MaquinaDeEstados : MonoBehaviour
     /// </summary>
     public void ActualizarTransiciones()
     {
+        if (Transiciones == null)
+            return;
+
         if (Transiciones.Count > 0)
             ActualizarTrnas();
 

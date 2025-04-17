@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 726458941984663262}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.036, z: 0}
+  m_LocalPosition: {x: 0, y: 0.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -102,7 +102,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _go: {fileID: 0}
-  Flipear: 0
+  FlipearEnIzquierda: 0
+  FlipearEnDerecha: 1
   Sprite: {fileID: 0}
 --- !u!95 &6808528105970787521
 Animator:
@@ -227,8 +228,8 @@ GameObject:
   - component: {fileID: 1857761133423220880}
   - component: {fileID: 5816687434259112477}
   - component: {fileID: 5170742584716279297}
-  - component: {fileID: 8309723369631539908}
   - component: {fileID: 1762534043936020592}
+  - component: {fileID: 8309723369631539908}
   - component: {fileID: 1294876831726405668}
   m_Layer: 10
   m_Name: mujer
@@ -414,6 +415,24 @@ MonoBehaviour:
   QuedarteQuieto: 0
   v_objetivo_t: {fileID: 0}
   Direcion: 4
+--- !u!114 &1762534043936020592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9219646106814485027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec8b0c6a18423f438ebe9bfe10a259b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saludMaxima: 15
+  resistencia: 0
+  reflejoDanno: 0
+  tiempoInmunidad: 0
+  prefabsMorir: []
+  lifeBar: {fileID: 0}
 --- !u!114 &8309723369631539908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -440,24 +459,6 @@ MonoBehaviour:
   _inicio: 0
   EnemigoObjetivo_go: {fileID: 0}
   _atacar_b: 0
---- !u!114 &1762534043936020592
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9219646106814485027}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ec8b0c6a18423f438ebe9bfe10a259b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  saludMaxima: 15
-  resistencia: 0
-  reflejoDanno: 0
-  tiempoInmunidad: 0
-  prefabsMorir: []
-  lifeBar: {fileID: 0}
 --- !u!114 &1294876831726405668
 MonoBehaviour:
   m_ObjectHideFlags: 0

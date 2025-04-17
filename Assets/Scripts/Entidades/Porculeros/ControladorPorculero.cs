@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Transactions;
 using UnityEngine;
 
+#if UNITY_EDITOR
+    using UnityEditor;
+#endif
+
 public class ControladorPorculero : MaquinaDeEstados
 {
     // ***********************( Declaraciones )*********************** //
@@ -20,21 +24,23 @@ public class ControladorPorculero : MaquinaDeEstados
     // ***********************( Metodos UNITY )*********************** //
     private void Awake()
     {
+        // Maquina de Estados
+        Inicializar(gameObject);
+        estadosPosibles = new List<EstadoBase>
+        {
+            CrearEstado<EstadoParado, ControladorPorculero>(this),
+            CrearEstado<EstadoPersiguiendo, ControladorPorculero>(this),
+            CrearEstado<EstadoAtacando, ControladorPorculero>(this)
+        };
+    }
+
+    private void Start()
+    {
         // Movimiento
         Movimiento_s = GetComponent<Movimiento>();
         if (Movimiento_s == null)
             Debug.LogError($"****** Porculero: {gameObject.name} NO tiene componente (Movimiento) ******");
           
-
-        // Maquina de Estados
-        Inicializar(gameObject);
-        estadosPosibles = new List<EstadoBase>
-        { 
-            CrearEstado<EstadoParado, ControladorPorculero>(this),
-            CrearEstado<EstadoPersiguiendo, ControladorPorculero>(this),
-            CrearEstado<EstadoAtacando, ControladorPorculero>(this)
-        };
-        CambiarEstado(0);
 
         // Ataque
         v_ataque_s = GetComponent<Ataque>();
@@ -45,7 +51,8 @@ public class ControladorPorculero : MaquinaDeEstados
         }
         else
             Debug.LogError($"****** Porculero: {gameObject.name} NO tiene componente (Ataque) ******");
-         
+
+        CambiarEstado(0);
     }
 
     private void FixedUpdate()
@@ -150,6 +157,19 @@ public class ControladorPorculero : MaquinaDeEstados
             else
                 Debug.LogWarning("--- No hay enemigo objetivo ---");
         }
+    }
+
+
+    // ***********************( Gizmos )*********************** //
+    private void OnDrawGizmos()
+    {
+        if  (v_objetivo_t == null)
+            return;
+
+        Gizmos.color = Color.green;
+        #if UNITY_EDITOR
+                Handles.Label(transform.position + Vector3.up * 0.5f, "PORCULERO : objetivo -> " + v_objetivo_t.name);
+        #endif
     }
 }
 
