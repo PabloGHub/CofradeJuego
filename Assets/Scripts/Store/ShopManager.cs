@@ -63,7 +63,8 @@ public class ShopManager : MonoBehaviour
 
     public void ResetPreparations()
     {
-        Peloton.peloton.DevolverIntegrantesTotal();
+        float moneyRecovered = Peloton.peloton.DevolverIntegrantesTotal();
+        AddMoney(moneyRecovered);
     }
 
 }

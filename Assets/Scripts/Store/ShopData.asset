@@ -19,7 +19,7 @@ MonoBehaviour:
       Description: 
       Type: 0
       Price: 15
-      sprite: {fileID: 1208040086343421634, guid: ec8076e0f77fdc64f86bbb6ac066de84, type: 3}
+      sprite: {fileID: -3321316116095022828, guid: d78d1ea8a70d3f548a496ad2717594bb, type: 3}
       dropObject: {fileID: 8226610799400092452, guid: 6a31138cc3088a94d981a2a11e5c6b16, type: 3}
   - key: Azul
     value:
@@ -27,7 +27,7 @@ MonoBehaviour:
       Description: 
       Type: 0
       Price: 5
-      sprite: {fileID: 1208040086343421634, guid: ec8076e0f77fdc64f86bbb6ac066de84, type: 3}
+      sprite: {fileID: 7964026563873131987, guid: d78d1ea8a70d3f548a496ad2717594bb, type: 3}
       dropObject: {fileID: 8226610799400092452, guid: 4816c0052b489d449bdd832dc762be43, type: 3}
   - key: Rojo
     value:
@@ -35,5 +35,5 @@ MonoBehaviour:
       Description: 
       Type: 0
       Price: 10
-      sprite: {fileID: 1208040086343421634, guid: ec8076e0f77fdc64f86bbb6ac066de84, type: 3}
+      sprite: {fileID: -7455311454871895461, guid: d78d1ea8a70d3f548a496ad2717594bb, type: 3}
       dropObject: {fileID: 8226610799400092452, guid: abb1f98ae0fc6c34589ddeeff85ee2ed, type: 3}

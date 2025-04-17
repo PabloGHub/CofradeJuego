@@ -179,9 +179,10 @@ public class Peloton : MonoBehaviour
     {
         float amount = 0;
         var integrantesCopy = new List<Transform>(integrantes);
-        foreach (var integrante in integrantesCopy)
+        foreach (Transform integrante in integrantesCopy)
         {
-            amount += ShopManager.instance.Data.Items.ContainsKey(integrante.name) ? ShopManager.instance.Data.Items[integrante.name].Price : 0;
+            ControladorNazareno nazareno = integrante.GetComponent<ControladorNazareno>();
+            amount += ShopManager.instance.Data.Items.ContainsKey(nazareno.nombre) ? ShopManager.instance.Data.Items[nazareno.nombre].Price : 0;
             EliminarIntegrante(integrante.gameObject);
         }
         return amount;
