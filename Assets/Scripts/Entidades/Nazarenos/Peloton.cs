@@ -137,22 +137,22 @@ public class Peloton : MonoBehaviour
 
         AreaDespliegue.gameObject.SetActive(true);
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        RaycastHit2D hitRay = Physics2D.Raycast(mousePos, Vector2.zero);
+        RaycastHit2D[] hits = Physics2D.RaycastAll(mousePos, Vector2.zero);
 
-        if (hitRay.collider != null)
+        bool hitZone = false;
+        foreach (RaycastHit2D hitRay in hits)
         {
-            if (!hitRay.collider.CompareTag("Despliegue"))
+            if (hitRay.collider.CompareTag("Despliegue"))
             {
-                AreaDespliegue.gameObject.SetActive(false);
-                return false;
+                hitZone = true;
+                break;
             }
         }
-        else
+        AreaDespliegue.gameObject.SetActive(false);
+        if (!hitZone)
         {
-            AreaDespliegue.gameObject.SetActive(false);
             return false;
         }
-        AreaDespliegue.gameObject.SetActive(false);
 
         //foreach (Transform transform in integrantes)
         //{

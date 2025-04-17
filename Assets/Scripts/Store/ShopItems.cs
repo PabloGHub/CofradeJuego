@@ -33,6 +33,7 @@ public class ItemEntry
     }
 }
 
+[Serializable]
 [CreateAssetMenu(fileName = "ShopData", menuName = "Game/ShopData")]
 public class ShopData : ScriptableObject
 {

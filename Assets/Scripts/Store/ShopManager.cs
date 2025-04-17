@@ -10,7 +10,6 @@ public class ShopManager : MonoBehaviour
 
     public ShopData Data;
     public GameObject shopEntryPrefab;
-    public Transform shopListContainer;
     public GameObject dragElement;
     public GameObject trashElement;
     [SerializeField] private TextMeshProUGUI moneyText;
@@ -40,7 +39,7 @@ public class ShopManager : MonoBehaviour
     {
         foreach (var item in Data.Items)
         {
-            GameObject entry = Instantiate(shopEntryPrefab, shopListContainer);
+            GameObject entry = Instantiate(shopEntryPrefab, transform);
             ShopItemUI entryUI = entry.GetComponent<ShopItemUI>();
             entryUI.Setup(item.Value);
         }

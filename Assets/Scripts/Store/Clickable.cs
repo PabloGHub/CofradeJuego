@@ -8,14 +8,15 @@ public class Clickable : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
+            RaycastHit2D[] hits = Physics2D.RaycastAll(mousePos, Vector2.zero);
 
-            if (hit.collider != null)
+            foreach (RaycastHit2D hit in hits)
             {
                 Clickable clickable = hit.collider.GetComponent<Clickable>();
                 if (clickable != null)
                 {
-                    clickable.OnClick(Input.mousePosition); // or pass world pos if needed
+                    clickable.OnClick(Input.mousePosition);
+                    break;
                 }
             }
         }
