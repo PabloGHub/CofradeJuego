@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Ataque : MonoBehaviour
 {
-    // ***********************( Declaraciones )*********************** //x
+    // ***********************( Declaraciones )*********************** //
     // ----( Unity )---- //
     [Header("**---- Atribustos ----**")]
     [SerializeField] private float alcance = 1f;

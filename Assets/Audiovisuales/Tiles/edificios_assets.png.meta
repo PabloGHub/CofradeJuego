@@ -1,0 +1,1105 @@
+fileFormatVersion: 2
+guid: 0bc09f19f20d20041bb23799dbc6c2c2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2905124862673398834
+    second: edificios y assets calle_0
+  - first:
+      213: 3135483212848101496
+    second: edificios y assets calle_1
+  - first:
+      213: 3230188077478316974
+    second: edificios y assets calle_2
+  - first:
+      213: 8258009813031556949
+    second: edificios y assets calle_3
+  - first:
+      213: 7261665073706598080
+    second: edificios y assets calle_4
+  - first:
+      213: -6970996232543637243
+    second: edificios y assets calle_5
+  - first:
+      213: -942780870170743891
+    second: edificios y assets calle_6
+  - first:
+      213: 8944478817567315324
+    second: edificios y assets calle_7
+  - first:
+      213: -6035053106309516305
+    second: edificios y assets calle_8
+  - first:
+      213: 227487889471989561
+    second: edificios y assets calle_9
+  - first:
+      213: 5085189820859744132
+    second: edificios y assets calle_10
+  - first:
+      213: 6826129302159619277
+    second: edificios y assets calle_11
+  - first:
+      213: -5754461197337840108
+    second: edificios y assets calle_12
+  - first:
+      213: 2971898682709780551
+    second: edificios y assets calle_13
+  - first:
+      213: -9014464551758552871
+    second: edificios y assets calle_14
+  - first:
+      213: -3729506759432395607
+    second: edificios y assets calle_15
+  - first:
+      213: 2180573181187874745
+    second: edificios y assets calle_16
+  - first:
+      213: -163313894184550265
+    second: edificios y assets calle_17
+  - first:
+      213: -5273019602636418138
+    second: edificios y assets calle_18
+  - first:
+      213: -5891730113771218582
+    second: edificios y assets calle_19
+  - first:
+      213: -5385890016891137298
+    second: edificios y assets calle_20
+  - first:
+      213: -2165549393029805250
+    second: edificios y assets calle_21
+  - first:
+      213: -6009243796086252428
+    second: edificios y assets calle_22
+  - first:
+      213: 3954618626943401272
+    second: edificios y assets calle_23
+  - first:
+      213: -2530088467762667478
+    second: edificios y assets calle_24
+  - first:
+      213: 1027720175287397255
+    second: edificios y assets calle_25
+  - first:
+      213: 2188018486180345965
+    second: edificios y assets calle_26
+  - first:
+      213: 2802201765802508933
+    second: edificios y assets calle_27
+  - first:
+      213: 5525495324999872198
+    second: edificios y assets calle_28
+  - first:
+      213: 2511726125193997193
+    second: edificios y assets calle_29
+  - first:
+      213: -271234253484047788
+    second: edificios y assets calle_30
+  - first:
+      213: -766321713692937676
+    second: edificios y assets calle_31
+  - first:
+      213: 1065651517173670739
+    second: edificios y assets calle_32
+  - first:
+      213: 7601111837280296721
+    second: edificios y assets calle_33
+  - first:
+      213: 1747185748370591260
+    second: edificios y assets calle_34
+  - first:
+      213: -4272609374500226448
+    second: edificios y assets calle_35
+  - first:
+      213: 1957852850969644961
+    second: edificios y assets calle_36
+  - first:
+      213: -9002789239182110892
+    second: edificios y assets calle_37
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: edificios y assets calle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 351
+        width: 97
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec35234545ceea7d0800000000000000
+      internalID: -2905124862673398834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios y assets calle_1
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 336
+        width: 89
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 878f20d9e59738b20800000000000000
+      internalID: 3135483212848101496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios y assets calle_2
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 318
+        width: 130
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eab0cc331fee3dc20800000000000000
+      internalID: 3230188077478316974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios y assets calle_3
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 351
+        width: 98
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5579f611c285a9270800000000000000
+      internalID: 8258009813031556949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios y assets calle_4
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 294
+        width: 20
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ce742c19ed96c460800000000000000
+      internalID: 7261665073706598080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios y assets calle_5
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 290
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50176a44cdb024f90800000000000000
+      internalID: -6970996232543637243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios y assets calle_6
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 293
+        width: 20
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dab607c2bc19ae2f0800000000000000
+      internalID: -942780870170743891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios y assets calle_7
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 293
+        width: 20
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c751b1e381c212c70800000000000000
+      internalID: 8944478817567315324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios y assets calle_8
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 292
+        width: 20
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe3bdc5cc2f2f3ca0800000000000000
+      internalID: -6035053106309516305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios y assets calle_9
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 260
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9376eaab703382300800000000000000
+      internalID: 227487889471989561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios y assets calle_10
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 264
+        width: 20
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48ff6c71339329640800000000000000
+      internalID: 5085189820859744132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios y assets calle_11
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 264
+        width: 20
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc4fb161f684bbe50800000000000000
+      internalID: 6826129302159619277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios y assets calle_12
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 255
+        width: 35
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 416b8ea870c0420b0800000000000000
+      internalID: -5754461197337840108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios y assets calle_13
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 255
+        width: 20
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7482e5b2b1e4e3920800000000000000
+      internalID: 2971898682709780551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios y assets calle_14
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 255
+        width: 35
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d0a418304036e280800000000000000
+      internalID: -9014464551758552871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios y assets calle_15
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 255
+        width: 20
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a42d90bc512e3cc0800000000000000
+      internalID: -3729506759432395607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios y assets calle_16
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 223
+        width: 22
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bf527f41c3f24e10800000000000000
+      internalID: 2180573181187874745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios y assets calle_17
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 223
+        width: 22
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7808e36e0eacbbdf0800000000000000
+      internalID: -163313894184550265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios y assets calle_18
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 255
+        width: 66
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a35f2beb9872d6b0800000000000000
+      internalID: -5273019602636418138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios y assets calle_19
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 229
+        width: 29
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a69d1306dae5c3ea0800000000000000
+      internalID: -5891730113771218582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios y assets calle_20
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 223
+        width: 29
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee291e7b0997145b0800000000000000
+      internalID: -5385890016891137298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios y assets calle_21
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 216
+        width: 47
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3b45e4fc4c62f1e0800000000000000
+      internalID: -2165549393029805250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios y assets calle_22
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 225
+        width: 19
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47c1f851b90ea9ca0800000000000000
+      internalID: -6009243796086252428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios y assets calle_23
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 224
+        width: 19
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83dba1150b0a1e630800000000000000
+      internalID: 3954618626943401272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios y assets calle_24
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 223
+        width: 14
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a20a1bc81f153ecd0800000000000000
+      internalID: -2530088467762667478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios y assets calle_25
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 223
+        width: 14
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78be188ed02334e00800000000000000
+      internalID: 1027720175287397255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios y assets calle_26
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 223
+        width: 14
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6874c678376d5e10800000000000000
+      internalID: 2188018486180345965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios y assets calle_27
+      rect:
+        serializedVersion: 2
+        x: 457
+        y: 223
+        width: 14
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58281a7c8ab63e620800000000000000
+      internalID: 2802201765802508933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios y assets calle_28
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 197
+        width: 28
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cee2b609b08eac40800000000000000
+      internalID: 5525495324999872198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios y assets calle_29
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 197
+        width: 29
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98ba1496a917bd220800000000000000
+      internalID: 2511726125193997193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios y assets calle_30
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 192
+        width: 29
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4524a2e22e16c3cf0800000000000000
+      internalID: -271234253484047788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios y assets calle_31
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 202
+        width: 8
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 432f9a7267a7d55f0800000000000000
+      internalID: -766321713692937676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios y assets calle_32
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 161
+        width: 98
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3532e77a864f9ce00800000000000000
+      internalID: 1065651517173670739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios y assets calle_33
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 161
+        width: 97
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11fdb1f81f29c7960800000000000000
+      internalID: 7601111837280296721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios y assets calle_34
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 129
+        width: 97
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1e01406e204f3810800000000000000
+      internalID: 1747185748370591260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios y assets calle_35
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 129
+        width: 98
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07af8e04964a4b4c0800000000000000
+      internalID: -4272609374500226448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios y assets calle_36
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 37
+        width: 67
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1af08887bc0bb2b10800000000000000
+      internalID: 1957852850969644961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios y assets calle_37
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 0
+        width: 98
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45f47d2c2eaaf0380800000000000000
+      internalID: -9002789239182110892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      edificios y assets calle_0: -2905124862673398834
+      edificios y assets calle_1: 3135483212848101496
+      edificios y assets calle_10: 5085189820859744132
+      edificios y assets calle_11: 6826129302159619277
+      edificios y assets calle_12: -5754461197337840108
+      edificios y assets calle_13: 2971898682709780551
+      edificios y assets calle_14: -9014464551758552871
+      edificios y assets calle_15: -3729506759432395607
+      edificios y assets calle_16: 2180573181187874745
+      edificios y assets calle_17: -163313894184550265
+      edificios y assets calle_18: -5273019602636418138
+      edificios y assets calle_19: -5891730113771218582
+      edificios y assets calle_2: 3230188077478316974
+      edificios y assets calle_20: -5385890016891137298
+      edificios y assets calle_21: -2165549393029805250
+      edificios y assets calle_22: -6009243796086252428
+      edificios y assets calle_23: 3954618626943401272
+      edificios y assets calle_24: -2530088467762667478
+      edificios y assets calle_25: 1027720175287397255
+      edificios y assets calle_26: 2188018486180345965
+      edificios y assets calle_27: 2802201765802508933
+      edificios y assets calle_28: 5525495324999872198
+      edificios y assets calle_29: 2511726125193997193
+      edificios y assets calle_3: 8258009813031556949
+      edificios y assets calle_30: -271234253484047788
+      edificios y assets calle_31: -766321713692937676
+      edificios y assets calle_32: 1065651517173670739
+      edificios y assets calle_33: 7601111837280296721
+      edificios y assets calle_34: 1747185748370591260
+      edificios y assets calle_35: -4272609374500226448
+      edificios y assets calle_36: 1957852850969644961
+      edificios y assets calle_37: -9002789239182110892
+      edificios y assets calle_4: 7261665073706598080
+      edificios y assets calle_5: -6970996232543637243
+      edificios y assets calle_6: -942780870170743891
+      edificios y assets calle_7: 8944478817567315324
+      edificios y assets calle_8: -6035053106309516305
+      edificios y assets calle_9: 227487889471989561
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
