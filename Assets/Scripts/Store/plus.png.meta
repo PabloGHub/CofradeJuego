@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: e9758b30166fdda45b79ab12fd7825cb
+guid: 3c482743ca174e9409211aa26aedb44a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5008486069375389354
-    second: slideIcon_0
-  - first:
-      213: 6616413249864769844
-    second: slideIcon_1
+      213: 8230488904728474184
+    second: plus_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -103,12 +100,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: slideIcon_0
+      name: plus_0
       rect:
         serializedVersion: 2
-        x: 130
-        y: 163
-        width: 388
+        x: 19
+        y: 19
+        width: 474
         height: 474
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -118,30 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: aaecc934b87b18540800000000000000
-      internalID: 5008486069375389354
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: slideIcon_1
-      rect:
-        serializedVersion: 2
-        x: 365
-        y: 165
-        width: 321
-        height: 470
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 431a065abc832db50800000000000000
-      internalID: 6616413249864769844
+      spriteID: 84272264d02983270800000000000000
+      internalID: 8230488904728474184
       vertices: []
       indices: 
       edges: []
@@ -150,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -159,9 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      slideIcon_0: 5008486069375389354
-      slideIcon_1: 6616413249864769844
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

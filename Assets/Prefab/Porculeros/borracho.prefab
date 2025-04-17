@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7079987321832976631}
   - component: {fileID: 3044886723888118654}
   - component: {fileID: 3359518861310648300}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: animacion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 726458941984663262}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.07, z: 0}
+  m_LocalPosition: {x: 0, y: 0.08, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -102,7 +102,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _go: {fileID: 0}
-  Flipear: 0
+  FlipearEnIzquierda: 0
+  FlipearEnDerecha: 1
   Sprite: {fileID: 0}
 --- !u!95 &3359518861310648300
 Animator:
@@ -136,7 +137,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1621599105475286150}
   - component: {fileID: 6131229729095828298}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Flecha
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227,10 +228,10 @@ GameObject:
   - component: {fileID: 1857761133423220880}
   - component: {fileID: 5816687434259112477}
   - component: {fileID: 5170742584716279297}
-  - component: {fileID: 8309723369631539908}
   - component: {fileID: 1762534043936020592}
+  - component: {fileID: 8309723369631539908}
   - component: {fileID: 1294876831726405668}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: borracho
   m_TagString: Porculeros
   m_Icon: {fileID: 0}
@@ -407,39 +408,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _go: {fileID: 0}
-  aceleracion: 10
-  fuerzaRotacion: 5
+  aceleracion: 100
+  fuerzaRotacion: 10
   v_esperando_b: 0
   v_exodia_b: 0
   QuedarteQuieto: 0
   v_objetivo_t: {fileID: 0}
   Direcion: 4
---- !u!114 &8309723369631539908
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9219646106814485027}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4908d698a4f16d74b9f2d307d4525876, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  alcance: 1
-  RangoVisibliidad: 1
-  tiempoRecarga: 1
-  fuerzaEmpuje: 1
-  capaAtacado:
-    serializedVersion: 2
-    m_Bits: 0
-  danno: 10
-  EsDistancia: 0
-  prefabProyectil: {fileID: 0}
-  _alcanceExplosion_f: 0
-  _inicio: 0
-  EnemigoObjetivo_go: {fileID: 0}
-  _atacar_b: 0
 --- !u!114 &1762534043936020592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -458,6 +433,32 @@ MonoBehaviour:
   tiempoInmunidad: 0
   prefabsMorir: []
   lifeBar: {fileID: 0}
+--- !u!114 &8309723369631539908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9219646106814485027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4908d698a4f16d74b9f2d307d4525876, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alcance: 1
+  RangoVisibliidad: 1
+  tiempoRecarga: 1
+  fuerzaEmpuje: 1
+  capaAtacado:
+    serializedVersion: 2
+    m_Bits: 2048
+  danno: 10
+  EsDistancia: 0
+  prefabProyectil: {fileID: 0}
+  _alcanceExplosion_f: 0
+  _inicio: 0
+  EnemigoObjetivo_go: {fileID: 0}
+  _atacar_b: 0
 --- !u!114 &1294876831726405668
 MonoBehaviour:
   m_ObjectHideFlags: 0

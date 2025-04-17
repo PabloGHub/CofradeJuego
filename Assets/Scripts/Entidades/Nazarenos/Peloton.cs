@@ -78,7 +78,7 @@ public class Peloton : MonoBehaviour
             ControladorNazareno v_nazareno = v_integrante.GetComponent<ControladorNazareno>();
             if (v_nazareno == null) continue;
 
-            _suma_i += v_nazareno.v_objetivoIndex_i;
+            _suma_i += v_nazareno.ObjetivoIndex_i;
             _conteo_i++;
         }
         float _promedio_i = _conteo_i > 0 ? (float)_suma_i / _conteo_i : 0f;
@@ -100,13 +100,13 @@ public class Peloton : MonoBehaviour
             if (Vector3.Distance(v_integrante.position, transform.position) > v_distanciaAlPeloton_f)
             {
                 float _avance_f = Vector3.Distance(_nazareno.v_objetivo_t.position, v_integrante.position);
-                float _distanciaAlsiguiente_f = Navegacion.nav.trayectoria[_nazareno.v_objetivoIndex_i].gameObject.GetComponent<Punto>().DistanciaAlSiguiente_f;
+                float _distanciaAlsiguiente_f = Navegacion.nav.trayectoria[_nazareno.ObjetivoIndex_i].gameObject.GetComponent<Punto>().DistanciaAlSiguiente_f;
                 float _progresoPorcentual_f = _distanciaAlsiguiente_f > 0 ? _avance_f / _distanciaAlsiguiente_f : 0f;
 
-                if (_nazareno.v_objetivoIndex_i < _limiteAtrasado_f && _progresoPorcentual_f > 0.3f)
+                if (_nazareno.ObjetivoIndex_i < _limiteAtrasado_f && _progresoPorcentual_f > 0.3f)
                     _nazareno.CambiarSubEstado(2); // Atrasado
 
-                else if(_nazareno.v_objetivoIndex_i > _limiteAdelantado_f && _progresoPorcentual_f < 0.7f)
+                else if(_nazareno.ObjetivoIndex_i > _limiteAdelantado_f && _progresoPorcentual_f < 0.7f)
                     _nazareno.CambiarSubEstado(0); // Adelantado
 
                 else
@@ -137,22 +137,22 @@ public class Peloton : MonoBehaviour
 
         AreaDespliegue.gameObject.SetActive(true);
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        RaycastHit2D hitRay = Physics2D.Raycast(mousePos, Vector2.zero);
+        RaycastHit2D[] hits = Physics2D.RaycastAll(mousePos, Vector2.zero);
 
-        if (hitRay.collider != null)
+        bool hitZone = false;
+        foreach (RaycastHit2D hitRay in hits)
         {
-            if (!hitRay.collider.CompareTag("Despliegue"))
+            if (hitRay.collider.CompareTag("Despliegue"))
             {
-                AreaDespliegue.gameObject.SetActive(false);
-                return false;
+                hitZone = true;
+                break;
             }
         }
-        else
+        AreaDespliegue.gameObject.SetActive(false);
+        if (!hitZone)
         {
-            AreaDespliegue.gameObject.SetActive(false);
             return false;
         }
-        AreaDespliegue.gameObject.SetActive(false);
 
         //foreach (Transform transform in integrantes)
         //{
@@ -179,9 +179,10 @@ public class Peloton : MonoBehaviour
     {
         float amount = 0;
         var integrantesCopy = new List<Transform>(integrantes);
-        foreach (var integrante in integrantesCopy)
+        foreach (Transform integrante in integrantesCopy)
         {
-            amount += ShopManager.instance.Data.Items.ContainsKey(integrante.name) ? ShopManager.instance.Data.Items[integrante.name].Price : 0;
+            ControladorNazareno nazareno = integrante.GetComponent<ControladorNazareno>();
+            amount += ShopManager.instance.Data.Items.ContainsKey(nazareno.nombre) ? ShopManager.instance.Data.Items[nazareno.nombre].Price : 0;
             EliminarIntegrante(integrante.gameObject);
         }
         return amount;

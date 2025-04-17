@@ -1,3 +1,4 @@
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -6,21 +7,26 @@ using UnityEngine.UI;
 public class ShopItemUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     private TextMeshProUGUI nameText;
-    private TextMeshProUGUI descriptionText;
+    //private TextMeshProUGUI descriptionText;
+    private Image image;
+    private Button button;
     private TextMeshProUGUI priceText;
     private ScrollRect scrollRect;
     private DraggingBehavior draggingBehavior;
+    private InfoPanelUI infoPanel;
 
     private ItemInfo itemInfo;
 
     void Awake()
     {
         nameText = transform.Find("ItemName")?.GetComponent<TextMeshProUGUI>();
-        descriptionText = transform.Find("ItemDesc")?.GetComponent<TextMeshProUGUI>();
+        //descriptionText = transform.Find("ItemDesc")?.GetComponent<TextMeshProUGUI>();
         priceText = transform.Find("ItemPrice")?.GetComponent<TextMeshProUGUI>();
+        image = transform.Find("Image")?.GetComponent<Image>();
         scrollRect = GetComponentInParent<ScrollRect>();
+        button = transform.Find("plus")?.GetComponent<Button>();
 
-        if (nameText == null || descriptionText == null || priceText == null || scrollRect == null)
+        if (nameText == null || image == null || priceText == null || scrollRect == null || button == null)
         {
             Debug.LogWarning("ShopEntryUI: Some UI elements are missing!");
         }
@@ -34,7 +40,8 @@ public class ShopItemUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public void Setup(ItemInfo item)
     {
         nameText.text = item.Name;
-        descriptionText.text = item.Description;
+        // descriptionText.text = item.Description;
+        image.sprite = item.sprite;
         priceText.text = "$" + item.Price.ToString("F2");
         itemInfo = item;
 
@@ -43,15 +50,6 @@ public class ShopItemUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         {
             Debug.LogWarning("ShopEntryUI: No draggingBehavior found");
         }
-
-        //Transform draggerContainer = GameObject.Find("DraggerContainer").transform;
-        //if (draggerContainer != null)
-        //{
-        //    GameObject dragger = Instantiate(itemInfo.dragObject, draggerContainer);
-        //    dragger.SetActive(false);
-        //    draggingBehavior = dragger.GetComponent<DraggingBehavior>();
-        //    draggingBehavior.SetItemInfo(itemInfo);
-        //}
     }
 
     void Buy()
@@ -64,6 +62,7 @@ public class ShopItemUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         EnableScrolling(false);
         Buy();
     }
+
 
     public void OnPointerUp(PointerEventData eventData)
     {
@@ -87,6 +86,19 @@ public class ShopItemUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         else
         {
             priceText.color = Color.black;
+        }
+    }
+
+    public void ShowInfo()
+    {
+        if (infoPanel == null)
+        {
+            infoPanel = Resources.FindObjectsOfTypeAll<InfoPanelUI>().First();
+        }
+
+        if (infoPanel != null)
+        {
+            infoPanel.Show(itemInfo);
         }
     }
 }

@@ -10,13 +10,16 @@ public class Ataque : MonoBehaviour
     // ----( Unity )---- //
     [Header("**---- Atribustos ----**")]
     [SerializeField] private float alcance = 1f;
+    public float Alcance => alcance;
     [SerializeField] private float RangoVisibliidad;
     [SerializeField] private float tiempoRecarga = 1f;
+    public float TiempoRecarga => tiempoRecarga;
     [SerializeField] private float fuerzaEmpuje = 5f;
     [SerializeField] private LayerMask capaAtacado;
 
     [Header("**---- Danno Mele ----**")]
     [SerializeField] private float danno = 1f;
+    public float Danno => danno;
 
     [Header("**---- Danno Distancia ----**")]
     [SerializeField] private bool EsDistancia = false;
@@ -133,7 +136,7 @@ public class Ataque : MonoBehaviour
             }
             else
             {
-                Debug.Log("Fallo: " + gameObject.name);
+                //Debug.Log("Fallo: " + gameObject.name);
             }
         }
         

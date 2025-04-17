@@ -13,59 +13,38 @@ MonoBehaviour:
   m_Name: ShopData
   m_EditorClassIdentifier: Assembly-CSharp::ShopData
   itemList:
-  - key: Nazareno
+  - key: Amarillo
     value:
-      Name: Nazareno
-      Description: Nazareno basic
-      Type: 0
+      Name: Amarillo
+      Description: Amarillo el submarino es.
       Price: 15
-      sprite: {fileID: 1208040086343421634, guid: 00612b129f61cec40803a8391581e954, type: 3}
-      dropObject: {fileID: 3268243802848412950, guid: f727e7ddffe0f39459cf5f94754d7c5d, type: 3}
-  - key: Nazareno2
+      sprite: {fileID: -3321316116095022828, guid: d78d1ea8a70d3f548a496ad2717594bb, type: 3}
+      dropObject: {fileID: 8226610799400092452, guid: 6a31138cc3088a94d981a2a11e5c6b16, type: 3}
+  - key: Azul
     value:
-      Name: Nazareno2
-      Description: Nazareno test
-      Type: 0
-      Price: 3
-      sprite: {fileID: 21300000, guid: 6ed2441c7f0a09f40a472e48d7eea364, type: 3}
-      dropObject: {fileID: 3268243802848412950, guid: f727e7ddffe0f39459cf5f94754d7c5d, type: 3}
-  - key: Nazareno3
+      Name: Azul
+      Description: 
+      Price: 5
+      sprite: {fileID: 7964026563873131987, guid: d78d1ea8a70d3f548a496ad2717594bb, type: 3}
+      dropObject: {fileID: 8226610799400092452, guid: 4816c0052b489d449bdd832dc762be43, type: 3}
+  - key: Rojo
     value:
-      Name: Nazareno3
-      Description: Nazareno test
-      Type: 0
-      Price: 15.5
-      sprite: {fileID: 1208040086343421634, guid: 00612b129f61cec40803a8391581e954, type: 3}
-      dropObject: {fileID: 3268243802848412950, guid: f727e7ddffe0f39459cf5f94754d7c5d, type: 3}
-  - key: Nazareno4
+      Name: Rojo
+      Description: 
+      Price: 10
+      sprite: {fileID: -7455311454871895461, guid: d78d1ea8a70d3f548a496ad2717594bb, type: 3}
+      dropObject: {fileID: 8226610799400092452, guid: abb1f98ae0fc6c34589ddeeff85ee2ed, type: 3}
+  - key: Morado
     value:
-      Name: Nazareno4
-      Description: Nazareno test
-      Type: 0
-      Price: 15.5
-      sprite: {fileID: 1208040086343421634, guid: 00612b129f61cec40803a8391581e954, type: 3}
-      dropObject: {fileID: 3268243802848412950, guid: f727e7ddffe0f39459cf5f94754d7c5d, type: 3}
-  - key: Nazareno5
+      Name: Morado
+      Description: 
+      Price: 10
+      sprite: {fileID: 3613983809978742712, guid: d78d1ea8a70d3f548a496ad2717594bb, type: 3}
+      dropObject: {fileID: 8226610799400092452, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
+  - key: Verde
     value:
-      Name: Nazareno5
-      Description: Nazareno test
-      Type: 0
-      Price: 15.5
-      sprite: {fileID: 1208040086343421634, guid: 00612b129f61cec40803a8391581e954, type: 3}
-      dropObject: {fileID: 3268243802848412950, guid: f727e7ddffe0f39459cf5f94754d7c5d, type: 3}
-  - key: Nazareno6
-    value:
-      Name: Nazareno6
-      Description: Nazareno test
-      Type: 0
-      Price: 15.5
-      sprite: {fileID: 1208040086343421634, guid: 00612b129f61cec40803a8391581e954, type: 3}
-      dropObject: {fileID: 3268243802848412950, guid: f727e7ddffe0f39459cf5f94754d7c5d, type: 3}
-  - key: Nazareno7
-    value:
-      Name: Nazareno7
-      Description: Nazareno test
-      Type: 0
-      Price: 15.5
-      sprite: {fileID: 1208040086343421634, guid: 00612b129f61cec40803a8391581e954, type: 3}
-      dropObject: {fileID: 3268243802848412950, guid: f727e7ddffe0f39459cf5f94754d7c5d, type: 3}
+      Name: Verde
+      Description: 
+      Price: 10
+      sprite: {fileID: 7236442304989065098, guid: d78d1ea8a70d3f548a496ad2717594bb, type: 3}
+      dropObject: {fileID: 8226610799400092452, guid: bede82fb065032f428f55132e6a2f4d8, type: 3}

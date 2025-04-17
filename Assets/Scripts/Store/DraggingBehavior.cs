@@ -55,7 +55,7 @@ public class DraggingBehavior : MonoBehaviour
 
     public void Drag(ItemInfo info, GameObject go = null)
     {
-        if (ShopManager.instance.MoneyAvailable >= itemInfo.Price)
+        if (go != null || ShopManager.instance.MoneyAvailable >= info.Price)
         {
             Setup(info, go);
             isDragging = true;
