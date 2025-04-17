@@ -235,7 +235,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9097340534541341815, guid: 3019b539132ef3047b9f121334b2a271, type: 3}
       propertyPath: _ancho
-      value: 3.49
+      value: 4.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 9097340534541341815, guid: 3019b539132ef3047b9f121334b2a271, type: 3}
+      propertyPath: _largo
+      value: 5.05
       objectReference: {fileID: 0}
     - target: {fileID: 9097340534541341815, guid: 3019b539132ef3047b9f121334b2a271, type: 3}
       propertyPath: _grupo1.Array.size

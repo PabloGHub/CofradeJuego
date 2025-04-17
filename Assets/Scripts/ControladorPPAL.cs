@@ -2,6 +2,7 @@ using CommandTerminal;
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem.LowLevel;
 
 public class ControladorPPAL : MonoBehaviour
 {
@@ -10,7 +11,8 @@ public class ControladorPPAL : MonoBehaviour
 
     [HideInInspector]
     public static bool v_pausado_b = true;
-    private Action v_accionPausa_a;
+    public static event Action<bool> OnCambioPausa;
+    public static event Action IntanciarEnemigos;
 
     [SerializeField] private TextMeshProUGUI PausaBotonTexto;
 
@@ -26,7 +28,10 @@ public class ControladorPPAL : MonoBehaviour
     private void cabiarPausa()
     {
         if (Navegacion.nav.comprobarCaminos())
+        {
             v_pausado_b = !v_pausado_b;
+            OnCambioPausa?.Invoke(v_pausado_b);
+        }
 
         Terminal.Log("Pausado: " + v_pausado_b);
     }
@@ -36,6 +41,13 @@ public class ControladorPPAL : MonoBehaviour
     static void CommandPausa(CommandArg[] args)
     {
         ControladorPPAL.ppal.cabiarPausa();
+    }
+
+    [RegisterCommand(Help = "Instanciar enemigos")]
+    static void CommandInste(CommandArg[] args)
+    {
+        Debug.Log("Intentando Intanciar");
+        ControladorPPAL.IntanciarEnemigos?.Invoke();
     }
 
 

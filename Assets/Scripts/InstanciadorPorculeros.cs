@@ -15,11 +15,15 @@ public class InstanciadorPorculeros : MonoBehaviour
     [SerializeField] private float _largo = 1f;
     [SerializeField] private float _ancho = 1f;
 
+    // Control
+    List<List<GameObject>> grupos;
+    List<int> indicesNoVacios;
+
     // ***********************( Metodos de Unity )*********************** //
     private void Awake()
     {
-        List<List<GameObject>> grupos = new List<List<GameObject>> { _grupo1, _grupo2, _grupo3 };
-        List<int> indicesNoVacios = new List<int>();
+        grupos = new List<List<GameObject>> { _grupo1, _grupo2, _grupo3 };
+        indicesNoVacios = new List<int>();
 
         for (int i = 0; i < grupos.Count; i++)
         {
@@ -29,7 +33,13 @@ public class InstanciadorPorculeros : MonoBehaviour
             }
         }
 
-        
+        ControladorPPAL.IntanciarEnemigos += instanciar;
+    }
+
+    // ***********************( Metodos Nuestros )*********************** //
+    private void instanciar()
+    {
+        Debug.Log($"---{gameObject.name} Instanciando---");
         if (indicesNoVacios.Count > 0)
         {
             int indiceAleatorio = indicesNoVacios[Random.Range(0, indicesNoVacios.Count)];
@@ -39,8 +49,8 @@ public class InstanciadorPorculeros : MonoBehaviour
                 {
                     Vector3 posicionAleatoria = new Vector3(
                         Random.Range(-_largo / 2, _largo / 2),
-                        0,
-                        Random.Range(-_ancho / 2, _ancho / 2)
+                        Random.Range(-_ancho / 2, _ancho / 2),
+                        0f
                     );
                     GameObject prefabAleatorio = grupos[indiceAleatorio][Random.Range(0, grupos[indiceAleatorio].Count)];
                     Instantiate(prefabAleatorio, transform.position + posicionAleatoria, Quaternion.identity);
@@ -57,7 +67,6 @@ public class InstanciadorPorculeros : MonoBehaviour
         }
     }
 
-    // ***********************( Metodos Nuestros )*********************** //
     // ***********************( Metodos Debug )*********************** //
     private void OnDrawGizmos()
     {
