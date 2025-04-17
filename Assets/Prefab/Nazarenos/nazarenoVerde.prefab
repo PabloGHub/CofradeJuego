@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2046788668343171402}
   - component: {fileID: 4627531916919764805}
   - component: {fileID: 3145035890625249756}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: animacion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,7 +136,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6919321577517770793}
   - component: {fileID: 6853910003800855352}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: capirote
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: 8487932697863468914}
   - component: {fileID: 4060509918818848312}
   - component: {fileID: 4379630609933709878}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: nazarenoVerde
   m_TagString: Nazarenos
   m_Icon: {fileID: 0}
@@ -413,7 +413,7 @@ MonoBehaviour:
   fuerzaEmpuje: 1
   capaAtacado:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 1024
   danno: 5
   EsDistancia: 0
   prefabProyectil: {fileID: 0}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7079987321832976631}
   - component: {fileID: 3044886723888118654}
   - component: {fileID: 3359518861310648300}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: animacion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,7 +136,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1621599105475286150}
   - component: {fileID: 6131229729095828298}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Flecha
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: 8309723369631539908}
   - component: {fileID: 1762534043936020592}
   - component: {fileID: 1294876831726405668}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: borracho
   m_TagString: Porculeros
   m_Icon: {fileID: 0}
@@ -407,8 +407,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _go: {fileID: 0}
-  aceleracion: 10
-  fuerzaRotacion: 5
+  aceleracion: 100
+  fuerzaRotacion: 10
   v_esperando_b: 0
   v_exodia_b: 0
   QuedarteQuieto: 0
@@ -432,7 +432,7 @@ MonoBehaviour:
   fuerzaEmpuje: 1
   capaAtacado:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2048
   danno: 10
   EsDistancia: 0
   prefabProyectil: {fileID: 0}
