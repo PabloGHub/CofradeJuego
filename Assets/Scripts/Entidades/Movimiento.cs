@@ -1,6 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class Movimiento : MaquinaDeEstados
 {
@@ -40,16 +43,23 @@ public class Movimiento : MaquinaDeEstados
     public override EstadoBase SubEstado { get; set; }
 
     // ***********************( Funciones Unity )*********************** //
-    private void Start()
+    private void Awake()
     {
         Direcion = f_obtenerDirecion_e(transform);
 
         v_aceleracionExodia_f = aceleracion + aceleracion;
 
-      
+
         v_agente_NavMeshAgent = GetComponent<NavMeshAgent>();
         if (v_agente_NavMeshAgent == null)
             Debug.LogError($"****** Entidad: {gameObject.name} NO tiene componente (NavMeshAgent) ******");
+
+        if (v_agente_NavMeshAgent != null)
+        {
+            v_agente_NavMeshAgent.updatePosition = false;
+            v_agente_NavMeshAgent.updateRotation = false;
+            v_agente_NavMeshAgent.updateUpAxis = false;
+        }
 
         v_rb_rb2D = GetComponent<Rigidbody2D>();
         if (v_rb_rb2D == null)
@@ -64,18 +74,18 @@ public class Movimiento : MaquinaDeEstados
         };
         AgregarTransicion(() => v_esperando_b == true, 1);
         AgregarTransicion(() => v_esperando_b == false, 0);
+    }
 
+
+    private void FixedUpdate()
+    {
         if (v_agente_NavMeshAgent != null)
         {
             v_agente_NavMeshAgent.updatePosition = false;
             v_agente_NavMeshAgent.updateRotation = false;
             v_agente_NavMeshAgent.updateUpAxis = false;
         }
-    }
 
-
-    private void FixedUpdate()
-    {
         ActualizarTransiciones();
         establecerDestino();
 
@@ -304,6 +314,23 @@ public class Movimiento : MaquinaDeEstados
         {
             v_movimiento.dirigirirAlDestino();
         }
+    }
+
+
+    // ***********************( Gizmos )*********************** //
+    private void OnDrawGizmos()
+    {
+        if (v_objetivo_t == null)
+            return;
+
+        Gizmos.color = Color.green;
+        #if UNITY_EDITOR
+                Handles.Label(transform.position + Vector3.up * 0.4f,
+                    "MOVIMIENTO : updatePosition -> " + v_agente_NavMeshAgent.updatePosition + " | " +
+                    "updateRotation -> " + v_agente_NavMeshAgent.updateRotation + " | " +
+                    "updateUpAxis -> " + v_agente_NavMeshAgent.updateUpAxis + " | " +
+                    "objetivo -> " + v_objetivo_t.name);
+        #endif
     }
 }
 
