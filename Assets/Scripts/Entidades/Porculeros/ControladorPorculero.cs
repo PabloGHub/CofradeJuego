@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.Transactions;
 using UnityEngine;
 
 public class ControladorPorculero : MaquinaDeEstados
 {
     // ***********************( Declaraciones )*********************** //
      [HideInInspector] public Movimiento Movimiento_s;
-     private Transform _objetivo_t;
+     private Transform v_objetivo_t;
 
     [Header("*--- Atributos ---*")]
     [SerializeField]
@@ -15,7 +16,7 @@ public class ControladorPorculero : MaquinaDeEstados
     public float RangoVisibliidad;
 
     // Ataque
-    private Ataque _ataque_s;
+    private Ataque v_ataque_s;
 
     // --- Maquina de Estados --- //
     public override EstadoBase Estado { get; set; }
@@ -28,10 +29,8 @@ public class ControladorPorculero : MaquinaDeEstados
         // Movimiento
         Movimiento_s = GetComponent<Movimiento>();
         if (Movimiento_s == null)
-        {
             Debug.LogError($"****** Porculero: {gameObject.name} NO tiene componente (Movimiento) ******");
-            return;
-        }
+          
 
         // Maquina de Estados
         Inicializar(gameObject);
@@ -44,12 +43,15 @@ public class ControladorPorculero : MaquinaDeEstados
         CambiarEstado(0);
 
         // Ataque
-        _ataque_s = GetComponent<Ataque>();
-        if (_ataque_s == null)
+        v_ataque_s = GetComponent<Ataque>();
+        if (v_ataque_s != null)
         {
-            Debug.LogError($"****** Porculero: {gameObject.name} NO tiene componente (Ataque) ******");
-            return;
+            v_ataque_s.OnSinEnemigos += sinEnemigos;
+            v_ataque_s.OnEnemigosCerca += () => CambiarEstado(2);
         }
+        else
+            Debug.LogError($"****** Porculero: {gameObject.name} NO tiene componente (Ataque) ******");
+         
     }
 
     private void FixedUpdate()
@@ -62,10 +64,17 @@ public class ControladorPorculero : MaquinaDeEstados
             CambiarEstado(1);
         }
 
-        Movimiento_s.v_objetivo_t = _objetivo_t;
+        Movimiento_s.v_objetivo_t = v_objetivo_t;
     }
 
     // ***********************( Metodos NUESTROS )*********************** //
+    private void sinEnemigos()
+    {
+        if (ObtenerIndice(EstadoActual) == 2)
+        {
+            CambiarEstado(1);
+        }
+    }
 
 
     // ***********************( ESTADOS DE LA MAQUINA DE ESTADOS )*********************** //
@@ -79,7 +88,7 @@ public class ControladorPorculero : MaquinaDeEstados
 
         public override void Entrar()
         {
-            _controladorPorculero_s._objetivo_t = null;
+            _controladorPorculero_s.v_objetivo_t = null;
             _controladorPorculero_s.Movimiento_s.v_esperando_b = true;
             _controladorPorculero_s.Movimiento_s.v_exodia_b = false;
         }
@@ -96,6 +105,9 @@ public class ControladorPorculero : MaquinaDeEstados
 
         public override void Entrar()
         {
+            if (_controladorPorculero_s.Movimiento_s == null)
+                return;
+
             _controladorPorculero_s.Movimiento_s.v_esperando_b = false;
             _controladorPorculero_s.Movimiento_s.v_exodia_b = false;
         }
@@ -104,7 +116,7 @@ public class ControladorPorculero : MaquinaDeEstados
 
         public override void MiUpdate()
         {
-            _controladorPorculero_s._objetivo_t = Peloton.peloton.transform;
+            _controladorPorculero_s.v_objetivo_t = Peloton.peloton.transform;
         }
     }
     class EstadoAtacando : EstadoBase
@@ -117,20 +129,30 @@ public class ControladorPorculero : MaquinaDeEstados
 
         public override void Entrar()
         {
+            if (_controladorPorculero_s.Movimiento_s == null)
+                return;
+
             _controladorPorculero_s.Movimiento_s.v_esperando_b = false;
             _controladorPorculero_s.Movimiento_s.v_exodia_b = true;
         }
         public override void Salir()
         {
+            if (_controladorPorculero_s.Movimiento_s == null)
+                return;
+
             _controladorPorculero_s.Movimiento_s.v_esperando_b = false;
             _controladorPorculero_s.Movimiento_s.v_exodia_b = false;
         }
 
         public override void MiUpdate()
         {
-            Transform _nuevoObjetivo_t = v_controladorNazareno_s.v_ataque_s.EnemigoObjetivo_go.transform;
+            if (_controladorPorculero_s.v_ataque_s == null)
+                return;
+
+            _controladorPorculero_s.v_ataque_s._atacar_b = true;
+            Transform _nuevoObjetivo_t = _controladorPorculero_s.v_ataque_s.EnemigoObjetivo_go.transform;
             if (_nuevoObjetivo_t != null)
-                v_controladorNazareno_s.v_objetivo_t = _nuevoObjetivo_t;
+                _controladorPorculero_s.v_objetivo_t = _nuevoObjetivo_t;
             else
                 Debug.LogWarning("--- No hay enemigo objetivo ---");
         }

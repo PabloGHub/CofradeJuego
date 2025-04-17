@@ -200,4 +200,15 @@ public class Peloton : MonoBehaviour
             Debug.Log($"Estado: {v_nazareno.EstadoActual.GetType().Name}, Index: {v_nazareno.ObtenerIndice(v_nazareno.EstadoActual)}");
         }
     }
+
+
+
+    // ***********************( Debug/Gizmos )*********************** //
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, v_distanciaAlPeloton_f);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, v_distanciaAlPelotonReal_f);
+    }
 }

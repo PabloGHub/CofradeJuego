@@ -238,11 +238,16 @@ public class ControladorNazareno : MaquinaDeEstados
             v_controladorNazareno_s = dependencia as ControladorNazareno;
         }
 
-        public override void Entrar() { }
-        public override void Salir() { }
+        public override void Entrar() 
+        {
+            v_controladorNazareno_s.v_objetivo_t = v_controladorNazareno_s.v_puntoObjetivo_t;
 
-        public override void MiUpdate()
-        {}
+            if (v_controladorNazareno_s.v_ataque_s == null)
+                return;
+
+            v_controladorNazareno_s.v_ataque_s._atacar_b = false;
+        }
+        public override void Salir() { }
     }
     class EstadoAtacar : EstadoBase
     {
@@ -254,17 +259,27 @@ public class ControladorNazareno : MaquinaDeEstados
 
         public override void Entrar()
         {
+            if (v_controladorNazareno_s.v_movimiento == null)
+                return;
+
             v_controladorNazareno_s.v_movimiento.v_esperando_b = false;
             v_controladorNazareno_s.v_movimiento.v_exodia_b = true;
         }
         public override void Salir()
         {
+            if (v_controladorNazareno_s.v_movimiento == null)
+                return;
+
             v_controladorNazareno_s.v_movimiento.v_esperando_b = false;
             v_controladorNazareno_s.v_movimiento.v_exodia_b = false;
         }
 
         public override void MiFixedUpdate()
         {
+            if (v_controladorNazareno_s.v_ataque_s == null)
+                return;
+
+            v_controladorNazareno_s.v_ataque_s._atacar_b = true;
             Transform _nuevoObjetivo_t = v_controladorNazareno_s.v_ataque_s.EnemigoObjetivo_go.transform;
             if (_nuevoObjetivo_t != null)
                 v_controladorNazareno_s.v_objetivo_t = _nuevoObjetivo_t;

@@ -8,7 +8,7 @@ public abstract class MaquinaDeEstados : MonoBehaviour
     public abstract EstadoBase Estado { get; set; } // Representa el estado actual de la maquina
     public abstract EstadoBase SubEstado { get; set; } // Representa el subEstado actual de la maquina
 
-   
+
     public EstadoBase EstadoActual
     {
         get { return Estado; }

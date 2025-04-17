@@ -4,6 +4,9 @@ using UnityEngine;
 public class Animaciones : MaquinaDeEstados
 {
     // ***********************( Declaraciones )*********************** //
+    [SerializeField]
+    private bool Flipear;
+
     // ----( Componentes )---- //
     private Animator _animator;
     private Movimiento _movimiento;
@@ -16,20 +19,19 @@ public class Animaciones : MaquinaDeEstados
     // ***********************( Metodos UNITY )*********************** //
     private void Awake()
     {
-        // Animator
-        _animator = GetComponent<Animator>();
-        if (_animator == null)
-            Debug.LogError($"****** Entidad: {gameObject.name} NO tiene componente (Animator) ******");
-
         // Maquina de Estados
         Inicializar(gameObject);
         estadosPosibles = new List<EstadoBase>
         {
             CrearEstado<EstadoArriba, Animaciones>(this),
             CrearEstado<EstadoAbajo, Animaciones>(this),
-            CrearEstado<EstadoLateral, Animaciones>(this)
+            CrearEstado<EstadoIzquierda, Animaciones>(this),
+            CrearEstado<EstadoDerecha, Animaciones>(this)
         };
+    }
 
+    private void OnEnable()
+    {
         // Movimiento del padre
         _movimiento = GetComponentInParent<Movimiento>();
         if (_movimiento == null)
@@ -39,6 +41,11 @@ public class Animaciones : MaquinaDeEstados
         Sprite = GetComponent<SpriteRenderer>();
         if (Sprite == null)
             Debug.LogError($"****** Entidad: {gameObject.name} NO tiene componente (SpriteRenderer) ******");
+
+        // Animator
+        _animator = GetComponent<Animator>();
+        if (_animator == null)
+            Debug.LogError($"****** Entidad: {gameObject.name} NO tiene componente (Animator) ******");
     }
 
     private void Update()
@@ -55,30 +62,25 @@ public class Animaciones : MaquinaDeEstados
         switch (_movimiento.Direcion)
         {
             case Movimiento.Direcion_e.ARRIBA:
-                Sprite.flipX = false;
                 CambiarEstado(0);
             break;
 
 
             case Movimiento.Direcion_e.DERECHA:
-                Sprite.flipX = false;
-                CambiarEstado(2);
+                CambiarEstado(3);
             break;
 
 
             case Movimiento.Direcion_e.IZQUIERDA:
                 CambiarEstado(2);
-                Sprite.flipX = true;
             break;
 
 
             case Movimiento.Direcion_e.ABAJO:
-                Sprite.flipX = false;
                 CambiarEstado(1);
             break;
 
             case Movimiento.Direcion_e.NULO:
-                Sprite.flipX = false;
                 CambiarEstado(1);
             break;
         }
@@ -102,6 +104,9 @@ public class Animaciones : MaquinaDeEstados
             _animaciones._animator.SetBool("Subiendo", true);
             _animaciones._animator.SetBool("Bajando", false);
             _animaciones._animator.SetBool("Lateralmente", false);
+
+            if (_animaciones.Sprite != null)
+                _animaciones.Sprite.flipX = false;
         }
         public override void Salir()
         {
@@ -129,6 +134,9 @@ public class Animaciones : MaquinaDeEstados
             _animaciones._animator.SetBool("Subiendo", false);
             _animaciones._animator.SetBool("Bajando", true);
             _animaciones._animator.SetBool("Lateralmente", false);
+
+            if (_animaciones.Sprite != null)
+                _animaciones.Sprite.flipX = false;
         }
         public override void Salir()
         {
@@ -140,7 +148,7 @@ public class Animaciones : MaquinaDeEstados
             _animaciones._animator.SetBool("Lateralmente", false);
         }
     }
-    class EstadoLateral : EstadoBase
+    class EstadoIzquierda : EstadoBase
     {
         Animaciones _animaciones;
         public override void Init<T>(T dependencia)
@@ -156,6 +164,39 @@ public class Animaciones : MaquinaDeEstados
             _animaciones._animator.SetBool("Subiendo", false);
             _animaciones._animator.SetBool("Bajando", false);
             _animaciones._animator.SetBool("Lateralmente", true);
+
+            if (_animaciones.Sprite != null && _animaciones.Flipear)
+                _animaciones.Sprite.flipX = true;
+        }
+        public override void Salir()
+        {
+            if (_animaciones._animator == null)
+                return;
+
+            _animaciones._animator.SetBool("Subiendo", false);
+            _animaciones._animator.SetBool("Bajando", false);
+            _animaciones._animator.SetBool("Lateralmente", false);
+        }
+    }
+    class EstadoDerecha : EstadoBase
+    {
+        Animaciones _animaciones;
+        public override void Init<T>(T dependencia)
+        {
+            _animaciones = dependencia as Animaciones;
+        }
+
+        public override void Entrar()
+        {
+            if (_animaciones._animator == null)
+                return;
+
+            _animaciones._animator.SetBool("Subiendo", false);
+            _animaciones._animator.SetBool("Bajando", false);
+            _animaciones._animator.SetBool("Lateralmente", true);
+
+            if (_animaciones.Sprite != null)
+                _animaciones.Sprite.flipX = false;
         }
         public override void Salir()
         {

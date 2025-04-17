@@ -14,7 +14,6 @@ public class Ataque : MonoBehaviour
     [SerializeField] private float tiempoRecarga = 1f;
     [SerializeField] private float fuerzaEmpuje = 5f;
     [SerializeField] private LayerMask capaAtacado;
-    [SerializeField] private string tagAtacado;
 
     [Header("**---- Danno Mele ----**")]
     [SerializeField] private float danno = 1f;
@@ -50,7 +49,6 @@ public class Ataque : MonoBehaviour
     private void Start()
     {
         v_tiempoDeRecargaAtual_f = 0f;
-        _inicioR_v3 = (_inicio == 0) ? transform.position : new Vector3(0f, _inicio, 0f);
 
         v_salud_s = GetComponent<Salud>();
         if (v_salud_s == null)
@@ -67,7 +65,8 @@ public class Ataque : MonoBehaviour
         if (v_tiempoDeRecargaAtual_f > 0)
             v_tiempoDeRecargaAtual_f -= Time.deltaTime;
 
-        Atacar();
+        if (_atacar_b)
+            Atacar();
     }
 
 
@@ -116,7 +115,9 @@ public class Ataque : MonoBehaviour
         }
         else
         {
-            RaycastHit2D _golpe = Physics2D.Raycast(transform.position, transform.up, alcance, capaAtacado);
+            _inicioR_v3 = transform.position + transform.up * _inicio;
+            //Debug.Log($"Intentando Atacar:{gameObject.name}; _inicioR_v3:{_inicioR_v3}; transform.up:{transform.up}; alcance:{alcance}; capaAtacado:{capaAtacado.ToString()}");
+            RaycastHit2D _golpe = Physics2D.Raycast(_inicioR_v3, transform.up, alcance, capaAtacado);
             if (_golpe)
             {
                 Debug.Log(gameObject.name + " golpeo: " + _golpe.collider.name);
@@ -150,7 +151,12 @@ public class Ataque : MonoBehaviour
     // ----------( Funciones de Debug )---------- //
     private void OnDrawGizmos()
     {
+        // Visibilidad
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, RangoVisibliidad + _inicio);
+        Gizmos.DrawWireSphere(transform.position, RangoVisibliidad);
+
+        // Alcance
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(transform.position + transform.up * _inicio, transform.position + transform.up * (_inicio + alcance));
     }
 }
