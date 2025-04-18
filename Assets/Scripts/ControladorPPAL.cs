@@ -113,6 +113,11 @@ public class ControladorPPAL : MonoBehaviour
         }
     }
 
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
 
     public void PauseFromUI()
     {
