@@ -16711,6 +16711,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: scripter
       objectReference: {fileID: 0}
+    - target: {fileID: 4651232323179076767, guid: 90b84af437ac3f34c918607b577dc358, type: 3}
+      propertyPath: NivelActual_i
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4651232323179076767, guid: 90b84af437ac3f34c918607b577dc358, type: 3}
+      propertyPath: CantidadNazarenosGanar_i
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7665070751942925855, guid: 90b84af437ac3f34c918607b577dc358, type: 3}
       propertyPath: m_NavMeshData
       value: 
