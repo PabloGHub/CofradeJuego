@@ -509,7 +509,23 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      UI Cofrade Jam_Fix2_0: -1562428271155642456
+      UI Cofrade Jam_Fix2_1: 7586009494127249865
+      UI Cofrade Jam_Fix2_10: -719646507574750303
+      UI Cofrade Jam_Fix2_11: 1033856216180081482
+      UI Cofrade Jam_Fix2_12: -3191173750180349521
+      UI Cofrade Jam_Fix2_13: -2000733531285134997
+      UI Cofrade Jam_Fix2_14: 284074936297828464
+      UI Cofrade Jam_Fix2_15: -7470126815123190780
+      UI Cofrade Jam_Fix2_2: 990389752243690333
+      UI Cofrade Jam_Fix2_3: -3107742333259857066
+      UI Cofrade Jam_Fix2_4: 5944129951180187836
+      UI Cofrade Jam_Fix2_5: -4677885033732415380
+      UI Cofrade Jam_Fix2_6: -7041001573683260228
+      UI Cofrade Jam_Fix2_7: 3502005671073412395
+      UI Cofrade Jam_Fix2_8: 2652373909120002824
+      UI Cofrade Jam_Fix2_9: 6251314505377406917
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

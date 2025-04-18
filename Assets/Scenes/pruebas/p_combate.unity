@@ -131,6 +131,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: scripter
       objectReference: {fileID: 0}
+    - target: {fileID: 4651232323179076767, guid: 90b84af437ac3f34c918607b577dc358, type: 3}
+      propertyPath: arribaDerecha.x
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4651232323179076767, guid: 90b84af437ac3f34c918607b577dc358, type: 3}
+      propertyPath: arribaDerecha.y
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4651232323179076767, guid: 90b84af437ac3f34c918607b577dc358, type: 3}
+      propertyPath: abajoIzquierda.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4651232323179076767, guid: 90b84af437ac3f34c918607b577dc358, type: 3}
+      propertyPath: abajoIzquierda.y
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 7783141275441630622, guid: 90b84af437ac3f34c918607b577dc358, type: 3}
       propertyPath: trayectoria.Array.size
       value: 5

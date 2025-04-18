@@ -8,6 +8,10 @@ using UnityEngine.InputSystem.LowLevel;
 public class ControladorPPAL : MaquinaDeEstados
 {
     // ***********************( Declaraciones )*********************** //
+    [Header("**---- Limites de la camara ----**")]
+    [SerializeField] private Vector2 esquina1;
+    [SerializeField] private Vector2 esquina2;
+
     public static ControladorPPAL ppal;
 
     private static bool _pausado_b = true;
@@ -118,7 +122,14 @@ public class ControladorPPAL : MaquinaDeEstados
         //ControladorPPAL.ppal.reiniciar();
     }
 
-
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(new Vector3(esquina1.x, esquina1.y, 0), new Vector3(esquina1.x, esquina2.y, 0));
+        Gizmos.DrawLine(new Vector3(esquina1.x, esquina1.y, 0), new Vector3(esquina2.x, esquina1.y, 0));
+        Gizmos.DrawLine(new Vector3(esquina2.x, esquina1.y, 0), new Vector3(esquina2.x, esquina2.y, 0));
+        Gizmos.DrawLine(new Vector3(esquina2.x, esquina2.y, 0), new Vector3(esquina1.x, esquina2.y, 0));
+    }
 
     // ***********************( Clases de Estados )*********************** //
 }

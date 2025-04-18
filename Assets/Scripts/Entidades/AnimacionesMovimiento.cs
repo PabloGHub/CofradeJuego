@@ -61,6 +61,7 @@ public class AnimacionesMovimiento : MaquinaDeEstados
         transform.rotation = Quaternion.identity;
         transform.localPosition = _posicionInicial;
 
+        
 
         if (_movimiento.ObtenerIndice(_movimiento.EstadoActual) == 1)
             _animator.SetBool("pausa", true);

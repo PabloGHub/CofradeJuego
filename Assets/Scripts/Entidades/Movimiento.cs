@@ -28,6 +28,7 @@ public class Movimiento : MaquinaDeEstados
     private Rigidbody2D v_rb_rb2D;
 
     // --- Direcion --- //
+    public float Direcion_f = 0f;
     public enum Direcion_e
     {
         ARRIBA,
@@ -90,6 +91,7 @@ public class Movimiento : MaquinaDeEstados
         establecerDestino();
 
         v_agente_NavMeshAgent.nextPosition = transform.position;
+        Direcion_f = Mathf.Clamp01(transform.rotation.z);
     }
 
     private void LateUpdate()
