@@ -23019,6 +23019,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1324292201}
     m_Modifications:
+    - target: {fileID: 788782320206071978, guid: 1c8088c4d3df11f4495e56dc5b9c435a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 788782320206071978, guid: 1c8088c4d3df11f4495e56dc5b9c435a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 788782320206071978, guid: 1c8088c4d3df11f4495e56dc5b9c435a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 194661794}
+    - target: {fileID: 788782320206071978, guid: 1c8088c4d3df11f4495e56dc5b9c435a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 788782320206071978, guid: 1c8088c4d3df11f4495e56dc5b9c435a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReloadSameLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 788782320206071978, guid: 1c8088c4d3df11f4495e56dc5b9c435a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ControladorPPAL, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 788782320206071978, guid: 1c8088c4d3df11f4495e56dc5b9c435a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3429815925503214052, guid: 1c8088c4d3df11f4495e56dc5b9c435a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
