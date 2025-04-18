@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem.LowLevel;
 
-public class ControladorPPAL : MonoBehaviour
+public class ControladorPPAL : MaquinaDeEstados
 {
     // ***********************( Declaraciones )*********************** //
     public static ControladorPPAL ppal;
@@ -18,6 +18,10 @@ public class ControladorPPAL : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI PausaBotonTexto;
 
+    // --- ( Estados ) --- //
+    public override EstadoBase Estado { get; set; }
+    public override EstadoBase SubEstado { get; set; }
+
     // ***********************( Funciones Unity )*********************** //
     private void Awake()
     {
@@ -26,7 +30,8 @@ public class ControladorPPAL : MonoBehaviour
             ppal = this;
         }
     }
-    // ***********************( Funciones Nuestras )*********************** //
+
+    // ***********************( Metodos Nuestras )*********************** //
     private void cabiarPausa()
     {
         if (Navegacion.nav.comprobarCaminos())
@@ -45,6 +50,13 @@ public class ControladorPPAL : MonoBehaviour
     }
 
 
+    public void PauseFromUI()
+    {
+        cabiarPausa();
+        PausaBotonTexto.text = v_pausado_b ? "CONTINUAR" : "PAUSAR";
+    }
+
+    // ***********************( Comandos y Debug )*********************** //
     [RegisterCommand(Help = "pausa/desapausa")]
     static void CommandPausa(CommandArg[] args)
     {
@@ -66,9 +78,6 @@ public class ControladorPPAL : MonoBehaviour
     }
 
 
-    public void PauseFromUI()
-    {
-        cabiarPausa();
-        PausaBotonTexto.text = v_pausado_b ? "CONTINUAR" : "PAUSAR";
-    }
+
+    // ***********************( Clases de Estados )*********************** //
 }
