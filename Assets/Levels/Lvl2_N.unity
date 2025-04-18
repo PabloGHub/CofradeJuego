@@ -17169,8 +17169,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -200, y: -40}
-  m_SizeDelta: {x: 400, y: -80}
+  m_AnchoredPosition: {x: -300, y: -40}
+  m_SizeDelta: {x: 600, y: -80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &341394558
 MonoBehaviour:
@@ -17185,7 +17185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slideDuration: 0.5
-  offscreenOffset: 370
+  offscreenOffset: 570
 --- !u!114 &341394559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18031,19 +18031,19 @@ PrefabInstance:
       objectReference: {fileID: 2120776565}
     - target: {fileID: 4651232323179076767, guid: 90b84af437ac3f34c918607b577dc358, type: 3}
       propertyPath: Esquina1_v2.x
-      value: -3.9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4651232323179076767, guid: 90b84af437ac3f34c918607b577dc358, type: 3}
       propertyPath: Esquina1_v2.y
-      value: -2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4651232323179076767, guid: 90b84af437ac3f34c918607b577dc358, type: 3}
       propertyPath: Esquina2_v2.x
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4651232323179076767, guid: 90b84af437ac3f34c918607b577dc358, type: 3}
       propertyPath: Esquina2_v2.y
-      value: 2.8
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 4651232323179076767, guid: 90b84af437ac3f34c918607b577dc358, type: 3}
       propertyPath: NivelActual_i
@@ -19221,10 +19221,10 @@ RectTransform:
   - {fileID: 1820534248}
   m_Father: {fileID: 2146947530}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1113, y: 80}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1056508849
 PrefabInstance:
@@ -25181,7 +25181,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 5.2039185, y: -20}
+  m_AnchoredPosition: {x: 5.2038574, y: -20}
   m_SizeDelta: {x: -64.6025, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1813142658
@@ -25755,7 +25755,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 9.4135, y: 7.8909}
+  m_AnchoredPosition: {x: 9.413513, y: 7.8908997}
   m_SizeDelta: {x: -41.1731, y: -115.7759}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2027335075
@@ -26070,7 +26070,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 5.2039185, y: 20}
+  m_AnchoredPosition: {x: 5.2038574, y: 20}
   m_SizeDelta: {x: -64.6025, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2112509195
@@ -26169,7 +26169,7 @@ MonoBehaviour:
   m_ChildAlignment: 1
   m_StartCorner: 0
   m_StartAxis: 1
-  m_CellSize: {x: 150, y: 150}
+  m_CellSize: {x: 200, y: 200}
   m_Spacing: {x: 15, y: 10}
   m_Constraint: 1
   m_ConstraintCount: 2
