@@ -22,6 +22,12 @@ public class ControladorPPAL : MaquinaDeEstados
                 OnCambioPausa?.Invoke(_pausado_b);
             }
 
+            if (!ppal.EnCurso_f && !_pausado_b)
+            {
+                ppal.EnCurso_f = true;
+                OnIniciar?.Invoke();
+            }
+
             Terminal.Log("Pausado: " + V_pausado_b);
         }
     }
@@ -34,6 +40,8 @@ public class ControladorPPAL : MaquinaDeEstados
     public List<GameObject> Porculeros;
 
     [SerializeField] private TextMeshProUGUI PausaBotonTexto;
+
+    public bool EnCurso_f = false;
 
     // --- ( Estados ) --- //
     public override EstadoBase Estado { get; set; }
@@ -56,9 +64,16 @@ public class ControladorPPAL : MaquinaDeEstados
             OnCambioPausa?.Invoke(_pausado_b);
         }
 
+        if (!EnCurso_f && !_pausado_b)
+        {
+            EnCurso_f = true;
+            OnIniciar?.Invoke();
+        }
+
         Terminal.Log("Pausado: " + _pausado_b);
     }
-    private void reiniciar()
+
+    public static void Reiniciar()
     {
         //Navegacion.nav.Reiniciar(); // No hace nada
         //Peloton.peloton.Reiniciar(); 
@@ -100,7 +115,7 @@ public class ControladorPPAL : MaquinaDeEstados
     static void CommandRei(CommandArg[] args)
     {
         Debug.Log("Reiniciando...");
-        ControladorPPAL.ppal.reiniciar();
+        //ControladorPPAL.ppal.reiniciar();
     }
 
 
