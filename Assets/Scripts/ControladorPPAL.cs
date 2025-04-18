@@ -54,6 +54,7 @@ public class ControladorPPAL : MonoBehaviour
     public List<GameObject> Porculeros;
 
     [SerializeField] private TextMeshProUGUI PausaBotonTexto;
+    [SerializeField] private Results PausePanel;
 
     public bool EnCurso_f = false;
 
@@ -117,6 +118,14 @@ public class ControladorPPAL : MonoBehaviour
     {
         cabiarPausa();
         PausaBotonTexto.text = V_pausado_b ? "CONTINUAR" : "PAUSAR";
+        if (V_pausado_b)
+        {
+            PausePanel.ShowPause();
+        }
+        else
+        {
+            PausePanel.Hide();
+        }
     }
 
     // ***********************( Comandos y Debug )*********************** //
