@@ -118,7 +118,12 @@ public class Ataque : MonoBehaviour
 
         if (EsDistancia)
         {
-            GameObject _proyectil = Instantiate(prefabProyectil, transform.position + transform.up * _inicio, Quaternion.identity);
+            GameObject _proyectil = Instantiate
+            (
+                prefabProyectil, 
+                transform.position + transform.up * _inicio, 
+                Quaternion.LookRotation(Vector3.forward, transform.up)
+            );
         }
         else
         {
