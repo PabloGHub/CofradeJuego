@@ -18108,6 +18108,22 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2120776565}
     - target: {fileID: 4651232323179076767, guid: 90b84af437ac3f34c918607b577dc358, type: 3}
+      propertyPath: Esquina1_v2.x
+      value: -3.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4651232323179076767, guid: 90b84af437ac3f34c918607b577dc358, type: 3}
+      propertyPath: Esquina1_v2.y
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4651232323179076767, guid: 90b84af437ac3f34c918607b577dc358, type: 3}
+      propertyPath: Esquina2_v2.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4651232323179076767, guid: 90b84af437ac3f34c918607b577dc358, type: 3}
+      propertyPath: Esquina2_v2.y
+      value: 2.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4651232323179076767, guid: 90b84af437ac3f34c918607b577dc358, type: 3}
       propertyPath: NivelActual_i
       value: 2
       objectReference: {fileID: 0}

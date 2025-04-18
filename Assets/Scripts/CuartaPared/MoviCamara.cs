@@ -26,7 +26,7 @@ public class MoviCamara : MonoBehaviour
 
     private void Update()
     {
-        if (ControladorPPAL.V_pausado_b)
+        if (ControladorPPAL.V_pausado_b && ControladorPPAL.ppal.EnCurso_f)
             return;
 
         Vector3 nuevaPosicion = transform.position;
