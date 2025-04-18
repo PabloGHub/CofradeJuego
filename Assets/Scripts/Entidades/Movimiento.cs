@@ -47,7 +47,7 @@ public class Movimiento : MaquinaDeEstados
     {
         Direcion = f_obtenerDirecion_e(transform);
 
-        v_aceleracionExodia_f = aceleracion + aceleracion;
+        v_aceleracionExodia_f = aceleracion * 1.5f;
 
 
         v_agente_NavMeshAgent = GetComponent<NavMeshAgent>();
@@ -205,7 +205,7 @@ public class Movimiento : MaquinaDeEstados
         float v_torque_f;
         if (v_exodia_b)
         {
-            v_torque_f = v_diferenciaAngulo_f * fuerzaRotacion * Time.fixedDeltaTime;
+            v_torque_f = v_diferenciaAngulo_f * (fuerzaRotacion / 2) * Time.fixedDeltaTime;
         }
         else
         {

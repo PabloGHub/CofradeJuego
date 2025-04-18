@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 726458941984663262}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.15, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -446,7 +446,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4908d698a4f16d74b9f2d307d4525876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alcance: 1
   RangoVisibliidad: 1
   tiempoRecarga: 1
   fuerzaEmpuje: 1
@@ -454,6 +453,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   danno: 10
+  alcance: 1
   EsDistancia: 0
   prefabProyectil: {fileID: 0}
   _alcanceExplosion_f: 0

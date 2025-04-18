@@ -68,6 +68,7 @@ public class Proyectil : MonoBehaviour
                 {
                     _salud.RecibirDano(danno, transform.position, fuerzaEmpuje);
                 }
+                Destroy(gameObject);
             }
         }
     }
@@ -93,9 +94,6 @@ public class Proyectil : MonoBehaviour
     // ***********************( Gizmos )*********************** //
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, _maxTiempoVuelo_f);
-
         Gizmos.color = Color.yellow;
         Gizmos.DrawLine(transform.position, transform.position + transform.up * 0.15f);
 
