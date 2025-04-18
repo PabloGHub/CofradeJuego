@@ -83,7 +83,7 @@ public class ControladorNazareno : MaquinaDeEstados
 
     private void Update()
     {
-        if (ControladorPPAL.v_pausado_b)
+        if (ControladorPPAL.V_pausado_b)
             return;
 
         if (v_movimiento != null)

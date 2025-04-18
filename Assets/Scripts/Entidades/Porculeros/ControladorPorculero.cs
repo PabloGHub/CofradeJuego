@@ -57,7 +57,7 @@ public class ControladorPorculero : MaquinaDeEstados
 
     private void FixedUpdate()
     {
-        if (ControladorPPAL.v_pausado_b)
+        if (ControladorPPAL.V_pausado_b)
             return;
 
         if (Vector3.Distance(transform.position, Peloton.peloton.transform.position) <= Peloton.peloton.v_distanciaAlPelotonReal_f)

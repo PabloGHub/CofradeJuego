@@ -10,8 +10,22 @@ public class ControladorPPAL : MaquinaDeEstados
     // ***********************( Declaraciones )*********************** //
     public static ControladorPPAL ppal;
 
-    [HideInInspector]
-    public static bool v_pausado_b = true;
+    private static bool _pausado_b = true;
+    public static bool V_pausado_b
+    {
+        get { return _pausado_b; }
+        set
+        {
+            if (Navegacion.nav.comprobarCaminos())
+            {
+                _pausado_b = !_pausado_b;
+                OnCambioPausa?.Invoke(_pausado_b);
+            }
+
+            Terminal.Log("Pausado: " + V_pausado_b);
+        }
+    }
+
     public static event Action<bool> OnCambioPausa;
     public static event Action OnReiniciar;
     public static event Action OnIniciar;
@@ -29,6 +43,7 @@ public class ControladorPPAL : MaquinaDeEstados
     private void Awake()
     {
         ppal = this;
+        _pausado_b = true;
         Porculeros = new List<GameObject>();
     }
 
@@ -37,15 +52,16 @@ public class ControladorPPAL : MaquinaDeEstados
     {
         if (Navegacion.nav.comprobarCaminos())
         {
-            v_pausado_b = !v_pausado_b;
-            OnCambioPausa?.Invoke(v_pausado_b);
+            _pausado_b = !_pausado_b;
+            OnCambioPausa?.Invoke(_pausado_b);
         }
 
-        Terminal.Log("Pausado: " + v_pausado_b);
+        Terminal.Log("Pausado: " + _pausado_b);
     }
     private void reiniciar()
     {
-        Navegacion.nav.Reiniciar(); // No hace nada
+        //Navegacion.nav.Reiniciar(); // No hace nada
+        //Peloton.peloton.Reiniciar(); 
         // TODO: Devolver cuantia al jugador.
         OnReiniciar?.Invoke();
     }
@@ -63,7 +79,7 @@ public class ControladorPPAL : MaquinaDeEstados
     public void PauseFromUI()
     {
         cabiarPausa();
-        PausaBotonTexto.text = v_pausado_b ? "CONTINUAR" : "PAUSAR";
+        PausaBotonTexto.text = V_pausado_b ? "CONTINUAR" : "PAUSAR";
     }
 
     // ***********************( Comandos y Debug )*********************** //

@@ -26,7 +26,7 @@ public class MoviCamara : MonoBehaviour
 
     private void Update()
     {
-        if (ControladorPPAL.v_pausado_b)
+        if (ControladorPPAL.V_pausado_b)
             return;
 
         if (Input.GetKey(v_arriba_kc))

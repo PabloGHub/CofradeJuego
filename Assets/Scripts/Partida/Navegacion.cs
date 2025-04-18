@@ -105,12 +105,7 @@ public class Navegacion : MonoBehaviour
         }
     }
 
-    public void Reiniciar()
-    {
-        
-    }
-
-    private void reiniciarCaminos()
+    public void ReiniciarCaminos()
     {
         for (int i = 0; i<v_caminosPosible_Transform.Count; i++)
         {
