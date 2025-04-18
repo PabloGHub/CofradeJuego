@@ -10422,6 +10422,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: borracho
       objectReference: {fileID: 0}
+    - target: {fileID: 9219646106814485027, guid: cbc1eed9eeac60d498d093f7892a1b48, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
