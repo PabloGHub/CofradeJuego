@@ -8,6 +8,9 @@ using UnityEngine.InputSystem.LowLevel;
 public class ControladorPPAL : MaquinaDeEstados
 {
     // ***********************( Declaraciones )*********************** //
+    [Header("**---- Niveles ----**")]
+    public int NivelActual_i = 0;
+
     [Header("**---- Limites de la camara ----**")]
     public Vector2 Esquina1_v2;
     public Vector2 Esquina2_v2;
