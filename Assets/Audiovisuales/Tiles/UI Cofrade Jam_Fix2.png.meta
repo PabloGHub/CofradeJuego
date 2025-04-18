@@ -41,6 +41,15 @@ TextureImporter:
   - first:
       213: -3191173750180349521
     second: UI Cofrade Jam_Fix2_12
+  - first:
+      213: -2000733531285134997
+    second: UI Cofrade Jam_Fix2_13
+  - first:
+      213: 284074936297828464
+    second: UI Cofrade Jam_Fix2_14
+  - first:
+      213: -7470126815123190780
+    second: UI Cofrade Jam_Fix2_15
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -87,7 +96,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -140,19 +149,19 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 224
-        width: 96
-        height: 96
+        y: 223
+        width: 97
+        height: 97
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 0dc7496b495c06848a3db162811a4d75
-      internalID: 1620188916
+      spriteID: 8af7db6f3c3215ae0800000000000000
+      internalID: -1562428271155642456
       vertices: []
       indices: 
       edges: []
@@ -161,20 +170,20 @@ TextureImporter:
       name: UI Cofrade Jam_Fix2_1
       rect:
         serializedVersion: 2
-        x: 128
-        y: 288
-        width: 32
-        height: 32
+        x: 127
+        y: 287
+        width: 34
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 7f3e1685e67a60d4d9942c6acea80956
-      internalID: -912566304
+      spriteID: 9c90238417be64960800000000000000
+      internalID: 7586009494127249865
       vertices: []
       indices: 
       edges: []
@@ -183,20 +192,20 @@ TextureImporter:
       name: UI Cofrade Jam_Fix2_2
       rect:
         serializedVersion: 2
-        x: 192
-        y: 224
-        width: 96
-        height: 96
+        x: 191
+        y: 223
+        width: 98
+        height: 97
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 6582261cc51ae5449bc43f9fd94b483f
-      internalID: 558163802
+      spriteID: d5b1cab7b329ebd00800000000000000
+      internalID: 990389752243690333
       vertices: []
       indices: 
       edges: []
@@ -205,20 +214,20 @@ TextureImporter:
       name: UI Cofrade Jam_Fix2_3
       rect:
         serializedVersion: 2
-        x: 289
-        y: 291
-        width: 30
-        height: 18
+        x: 288
+        y: 290
+        width: 32
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 05b7799153c93684c8869d5510b6056b
-      internalID: 1299017864
+      spriteID: 6534a9c30d41fd4d0800000000000000
+      internalID: -3107742333259857066
       vertices: []
       indices: 
       edges: []
@@ -227,20 +236,20 @@ TextureImporter:
       name: UI Cofrade Jam_Fix2_4
       rect:
         serializedVersion: 2
-        x: 128
-        y: 267
-        width: 32
-        height: 10
+        x: 127
+        y: 266
+        width: 34
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 2e2010a3832d5fd468f2a081bc3d3fa5
-      internalID: -290978841
+      spriteID: cb8eade72bacd7250800000000000000
+      internalID: 5944129951180187836
       vertices: []
       indices: 
       edges: []
@@ -249,20 +258,20 @@ TextureImporter:
       name: UI Cofrade Jam_Fix2_5
       rect:
         serializedVersion: 2
-        x: 301
-        y: 204
-        width: 6
-        height: 71
+        x: 300
+        y: 203
+        width: 8
+        height: 73
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: c14f131625d17b8488d7d6d464314605
-      internalID: -142881904
+      spriteID: c606348a850d41fb0800000000000000
+      internalID: -4677885033732415380
       vertices: []
       indices: 
       edges: []
@@ -271,20 +280,20 @@ TextureImporter:
       name: UI Cofrade Jam_Fix2_6
       rect:
         serializedVersion: 2
-        x: 128
-        y: 224
-        width: 32
-        height: 32
+        x: 127
+        y: 223
+        width: 34
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 61c43bd24aa1f5a4f9f2f03376cde2be
-      internalID: -1474227474
+      spriteID: cb494a1af56594e90800000000000000
+      internalID: -7041001573683260228
       vertices: []
       indices: 
       edges: []
@@ -293,20 +302,20 @@ TextureImporter:
       name: UI Cofrade Jam_Fix2_7
       rect:
         serializedVersion: 2
-        x: 128
-        y: 203
-        width: 32
-        height: 11
+        x: 127
+        y: 202
+        width: 34
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 15c713f7fa834904cabffbdd1bae6a28
-      internalID: -281076385
+      spriteID: b25fbb97a9f999030800000000000000
+      internalID: 3502005671073412395
       vertices: []
       indices: 
       edges: []
@@ -316,19 +325,19 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 160
-        width: 96
-        height: 32
+        y: 159
+        width: 97
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: a1400d01678c82e4687c84496444a22b
-      internalID: -133329044
+      spriteID: 80bac9874002fc420800000000000000
+      internalID: 2652373909120002824
       vertices: []
       indices: 
       edges: []
@@ -337,20 +346,20 @@ TextureImporter:
       name: UI Cofrade Jam_Fix2_9
       rect:
         serializedVersion: 2
-        x: 224
-        y: 96
-        width: 96
-        height: 96
+        x: 111
+        y: 127
+        width: 98
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 1b25dbab103b5e646a37bd080924d091
-      internalID: 608163954
+      spriteID: 5cf5448fb6121c650800000000000000
+      internalID: 6251314505377406917
       vertices: []
       indices: 
       edges: []
@@ -359,20 +368,20 @@ TextureImporter:
       name: UI Cofrade Jam_Fix2_10
       rect:
         serializedVersion: 2
-        x: 0
-        y: 112
-        width: 96
-        height: 32
+        x: 223
+        y: 95
+        width: 97
+        height: 98
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 94d51f5d9a1e4b047becdfdd61c266a4
-      internalID: -353243383
+      spriteID: 1a31820705d4306f0800000000000000
+      internalID: -719646507574750303
       vertices: []
       indices: 
       edges: []
@@ -382,19 +391,19 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 96
-        height: 96
+        y: 111
+        width: 97
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 2494caae65b25054d905ceb9e054961d
-      internalID: -115773821
+      spriteID: a434e3240cef85e00800000000000000
+      internalID: 1033856216180081482
       vertices: []
       indices: 
       edges: []
@@ -403,20 +412,86 @@ TextureImporter:
       name: UI Cofrade Jam_Fix2_12
       rect:
         serializedVersion: 2
-        x: 128
+        x: 0
         y: 0
-        width: 96
-        height: 96
+        width: 97
+        height: 97
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 97a0ed7f045c3124ba55a9337feeceaf
-      internalID: 850019061
+      spriteID: fa9f2fbb16ca6b3d0800000000000000
+      internalID: -3191173750180349521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Cofrade Jam_Fix2_13
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 0
+        width: 98
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6169812477fb34e0800000000000000
+      internalID: -2000733531285134997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Cofrade Jam_Fix2_14
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 31
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 070bf9346ac31f300800000000000000
+      internalID: 284074936297828464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Cofrade Jam_Fix2_15
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 0
+        width: 33
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40c46757d37c45890800000000000000
+      internalID: -7470126815123190780
       vertices: []
       indices: 
       edges: []
@@ -425,7 +500,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a95d12cdda655034c965833b97da29c0
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -434,20 +509,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      UI Cofrade Jam_Fix2_0: 1620188916
-      UI Cofrade Jam_Fix2_1: -912566304
-      UI Cofrade Jam_Fix2_10: -353243383
-      UI Cofrade Jam_Fix2_11: -115773821
-      UI Cofrade Jam_Fix2_12: 850019061
-      UI Cofrade Jam_Fix2_2: 558163802
-      UI Cofrade Jam_Fix2_3: 1299017864
-      UI Cofrade Jam_Fix2_4: -290978841
-      UI Cofrade Jam_Fix2_5: -142881904
-      UI Cofrade Jam_Fix2_6: -1474227474
-      UI Cofrade Jam_Fix2_7: -281076385
-      UI Cofrade Jam_Fix2_8: -133329044
-      UI Cofrade Jam_Fix2_9: 608163954
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
