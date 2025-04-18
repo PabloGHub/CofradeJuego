@@ -127,7 +127,7 @@ public class ControladorNazareno : MaquinaDeEstados
     {
         ControladorPPAL.ppal.CantidadLLegados_i++;
         Peloton.peloton.EliminarIntegranteLista(gameObject);
-        DestroyImmediate(gameObject);
+        Destroy(gameObject);
     }
 
     private void actualizarPunto()
