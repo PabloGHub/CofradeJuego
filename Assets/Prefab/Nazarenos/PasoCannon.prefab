@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2211646944655044845}
   - component: {fileID: 2046788668343171402}
   - component: {fileID: 4627531916919764805}
-  - component: {fileID: 4736972314399954148}
+  - component: {fileID: 303106535336447602}
   m_Layer: 11
   m_Name: animacion
   m_TagString: Untagged
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 5208735462416681954, guid: d78d1ea8a70d3f548a496ad2717594bb, type: 3}
+  m_Sprite: {fileID: -8339020365120846654, guid: 30417a51ae116824488068915690ea15, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -105,7 +105,7 @@ MonoBehaviour:
   FlipearEnIzquierda: 0
   FlipearEnDerecha: 0
   Sprite: {fileID: 0}
---- !u!95 &4736972314399954148
+--- !u!95 &303106535336447602
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -115,7 +115,7 @@ Animator:
   m_GameObject: {fileID: 83596852171252966}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: cb6868b08fbcf2e4a88fdec3eafef21f, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2b324cbe5dc19844d9b30664f0404662, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -345,9 +345,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 2
-  m_LinearDamping: 2
-  m_AngularDamping: 2
+  m_Mass: 3
+  m_LinearDamping: 3
+  m_AngularDamping: 3
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -391,8 +391,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ec8b0c6a18423f438ebe9bfe10a259b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saludMaxima: 50
-  resistencia: 0
+  saludMaxima: 150
+  resistencia: 0.5
   reflejoDanno: 0
   tiempoInmunidad: 0
   prefabsMorir: []
@@ -410,15 +410,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4908d698a4f16d74b9f2d307d4525876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RangoVisibliidad: 1
-  tiempoRecarga: 1
-  fuerzaEmpuje: 1
+  RangoVisibliidad: 5
+  tiempoRecarga: 2
+  fuerzaEmpuje: 2
   capaAtacado:
     serializedVersion: 2
     m_Bits: 1024
   danno: 5
-  alcance: 1
-  EsDistancia: 0
+  alcance: 5
+  EsDistancia: 1
   prefabProyectil: {fileID: 0}
   _alcanceExplosion_f: 0
   _inicio: 0
@@ -437,12 +437,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _go: {fileID: 0}
-  aceleracion: 100
-  fuerzaRotacion: 10
+  aceleracion: 200
+  fuerzaRotacion: 20
   v_esperando_b: 0
   v_exodia_b: 0
   QuedarteQuieto: 0
   v_objetivo_t: {fileID: 0}
+  Direcion_f: 0
   Direcion: 4
 --- !u!58 &4379630609933709878
 CircleCollider2D:
@@ -479,7 +480,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.25
+  m_Radius: 0.8
 --- !u!114 &279017776088531741
 MonoBehaviour:
   m_ObjectHideFlags: 0
