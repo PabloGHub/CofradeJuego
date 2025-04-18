@@ -16,6 +16,7 @@ public class Peloton : MonoBehaviour
 
     [SerializeField] private Transform AreaDespliegue;
 
+    [HideInInspector] public float CuantiaInicial_f;
 
     // ***********************( Metodos UNITY )*********************** //
     private void Awake()
@@ -24,6 +25,9 @@ public class Peloton : MonoBehaviour
         {
             peloton = this;
         }
+
+
+        ControladorPPAL.OnIniciar += () => CuantiaInicial_f = DevolverIntegrantesTotalInicial();
     }
 
     private void Start()
@@ -199,6 +203,19 @@ public class Peloton : MonoBehaviour
         }
         return amount;
     }
+
+    public float DevolverIntegrantesTotalInicial()
+    {
+        float amount = 0;
+        var integrantesCopy = new List<Transform>(integrantes);
+        foreach (Transform integrante in integrantesCopy)
+        {
+            ControladorNazareno nazareno = integrante.GetComponent<ControladorNazareno>();
+            amount += ShopManager.instance.Data.Items.ContainsKey(nazareno.nombre) ? ShopManager.instance.Data.Items[nazareno.nombre].Price : 0;
+        }
+        return amount;
+    }
+
 
     // ***********************( Metodos Comandos )*********************** //
     [RegisterCommand(Help = "Muestra el estado de los integrantes")]

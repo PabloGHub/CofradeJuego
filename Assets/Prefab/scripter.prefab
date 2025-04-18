@@ -202,4 +202,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f5a14c50115d144bb528de97a84baf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _go: {fileID: 0}
   PausaBotonTexto: {fileID: 0}

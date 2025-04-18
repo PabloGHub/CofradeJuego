@@ -67,7 +67,7 @@ public class AnimacionesMovimiento : MaquinaDeEstados
         else
             _animator.SetBool("pausa", false);
 
-        if (ControladorPPAL.v_pausado_b)
+        if (ControladorPPAL.V_pausado_b)
             _animator.SetBool("pausa", true);
 
 
