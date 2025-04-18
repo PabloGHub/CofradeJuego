@@ -103,6 +103,5 @@ public class Proyectil : MonoBehaviour
                             $"PROYECTIL : tiempoRestante -> {_tiempoRestante_f} | hitAnterior -> {_anteriorJit}");
         #endif
         }
-
     }
 }

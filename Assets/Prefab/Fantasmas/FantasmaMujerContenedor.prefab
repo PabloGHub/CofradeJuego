@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 7740886337346137472}
   - component: {fileID: 4146638338243691035}
   - component: {fileID: 5323142202122318327}
+  - component: {fileID: 7274912448008573952}
   m_Layer: 0
   m_Name: FantasmaMujer
   m_TagString: Untagged
@@ -142,3 +143,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7274912448008573952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8949983751780013462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14a923af242021f4dabff3da26f11ae1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

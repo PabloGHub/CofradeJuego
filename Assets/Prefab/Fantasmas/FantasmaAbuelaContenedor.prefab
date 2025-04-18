@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3973891582620203452}
   - component: {fileID: 2200668251677720814}
   - component: {fileID: 490985981431938137}
+  - component: {fileID: 2009717315259279402}
   m_Layer: 0
   m_Name: FantasmaAbuela
   m_TagString: Untagged
@@ -110,6 +111,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2009717315259279402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7728470204791151943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14a923af242021f4dabff3da26f11ae1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8678741448479938834
 GameObject:
   m_ObjectHideFlags: 0

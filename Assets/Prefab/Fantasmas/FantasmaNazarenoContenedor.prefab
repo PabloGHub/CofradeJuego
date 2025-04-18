@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 8788715613644259088}
   - component: {fileID: 4276733865876645398}
   - component: {fileID: 9049937904245571406}
+  - component: {fileID: 7749965471958694485}
   m_Layer: 0
   m_Name: FantasmaNazareno
   m_TagString: Untagged
@@ -144,6 +145,18 @@ Animator:
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &9049937904245571406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5126922248658750021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14a923af242021f4dabff3da26f11ae1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7749965471958694485
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
