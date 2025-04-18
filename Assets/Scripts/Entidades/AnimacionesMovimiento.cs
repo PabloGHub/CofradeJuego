@@ -36,7 +36,6 @@ public class AnimacionesMovimiento : MaquinaDeEstados
         // };
 
         // Posicion Inicial
-        Debug.Log($"Posicion Inicial: {transform.position}");
         _posicionInicial = transform.localPosition;
     }
 

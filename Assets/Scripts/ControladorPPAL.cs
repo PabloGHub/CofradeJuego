@@ -9,8 +9,8 @@ public class ControladorPPAL : MaquinaDeEstados
 {
     // ***********************( Declaraciones )*********************** //
     [Header("**---- Limites de la camara ----**")]
-    [SerializeField] private Vector2 esquina1;
-    [SerializeField] private Vector2 esquina2;
+    public Vector2 Esquina1_v2;
+    public Vector2 Esquina2_v2;
 
     public static ControladorPPAL ppal;
 
@@ -125,10 +125,10 @@ public class ControladorPPAL : MaquinaDeEstados
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(new Vector3(esquina1.x, esquina1.y, 0), new Vector3(esquina1.x, esquina2.y, 0));
-        Gizmos.DrawLine(new Vector3(esquina1.x, esquina1.y, 0), new Vector3(esquina2.x, esquina1.y, 0));
-        Gizmos.DrawLine(new Vector3(esquina2.x, esquina1.y, 0), new Vector3(esquina2.x, esquina2.y, 0));
-        Gizmos.DrawLine(new Vector3(esquina2.x, esquina2.y, 0), new Vector3(esquina1.x, esquina2.y, 0));
+        Gizmos.DrawLine(new Vector3(Esquina1_v2.x, Esquina1_v2.y, 0), new Vector3(Esquina1_v2.x, Esquina2_v2.y, 0));
+        Gizmos.DrawLine(new Vector3(Esquina1_v2.x, Esquina1_v2.y, 0), new Vector3(Esquina2_v2.x, Esquina1_v2.y, 0));
+        Gizmos.DrawLine(new Vector3(Esquina2_v2.x, Esquina1_v2.y, 0), new Vector3(Esquina2_v2.x, Esquina2_v2.y, 0));
+        Gizmos.DrawLine(new Vector3(Esquina2_v2.x, Esquina2_v2.y, 0), new Vector3(Esquina1_v2.x, Esquina2_v2.y, 0));
     }
 
     // ***********************( Clases de Estados )*********************** //
