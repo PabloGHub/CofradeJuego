@@ -4,12 +4,19 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem.LowLevel;
+using UnityEngine.SceneManagement;
 
-public class ControladorPPAL : MaquinaDeEstados
+public class ControladorPPAL : MonoBehaviour
 {
     // ***********************( Declaraciones )*********************** //
+    [Header("**---- Referencias ----**")]
+    public InfoPanelUI _infoPanel;
+
     [Header("**---- Niveles ----**")]
-    public int NivelActual_i = 0;
+    public int NivelActual_i = 1;
+    public int CantidadNazarenosGanar_i = 1;
+    [HideInInspector]
+    public int CantidadLLegados_i = 0;
 
     [Header("**---- Limites de la camara ----**")]
     public Vector2 Esquina1_v2;
@@ -51,8 +58,8 @@ public class ControladorPPAL : MaquinaDeEstados
     public bool EnCurso_f = false;
 
     // --- ( Estados ) --- //
-    public override EstadoBase Estado { get; set; }
-    public override EstadoBase SubEstado { get; set; }
+    //public override EstadoBase Estado { get; set; }
+    //public override EstadoBase SubEstado { get; set; }
 
     // ***********************( Funciones Unity )*********************** //
     private void Awake()
@@ -60,6 +67,14 @@ public class ControladorPPAL : MaquinaDeEstados
         ppal = this;
         _pausado_b = true;
         Porculeros = new List<GameObject>();
+    }
+
+    private void Update()
+    {
+        if (CantidadLLegados_i >= CantidadNazarenosGanar_i)
+        {
+            SceneManager.LoadScene(++NivelActual_i);
+        }
     }
 
     // ***********************( Metodos Nuestras )*********************** //

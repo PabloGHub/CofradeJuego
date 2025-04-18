@@ -19853,6 +19853,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4651232323179076767, guid: 90b84af437ac3f34c918607b577dc358, type: 3}
+      propertyPath: _infoPanel
+      value: 
+      objectReference: {fileID: 1029035168}
+    - target: {fileID: 4651232323179076767, guid: 90b84af437ac3f34c918607b577dc358, type: 3}
+      propertyPath: CantidadNazarenosGanar_i
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7665070751942925855, guid: 90b84af437ac3f34c918607b577dc358, type: 3}
       propertyPath: m_NavMeshData
       value: 
@@ -21345,6 +21353,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 9153593299798586546, guid: 977e7000161450a41afe4dc9f3cdc9ec, type: 3}
   m_PrefabInstance: {fileID: 1029035166}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1029035168 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1378106489251975729, guid: 977e7000161450a41afe4dc9f3cdc9ec, type: 3}
+  m_PrefabInstance: {fileID: 1029035166}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a85f71727dbcb444994c2813715657c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1036400381
 GameObject:
   m_ObjectHideFlags: 0
