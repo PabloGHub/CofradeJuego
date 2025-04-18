@@ -63,6 +63,7 @@ public class ShopManager : MonoBehaviour
 
     public void ResetPreparations()
     {
+        if (ControladorPPAL.ppal.EnCurso_f) return;
         float moneyRecovered = Peloton.peloton.DevolverIntegrantesTotal();
         AddMoney(moneyRecovered);
     }

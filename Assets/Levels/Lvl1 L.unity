@@ -3126,7 +3126,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 194661794}
         m_TargetAssemblyTypeName: ControladorPPAL, Assembly-CSharp
         m_MethodName: PauseFromUI
         m_Mode: 1
@@ -3328,6 +3328,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 184564732}
   m_CullTransparentMesh: 1
+--- !u!114 &194661794 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4651232323179076767, guid: 90b84af437ac3f34c918607b577dc358, type: 3}
+  m_PrefabInstance: {fileID: 515311410}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f5a14c50115d144bb528de97a84baf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &260607347
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3380,6 +3391,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9051521240901392372, guid: c828f32cb4206ed4d8c7b79eb2a0e98f, type: 3}
+      propertyPath: AreaDespliegue
+      value: 
+      objectReference: {fileID: 1569572464}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
