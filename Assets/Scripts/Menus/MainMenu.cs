@@ -3,10 +3,10 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public string StartScene;
+    public int StartScene;
     public void StartGame()
     {
-        if (StartScene.Length != 0)
+        if (StartScene >= 0)
             SceneManager.LoadScene(StartScene);
     }
 
