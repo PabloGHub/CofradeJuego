@@ -25,10 +25,7 @@ public class ControladorPPAL : MaquinaDeEstados
     // ***********************( Funciones Unity )*********************** //
     private void Awake()
     {
-        if (ppal != this)
-        {
-            ppal = this;
-        }
+        ppal = this;
     }
 
     // ***********************( Metodos Nuestras )*********************** //

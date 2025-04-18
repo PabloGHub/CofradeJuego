@@ -49,10 +49,10 @@ namespace CommandTerminal
             Terminal.Log("Time: {0}ms", (double)sw.ElapsedTicks / 10000);
         }
 
-        [RegisterCommand(Help = "Output message")]
-        static void CommandPrint(CommandArg[] args) {
-            Terminal.Log(JoinArguments(args));
-        }
+        //[RegisterCommand(Help = "Output message")]
+        //static void CommandPrint(CommandArg[] args) {
+        //    Terminal.Log(JoinArguments(args));
+        //}
 
     #if DEBUG
         [RegisterCommand(Help = "Output the stack trace of the previous message", MaxArgCount = 0)]
@@ -92,8 +92,8 @@ namespace CommandTerminal
             Terminal.Shell.SetVariable(variable_name, JoinArguments(args, 1));
         }
 
-        [RegisterCommand(Help = "No operation")]
-        static void CommandNoop(CommandArg[] args) { }
+        //[RegisterCommand(Help = "No operation")]
+        //static void CommandNoop(CommandArg[] args) { }
 
         [RegisterCommand(Help = "Quit running application", MaxArgCount = 0)]
         static void CommandSa(CommandArg[] args) {
