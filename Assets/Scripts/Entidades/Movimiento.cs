@@ -328,9 +328,7 @@ public class Movimiento : MaquinaDeEstados
         Gizmos.color = Color.green;
         #if UNITY_EDITOR
                 Handles.Label(transform.position + Vector3.up * 0.4f,
-                    "MOVIMIENTO : updatePosition -> " + v_agente_NavMeshAgent.updatePosition + " | " +
-                    "updateRotation -> " + v_agente_NavMeshAgent.updateRotation + " | " +
-                    "updateUpAxis -> " + v_agente_NavMeshAgent.updateUpAxis + " | " +
+                    "MOVIMIENTO : Direcion_f -> " + Direcion_f + " | " +
                     "objetivo -> " + v_objetivo_t.name);
         #endif
     }
