@@ -96,6 +96,7 @@ public class DraggingBehavior : MonoBehaviour
         {
             if (result.gameObject == ShopManager.instance.trashElement)
             {
+                ShopManager.instance.trashElement.GetComponent<AudioSource>().Play();
                 if (NPC != null)
                 {
                     Peloton.peloton.EliminarIntegrante(NPC);
