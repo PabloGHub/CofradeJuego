@@ -34,7 +34,7 @@ public class Results : MonoBehaviour
         if (ResultText == null) Setup();
 
         ResultText.text = hasWon ? "YOU WON" : "YOU LOST";
-        DetailsText.text = "Time: " + time + "\nWax: " + wax + "\nScore: " + score;
+        DetailsText.text = "Time: " + time; //+ "\nWax: " + wax + "\nScore: " + score;
 
         MainMenu.gameObject.SetActive(true);
         Retry.gameObject.SetActive(true);

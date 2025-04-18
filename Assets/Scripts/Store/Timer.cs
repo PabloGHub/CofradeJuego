@@ -9,6 +9,17 @@ public class Timer : MonoBehaviour
     private TextMeshProUGUI timerText;
     public string textPrefix = "Tiempo: ";
 
+    private static Timer instance;
+    public static Timer Instance => instance;
+
+    private void Awake()
+    {
+        if (!instance)
+        {
+            instance = this;
+        }
+    }
+
     void Start()
     {
         currentTime = 0;
