@@ -90,6 +90,7 @@ public class ControladorPPAL : MonoBehaviour
         if (!EnCurso_f && !_pausado_b)
         {
             EnCurso_f = true;
+            Peloton.peloton.AreaDespliegue.gameObject.SetActive(false);
             OnIniciar?.Invoke();
         }
 
