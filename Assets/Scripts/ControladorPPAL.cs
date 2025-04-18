@@ -74,7 +74,7 @@ public class ControladorPPAL : MonoBehaviour
     {
         if (CantidadLLegados_i >= CantidadNazarenosGanar_i)
         {
-            SceneManager.LoadScene(++NivelActual_i);
+            PausePanel.ShowResults(true, 50, Timer.Instance.time, 0);
         }
     }
 
@@ -121,7 +121,11 @@ public class ControladorPPAL : MonoBehaviour
 
     public void ReloadSameLevel()
     {
-        SceneManager.LoadScene(NivelActual_i-1);
+        SceneManager.LoadScene(NivelActual_i);
+    }
+    public void ReloadNextLevel()
+    {
+        SceneManager.LoadScene(++NivelActual_i);
     }
 
     public void PauseFromUI()

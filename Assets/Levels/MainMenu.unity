@@ -360,7 +360,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b42a299c482e4d142be8c9a32a3bc981, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartScene: 1
 --- !u!1 &272101784
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,6 +443,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2758972503443438820, guid: f6124215f0139fa43a0033be99b648d6, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5537017371961019044, guid: f6124215f0139fa43a0033be99b648d6, type: 3}
       propertyPath: m_Name
       value: Camara
