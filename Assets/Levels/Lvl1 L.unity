@@ -660,6 +660,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6771872397835802911, guid: 0be93a7564ed24a44af478d9b9ee918a, type: 3}
+      propertyPath: Elegido_b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6771872397835802911, guid: 0be93a7564ed24a44af478d9b9ee918a, type: 3}
+      propertyPath: Difurcacion
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21690,6 +21698,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6771872397835802911, guid: 0be93a7564ed24a44af478d9b9ee918a, type: 3}
+      propertyPath: Elegido_b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6771872397835802911, guid: 0be93a7564ed24a44af478d9b9ee918a, type: 3}
+      propertyPath: Difurcacion
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22893,6 +22909,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6771872397835802911, guid: 0be93a7564ed24a44af478d9b9ee918a, type: 3}
+      propertyPath: Elegido_b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6771872397835802911, guid: 0be93a7564ed24a44af478d9b9ee918a, type: 3}
+      propertyPath: Difurcacion
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22954,6 +22978,14 @@ PrefabInstance:
     - target: {fileID: 4254610220803168376, guid: 0be93a7564ed24a44af478d9b9ee918a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6771872397835802911, guid: 0be93a7564ed24a44af478d9b9ee918a, type: 3}
+      propertyPath: Elegido_b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6771872397835802911, guid: 0be93a7564ed24a44af478d9b9ee918a, type: 3}
+      propertyPath: Difurcacion
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

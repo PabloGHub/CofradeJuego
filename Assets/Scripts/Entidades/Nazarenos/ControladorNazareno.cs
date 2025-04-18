@@ -139,6 +139,11 @@ public class ControladorNazareno : MaquinaDeEstados
 
         while (true)
         {
+            if (Navegacion.nav.trayectoria.Length <= ObjetivoIndex_i)
+            {
+                ObjetivoIndex_i--;
+                return;
+            }
             Punto punto = Navegacion.nav.trayectoria[ObjetivoIndex_i].GetComponent<Punto>();
 
             if (!punto.Difurcacion)
