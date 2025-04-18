@@ -23744,6 +23744,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 457881072337233962, guid: f6124215f0139fa43a0033be99b648d6, type: 3}
+      propertyPath: m_AssetsPPU
+      value: 102
+      objectReference: {fileID: 0}
+    - target: {fileID: 2256600391099340093, guid: f6124215f0139fa43a0033be99b648d6, type: 3}
+      propertyPath: orthographic size
+      value: 5.2941175
+      objectReference: {fileID: 0}
     - target: {fileID: 5537017371961019044, guid: f6124215f0139fa43a0033be99b648d6, type: 3}
       propertyPath: m_Name
       value: Camara
