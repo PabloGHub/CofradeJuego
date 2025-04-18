@@ -4,10 +4,24 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem.LowLevel;
+using UnityEngine.SceneManagement;
 
-public class ControladorPPAL : MaquinaDeEstados
+public class ControladorPPAL : MonoBehaviour
 {
     // ***********************( Declaraciones )*********************** //
+    [Header("**---- Referencias ----**")]
+    public InfoPanelUI _infoPanel;
+
+    [Header("**---- Niveles ----**")]
+    public int NivelActual_i = 1;
+    public int CantidadNazarenosGanar_i = 1;
+    [HideInInspector]
+    public int CantidadLLegados_i = 0;
+
+    [Header("**---- Limites de la camara ----**")]
+    public Vector2 Esquina1_v2;
+    public Vector2 Esquina2_v2;
+
     public static ControladorPPAL ppal;
 
     private static bool _pausado_b = true;
@@ -44,8 +58,8 @@ public class ControladorPPAL : MaquinaDeEstados
     public bool EnCurso_f = false;
 
     // --- ( Estados ) --- //
-    public override EstadoBase Estado { get; set; }
-    public override EstadoBase SubEstado { get; set; }
+    //public override EstadoBase Estado { get; set; }
+    //public override EstadoBase SubEstado { get; set; }
 
     // ***********************( Funciones Unity )*********************** //
     private void Awake()
@@ -53,6 +67,14 @@ public class ControladorPPAL : MaquinaDeEstados
         ppal = this;
         _pausado_b = true;
         Porculeros = new List<GameObject>();
+    }
+
+    private void Update()
+    {
+        if (CantidadLLegados_i >= CantidadNazarenosGanar_i)
+        {
+            SceneManager.LoadScene(++NivelActual_i);
+        }
     }
 
     // ***********************( Metodos Nuestras )*********************** //
@@ -118,7 +140,14 @@ public class ControladorPPAL : MaquinaDeEstados
         //ControladorPPAL.ppal.reiniciar();
     }
 
-
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(new Vector3(Esquina1_v2.x, Esquina1_v2.y, 0), new Vector3(Esquina1_v2.x, Esquina2_v2.y, 0));
+        Gizmos.DrawLine(new Vector3(Esquina1_v2.x, Esquina1_v2.y, 0), new Vector3(Esquina2_v2.x, Esquina1_v2.y, 0));
+        Gizmos.DrawLine(new Vector3(Esquina2_v2.x, Esquina1_v2.y, 0), new Vector3(Esquina2_v2.x, Esquina2_v2.y, 0));
+        Gizmos.DrawLine(new Vector3(Esquina2_v2.x, Esquina2_v2.y, 0), new Vector3(Esquina1_v2.x, Esquina2_v2.y, 0));
+    }
 
     // ***********************( Clases de Estados )*********************** //
 }

@@ -125,7 +125,9 @@ public class ControladorNazareno : MaquinaDeEstados
     // ***********************( Funciones Nuestras )*********************** //
     void extracion()
     {
-        // TODO: cuando llega a carrera destuir o ocular al nazareno.
+        ControladorPPAL.ppal.CantidadLLegados_i++;
+        Peloton.peloton.EliminarIntegranteLista(gameObject);
+        DestroyImmediate(gameObject);
     }
 
     private void actualizarPunto()

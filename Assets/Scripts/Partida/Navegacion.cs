@@ -85,6 +85,30 @@ public class Navegacion : MonoBehaviour
         return v_verificado_i == v_cantidadDifurcaciones_i;
     }
 
+
+    public void activarCamino(int _indice_i)
+    {
+        // Obtener el índice de la bifurcación correspondiente al índice dado  
+        for (int i = 0; i < v_caminosPosible_Transform.Count; i++)
+        {
+            // Verificar si el índice pertenece a esta bifurcación  
+            if (v_caminosPosible_Transform[i].Exists(t => t.GetComponent<Punto>().Indice_i == _indice_i))
+            {
+                // Desactivar todos los caminos de la bifurcación  
+                for (int j = 0; j < v_caminosPosible_Transform[i].Count; j++)
+                {
+                    v_caminosPosible_Transform[i][j].GetComponent<Punto>().Elegido_b = false;
+                }
+
+                // Activar el camino correspondiente al índice dado  
+                v_caminosPosible_Transform[i].Find(t => t.GetComponent<Punto>().Indice_i == _indice_i).GetComponent<Punto>().Elegido_b = true;
+                break;
+            }
+        }
+    }
+   
+    
+
     public void activarCaminos(CommandArg[] args)
     {
         int v_difurcacion_i = 0;
