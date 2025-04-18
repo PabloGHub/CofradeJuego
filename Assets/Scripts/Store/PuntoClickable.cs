@@ -4,6 +4,7 @@ using UnityEngine;
 public class PuntoClickable : Clickable
 {
     private Punto punto;
+    public float radius = 0.5f;
 
     public override void OnShortClick(Vector2 mousePos)
     {
@@ -15,8 +16,12 @@ public class PuntoClickable : Clickable
                 return;
             }
         }
-
-        punto.ToggleChosen();
-
+        Vector3 mouseInWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mouseInWorld.z = 0;
+        float dist = Vector4.Distance(transform.position, mouseInWorld);
+        if (dist <= radius)
+        {
+            punto.ToggleChosen();
+        }
     }
 }

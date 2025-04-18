@@ -20,6 +20,12 @@ public class InfoPanelUI : MonoBehaviour
         setup = true;
     }
 
+    void SetWarning(string warning)
+    {
+        nameText.text = "WARNING";
+        descriptionText.text = warning;
+    }
+
     public void Show(ItemInfo info)
     {
         if (!setup)
@@ -37,6 +43,12 @@ public class InfoPanelUI : MonoBehaviour
             + "\nTiempo de Recarga: " + ataque.TiempoRecarga;
 
         descriptionText.text = desc;
+        gameObject.SetActive(true);
+    }
+
+    public void Show(string warning)
+    {
+        SetWarning(warning);
         gameObject.SetActive(true);
     }
 
