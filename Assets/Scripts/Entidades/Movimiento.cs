@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 #if UNITY_EDITOR
-using UnityEditor;
+    using UnityEditor;
 #endif
 
 public class Movimiento : MaquinaDeEstados
@@ -103,7 +103,7 @@ public class Movimiento : MaquinaDeEstados
     // ***********************( Funciones Nuestras )*********************** //
     protected void establecerDestino()
     {
-        if (ControladorPPAL.v_pausado_b)
+        if (ControladorPPAL.V_pausado_b)
             return;
 
         if (QuedarteQuieto)
@@ -191,7 +191,7 @@ public class Movimiento : MaquinaDeEstados
 
     public void Rotar(Vector3 v_direccion_v3)
     {
-        if (ControladorPPAL.v_pausado_b)
+        if (ControladorPPAL.V_pausado_b)
             return;
 
         if (v_objetivo_t == null)
@@ -222,7 +222,7 @@ public class Movimiento : MaquinaDeEstados
 
     public void Avanzar()
     {
-        if (ControladorPPAL.v_pausado_b)
+        if (ControladorPPAL.V_pausado_b)
             return;
 
         if (v_objetivo_t == null)
@@ -277,7 +277,7 @@ public class Movimiento : MaquinaDeEstados
 
         public override void MiFixedUpdate()
         {
-            if (ControladorPPAL.v_pausado_b)
+            if (ControladorPPAL.V_pausado_b)
                 return;
 
             if (v_movimiento.v_agente_NavMeshAgent != null)

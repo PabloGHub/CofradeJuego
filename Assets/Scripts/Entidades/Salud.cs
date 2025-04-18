@@ -92,6 +92,24 @@ public class Salud : MonoBehaviour
         return v_danno_f * (1 - reflejoDanno);
     }
 
+    public void Curar(float v_cura_f)
+    {
+        v_saludActual_f += v_cura_f;
+        if (v_saludActual_f > saludMaxima)
+            v_saludActual_f = saludMaxima;
+        if (lifeBar != null)
+        {
+            lifeBar.objHP = v_saludActual_f;
+        }
+    }
+
+    public void Desaparecer()
+    {
+        OnMuerto?.Invoke();
+        Peloton.peloton.EliminarIntegranteLista(gameObject);
+        DestroyImmediate(gameObject);
+    }
+
     private void gestionarMuerte()
     {
         Terminal.Log("MUERE: " + gameObject.name);
