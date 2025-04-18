@@ -85,7 +85,7 @@ public class ShopItemUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         }
         else
         {
-            priceText.color = Color.black;
+            priceText.color = Color.white;
         }
     }
 
