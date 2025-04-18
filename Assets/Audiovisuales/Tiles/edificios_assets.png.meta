@@ -162,7 +162,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -280,7 +280,7 @@ TextureImporter:
       name: edificios_assets_3
       rect:
         serializedVersion: 2
-        x: 96
+        x: 128
         y: 448
         width: 32
         height: 32
@@ -302,7 +302,7 @@ TextureImporter:
       name: edificios_assets_4
       rect:
         serializedVersion: 2
-        x: 128
+        x: 160
         y: 448
         width: 32
         height: 32
@@ -324,7 +324,7 @@ TextureImporter:
       name: edificios_assets_5
       rect:
         serializedVersion: 2
-        x: 160
+        x: 192
         y: 448
         width: 32
         height: 32
@@ -346,7 +346,7 @@ TextureImporter:
       name: edificios_assets_6
       rect:
         serializedVersion: 2
-        x: 192
+        x: 256
         y: 448
         width: 32
         height: 32
@@ -368,7 +368,7 @@ TextureImporter:
       name: edificios_assets_7
       rect:
         serializedVersion: 2
-        x: 224
+        x: 288
         y: 448
         width: 32
         height: 32
@@ -390,7 +390,7 @@ TextureImporter:
       name: edificios_assets_8
       rect:
         serializedVersion: 2
-        x: 256
+        x: 320
         y: 448
         width: 32
         height: 32
@@ -412,7 +412,7 @@ TextureImporter:
       name: edificios_assets_9
       rect:
         serializedVersion: 2
-        x: 288
+        x: 384
         y: 448
         width: 32
         height: 32
@@ -434,7 +434,7 @@ TextureImporter:
       name: edificios_assets_10
       rect:
         serializedVersion: 2
-        x: 352
+        x: 416
         y: 448
         width: 32
         height: 32
@@ -456,7 +456,7 @@ TextureImporter:
       name: edificios_assets_11
       rect:
         serializedVersion: 2
-        x: 384
+        x: 448
         y: 448
         width: 32
         height: 32
@@ -478,8 +478,8 @@ TextureImporter:
       name: edificios_assets_12
       rect:
         serializedVersion: 2
-        x: 416
-        y: 448
+        x: 0
+        y: 416
         width: 32
         height: 32
       alignment: 0
@@ -500,7 +500,7 @@ TextureImporter:
       name: edificios_assets_13
       rect:
         serializedVersion: 2
-        x: 0
+        x: 32
         y: 416
         width: 32
         height: 32
@@ -522,7 +522,7 @@ TextureImporter:
       name: edificios_assets_14
       rect:
         serializedVersion: 2
-        x: 32
+        x: 64
         y: 416
         width: 32
         height: 32
@@ -544,7 +544,7 @@ TextureImporter:
       name: edificios_assets_15
       rect:
         serializedVersion: 2
-        x: 64
+        x: 128
         y: 416
         width: 32
         height: 32
@@ -566,7 +566,7 @@ TextureImporter:
       name: edificios_assets_16
       rect:
         serializedVersion: 2
-        x: 96
+        x: 160
         y: 416
         width: 32
         height: 32
@@ -588,7 +588,7 @@ TextureImporter:
       name: edificios_assets_17
       rect:
         serializedVersion: 2
-        x: 128
+        x: 192
         y: 416
         width: 32
         height: 32
@@ -610,7 +610,7 @@ TextureImporter:
       name: edificios_assets_18
       rect:
         serializedVersion: 2
-        x: 160
+        x: 256
         y: 416
         width: 32
         height: 32
@@ -632,7 +632,7 @@ TextureImporter:
       name: edificios_assets_19
       rect:
         serializedVersion: 2
-        x: 192
+        x: 288
         y: 416
         width: 32
         height: 32
@@ -654,7 +654,7 @@ TextureImporter:
       name: edificios_assets_20
       rect:
         serializedVersion: 2
-        x: 224
+        x: 320
         y: 416
         width: 32
         height: 32
@@ -676,7 +676,7 @@ TextureImporter:
       name: edificios_assets_21
       rect:
         serializedVersion: 2
-        x: 256
+        x: 384
         y: 416
         width: 32
         height: 32
@@ -698,7 +698,7 @@ TextureImporter:
       name: edificios_assets_22
       rect:
         serializedVersion: 2
-        x: 288
+        x: 416
         y: 416
         width: 32
         height: 32
@@ -720,7 +720,7 @@ TextureImporter:
       name: edificios_assets_23
       rect:
         serializedVersion: 2
-        x: 352
+        x: 448
         y: 416
         width: 32
         height: 32
@@ -742,8 +742,8 @@ TextureImporter:
       name: edificios_assets_24
       rect:
         serializedVersion: 2
-        x: 384
-        y: 416
+        x: 0
+        y: 384
         width: 32
         height: 32
       alignment: 0
@@ -764,8 +764,8 @@ TextureImporter:
       name: edificios_assets_25
       rect:
         serializedVersion: 2
-        x: 416
-        y: 416
+        x: 32
+        y: 384
         width: 32
         height: 32
       alignment: 0
@@ -786,7 +786,7 @@ TextureImporter:
       name: edificios_assets_26
       rect:
         serializedVersion: 2
-        x: 0
+        x: 64
         y: 384
         width: 32
         height: 32
@@ -808,7 +808,7 @@ TextureImporter:
       name: edificios_assets_27
       rect:
         serializedVersion: 2
-        x: 32
+        x: 128
         y: 384
         width: 32
         height: 32
@@ -830,7 +830,7 @@ TextureImporter:
       name: edificios_assets_28
       rect:
         serializedVersion: 2
-        x: 64
+        x: 160
         y: 384
         width: 32
         height: 32
@@ -852,7 +852,7 @@ TextureImporter:
       name: edificios_assets_29
       rect:
         serializedVersion: 2
-        x: 96
+        x: 192
         y: 384
         width: 32
         height: 32
@@ -874,7 +874,7 @@ TextureImporter:
       name: edificios_assets_30
       rect:
         serializedVersion: 2
-        x: 128
+        x: 256
         y: 384
         width: 32
         height: 32
@@ -896,7 +896,7 @@ TextureImporter:
       name: edificios_assets_31
       rect:
         serializedVersion: 2
-        x: 160
+        x: 288
         y: 384
         width: 32
         height: 32
@@ -918,7 +918,7 @@ TextureImporter:
       name: edificios_assets_32
       rect:
         serializedVersion: 2
-        x: 192
+        x: 320
         y: 384
         width: 32
         height: 32
@@ -940,7 +940,7 @@ TextureImporter:
       name: edificios_assets_33
       rect:
         serializedVersion: 2
-        x: 224
+        x: 384
         y: 384
         width: 32
         height: 32
@@ -962,7 +962,7 @@ TextureImporter:
       name: edificios_assets_34
       rect:
         serializedVersion: 2
-        x: 256
+        x: 416
         y: 384
         width: 32
         height: 32
@@ -984,7 +984,7 @@ TextureImporter:
       name: edificios_assets_35
       rect:
         serializedVersion: 2
-        x: 288
+        x: 448
         y: 384
         width: 32
         height: 32
@@ -1006,8 +1006,8 @@ TextureImporter:
       name: edificios_assets_36
       rect:
         serializedVersion: 2
-        x: 352
-        y: 384
+        x: 0
+        y: 352
         width: 32
         height: 32
       alignment: 0
@@ -1028,8 +1028,8 @@ TextureImporter:
       name: edificios_assets_37
       rect:
         serializedVersion: 2
-        x: 384
-        y: 384
+        x: 32
+        y: 352
         width: 32
         height: 32
       alignment: 0
@@ -1050,8 +1050,8 @@ TextureImporter:
       name: edificios_assets_38
       rect:
         serializedVersion: 2
-        x: 416
-        y: 384
+        x: 64
+        y: 352
         width: 32
         height: 32
       alignment: 0
@@ -1072,7 +1072,7 @@ TextureImporter:
       name: edificios_assets_39
       rect:
         serializedVersion: 2
-        x: 0
+        x: 128
         y: 352
         width: 32
         height: 32
@@ -1094,7 +1094,7 @@ TextureImporter:
       name: edificios_assets_40
       rect:
         serializedVersion: 2
-        x: 32
+        x: 160
         y: 352
         width: 32
         height: 32
@@ -1116,7 +1116,7 @@ TextureImporter:
       name: edificios_assets_41
       rect:
         serializedVersion: 2
-        x: 64
+        x: 192
         y: 352
         width: 32
         height: 32
@@ -1138,7 +1138,7 @@ TextureImporter:
       name: edificios_assets_42
       rect:
         serializedVersion: 2
-        x: 96
+        x: 256
         y: 352
         width: 32
         height: 32
@@ -1160,7 +1160,7 @@ TextureImporter:
       name: edificios_assets_43
       rect:
         serializedVersion: 2
-        x: 128
+        x: 288
         y: 352
         width: 32
         height: 32
@@ -1182,7 +1182,7 @@ TextureImporter:
       name: edificios_assets_44
       rect:
         serializedVersion: 2
-        x: 160
+        x: 320
         y: 352
         width: 32
         height: 32
@@ -1204,7 +1204,7 @@ TextureImporter:
       name: edificios_assets_45
       rect:
         serializedVersion: 2
-        x: 192
+        x: 384
         y: 352
         width: 32
         height: 32
@@ -1226,7 +1226,7 @@ TextureImporter:
       name: edificios_assets_46
       rect:
         serializedVersion: 2
-        x: 224
+        x: 416
         y: 352
         width: 32
         height: 32
@@ -1248,7 +1248,7 @@ TextureImporter:
       name: edificios_assets_47
       rect:
         serializedVersion: 2
-        x: 256
+        x: 448
         y: 352
         width: 32
         height: 32
@@ -1270,8 +1270,8 @@ TextureImporter:
       name: edificios_assets_48
       rect:
         serializedVersion: 2
-        x: 288
-        y: 352
+        x: 0
+        y: 320
         width: 32
         height: 32
       alignment: 0
@@ -1292,8 +1292,8 @@ TextureImporter:
       name: edificios_assets_49
       rect:
         serializedVersion: 2
-        x: 352
-        y: 352
+        x: 32
+        y: 320
         width: 32
         height: 32
       alignment: 0
@@ -1314,8 +1314,8 @@ TextureImporter:
       name: edificios_assets_50
       rect:
         serializedVersion: 2
-        x: 384
-        y: 352
+        x: 64
+        y: 320
         width: 32
         height: 32
       alignment: 0
@@ -1336,8 +1336,8 @@ TextureImporter:
       name: edificios_assets_51
       rect:
         serializedVersion: 2
-        x: 416
-        y: 352
+        x: 128
+        y: 320
         width: 32
         height: 32
       alignment: 0
@@ -1358,7 +1358,7 @@ TextureImporter:
       name: edificios_assets_52
       rect:
         serializedVersion: 2
-        x: 96
+        x: 160
         y: 320
         width: 32
         height: 32
@@ -1380,7 +1380,7 @@ TextureImporter:
       name: edificios_assets_53
       rect:
         serializedVersion: 2
-        x: 128
+        x: 192
         y: 320
         width: 32
         height: 32
@@ -1402,7 +1402,7 @@ TextureImporter:
       name: edificios_assets_54
       rect:
         serializedVersion: 2
-        x: 160
+        x: 256
         y: 320
         width: 32
         height: 32
@@ -1424,7 +1424,7 @@ TextureImporter:
       name: edificios_assets_55
       rect:
         serializedVersion: 2
-        x: 192
+        x: 288
         y: 320
         width: 32
         height: 32
@@ -1446,7 +1446,7 @@ TextureImporter:
       name: edificios_assets_56
       rect:
         serializedVersion: 2
-        x: 224
+        x: 320
         y: 320
         width: 32
         height: 32
@@ -1468,7 +1468,7 @@ TextureImporter:
       name: edificios_assets_57
       rect:
         serializedVersion: 2
-        x: 256
+        x: 384
         y: 320
         width: 32
         height: 32
@@ -1490,7 +1490,7 @@ TextureImporter:
       name: edificios_assets_58
       rect:
         serializedVersion: 2
-        x: 288
+        x: 416
         y: 320
         width: 32
         height: 32
@@ -1512,8 +1512,8 @@ TextureImporter:
       name: edificios_assets_59
       rect:
         serializedVersion: 2
-        x: 0
-        y: 288
+        x: 448
+        y: 320
         width: 32
         height: 32
       alignment: 0
@@ -1534,7 +1534,7 @@ TextureImporter:
       name: edificios_assets_60
       rect:
         serializedVersion: 2
-        x: 32
+        x: 0
         y: 288
         width: 32
         height: 32
@@ -1556,7 +1556,7 @@ TextureImporter:
       name: edificios_assets_61
       rect:
         serializedVersion: 2
-        x: 64
+        x: 32
         y: 288
         width: 32
         height: 32
@@ -1578,7 +1578,7 @@ TextureImporter:
       name: edificios_assets_62
       rect:
         serializedVersion: 2
-        x: 96
+        x: 64
         y: 288
         width: 32
         height: 32
@@ -1622,7 +1622,7 @@ TextureImporter:
       name: edificios_assets_64
       rect:
         serializedVersion: 2
-        x: 192
+        x: 160
         y: 288
         width: 32
         height: 32
@@ -1644,7 +1644,7 @@ TextureImporter:
       name: edificios_assets_65
       rect:
         serializedVersion: 2
-        x: 224
+        x: 192
         y: 288
         width: 32
         height: 32
@@ -1710,8 +1710,8 @@ TextureImporter:
       name: edificios_assets_68
       rect:
         serializedVersion: 2
-        x: 0
-        y: 256
+        x: 320
+        y: 288
         width: 32
         height: 32
       alignment: 0
@@ -1732,8 +1732,8 @@ TextureImporter:
       name: edificios_assets_69
       rect:
         serializedVersion: 2
-        x: 32
-        y: 256
+        x: 352
+        y: 288
         width: 32
         height: 32
       alignment: 0
@@ -1754,8 +1754,8 @@ TextureImporter:
       name: edificios_assets_70
       rect:
         serializedVersion: 2
-        x: 64
-        y: 256
+        x: 384
+        y: 288
         width: 32
         height: 32
       alignment: 0
@@ -1776,8 +1776,8 @@ TextureImporter:
       name: edificios_assets_71
       rect:
         serializedVersion: 2
-        x: 96
-        y: 256
+        x: 416
+        y: 288
         width: 32
         height: 32
       alignment: 0
@@ -1798,8 +1798,8 @@ TextureImporter:
       name: edificios_assets_72
       rect:
         serializedVersion: 2
-        x: 128
-        y: 256
+        x: 448
+        y: 288
         width: 32
         height: 32
       alignment: 0
@@ -1820,7 +1820,7 @@ TextureImporter:
       name: edificios_assets_73
       rect:
         serializedVersion: 2
-        x: 160
+        x: 384
         y: 256
         width: 32
         height: 32
@@ -1842,7 +1842,7 @@ TextureImporter:
       name: edificios_assets_74
       rect:
         serializedVersion: 2
-        x: 192
+        x: 416
         y: 256
         width: 32
         height: 32
@@ -1864,7 +1864,7 @@ TextureImporter:
       name: edificios_assets_75
       rect:
         serializedVersion: 2
-        x: 224
+        x: 448
         y: 256
         width: 32
         height: 32
@@ -1886,8 +1886,8 @@ TextureImporter:
       name: edificios_assets_76
       rect:
         serializedVersion: 2
-        x: 256
-        y: 256
+        x: 384
+        y: 224
         width: 32
         height: 32
       alignment: 0
@@ -1908,8 +1908,8 @@ TextureImporter:
       name: edificios_assets_77
       rect:
         serializedVersion: 2
-        x: 352
-        y: 256
+        x: 416
+        y: 224
         width: 32
         height: 32
       alignment: 0
@@ -1930,8 +1930,8 @@ TextureImporter:
       name: edificios_assets_78
       rect:
         serializedVersion: 2
-        x: 384
-        y: 256
+        x: 448
+        y: 224
         width: 32
         height: 32
       alignment: 0
@@ -1952,8 +1952,8 @@ TextureImporter:
       name: edificios_assets_79
       rect:
         serializedVersion: 2
-        x: 416
-        y: 256
+        x: 0
+        y: 192
         width: 32
         height: 32
       alignment: 0
@@ -1974,8 +1974,8 @@ TextureImporter:
       name: edificios_assets_80
       rect:
         serializedVersion: 2
-        x: 0
-        y: 224
+        x: 32
+        y: 192
         width: 32
         height: 32
       alignment: 0
@@ -1996,8 +1996,8 @@ TextureImporter:
       name: edificios_assets_81
       rect:
         serializedVersion: 2
-        x: 32
-        y: 224
+        x: 64
+        y: 192
         width: 32
         height: 32
       alignment: 0
@@ -2018,8 +2018,8 @@ TextureImporter:
       name: edificios_assets_82
       rect:
         serializedVersion: 2
-        x: 64
-        y: 224
+        x: 96
+        y: 192
         width: 32
         height: 32
       alignment: 0
@@ -2040,8 +2040,8 @@ TextureImporter:
       name: edificios_assets_83
       rect:
         serializedVersion: 2
-        x: 96
-        y: 224
+        x: 384
+        y: 192
         width: 32
         height: 32
       alignment: 0
@@ -2062,8 +2062,8 @@ TextureImporter:
       name: edificios_assets_84
       rect:
         serializedVersion: 2
-        x: 224
-        y: 224
+        x: 416
+        y: 192
         width: 32
         height: 32
       alignment: 0
@@ -2084,8 +2084,8 @@ TextureImporter:
       name: edificios_assets_85
       rect:
         serializedVersion: 2
-        x: 256
-        y: 224
+        x: 448
+        y: 192
         width: 32
         height: 32
       alignment: 0
@@ -2106,8 +2106,8 @@ TextureImporter:
       name: edificios_assets_86
       rect:
         serializedVersion: 2
-        x: 288
-        y: 224
+        x: 0
+        y: 160
         width: 32
         height: 32
       alignment: 0
@@ -2128,8 +2128,8 @@ TextureImporter:
       name: edificios_assets_87
       rect:
         serializedVersion: 2
-        x: 320
-        y: 224
+        x: 32
+        y: 160
         width: 32
         height: 32
       alignment: 0
@@ -2150,8 +2150,8 @@ TextureImporter:
       name: edificios_assets_88
       rect:
         serializedVersion: 2
-        x: 352
-        y: 224
+        x: 64
+        y: 160
         width: 32
         height: 32
       alignment: 0
@@ -2172,8 +2172,8 @@ TextureImporter:
       name: edificios_assets_89
       rect:
         serializedVersion: 2
-        x: 384
-        y: 224
+        x: 96
+        y: 160
         width: 32
         height: 32
       alignment: 0
@@ -2194,8 +2194,8 @@ TextureImporter:
       name: edificios_assets_90
       rect:
         serializedVersion: 2
-        x: 416
-        y: 224
+        x: 224
+        y: 160
         width: 32
         height: 32
       alignment: 0
@@ -2216,8 +2216,8 @@ TextureImporter:
       name: edificios_assets_91
       rect:
         serializedVersion: 2
-        x: 448
-        y: 224
+        x: 256
+        y: 160
         width: 32
         height: 32
       alignment: 0
@@ -2238,8 +2238,8 @@ TextureImporter:
       name: edificios_assets_92
       rect:
         serializedVersion: 2
-        x: 0
-        y: 192
+        x: 288
+        y: 160
         width: 32
         height: 32
       alignment: 0
@@ -2260,8 +2260,8 @@ TextureImporter:
       name: edificios_assets_93
       rect:
         serializedVersion: 2
-        x: 32
-        y: 192
+        x: 320
+        y: 160
         width: 32
         height: 32
       alignment: 0
@@ -2282,8 +2282,8 @@ TextureImporter:
       name: edificios_assets_94
       rect:
         serializedVersion: 2
-        x: 64
-        y: 192
+        x: 416
+        y: 160
         width: 32
         height: 32
       alignment: 0
@@ -2304,8 +2304,8 @@ TextureImporter:
       name: edificios_assets_95
       rect:
         serializedVersion: 2
-        x: 96
-        y: 192
+        x: 448
+        y: 160
         width: 32
         height: 32
       alignment: 0
@@ -2326,8 +2326,8 @@ TextureImporter:
       name: edificios_assets_96
       rect:
         serializedVersion: 2
-        x: 160
-        y: 192
+        x: 0
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -2348,8 +2348,8 @@ TextureImporter:
       name: edificios_assets_97
       rect:
         serializedVersion: 2
-        x: 256
-        y: 192
+        x: 32
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -2370,8 +2370,8 @@ TextureImporter:
       name: edificios_assets_98
       rect:
         serializedVersion: 2
-        x: 288
-        y: 192
+        x: 64
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -2392,8 +2392,8 @@ TextureImporter:
       name: edificios_assets_99
       rect:
         serializedVersion: 2
-        x: 320
-        y: 192
+        x: 96
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -2414,8 +2414,8 @@ TextureImporter:
       name: edificios_assets_100
       rect:
         serializedVersion: 2
-        x: 384
-        y: 192
+        x: 160
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -2436,8 +2436,8 @@ TextureImporter:
       name: edificios_assets_101
       rect:
         serializedVersion: 2
-        x: 416
-        y: 192
+        x: 192
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -2458,8 +2458,8 @@ TextureImporter:
       name: edificios_assets_102
       rect:
         serializedVersion: 2
-        x: 448
-        y: 192
+        x: 224
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -2480,8 +2480,8 @@ TextureImporter:
       name: edificios_assets_103
       rect:
         serializedVersion: 2
-        x: 0
-        y: 160
+        x: 256
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -2502,8 +2502,8 @@ TextureImporter:
       name: edificios_assets_104
       rect:
         serializedVersion: 2
-        x: 32
-        y: 160
+        x: 288
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -2524,8 +2524,8 @@ TextureImporter:
       name: edificios_assets_105
       rect:
         serializedVersion: 2
-        x: 64
-        y: 160
+        x: 320
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -2546,8 +2546,8 @@ TextureImporter:
       name: edificios_assets_106
       rect:
         serializedVersion: 2
-        x: 128
-        y: 160
+        x: 352
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -2568,8 +2568,8 @@ TextureImporter:
       name: edificios_assets_107
       rect:
         serializedVersion: 2
-        x: 160
-        y: 160
+        x: 384
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -2590,8 +2590,8 @@ TextureImporter:
       name: edificios_assets_108
       rect:
         serializedVersion: 2
-        x: 192
-        y: 160
+        x: 416
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -2612,8 +2612,8 @@ TextureImporter:
       name: edificios_assets_109
       rect:
         serializedVersion: 2
-        x: 256
-        y: 160
+        x: 448
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -2634,8 +2634,8 @@ TextureImporter:
       name: edificios_assets_110
       rect:
         serializedVersion: 2
-        x: 288
-        y: 160
+        x: 0
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -2656,8 +2656,8 @@ TextureImporter:
       name: edificios_assets_111
       rect:
         serializedVersion: 2
-        x: 320
-        y: 160
+        x: 32
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -2678,8 +2678,8 @@ TextureImporter:
       name: edificios_assets_112
       rect:
         serializedVersion: 2
-        x: 384
-        y: 160
+        x: 64
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -2700,8 +2700,8 @@ TextureImporter:
       name: edificios_assets_113
       rect:
         serializedVersion: 2
-        x: 416
-        y: 160
+        x: 96
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -2722,8 +2722,8 @@ TextureImporter:
       name: edificios_assets_114
       rect:
         serializedVersion: 2
-        x: 448
-        y: 160
+        x: 128
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -2744,8 +2744,8 @@ TextureImporter:
       name: edificios_assets_115
       rect:
         serializedVersion: 2
-        x: 0
-        y: 128
+        x: 160
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -2766,8 +2766,8 @@ TextureImporter:
       name: edificios_assets_116
       rect:
         serializedVersion: 2
-        x: 32
-        y: 128
+        x: 192
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -2788,8 +2788,8 @@ TextureImporter:
       name: edificios_assets_117
       rect:
         serializedVersion: 2
-        x: 64
-        y: 128
+        x: 256
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -2810,8 +2810,8 @@ TextureImporter:
       name: edificios_assets_118
       rect:
         serializedVersion: 2
-        x: 128
-        y: 128
+        x: 288
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -2832,8 +2832,8 @@ TextureImporter:
       name: edificios_assets_119
       rect:
         serializedVersion: 2
-        x: 160
-        y: 128
+        x: 320
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -2854,8 +2854,8 @@ TextureImporter:
       name: edificios_assets_120
       rect:
         serializedVersion: 2
-        x: 192
-        y: 128
+        x: 352
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -2876,8 +2876,8 @@ TextureImporter:
       name: edificios_assets_121
       rect:
         serializedVersion: 2
-        x: 256
-        y: 128
+        x: 384
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -2898,8 +2898,8 @@ TextureImporter:
       name: edificios_assets_122
       rect:
         serializedVersion: 2
-        x: 288
-        y: 128
+        x: 416
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -2920,8 +2920,8 @@ TextureImporter:
       name: edificios_assets_123
       rect:
         serializedVersion: 2
-        x: 320
-        y: 128
+        x: 448
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -2942,8 +2942,8 @@ TextureImporter:
       name: edificios_assets_124
       rect:
         serializedVersion: 2
-        x: 32
-        y: 96
+        x: 0
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -2964,8 +2964,8 @@ TextureImporter:
       name: edificios_assets_125
       rect:
         serializedVersion: 2
-        x: 64
-        y: 96
+        x: 32
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -2986,8 +2986,8 @@ TextureImporter:
       name: edificios_assets_126
       rect:
         serializedVersion: 2
-        x: 96
-        y: 96
+        x: 64
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -3008,8 +3008,8 @@ TextureImporter:
       name: edificios_assets_127
       rect:
         serializedVersion: 2
-        x: 256
-        y: 96
+        x: 128
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -3030,8 +3030,8 @@ TextureImporter:
       name: edificios_assets_128
       rect:
         serializedVersion: 2
-        x: 288
-        y: 96
+        x: 160
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -3052,8 +3052,8 @@ TextureImporter:
       name: edificios_assets_129
       rect:
         serializedVersion: 2
-        x: 320
-        y: 96
+        x: 192
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -3074,7 +3074,7 @@ TextureImporter:
       name: edificios_assets_130
       rect:
         serializedVersion: 2
-        x: 32
+        x: 256
         y: 64
         width: 32
         height: 32
@@ -3096,7 +3096,7 @@ TextureImporter:
       name: edificios_assets_131
       rect:
         serializedVersion: 2
-        x: 64
+        x: 288
         y: 64
         width: 32
         height: 32
@@ -3118,7 +3118,7 @@ TextureImporter:
       name: edificios_assets_132
       rect:
         serializedVersion: 2
-        x: 96
+        x: 320
         y: 64
         width: 32
         height: 32
@@ -3140,7 +3140,7 @@ TextureImporter:
       name: edificios_assets_133
       rect:
         serializedVersion: 2
-        x: 288
+        x: 384
         y: 64
         width: 32
         height: 32
@@ -3162,8 +3162,8 @@ TextureImporter:
       name: edificios_assets_134
       rect:
         serializedVersion: 2
-        x: 32
-        y: 32
+        x: 416
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -3184,8 +3184,8 @@ TextureImporter:
       name: edificios_assets_135
       rect:
         serializedVersion: 2
-        x: 64
-        y: 32
+        x: 448
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -3206,7 +3206,7 @@ TextureImporter:
       name: edificios_assets_136
       rect:
         serializedVersion: 2
-        x: 96
+        x: 0
         y: 32
         width: 32
         height: 32
@@ -3228,7 +3228,7 @@ TextureImporter:
       name: edificios_assets_137
       rect:
         serializedVersion: 2
-        x: 256
+        x: 32
         y: 32
         width: 32
         height: 32
@@ -3250,7 +3250,7 @@ TextureImporter:
       name: edificios_assets_138
       rect:
         serializedVersion: 2
-        x: 288
+        x: 64
         y: 32
         width: 32
         height: 32
@@ -3272,8 +3272,8 @@ TextureImporter:
       name: edificios_assets_139
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
+        x: 128
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -3294,8 +3294,8 @@ TextureImporter:
       name: edificios_assets_140
       rect:
         serializedVersion: 2
-        x: 96
-        y: 0
+        x: 160
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -3308,6 +3308,402 @@ TextureImporter:
       bones: []
       spriteID: d03d426fda7c9374aa537289da48a48b
       internalID: -919575765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios_assets_141
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dde4f890d28ffe241878af86f604b858
+      internalID: 591363502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios_assets_142
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5475d40fdb91062498869530c03b2fa4
+      internalID: -1067725107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios_assets_143
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8915452e5ad4aa4fae942d375d95223
+      internalID: 2040185225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios_assets_144
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2debdef7719e574db3b4b5814971213
+      internalID: -1767351488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios_assets_145
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2199c6b6b7b478840bf516a0df4ea7b9
+      internalID: -715006476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios_assets_146
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d365a148dbac68f4a96cf06cfa6ddca0
+      internalID: 794138969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios_assets_147
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a1dfb8e12cfe0e45982ab7e6631966e
+      internalID: -462791304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios_assets_148
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cdc9f8e79998ee49be0d4fce2cf709b
+      internalID: 1796250959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios_assets_149
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f726b5915faecee44a0e65a70be5ee0c
+      internalID: 1744235858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios_assets_150
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80ff879d535820d4f8336015f44136b1
+      internalID: -577223823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios_assets_151
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbb92ff8f6e93db4e9f0c39a6e2a989a
+      internalID: 1249758470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios_assets_152
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69fa1d19646a2bc4aaabf63487d2bb0d
+      internalID: 1100916050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios_assets_153
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f980f7cf5b9d77448bdf632453e5936
+      internalID: -1268355948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios_assets_154
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64d5296cec8219044831e89d0c6ed8b7
+      internalID: -1758944204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios_assets_155
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fd45e3b3a1072843bf0acdc323cf134
+      internalID: -266425715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios_assets_156
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa6a245bccffc3b4599cba170e08da21
+      internalID: -734517945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios_assets_157
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf63868453ef6594db208e50e18876aa
+      internalID: -70644819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edificios_assets_158
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a88baad2431a244394ebc24282ded9e
+      internalID: -1897591768
       vertices: []
       indices: 
       edges: []
@@ -3374,7 +3770,25 @@ TextureImporter:
       edificios_assets_139: -2106106527
       edificios_assets_14: -960545023
       edificios_assets_140: -919575765
+      edificios_assets_141: 591363502
+      edificios_assets_142: -1067725107
+      edificios_assets_143: 2040185225
+      edificios_assets_144: -1767351488
+      edificios_assets_145: -715006476
+      edificios_assets_146: 794138969
+      edificios_assets_147: -462791304
+      edificios_assets_148: 1796250959
+      edificios_assets_149: 1744235858
       edificios_assets_15: 1043344403
+      edificios_assets_150: -577223823
+      edificios_assets_151: 1249758470
+      edificios_assets_152: 1100916050
+      edificios_assets_153: -1268355948
+      edificios_assets_154: -1758944204
+      edificios_assets_155: -266425715
+      edificios_assets_156: -734517945
+      edificios_assets_157: -70644819
+      edificios_assets_158: -1897591768
       edificios_assets_16: 2044638028
       edificios_assets_17: -551819754
       edificios_assets_18: -1120064155

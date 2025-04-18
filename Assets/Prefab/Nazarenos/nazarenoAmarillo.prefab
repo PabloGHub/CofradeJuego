@@ -102,7 +102,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _go: {fileID: 0}
-  Flipear: 0
+  FlipearEnIzquierda: 0
+  FlipearEnDerecha: 0
   Sprite: {fileID: 0}
 --- !u!95 &4782973682760920962
 Animator:
@@ -230,6 +231,7 @@ GameObject:
   - component: {fileID: 8487932697863468914}
   - component: {fileID: 4060509918818848312}
   - component: {fileID: 4379630609933709878}
+  - component: {fileID: 8367189909743710359}
   m_Layer: 11
   m_Name: nazarenoAmarillo
   m_TagString: Nazarenos
@@ -371,7 +373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _go: {fileID: 0}
-  v_objetivoIndex_i: 0
+  ObjetivoIndex_i: 0
   v_movimiento: {fileID: 0}
   v_objetivo_t: {fileID: 0}
   v_puntoObjetivo_t: {fileID: 0}
@@ -394,6 +396,7 @@ MonoBehaviour:
   reflejoDanno: 0
   tiempoInmunidad: 0
   prefabsMorir: []
+  _fantasma_go: {fileID: 102680524744455013, guid: 7d2d2457cf335204e986c5a8d54cd1bc, type: 3}
   lifeBar: {fileID: 0}
 --- !u!114 &8487932697863468914
 MonoBehaviour:
@@ -407,16 +410,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4908d698a4f16d74b9f2d307d4525876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alcance: 1
-  RangoVisibliidad: 1
+  RangoVisibliidad: 2
   tiempoRecarga: 1
-  fuerzaEmpuje: 1
+  fuerzaEmpuje: 2
   capaAtacado:
     serializedVersion: 2
     m_Bits: 1024
   danno: 5
-  EsDistancia: 0
-  prefabProyectil: {fileID: 0}
+  alcance: 1
+  EsDistancia: 1
+  prefabProyectil: {fileID: 9169620315529376050, guid: e32e158e3854c9d49b250b6b4e37eb42, type: 3}
   _alcanceExplosion_f: 0
   _inicio: 0
   EnemigoObjetivo_go: {fileID: 0}

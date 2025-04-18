@@ -48,8 +48,8 @@ public class InstanciadorPorculeros : MonoBehaviour
                 for (int i = 0; i < _cantidad; i++)
                 {
                     Vector3 posicionAleatoria = new Vector3(
-                        Random.Range(-_largo / 2, _largo / 2),
-                        Random.Range(-_ancho / 2, _ancho / 2),
+                        Random.Range(-_largo * 0.5f, _largo * 0.5f),
+                        Random.Range(-_ancho * 0.5f, _ancho * 0.5f),
                         0f
                     );
                     GameObject prefabAleatorio = grupos[indiceAleatorio][Random.Range(0, grupos[indiceAleatorio].Count)];

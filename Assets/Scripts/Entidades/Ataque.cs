@@ -4,13 +4,15 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+#if UNITY_EDITOR
+    using UnityEditor;
+#endif
+
 public class Ataque : MonoBehaviour
 {
     // ***********************( Declaraciones )*********************** //
     // ----( Unity )---- //
     [Header("**---- Atribustos ----**")]
-    [SerializeField] private float alcance = 1f;
-    public float Alcance => alcance;
     [SerializeField] private float RangoVisibliidad;
     [SerializeField] private float tiempoRecarga = 1f;
     public float TiempoRecarga => tiempoRecarga;
@@ -20,6 +22,8 @@ public class Ataque : MonoBehaviour
     [Header("**---- Danno Mele ----**")]
     [SerializeField] private float danno = 1f;
     public float Danno => danno;
+    [SerializeField] private float alcance = 1f;
+    public float Alcance => alcance;
 
     [Header("**---- Danno Distancia ----**")]
     [SerializeField] private bool EsDistancia = false;
@@ -79,7 +83,7 @@ public class Ataque : MonoBehaviour
         while (true)
         {
             detectarEnemigos();
-            yield return new WaitForSeconds(0.25f);
+            yield return new WaitForSeconds(0.10f);
         }
     }
 
@@ -114,7 +118,12 @@ public class Ataque : MonoBehaviour
 
         if (EsDistancia)
         {
-            // TODO: Instanciar un proyectil.
+            GameObject _proyectil = Instantiate
+            (
+                prefabProyectil, 
+                transform.position + transform.up * _inicio, 
+                Quaternion.LookRotation(Vector3.forward, transform.up)
+            );
         }
         else
         {
@@ -161,5 +170,13 @@ public class Ataque : MonoBehaviour
         // Alcance
         Gizmos.color = Color.green;
         Gizmos.DrawLine(transform.position + transform.up * _inicio, transform.position + transform.up * (_inicio + alcance));
+
+        #if UNITY_EDITOR
+        {
+            Handles.color = Color.red;
+            Handles.Label(transform.position + Vector3.up * 0.8f,
+                                    $"ATAQUE : Recarga -> {v_tiempoDeRecargaAtual_f}/{tiempoRecarga}" );
+        }
+        #endif
     }
 }

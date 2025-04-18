@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem.LowLevel;
 
-public class ControladorPPAL : MonoBehaviour
+public class ControladorPPAL : MaquinaDeEstados
 {
     // ***********************( Declaraciones )*********************** //
     public static ControladorPPAL ppal;
@@ -13,19 +13,22 @@ public class ControladorPPAL : MonoBehaviour
     public static bool v_pausado_b = true;
     public static event Action<bool> OnCambioPausa;
     public static event Action OnReiniciar;
+    public static event Action OnIniciar;
     public static event Action IntanciarEnemigos;
 
     [SerializeField] private TextMeshProUGUI PausaBotonTexto;
 
+    // --- ( Estados ) --- //
+    public override EstadoBase Estado { get; set; }
+    public override EstadoBase SubEstado { get; set; }
+
     // ***********************( Funciones Unity )*********************** //
     private void Awake()
     {
-        if (ppal != this)
-        {
-            ppal = this;
-        }
+        ppal = this;
     }
-    // ***********************( Funciones Nuestras )*********************** //
+
+    // ***********************( Metodos Nuestras )*********************** //
     private void cabiarPausa()
     {
         if (Navegacion.nav.comprobarCaminos())
@@ -36,19 +39,11 @@ public class ControladorPPAL : MonoBehaviour
 
         Terminal.Log("Pausado: " + v_pausado_b);
     }
-
-
-    [RegisterCommand(Help = "pausa/desapausa")]
-    static void CommandPausa(CommandArg[] args)
+    private void reiniciar()
     {
-        ControladorPPAL.ppal.cabiarPausa();
-    }
-
-    [RegisterCommand(Help = "Instanciar enemigos")]
-    static void CommandInste(CommandArg[] args)
-    {
-        Debug.Log("Intentando Intanciar");
-        ControladorPPAL.IntanciarEnemigos?.Invoke();
+        Navegacion.nav.Reiniciar(); // No hace nada
+        // TODO: Devolver cuantia al jugador.
+        OnReiniciar?.Invoke();
     }
 
 
@@ -57,4 +52,29 @@ public class ControladorPPAL : MonoBehaviour
         cabiarPausa();
         PausaBotonTexto.text = v_pausado_b ? "CONTINUAR" : "PAUSAR";
     }
+
+    // ***********************( Comandos y Debug )*********************** //
+    [RegisterCommand(Help = "pausa/desapausa")]
+    static void CommandPausa(CommandArg[] args)
+    {
+        ControladorPPAL.ppal.cabiarPausa();
+    }
+
+    [RegisterCommand(Help = "Instanciar enemigos")]
+    static void CommandInst(CommandArg[] args)
+    {
+        Debug.Log("Intentando Intanciar");
+        ControladorPPAL.IntanciarEnemigos?.Invoke();
+    }
+
+    [RegisterCommand(Help = "Reiniciar Nivel")]
+    static void CommandRei(CommandArg[] args)
+    {
+        Debug.Log("Reiniciando...");
+        ControladorPPAL.ppal.reiniciar();
+    }
+
+
+
+    // ***********************( Clases de Estados )*********************** //
 }

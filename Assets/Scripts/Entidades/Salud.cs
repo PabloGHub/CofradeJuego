@@ -2,6 +2,10 @@ using CommandTerminal;
 using System;
 using UnityEngine;
 
+#if UNITY_EDITOR
+    using UnityEditor;
+#endif
+
 public class Salud : MonoBehaviour
 {
     // ***********************( Declaraciones )*********************** //
@@ -21,6 +25,8 @@ public class Salud : MonoBehaviour
 
     [SerializeField]
     private GameObject[] prefabsMorir;
+
+    [SerializeField] private GameObject _fantasma_go;
 
     private float v_saludActual_f = 1f;
     private float v_tiempoInmunidadActual_f = 0f;
@@ -88,13 +94,30 @@ public class Salud : MonoBehaviour
 
     private void gestionarMuerte()
     {
-        // TODO: Implementar la lógica para manejar la muerte del objeto.
         Terminal.Log("MUERE: " + gameObject.name);
+
+        if (_fantasma_go != null)
+            Instantiate(_fantasma_go, transform.position, Quaternion.identity);
+
         OnMuerto?.Invoke();
-        gameObject.SetActive(false); // Termporral/PlaceHolder.
+        Peloton.peloton.EliminarIntegranteLista(gameObject);
+        DestroyImmediate(gameObject);
     }
 
     // ***********************( Getters Y Setters )*********************** //
     // TODO: Implementarlos para acceder a traves de la consola.
     public float SaludActual { get => v_saludActual_f; }
+
+
+    // ----------( Funciones de Debug )---------- //
+    private void OnDrawGizmos()
+    {
+        #if UNITY_EDITOR
+        {
+            Handles.color = Color.red;
+            Handles.Label(transform.position + Vector3.up * 0.7f,
+                                    $"SALUD : SaludActual -> {SaludActual}");
+        }
+        #endif
+    }
 }
