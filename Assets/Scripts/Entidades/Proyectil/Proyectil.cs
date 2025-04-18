@@ -68,6 +68,7 @@ public class Proyectil : MonoBehaviour
                 {
                     _salud.RecibirDano(danno, transform.position, fuerzaEmpuje);
                 }
+                Destroy(gameObject);
             }
         }
     }
