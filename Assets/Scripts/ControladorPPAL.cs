@@ -74,7 +74,8 @@ public class ControladorPPAL : MonoBehaviour
     {
         if (CantidadLLegados_i >= CantidadNazarenosGanar_i)
         {
-            cabiarPausa();
+            if (!_pausado_b)
+                cabiarPausa();
             PausePanel.ShowResults(true, 50, Timer.Instance.time, 0);
         }
     }
