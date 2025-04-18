@@ -1,5 +1,6 @@
 using CommandTerminal;
 using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem.LowLevel;
@@ -16,6 +17,8 @@ public class ControladorPPAL : MaquinaDeEstados
     public static event Action OnIniciar;
     public static event Action IntanciarEnemigos;
 
+    public List<GameObject> Porculeros;
+
     [SerializeField] private TextMeshProUGUI PausaBotonTexto;
 
     // --- ( Estados ) --- //
@@ -26,6 +29,7 @@ public class ControladorPPAL : MaquinaDeEstados
     private void Awake()
     {
         ppal = this;
+        Porculeros = new List<GameObject>();
     }
 
     // ***********************( Metodos Nuestras )*********************** //
@@ -44,6 +48,15 @@ public class ControladorPPAL : MaquinaDeEstados
         Navegacion.nav.Reiniciar(); // No hace nada
         // TODO: Devolver cuantia al jugador.
         OnReiniciar?.Invoke();
+    }
+
+
+    public void EliminarDeLaLista(GameObject _objeto_go)
+    {
+        if (Porculeros.Contains(_objeto_go))
+        {
+            Porculeros.Remove(_objeto_go);
+        }
     }
 
 

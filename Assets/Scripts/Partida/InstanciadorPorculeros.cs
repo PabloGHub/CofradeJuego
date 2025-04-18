@@ -53,19 +53,22 @@ public class InstanciadorPorculeros : MonoBehaviour
                         0f
                     );
                     GameObject prefabAleatorio = grupos[indiceAleatorio][Random.Range(0, grupos[indiceAleatorio].Count)];
-                    Instantiate(prefabAleatorio, transform.position + posicionAleatoria, Quaternion.identity);
+                    GameObject _instanciado = Instantiate(prefabAleatorio, transform.position + posicionAleatoria, Quaternion.identity);
+                    _instanciado.GetComponent<Salud>().OnMuerto += () => ControladorPPAL.ppal.EliminarDeLaLista(_instanciado);
+                    ControladorPPAL.ppal.Porculeros.Add(_instanciado);
                 }
             }
             else
             {
-                Debug.LogWarning($"---{gameObject.name} La cantidad de instancias es menor a 1---");
+                Debug.LogWarning($"--- {gameObject.name} La cantidad A instanciar es menor a 1 ---");
             }
         }
         else
         {
-            Debug.LogWarning($"---{gameObject.name} Todos los grupos están vacíos---");
+            Debug.LogWarning($"--- {gameObject.name} Todos los grupos están vacíos ---");
         }
     }
+
 
     // ***********************( Metodos Debug )*********************** //
     private void OnDrawGizmos()
