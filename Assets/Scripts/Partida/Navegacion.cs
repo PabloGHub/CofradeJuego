@@ -85,6 +85,19 @@ public class Navegacion : MonoBehaviour
         return v_verificado_i == v_cantidadDifurcaciones_i;
     }
 
+
+    public void activarCamino(int _indice_i)
+    {
+        if (_indice_i < v_caminosPosible_Transform.Count)
+        {
+            
+        }
+        else
+        {
+            Debug.LogError("**(El camino " + _indice_i + " no existe)**");
+        }
+    }
+
     public void activarCaminos(CommandArg[] args)
     {
         int v_difurcacion_i = 0;
