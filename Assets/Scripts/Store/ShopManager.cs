@@ -8,7 +8,7 @@ public class ShopManager : MonoBehaviour
 {
     static public ShopManager instance;
 
-    public ShopData Data;
+    public ShopItems Data; //ShopData
     public GameObject shopEntryPrefab;
     public GameObject dragElement;
     public GameObject trashElement;

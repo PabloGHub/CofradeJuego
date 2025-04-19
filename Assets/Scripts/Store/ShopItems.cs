@@ -30,25 +30,40 @@ public class ItemEntry
 
 [Serializable]
 [CreateAssetMenu(fileName = "ShopData", menuName = "Game/ShopData")]
-public class ShopData : ScriptableObject
+public class ShopItems : ScriptableObject // ShopData
 {
     [SerializeField]
     private List<ItemEntry> itemList = new List<ItemEntry>();
 
 
-    private Dictionary<string, ItemInfo> m_Items;
-    public Dictionary<string, ItemInfo> Items => m_Items;
+    private Dictionary<string, ItemInfo> _items;
+    public Dictionary<string, ItemInfo> Items 
+    {
+        get
+        { 
+            if (_items == null)
+            {
+                foreach (ItemEntry individual_ItemEntry in itemList)
+                {
+                    if (!_items.ContainsKey(individual_ItemEntry.key))
+                        _items.Add(individual_ItemEntry.key, individual_ItemEntry.value);
+                }
+            }
+            return _items;
+        }
+        set => _items = value;
+    }
 
 
     private void OnEnable()
     {
-        m_Items = new Dictionary<string, ItemInfo>();
+        _items = new Dictionary<string, ItemInfo>();
 
         foreach (ItemEntry entry in itemList)
         {
-            if (!m_Items.ContainsKey(entry.key))
+            if (!_items.ContainsKey(entry.key))
             {
-                m_Items.Add(entry.key, entry.value);
+                _items.Add(entry.key, entry.value);
             }
         }
     }
