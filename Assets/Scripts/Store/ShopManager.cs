@@ -31,6 +31,19 @@ public class ShopManager : MonoBehaviour
 
     void Start()
     {
+        if (Data == null)
+        {
+            Debug.LogError("ShopData está null en ShopManager");
+            return;
+        }
+
+        if (Data.Items == null || Data.Items.Count == 0)
+        {
+            Debug.LogWarning("Items no estaba inicializado, forzando OnEnable...");
+            Data.GetType().GetMethod("OnEnable", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
+                .Invoke(Data, null);
+        }
+
         SetMoney(startingMoney);
         GenerateShop();
     }
