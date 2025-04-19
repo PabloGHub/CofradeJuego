@@ -14,7 +14,7 @@ public class Peloton : MonoBehaviour
     [SerializeField] private List<Transform> integrantes;
     [SerializeField] private float tamannoNazareno = 1.1f;
 
-    [SerializeField] private Transform AreaDespliegue;
+    [SerializeField] public Transform AreaDespliegue;
 
     [HideInInspector] public float CuantiaInicial_f;
 
@@ -145,7 +145,7 @@ public class Peloton : MonoBehaviour
             return false;
         }
 
-        AreaDespliegue.gameObject.SetActive(true);
+        AreaDespliegue.GetComponent<Collider2D>().enabled = true;
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         RaycastHit2D[] hits = Physics2D.RaycastAll(mousePos, Vector2.zero);
 
@@ -158,7 +158,7 @@ public class Peloton : MonoBehaviour
                 break;
             }
         }
-        AreaDespliegue.gameObject.SetActive(false);
+        AreaDespliegue.GetComponent<Collider2D>().enabled = false;
         if (!hitZone)
         {
             return false;

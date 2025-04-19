@@ -54,6 +54,7 @@ public class ControladorPPAL : MonoBehaviour
     public List<GameObject> Porculeros;
 
     [SerializeField] private TextMeshProUGUI PausaBotonTexto;
+    [SerializeField] private Results PausePanel;
 
     public bool EnCurso_f = false;
 
@@ -73,7 +74,9 @@ public class ControladorPPAL : MonoBehaviour
     {
         if (CantidadLLegados_i >= CantidadNazarenosGanar_i)
         {
-            SceneManager.LoadScene(++NivelActual_i);
+            if (!_pausado_b)
+                cabiarPausa();
+            PausePanel.ShowResults(true, 50, Timer.Instance.time, 0);
         }
     }
 
@@ -89,6 +92,7 @@ public class ControladorPPAL : MonoBehaviour
         if (!EnCurso_f && !_pausado_b)
         {
             EnCurso_f = true;
+            Peloton.peloton.AreaDespliegue.gameObject.SetActive(false);
             OnIniciar?.Invoke();
         }
 
@@ -112,11 +116,32 @@ public class ControladorPPAL : MonoBehaviour
         }
     }
 
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void ReloadSameLevel()
+    {
+        SceneManager.LoadScene(NivelActual_i);
+    }
+    public void ReloadNextLevel()
+    {
+        SceneManager.LoadScene(++NivelActual_i);
+    }
 
     public void PauseFromUI()
     {
         cabiarPausa();
         PausaBotonTexto.text = V_pausado_b ? "CONTINUAR" : "PAUSAR";
+        if (V_pausado_b)
+        {
+            PausePanel.ShowPause();
+        }
+        else
+        {
+            PausePanel.Hide();
+        }
     }
 
     // ***********************( Comandos y Debug )*********************** //

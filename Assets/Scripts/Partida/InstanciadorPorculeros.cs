@@ -36,6 +36,11 @@ public class InstanciadorPorculeros : MonoBehaviour
         ControladorPPAL.IntanciarEnemigos += instanciar;
     }
 
+    private void Start()
+    {
+        instanciar();
+    }
+
     // ***********************( Metodos Nuestros )*********************** //
     private void instanciar()
     {

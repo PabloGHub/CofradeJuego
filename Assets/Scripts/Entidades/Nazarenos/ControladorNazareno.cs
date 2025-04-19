@@ -127,7 +127,7 @@ public class ControladorNazareno : MaquinaDeEstados
     {
         ControladorPPAL.ppal.CantidadLLegados_i++;
         Peloton.peloton.EliminarIntegranteLista(gameObject);
-        DestroyImmediate(gameObject);
+        Destroy(gameObject);
     }
 
     private void actualizarPunto()
@@ -139,6 +139,11 @@ public class ControladorNazareno : MaquinaDeEstados
 
         while (true)
         {
+            if (Navegacion.nav.trayectoria.Length <= ObjetivoIndex_i)
+            {
+                ObjetivoIndex_i--;
+                return;
+            }
             Punto punto = Navegacion.nav.trayectoria[ObjetivoIndex_i].GetComponent<Punto>();
 
             if (!punto.Difurcacion)

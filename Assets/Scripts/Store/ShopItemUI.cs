@@ -59,6 +59,8 @@ public class ShopItemUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        if (ControladorPPAL.ppal.EnCurso_f) return;
+
         EnableScrolling(false);
         Buy();
     }

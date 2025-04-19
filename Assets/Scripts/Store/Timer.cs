@@ -9,6 +9,17 @@ public class Timer : MonoBehaviour
     private TextMeshProUGUI timerText;
     public string textPrefix = "Tiempo: ";
 
+    private static Timer instance;
+    public static Timer Instance => instance;
+
+    private void Awake()
+    {
+        if (!instance)
+        {
+            instance = this;
+        }
+    }
+
     void Start()
     {
         currentTime = 0;
@@ -18,7 +29,7 @@ public class Timer : MonoBehaviour
 
     void Update()
     {
-        if (!isPaused)
+        if (!isPaused && !ControladorPPAL.V_pausado_b)
         {
             currentTime += Time.deltaTime;
             timerText.text = textPrefix + FormatTime(currentTime);

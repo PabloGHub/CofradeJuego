@@ -3,11 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public int StartScene;
     public void StartGame()
     {
-        if (StartScene >= 0)
-            SceneManager.LoadScene(StartScene);
+        SceneManager.LoadScene(1);
     }
 
     public void ExitGame()
