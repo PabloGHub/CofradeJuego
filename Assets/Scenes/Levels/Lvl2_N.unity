@@ -460,7 +460,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2256600391099340093, guid: f6124215f0139fa43a0033be99b648d6, type: 3}
       propertyPath: orthographic size
-      value: 3.5636363
+      value: 4.909091
       objectReference: {fileID: 0}
     - target: {fileID: 5537017371961019044, guid: f6124215f0139fa43a0033be99b648d6, type: 3}
       propertyPath: m_Name
@@ -27196,7 +27196,7 @@ MonoBehaviour:
   trashElement: {fileID: 1386322462}
   moneyText: {fileID: 252206217}
   MoneyTextStart: 'Puntos de Hermandad: '
-  startingMoney: 50
+  startingMoney: 65
 --- !u!114 &2120332222
 MonoBehaviour:
   m_ObjectHideFlags: 0
