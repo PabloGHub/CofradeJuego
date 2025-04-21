@@ -3362,6 +3362,16 @@ MonoBehaviour:
   moneyText: {fileID: 115447939}
   MoneyTextStart: 'Puntos de Hermandad: '
   startingMoney: 50
+  amarillo: {fileID: 8226610799400092452, guid: 6a31138cc3088a94d981a2a11e5c6b16, type: 3}
+  azul: {fileID: 8226610799400092452, guid: 4816c0052b489d449bdd832dc762be43, type: 3}
+  rojo: {fileID: 8226610799400092452, guid: abb1f98ae0fc6c34589ddeeff85ee2ed, type: 3}
+  morado: {fileID: 8226610799400092452, guid: 6a8c3f19e111f7d46bd1711319835a0e, type: 3}
+  verde: {fileID: 8226610799400092452, guid: bede82fb065032f428f55132e6a2f4d8, type: 3}
+  amarilloIm: {fileID: -3321316116095022828, guid: d78d1ea8a70d3f548a496ad2717594bb, type: 3}
+  azulIm: {fileID: -6923030758744254582, guid: d78d1ea8a70d3f548a496ad2717594bb, type: 3}
+  rojoIm: {fileID: -8144995512145972380, guid: d78d1ea8a70d3f548a496ad2717594bb, type: 3}
+  moradoIm: {fileID: 3613983809978742712, guid: d78d1ea8a70d3f548a496ad2717594bb, type: 3}
+  verdeIm: {fileID: 7236442304989065098, guid: d78d1ea8a70d3f548a496ad2717594bb, type: 3}
 --- !u!114 &367583000
 MonoBehaviour:
   m_ObjectHideFlags: 0

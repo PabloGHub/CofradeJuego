@@ -8,7 +8,7 @@ public class ShopManager : MonoBehaviour
 {
     static public ShopManager instance;
 
-    public ShopData Data;
+    [HideInInspector] public ShopData Data;
     public GameObject shopEntryPrefab;
     public GameObject dragElement;
     public GameObject trashElement;
@@ -21,11 +21,55 @@ public class ShopManager : MonoBehaviour
 
     public static event Action OnMoneyUpdated;
 
+    public GameObject amarillo;
+    public GameObject azul;
+    public GameObject rojo;
+    public GameObject morado;
+    public GameObject verde;
+
+    public Sprite amarilloIm;
+    public Sprite azulIm;
+    public Sprite rojoIm;
+    public Sprite moradoIm;
+    public Sprite verdeIm;
+
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
+        }
+        Data = Resources.Load<ShopData>("ShopData");
+
+        if (Data == null)
+        {
+            Data = new ShopData();
+            ItemInfo ii = new ItemInfo();
+            ii.Name = "Amarillo";
+            ii.Price = 10;
+            ii.sprite = amarilloIm;
+            ii.dropObject = amarillo;
+            Data.Items["Amarillo"] = ii;
+            ii.Name = "Azul";
+            ii.Price = 10;
+            ii.sprite = azulIm;
+            ii.dropObject = azul;
+            Data.Items["Azul"] = ii;
+            ii.Name = "Verde";
+            ii.Price = 10;
+            ii.sprite = verdeIm;
+            ii.dropObject = verde;
+            Data.Items["Verde"] = ii;
+            ii.Name = "Rojo";
+            ii.Price = 5;
+            ii.sprite = rojoIm;
+            ii.dropObject = rojo;
+            Data.Items["Rojo"] = ii;
+            ii.Name = "Morado";
+            ii.Price = 15;
+            ii.sprite = moradoIm;
+            ii.dropObject = morado;
+            Data.Items["Morado"] = ii;
         }
     }
 
