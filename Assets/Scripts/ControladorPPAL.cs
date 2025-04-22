@@ -19,10 +19,15 @@ public class ControladorPPAL : MonoBehaviour
     public int CantidadLLegados_i = 0;
 
     [Header("**---- Limites de la camara ----**")]
-    public Vector2 Esquina1_v2;
-    public Vector2 Esquina2_v2;
+    public Vector2 Esquina1_v2; // Rojos.
+    public Vector2 Esquina2_v2; // Verdes.
 
     public static ControladorPPAL ppal;
+
+    /* >>==<< ( Debug ) >>==<< */
+    //public static bool s_debugRayCast_b = false;
+    //public static bool s_debugRangos_b = false;
+
 
     private static bool _pausado_b = true;
     public static bool V_pausado_b
@@ -170,6 +175,8 @@ public class ControladorPPAL : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawLine(new Vector3(Esquina1_v2.x, Esquina1_v2.y, 0), new Vector3(Esquina1_v2.x, Esquina2_v2.y, 0));
         Gizmos.DrawLine(new Vector3(Esquina1_v2.x, Esquina1_v2.y, 0), new Vector3(Esquina2_v2.x, Esquina1_v2.y, 0));
+
+        Gizmos.color = Color.green;
         Gizmos.DrawLine(new Vector3(Esquina2_v2.x, Esquina1_v2.y, 0), new Vector3(Esquina2_v2.x, Esquina2_v2.y, 0));
         Gizmos.DrawLine(new Vector3(Esquina2_v2.x, Esquina2_v2.y, 0), new Vector3(Esquina1_v2.x, Esquina2_v2.y, 0));
     }

@@ -161,15 +161,24 @@ public class Ataque : MonoBehaviour
     }
 
     // ----------( Funciones de Debug )---------- //
-    private void OnDrawGizmos()
+    private void debugRangos()
     {
         // Visibilidad
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, RangoVisibliidad);
+    }
 
+    private void debugRayCast()
+    {
         // Alcance
         Gizmos.color = Color.green;
         Gizmos.DrawLine(transform.position + transform.up * _inicio, transform.position + transform.up * (_inicio + alcance));
+    }
+
+    private void OnDrawGizmos()
+    {
+        debugRangos();
+        debugRayCast();
 
         #if UNITY_EDITOR
         {

@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2211646944655044845}
   - component: {fileID: 2046788668343171402}
-  - component: {fileID: 4627531916919764805}
   - component: {fileID: 303106535336447602}
+  - component: {fileID: 9064295593908030646}
   m_Layer: 11
   m_Name: animacion
   m_TagString: Untagged
@@ -89,22 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4627531916919764805
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 83596852171252966}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c578e585875cf1145a7d5b073865ec5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _go: {fileID: 0}
-  FlipearEnIzquierda: 0
-  FlipearEnDerecha: 0
-  Sprite: {fileID: 0}
 --- !u!95 &303106535336447602
 Animator:
   serializedVersion: 7
@@ -127,6 +111,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &9064295593908030646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 83596852171252966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cbdd82ef6475fe49b1d6f8e527b7d55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _go: {fileID: 0}
+  Sprite: {fileID: 0}
+  _8direcciones_b: 1
 --- !u!1 &7194174155887223006
 GameObject:
   m_ObjectHideFlags: 0
@@ -419,7 +418,7 @@ MonoBehaviour:
   danno: 5
   alcance: 5
   EsDistancia: 1
-  prefabProyectil: {fileID: 0}
+  prefabProyectil: {fileID: 9169620315529376050, guid: e32e158e3854c9d49b250b6b4e37eb42, type: 3}
   _alcanceExplosion_f: 0
   _inicio: 0
   EnemigoObjetivo_go: {fileID: 0}
@@ -443,7 +442,7 @@ MonoBehaviour:
   v_exodia_b: 0
   QuedarteQuieto: 0
   v_objetivo_t: {fileID: 0}
-  Direcion_f: 0
+  Angulo_f: 0
   Direcion: 4
 --- !u!58 &4379630609933709878
 CircleCollider2D:

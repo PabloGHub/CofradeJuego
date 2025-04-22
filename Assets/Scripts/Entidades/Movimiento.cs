@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using Unity.VisualScripting;
+
 #if UNITY_EDITOR
     using UnityEditor;
 #endif
@@ -28,7 +30,8 @@ public class Movimiento : MaquinaDeEstados
     private Rigidbody2D v_rb_rb2D;
 
     // --- Direcion --- //
-    public float Direcion_f = 0f;
+    [HideInInspector]
+    public float Angulo_f = 0f;
     public enum Direcion_e
     {
         ARRIBA,
@@ -91,7 +94,8 @@ public class Movimiento : MaquinaDeEstados
         establecerDestino();
 
         v_agente_NavMeshAgent.nextPosition = transform.position;
-        Direcion_f = Mathf.Clamp01(transform.rotation.z);
+
+        calcularAngulo();
     }
 
     private void LateUpdate()
@@ -140,17 +144,16 @@ public class Movimiento : MaquinaDeEstados
         }
     }
 
-    protected Direcion_e f_obtenerDirecion_e(Transform _transform)
+    protected void calcularAngulo()
     {
-        if (_transform == null)
-            return Direcion_e.NULO;
+        //Angulo_f = Mathf.Atan2(transform.up.y, transform.up.x) * Mathf.Rad2Deg;
+        //if (Angulo_f < -180f) Angulo_f += 360f;
+        //if (Angulo_f > 180f) Angulo_f -= 360f;
 
-        Vector3 _direcionActual_v3 = _transform.up.normalized;
-
-        if (Mathf.Abs(_direcionActual_v3.x) > Mathf.Abs(_direcionActual_v3.y))
-            return (_direcionActual_v3.x > 0) ? Direcion_e.DERECHA : Direcion_e.IZQUIERDA;
-        else
-            return (_direcionActual_v3.y > 0) ? Direcion_e.ARRIBA : Direcion_e.ABAJO;
+        Vector2 direccion = transform.up.normalized;
+        Angulo_f = Mathf.Atan2(direccion.y, direccion.x) * Mathf.Rad2Deg;
+        if (Angulo_f < 0f)
+            Angulo_f += 360f;
     }
 
     protected void irAlDestino()
@@ -257,6 +260,21 @@ public class Movimiento : MaquinaDeEstados
 
 
 
+    // ***********************( Funciones Funciononales )*********************** //
+    protected Direcion_e f_obtenerDirecion_e(Transform _transform)
+    {
+        if (_transform == null)
+            return Direcion_e.NULO;
+
+        Vector3 _direcionActual_v3 = _transform.up.normalized;
+
+        if (Mathf.Abs(_direcionActual_v3.x) > Mathf.Abs(_direcionActual_v3.y))
+            return (_direcionActual_v3.x > 0) ? Direcion_e.DERECHA : Direcion_e.IZQUIERDA;
+        else
+            return (_direcionActual_v3.y > 0) ? Direcion_e.ARRIBA : Direcion_e.ABAJO;
+    }
+
+
 
     // ***********************( MAQUINA DE ESTADOS )*********************** //
     class EstadoMoviendose : EstadoBase
@@ -325,10 +343,11 @@ public class Movimiento : MaquinaDeEstados
         if (v_objetivo_t == null)
             return;
 
-        Gizmos.color = Color.green;
+
         #if UNITY_EDITOR
-                Handles.Label(transform.position + Vector3.up * 0.4f,
-                    "MOVIMIENTO : Direcion_f -> " + Direcion_f + " | " +
+            Handles.color = Color.red;
+            Handles.Label(transform.position + Vector3.up * 0.4f,
+                    "MOVIMIENTO : Angulo_f -> " + Angulo_f + " | " +
                     "objetivo -> " + v_objetivo_t.name);
         #endif
     }
