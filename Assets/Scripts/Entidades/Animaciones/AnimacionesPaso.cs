@@ -30,17 +30,17 @@ public class AnimacionesPaso : MaquinaDeEstados
         Inicializar(gameObject);
         estadosPosibles = new List<EstadoBase>
         {
-            CrearEstado<EstadoNorte, AnimacionesPaso>(this),
-            CrearEstado<EstadoSur, AnimacionesPaso>(this),
-            CrearEstado<EstadoOeste, AnimacionesPaso>(this),
-            CrearEstado<EstadoEste, AnimacionesPaso>(this),
+            CrearEstado<EstadoNorte, AnimacionesPaso>(this), // 0
+            CrearEstado<EstadoSur, AnimacionesPaso>(this), // 1
+            CrearEstado<EstadoOeste, AnimacionesPaso>(this), // 2
+            CrearEstado<EstadoEste, AnimacionesPaso>(this), // 3
 
-            CrearEstado<EstadoNorOeste, AnimacionesPaso>(this),
-            CrearEstado<EstadoNorEste, AnimacionesPaso>(this),
-            CrearEstado<EstadoSurOeste, AnimacionesPaso>(this),
-            CrearEstado<EstadoSurEste, AnimacionesPaso>(this),
+            CrearEstado<EstadoNorOeste, AnimacionesPaso>(this), // 4
+            CrearEstado<EstadoNorEste, AnimacionesPaso>(this), // 5
+            CrearEstado<EstadoSurOeste, AnimacionesPaso>(this), // 6
+            CrearEstado<EstadoSurEste, AnimacionesPaso>(this), // 7
 
-            CrearEstado<EstadoGolpeado, AnimacionesPaso>(this)
+            CrearEstado<EstadoGolpeado, AnimacionesPaso>(this) // 8
         };
 
         // Posicion Inicial
@@ -63,22 +63,35 @@ public class AnimacionesPaso : MaquinaDeEstados
         //AgregarTransicion(() => /*TODO: terminar.*/, 8);
         if (_8direcciones_b)
         {
-            AgregarTransicion(() => (_angulo_f > -22.5f && _angulo_f <= 22.5f), 0);
-            AgregarTransicion(() => (_angulo_f > 22.5f && _angulo_f <= 67.5f), 1);
-            AgregarTransicion(() => (_angulo_f > 67.5f && _angulo_f <= 112.5), 2);
-            AgregarTransicion(() => (_angulo_f > 112.5f && _angulo_f <= 157.5f), 3);
-            AgregarTransicion(() => (_angulo_f > 157.5f || _angulo_f <= -157.5f), 4);
-            AgregarTransicion(() => (_angulo_f > -157.5f && _angulo_f <= -112.5f), 5);
-            AgregarTransicion(() => (_angulo_f > -112.5f && _angulo_f <= -67.5f), 6);
-            AgregarTransicion(() => (_angulo_f > -67.5f && _angulo_f <= -22.5f), 7);
+            AgregarTransicion(() => (_angulo_f > 337.5f || _angulo_f <= 22.5f), 3);    // Este (0)
+            AgregarTransicion(() => (_angulo_f > 22.5f && _angulo_f <= 67.5f), 5);     // NE
+            AgregarTransicion(() => (_angulo_f > 67.5f && _angulo_f <= 112.5f), 0);    // Norte
+            AgregarTransicion(() => (_angulo_f > 112.5f && _angulo_f <= 157.5f), 4);   // NO
+            AgregarTransicion(() => (_angulo_f > 157.5f && _angulo_f <= 202.5f), 2);   // Oeste
+            AgregarTransicion(() => (_angulo_f > 202.5f && _angulo_f <= 247.5f), 6);   // SO
+            AgregarTransicion(() => (_angulo_f > 247.5f && _angulo_f <= 292.5f), 1);   // Sur
+            AgregarTransicion(() => (_angulo_f > 292.5f && _angulo_f <= 337.5f), 7);   // SE
         }
         else
         {
-            AgregarTransicion(() => (_angulo_f > -45f && _angulo_f <= 45f), 0);
-            AgregarTransicion(() => (_angulo_f > 45f && _angulo_f <= 135f), 1);
-            AgregarTransicion(() => (_angulo_f > 135f || _angulo_f <= -135f), 2);
-            AgregarTransicion(() => (_angulo_f > -135f && _angulo_f <= -45f), 3);
+            AgregarTransicion(() => (_angulo_f > 315f || _angulo_f <= 45f), 3);     // Este
+            AgregarTransicion(() => (_angulo_f > 45f && _angulo_f <= 135f), 0);     // Norte
+            AgregarTransicion(() => (_angulo_f > 135f && _angulo_f <= 225f), 2);    // Oeste
+            AgregarTransicion(() => (_angulo_f > 225f && _angulo_f <= 315f), 1);    // Sur
         }
+    }
+
+    private void FixedUpdate()
+    {
+        if (_animator == null || _movimiento == null || Sprite == null)
+        {
+            Debug.LogError($"****** Entidad: {gameObject.name} NO tiene componente (_animator, _movimiento, Sprite) ******");
+            return;
+        }
+
+        _angulo_f = _movimiento.Angulo_f;
+
+        ActualizarTransiciones();
     }
 
     private void Update()
@@ -143,6 +156,7 @@ public class AnimacionesPaso : MaquinaDeEstados
             if (_animaciones._animator == null)
                 return;
 
+            Debug.Log($"Estado Norte: {_animaciones._animator.name}");
             _animaciones._animator.Play("N", 0, 0f);
         }
         public override void Salir()
@@ -161,6 +175,7 @@ public class AnimacionesPaso : MaquinaDeEstados
             if (_animaciones._animator == null)
                 return;
 
+            Debug.Log($"Estado Sur: {_animaciones._animator.name}");
             _animaciones._animator.Play("S", 0, 0f);
         }
         public override void Salir()
@@ -179,6 +194,7 @@ public class AnimacionesPaso : MaquinaDeEstados
             if (_animaciones._animator == null)
                 return;
 
+            Debug.Log($"Estado Oste: {_animaciones._animator.name}");
             _animaciones._animator.Play("O", 0, 0f);
         }
         public override void Salir()
@@ -197,6 +213,7 @@ public class AnimacionesPaso : MaquinaDeEstados
             if (_animaciones._animator == null)
                 return;
 
+            Debug.Log($"Estado Este: {_animaciones._animator.name}");
             _animaciones._animator.Play("E", 0, 0f);
         }
         public override void Salir()
@@ -216,6 +233,7 @@ public class AnimacionesPaso : MaquinaDeEstados
             if (_animaciones._animator == null)
                 return;
 
+            Debug.Log($"Estado NorOste: {_animaciones._animator.name}");
             _animaciones._animator.Play("NO", 0, 0f);
         }
         public override void Salir()
@@ -234,6 +252,7 @@ public class AnimacionesPaso : MaquinaDeEstados
             if (_animaciones._animator == null)
                 return;
 
+            Debug.Log($"Estado NorEste: {_animaciones._animator.name}");
             _animaciones._animator.Play("NE", 0, 0f);
         }
         public override void Salir()
@@ -252,6 +271,7 @@ public class AnimacionesPaso : MaquinaDeEstados
             if (_animaciones._animator == null)
                 return;
 
+            Debug.Log($"Estado SurOeste: {_animaciones._animator.name}");
             _animaciones._animator.Play("SO", 0, 0f);
         }
         public override void Salir()
@@ -269,6 +289,7 @@ public class AnimacionesPaso : MaquinaDeEstados
             if (_animaciones._animator == null)
                 return;
 
+            Debug.Log($"Estado SurEste: {_animaciones._animator.name}");
             _animaciones._animator.Play("SE", 0, 0f);
         }
         public override void Salir()
@@ -296,7 +317,9 @@ public class AnimacionesPaso : MaquinaDeEstados
     // ***********************( Gizmos )*********************** //
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.green;
+        Gizmos.color = Color.yellow;
+        // Direcion hacia donde mira el objeto desde el angulo
+        Gizmos.DrawLine(transform.position, transform.position + Quaternion.Euler(0, 0, _angulo_f) * Vector3.up * 0.5f);
         if (_animator != null)
         {
             #if UNITY_EDITOR
