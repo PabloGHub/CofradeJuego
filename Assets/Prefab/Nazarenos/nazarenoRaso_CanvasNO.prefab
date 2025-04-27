@@ -231,6 +231,7 @@ GameObject:
   - component: {fileID: 8487932697863468914}
   - component: {fileID: 4060509918818848312}
   - component: {fileID: 4379630609933709878}
+  - component: {fileID: 1297677480626391153}
   m_Layer: 11
   m_Name: nazarenoRaso_CanvasNO
   m_TagString: Nazarenos
@@ -409,14 +410,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4908d698a4f16d74b9f2d307d4525876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alcance: 1
   RangoVisibliidad: 1
   tiempoRecarga: 1
-  fuerzaEmpuje: 1
+  fuerzaEmpuje: 5
   capaAtacado:
     serializedVersion: 2
     m_Bits: 1024
   danno: 5
+  alcance: 1
   EsDistancia: 0
   prefabProyectil: {fileID: 0}
   _alcanceExplosion_f: 0
@@ -442,6 +443,7 @@ MonoBehaviour:
   v_exodia_b: 0
   QuedarteQuieto: 0
   v_objetivo_t: {fileID: 0}
+  Angulo_f: 0
   Direcion: 4
 --- !u!58 &4379630609933709878
 CircleCollider2D:
