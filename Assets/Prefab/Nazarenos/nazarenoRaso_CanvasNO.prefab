@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2211646944655044845}
   - component: {fileID: 2046788668343171402}
   - component: {fileID: 7719817250613889698}
-  - component: {fileID: 4627531916919764805}
+  - component: {fileID: 3950334373345169550}
   m_Layer: 11
   m_Name: animacion
   m_TagString: Untagged
@@ -111,7 +111,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &4627531916919764805
+--- !u!114 &3950334373345169550
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,13 +120,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 83596852171252966}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c578e585875cf1145a7d5b073865ec5b, type: 3}
+  m_Script: {fileID: 11500000, guid: 0cbdd82ef6475fe49b1d6f8e527b7d55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _go: {fileID: 0}
-  FlipearEnIzquierda: 1
-  FlipearEnDerecha: 0
   Sprite: {fileID: 0}
+  _8direcciones_b: 0
 --- !u!1 &7194174155887223006
 GameObject:
   m_ObjectHideFlags: 0
