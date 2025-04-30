@@ -295,7 +295,7 @@ public abstract class MachineState /* : MonoBehaviour*/
         var estado = _go.AddComponent<T>();
         estado.MachineState = this;
         estado.enabled = false;
-        //estado.MiIndex = ObtenerIndice(estado); // ¡No funciona!
+        estado.Source = dependencia;
         estado.Init(dependencia);
         return estado;
     }
