@@ -25,7 +25,7 @@ public abstract class MachineState /* : MonoBehaviour*/
             }
 
             _estado = value;
-            _estado.MaquinaEstados = this;
+            _estado.MachineState = this;
 
             OnEstadoCambiado?.Invoke(_estado);
 
@@ -52,7 +52,7 @@ public abstract class MachineState /* : MonoBehaviour*/
             }
 
             _subEstado = value;
-            _subEstado.MaquinaEstados = this;
+            _subEstado.MachineState = this;
 
             OnSubEstadoCambiado?.Invoke(_subEstado);
 
@@ -64,11 +64,12 @@ public abstract class MachineState /* : MonoBehaviour*/
         }
     }
 
-    [HideInInspector] public Dictionary<Func<bool>, StateBase> Transiciones;
-    [HideInInspector] public Dictionary<Func<bool>, StateBase> SubTransiciones;
-    [HideInInspector] public List<StateBase> estadosPosibles { get; set; }
-    [HideInInspector] public List<StateBase> subEstadosPosibles { get; set; }
-    [HideInInspector] public GameObject _go;
+    private Dictionary<Func<bool>, StateBase> _transiciones;
+    private Dictionary<Func<bool>, StateBase> _subTransiciones;
+    private GameObject _go;
+
+    public List<StateBase> EstadosPosibles { get; set; }
+    public List<StateBase> subEstadosPosibles { get; set; }
 
 
     // ***********************( Eventos )*********************** //
@@ -76,60 +77,24 @@ public abstract class MachineState /* : MonoBehaviour*/
     public event Action<StateBase> OnSubEstadoCambiado;
 
 
+
     // ***********************( Metodos )*********************** //
-    private void inicializar(GameObject goHost, List<StateBase> estadosPosibles)
-    {
-        if (estadosPosibles == null)
-            estadosPosibles = new List<StateBase>();
-
-        this.estadosPosibles = estadosPosibles;
-
-        inicializar(goHost);
-    }
-    /// <summary>
-    /// Inicializa la máquina de estados con el GameObject host.
-    /// </summary>
-    /// <param name="goHost">gameObject necesario para la maquina de estado</param>
-    private void inicializar(GameObject goHost)
-    {
-        if (goHost == null)
-        {
-            Debug.LogError("El GameObject host es null en Inicializar.");
-            return;
-        }
-
-        if (Transiciones == null)
-            Transiciones = new Dictionary<Func<bool>, StateBase>();
-
-        if (SubTransiciones == null)
-            SubTransiciones = new Dictionary<Func<bool>, StateBase>();
-
-        if (estadosPosibles == null)
-            estadosPosibles = new List<StateBase>();
-
-        if (subEstadosPosibles == null)
-            subEstadosPosibles = new List<StateBase>();
-
-        _go = goHost;
-    }
-
-
     /// <summary>
     /// Cambia el estado actual de la máquina de estados.
     /// </summary>
     /// <param name="nuevoEstado">Posicion en int del 'estadosPosibles'</param>
     public void CambiarEstado(int nuevoEstado)
     {
-        if (estadosPosibles == null)
+        if (EstadosPosibles == null)
             return;
 
-        if (nuevoEstado > estadosPosibles.Count)
+        if (nuevoEstado > EstadosPosibles.Count)
         {
             Debug.LogError("*- El nuevoEstado es mayor a la cantidad de estadosPosibles -*");
             return;
         }
 
-        StateBase _posibleNovoEstado = estadosPosibles[nuevoEstado];
+        StateBase _posibleNovoEstado = EstadosPosibles[nuevoEstado];
         if (_posibleNovoEstado == null)
         {
             Debug.LogError("*- Intento de cambiar estado pasando un 'int' nulo -*");
@@ -169,16 +134,16 @@ public abstract class MachineState /* : MonoBehaviour*/
     /// <param name="estadoDestino">Estado al que cambiara pasando el int de la posicion de 'estadosPosibles'</param>
     public void AgregarTransicion(Func<bool> condicion, int estadoDestino)
     {
-        if (Transiciones == null)
-            Transiciones = new Dictionary<Func<bool>, StateBase>();
+        if (_transiciones == null)
+            _transiciones = new Dictionary<Func<bool>, StateBase>();
 
-        if (estadoDestino < 0 || estadoDestino >= estadosPosibles.Count)
+        if (estadoDestino < 0 || estadoDestino >= EstadosPosibles.Count)
         {
             Debug.LogError("El índice de estado destino es inválido en AgregarTransicion.");
             return;
         }
 
-        Transiciones[condicion] = estadosPosibles[estadoDestino];
+        _transiciones[condicion] = EstadosPosibles[estadoDestino];
         //Debug.Log($"Transición agregada: {estadosPosibles[estadoDestino].GetType().Name}");
     }
     /// <summary>
@@ -189,16 +154,16 @@ public abstract class MachineState /* : MonoBehaviour*/
     /// <param name="estadoDestino">Estado al que cambiara pasando el int de la posicion de 'subEstadosPosibles'</param>
     public void AgregarSubTransicion(Func<bool> condicion, int estadoDestino)
     {
-        if (SubTransiciones == null)
-            SubTransiciones = new Dictionary<Func<bool>, StateBase>();
+        if (_subTransiciones == null)
+            _subTransiciones = new Dictionary<Func<bool>, StateBase>();
 
-        if (estadoDestino < 0 || estadoDestino >= estadosPosibles.Count)
+        if (estadoDestino < 0 || estadoDestino >= EstadosPosibles.Count)
         {
             Debug.LogError("El índice de estado destino es inválido en AgregarTransicion.");
             return;
         }
 
-        SubTransiciones[condicion] = subEstadosPosibles[estadoDestino];
+        _subTransiciones[condicion] = subEstadosPosibles[estadoDestino];
         //Debug.Log($"SubTransición agregada: {subEstadosPosibles[estadoDestino].GetType().Name}");
     }
 
@@ -209,13 +174,13 @@ public abstract class MachineState /* : MonoBehaviour*/
     /// </summary>
     public void ActualizarTransiciones()
     {
-        if (Transiciones == null)
+        if (_transiciones == null)
             return;
 
-        if (Transiciones.Count > 0)
+        if (_transiciones.Count > 0)
             ActualizarTrnas();
 
-        if (SubTransiciones.Count > 0)
+        if (_subTransiciones.Count > 0)
             ActualizarSubTrnas();
     }
     /// <summary>
@@ -223,7 +188,7 @@ public abstract class MachineState /* : MonoBehaviour*/
     /// </summary>
     public void ActualizarTrnas()
     {
-        foreach (var transicion in Transiciones)
+        foreach (var transicion in _transiciones)
         {
             if (transicion.Key.Invoke())
             {
@@ -237,7 +202,7 @@ public abstract class MachineState /* : MonoBehaviour*/
     /// </summary>
     public void ActualizarSubTrnas()
     {
-        foreach (var transicion in SubTransiciones)
+        foreach (var transicion in _subTransiciones)
         {
             if (transicion.Key.Invoke())
             {
@@ -284,7 +249,7 @@ public abstract class MachineState /* : MonoBehaviour*/
             return -1;
         }
 
-        int indice = estadosPosibles.IndexOf(estado);
+        int indice = EstadosPosibles.IndexOf(estado);
         if (indice == -1)
         {
             Debug.LogWarning($"El estado {estado.GetType().Name} no se encuentra en la lista de estados posibles.");
@@ -328,20 +293,52 @@ public abstract class MachineState /* : MonoBehaviour*/
     public T CrearEstado<T, D>(D dependencia) where T : StateBase where D : class
     {
         var estado = _go.AddComponent<T>();
-        estado.MaquinaEstados = this;
+        estado.MachineState = this;
         estado.enabled = false;
         //estado.MiIndex = ObtenerIndice(estado); // ¡No funciona!
         estado.Init(dependencia);
         return estado;
     }
 
+    public MachineState(GameObject goHost, List<StateBase> estadosPosibles)
+    {
+        if (estadosPosibles == null)
+            estadosPosibles = new List<StateBase>();
 
+        this.EstadosPosibles = estadosPosibles;
+
+        inicializar(goHost);
+    }
     public MachineState(GameObject goHost)
     {
         this.inicializar(goHost);
     }
-    public MachineState(GameObject goHost, List<StateBase> estadosPosibles)
+    
+
+    /// <summary>
+    /// Inicializa la máquina de estados con el GameObject host.
+    /// </summary>
+    /// <param name="goHost">gameObject necesario para la maquina de estado</param>
+    private void inicializar(GameObject goHost)
     {
-        this.inicializar(goHost, estadosPosibles);
+        if (goHost == null)
+        {
+            Debug.LogError("El GameObject host es null en Inicializar.");
+            return;
+        }
+
+        if (_transiciones == null)
+            _transiciones = new Dictionary<Func<bool>, StateBase>();
+
+        if (_subTransiciones == null)
+            _subTransiciones = new Dictionary<Func<bool>, StateBase>();
+
+        if (EstadosPosibles == null)
+            EstadosPosibles = new List<StateBase>();
+
+        if (subEstadosPosibles == null)
+            subEstadosPosibles = new List<StateBase>();
+
+        _go = goHost;
     }
 }

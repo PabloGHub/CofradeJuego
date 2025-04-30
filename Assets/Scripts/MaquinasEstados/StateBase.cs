@@ -6,9 +6,10 @@ using static UnityEngine.Rendering.DebugUI;
 public abstract class StateBase : MonoBehaviour
 {
     // ***********************( Variables/Declaraciones )*********************** //
-    public MachineState MaquinaEstados { get; set; }
-    //public int MiIndex { get; set; }
-    //private Component _esteComponente { get; set; }
+    public MachineState MachineState { get; set; }
+    public object Source { get; set; } // Clase padre donde se se instancio la Maquina de Estados.
+    public int MiIndex { get; set; }
+    public Component ThisComponent { get; set; }
 
     // ***********************( Metodos de Control )*********************** //
     public abstract void Entrar();
@@ -27,13 +28,19 @@ public abstract class StateBase : MonoBehaviour
 
     
 
-    // ***********************( Llamas -> Unity )*********************** //
+    // ***********************( Unity -> Mi )*********************** //
     private void Awake()
     {
+        //this.ThisComponent = this.GetComponent(this.GetType());
+        //MiIndex = this.MachineState.ObtenerIndice(this);
+        
         MiAwake();
     }
     private void OnEnable()
     {
+        this.ThisComponent = this.GetComponent(this.GetType());
+        MiIndex = this.MachineState.ObtenerIndice(this);
+
         MiOnEnable();
     }
     private void Start()
@@ -42,6 +49,8 @@ public abstract class StateBase : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        this.MachineState.ActualizarTransiciones();
+
         MiFixedUpdate();
     }
     private void Update()
@@ -50,8 +59,6 @@ public abstract class StateBase : MonoBehaviour
     }
     private void LateUpdate()
     {
-        this.MaquinaEstados.ActualizarTransiciones();
-
         MiLateUpdate();
     }
     private void OnDisable()
