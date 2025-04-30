@@ -2,14 +2,24 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
-// TODO: 
-public abstract class MachineState /* : MonoBehaviour*/
+
+public abstract class MachineState /* <O> */ /* : MonoBehaviour*/
 {
     // ***********************( Variables/Declaraciones )*********************** //
     private StateBase _estado { get; set; } // Representa el estado actual de la maquina
     private StateBase _subEstado { get; set; } // Representa el subEstado actual de la maquina
 
 
+
+    private Dictionary<Func<bool>, StateBase> _transiciones;
+    private Dictionary<Func<bool>, StateBase> _subTransiciones;
+    private GameObject _go;
+
+    public List<StateBase> EstadosPosibles { get; set; }
+    public List<StateBase> subEstadosPosibles { get; set; }
+
+
+    // ***********************( Getters y Setters )*********************** //
     public StateBase EstadoActual
     {
         get { return _estado; }
@@ -20,7 +30,7 @@ public abstract class MachineState /* : MonoBehaviour*/
 
             if (_estado != null)
             {
-                _estado.Salir();
+                _estado.Exit();
                 _estado.enabled = false;
             }
 
@@ -30,7 +40,7 @@ public abstract class MachineState /* : MonoBehaviour*/
             OnEstadoCambiado?.Invoke(_estado);
 
             _estado.enabled = true;
-            _estado.Entrar();
+            _estado.Enter();
 
 
             ActualizarTransiciones();
@@ -47,7 +57,7 @@ public abstract class MachineState /* : MonoBehaviour*/
 
             if (_subEstado != null)
             {
-                _subEstado.Salir();
+                _subEstado.Exit();
                 _subEstado.enabled = false;
             }
 
@@ -57,19 +67,71 @@ public abstract class MachineState /* : MonoBehaviour*/
             OnSubEstadoCambiado?.Invoke(_subEstado);
 
             _subEstado.enabled = true;
-            _subEstado.Entrar();
+            _subEstado.Enter();
 
 
             ActualizarTransiciones();
         }
     }
 
-    private Dictionary<Func<bool>, StateBase> _transiciones;
-    private Dictionary<Func<bool>, StateBase> _subTransiciones;
-    private GameObject _go;
+    public StateBase this[int _indice_i]
+    {
+        get
+        {
+            if (_indice_i < 0 || _indice_i >= EstadosPosibles.Count)
+            {
+                Debug.LogError("(MachineState): El índice de estado es inválido.");
+                return null;
+            }
+            return EstadosPosibles[_indice_i];
+        }
+        set
+        {
+            if (_indice_i < 0)
+            {
+                Debug.LogError("(MachineState): El índice de estado es inválido.");
+                return;
+            }
+            EstadosPosibles[_indice_i] = value;
+        }
+    }
+    public int this[StateBase _estado]
+    {
+        get
+        {
+            if (_estado == null)
+            {
+                Debug.LogError("(MachineState): El estado proporcionado es null.");
+                return -1;
+            }
+            return ObtenerIndiceEstado(_estado);
+        }
+        set
+        {
+            if (_estado == null)
+            {
+                Debug.LogError("(MachineState): El estado proporcionado es null.");
+                return;
+            }
+            EstadosPosibles[value] = _estado;
+        }
+    }
 
-    public List<StateBase> EstadosPosibles { get; set; }
-    public List<StateBase> subEstadosPosibles { get; set; }
+
+    public int IndiceSubEstadoActual
+    {
+        get { return subEstadosPosibles.IndexOf(SubEstadoActual); }
+    }
+    public int IndiceEstadoActual
+    {
+        get { return EstadosPosibles.IndexOf(EstadoActual); }
+    }
+
+
+    public int Count
+    {
+        get { return EstadosPosibles.Count; }
+    }
 
 
     // ***********************( Eventos )*********************** //
@@ -139,7 +201,7 @@ public abstract class MachineState /* : MonoBehaviour*/
 
         if (estadoDestino < 0 || estadoDestino >= EstadosPosibles.Count)
         {
-            Debug.LogError("El índice de estado destino es inválido en AgregarTransicion.");
+            Debug.LogError("(MachineState): El índice de estado destino es inválido en AgregarTransicion.");
             return;
         }
 
@@ -159,7 +221,7 @@ public abstract class MachineState /* : MonoBehaviour*/
 
         if (estadoDestino < 0 || estadoDestino >= EstadosPosibles.Count)
         {
-            Debug.LogError("El índice de estado destino es inválido en AgregarTransicion.");
+            Debug.LogError("(MachineState): El índice de estado destino es inválido en AgregarTransicion.");
             return;
         }
 
@@ -223,7 +285,7 @@ public abstract class MachineState /* : MonoBehaviour*/
         int indice = -1;
         if (estado == null)
         {
-            Debug.LogError("El estado proporcionado es null.");
+            Debug.LogError("(MachineState): El estado proporcionado es null.");
             return indice;
         }
 
@@ -245,14 +307,14 @@ public abstract class MachineState /* : MonoBehaviour*/
     {
         if (estado == null)
         {
-            Debug.LogError("El estado proporcionado es null.");
+            Debug.LogError("(MachineState): El estado proporcionado es null.");
             return -1;
         }
 
         int indice = EstadosPosibles.IndexOf(estado);
         if (indice == -1)
         {
-            Debug.LogWarning($"El estado {estado.GetType().Name} no se encuentra en la lista de estados posibles.");
+            Debug.LogWarning($"(MachineState): El estado {estado.GetType().Name} no se encuentra en la lista de estados posibles.");
         }
 
         return indice;
@@ -266,14 +328,14 @@ public abstract class MachineState /* : MonoBehaviour*/
     {
         if (subEstado == null)
         {
-            Debug.LogError("El subEstado proporcionado es null.");
+            Debug.LogError("(MachineState): El subEstado proporcionado es null.");
             return -1;
         }
 
         int indice = subEstadosPosibles.IndexOf(subEstado);
         if (indice == -1)
         {
-            Debug.LogWarning($"El subEstado {subEstado.GetType().Name} no se encuentra en la lista de subEstados posibles.");
+            Debug.LogWarning($"(MachineState): El subEstado {subEstado.GetType().Name} no se encuentra en la lista de subEstados posibles.");
         }
 
         return indice;
@@ -295,7 +357,7 @@ public abstract class MachineState /* : MonoBehaviour*/
         var estado = _go.AddComponent<T>();
         estado.MachineState = this;
         estado.enabled = false;
-        estado.Source = dependencia;
+        estado.Source = dependencia; // ORIGINAL
         estado.Init(dependencia);
         return estado;
     }
@@ -323,7 +385,7 @@ public abstract class MachineState /* : MonoBehaviour*/
     {
         if (goHost == null)
         {
-            Debug.LogError("El GameObject host es null en Inicializar.");
+            Debug.LogError("(MachineState): El GameObject host es null en Inicializar.");
             return;
         }
 

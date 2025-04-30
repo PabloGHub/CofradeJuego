@@ -8,12 +8,32 @@ public abstract class StateBase : MonoBehaviour
     // ***********************( Variables/Declaraciones )*********************** //
     public MachineState MachineState { get; set; }
     public object Source { get; set; } // Clase padre donde se se instancio la Maquina de Estados.
+
     public int MiIndex { get; set; }
     public Component ThisComponent { get; set; }
+    public bool IsSub { get; set; } = false;
+
+
+    // --- Control
+    private bool _primeraVez_bandera = true;
+    public bool InFirstEnter
+    {
+        get
+        {
+            _primeraVez_bandera = false;
+            return _primeraVez_bandera;
+        }
+        set
+        {
+            Debug.LogWarning($"(StateBase): Se esta forzando a cambiar 'InFirstEnter' a {value}, no recomendable.");
+            _primeraVez_bandera = value;
+        }
+    }
+
 
     // ***********************( Metodos de Control )*********************** //
-    public abstract void Entrar();
-    public abstract void Salir();
+    public abstract void Enter();
+    public abstract void Exit();
 
 
     // ***********************( Mi Unity )*********************** //
@@ -26,7 +46,10 @@ public abstract class StateBase : MonoBehaviour
     public virtual void MiOnDisable() { }
     public virtual void MiOnDestroy() { }
 
-    
+
+    // ***********************( Eventos )*********************** //
+    public event Action OnFirtsEnter;
+
 
     // ***********************( Unity -> Mi )*********************** //
     private void Awake()
@@ -38,6 +61,9 @@ public abstract class StateBase : MonoBehaviour
     }
     private void OnEnable()
     {
+        if (InFirstEnter)
+            OnFirtsEnter?.Invoke();
+
         this.ThisComponent = this.GetComponent(this.GetType());
         MiIndex = this.MachineState.ObtenerIndice(this);
 

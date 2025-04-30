@@ -43,6 +43,7 @@ public class MovimientoCopia : MonoBehaviour
     public Direcion_e Direcion = Direcion_e.NULO;
 
     // --- Maquina de Estados --- //
+    private MachineState _maquinaEstados;
 
     // ***********************( Funciones Unity )*********************** //
     private void Awake()
