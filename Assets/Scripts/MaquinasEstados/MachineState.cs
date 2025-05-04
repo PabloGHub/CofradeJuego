@@ -1,24 +1,25 @@
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using System.Threading.Tasks;
 
 
-public abstract class MachineState /* <O> */ /* : MonoBehaviour*/
+public class MachineState /* <O> */ /* : MonoBehaviour*/
 {
     // ***********************( Variables/Declaraciones )*********************** //
     private StateBase _estado { get; set; } // Representa el estado actual de la maquina
     private StateBase _subEstado { get; set; } // Representa el subEstado actual de la maquina
-
-
 
     private Dictionary<Func<bool>, StateBase> _transiciones;
     private Dictionary<Func<bool>, StateBase> _subTransiciones;
     private GameObject _go;
 
     public List<StateBase> EstadosPosibles { get; set; }
-    public List<StateBase> subEstadosPosibles { get; set; }
+    public List<StateBase> SubEstadosPosibles { get; set; }
 
+    private List<StateBase> _estadosPersistentes = new List<StateBase>();
 
+    
     // ***********************( Getters y Setters )*********************** //
     public StateBase EstadoActual
     {
@@ -118,13 +119,13 @@ public abstract class MachineState /* <O> */ /* : MonoBehaviour*/
     }
 
 
-    public int IndiceSubEstadoActual
-    {
-        get { return subEstadosPosibles.IndexOf(SubEstadoActual); }
-    }
-    public int IndiceEstadoActual
+    public int IndexState
     {
         get { return EstadosPosibles.IndexOf(EstadoActual); }
+    }
+    public int IndexSubState
+    {
+        get { return SubEstadosPosibles.IndexOf(SubEstadoActual); }
     }
 
 
@@ -132,7 +133,10 @@ public abstract class MachineState /* <O> */ /* : MonoBehaviour*/
     {
         get { return EstadosPosibles.Count; }
     }
-
+    public int SubCount
+    {
+        get { return SubEstadosPosibles.Count; }
+    }
 
     // ***********************( Eventos )*********************** //
     public event Action<StateBase> OnEstadoCambiado;
@@ -140,7 +144,7 @@ public abstract class MachineState /* <O> */ /* : MonoBehaviour*/
 
 
 
-    // ***********************( Metodos )*********************** //
+    // ***********************( Metodos Estados )*********************** //
     /// <summary>
     /// Cambia el estado actual de la máquina de estados.
     /// </summary>
@@ -174,7 +178,7 @@ public abstract class MachineState /* <O> */ /* : MonoBehaviour*/
     /// <param name="nuevoEstado">Posicion en int del 'subEstadosPosibles'</param>
     public void CambiarSubEstado(int nuevoEstado)
     {
-        StateBase _posibleNovoEstado = subEstadosPosibles[nuevoEstado];
+        StateBase _posibleNovoEstado = SubEstadosPosibles[nuevoEstado];
         if (_posibleNovoEstado == null)
         {
             Debug.LogError("*- Intento de cambiar subEstado pasando un 'int' nulo -*");
@@ -187,7 +191,45 @@ public abstract class MachineState /* <O> */ /* : MonoBehaviour*/
         SubEstadoActual = _posibleNovoEstado;
     }
 
+    // ---( Asincronos )--- //
+    public async Task CambiarEstadoAsync(StateBase nuevoEstado)
+    {
+        if (EstadoActual != null)
+        {
+            await EstadoActual.ExitAsync();
+            EstadoActual.enabled = false;
+        }
 
+        EstadoActual = nuevoEstado;
+        EstadoActual.MachineState = this;
+        EstadoActual.enabled = true;
+        await EstadoActual.EnterAsync();
+    }
+
+    // ---( Persistentes )--- //
+    public void AgregarEstadoPersistente(StateBase estado)
+    {
+        if (!_estadosPersistentes.Contains(estado))
+        {
+            _estadosPersistentes.Add(estado);
+            estado.MachineState = this;
+            estado.enabled = true;
+            estado.Enter();
+        }
+    }
+
+    public void RemoverEstadoPersistente(StateBase estado)
+    {
+        if (_estadosPersistentes.Contains(estado))
+        {
+            estado.Exit();
+            estado.enabled = false;
+            _estadosPersistentes.Remove(estado);
+        }
+    }
+
+
+    // ***********************( Metodos Transiciones )*********************** //
     /// <summary>
     /// Agrega una transición a la máquina de estados.  
     /// Una transicion es una condición que, al cumplirse, cambia el estado actual de la máquina.
@@ -225,7 +267,7 @@ public abstract class MachineState /* <O> */ /* : MonoBehaviour*/
             return;
         }
 
-        _subTransiciones[condicion] = subEstadosPosibles[estadoDestino];
+        _subTransiciones[condicion] = SubEstadosPosibles[estadoDestino];
         //Debug.Log($"SubTransición agregada: {subEstadosPosibles[estadoDestino].GetType().Name}");
     }
 
@@ -274,7 +316,7 @@ public abstract class MachineState /* <O> */ /* : MonoBehaviour*/
         }
     }
 
-    // ***********************( Mios )*********************** //
+    // ***********************( Indices )*********************** //
     /// <summary>
     /// Obtiene el índice del estado o subEstado en la lista de estados posibles.
     /// </summary>
@@ -332,7 +374,7 @@ public abstract class MachineState /* <O> */ /* : MonoBehaviour*/
             return -1;
         }
 
-        int indice = subEstadosPosibles.IndexOf(subEstado);
+        int indice = SubEstadosPosibles.IndexOf(subEstado);
         if (indice == -1)
         {
             Debug.LogWarning($"(MachineState): El subEstado {subEstado.GetType().Name} no se encuentra en la lista de subEstados posibles.");
@@ -341,7 +383,42 @@ public abstract class MachineState /* <O> */ /* : MonoBehaviour*/
         return indice;
     }
 
-    // ***********************( Constructores )*********************** //
+
+    // ***********************( Serealizacion )*********************** //
+    [Serializable]
+    public class EstadoSerializable
+    {
+        public int IndiceEstadoActual;
+        public int IndiceSubEstadoActual;
+        private Dictionary<Func<bool>, StateBase> _transiciones;
+        private Dictionary<Func<bool>, StateBase> _subTransiciones;
+        private GameObject _go;
+
+        public List<StateBase> EstadosPosibles { get; set; }
+        public List<StateBase> SubEstadosPosibles { get; set; }
+
+        private List<StateBase> _estadosPersistentes = new List<StateBase>();
+        // Agregar más datos según sea necesario
+    }
+
+    public EstadoSerializable Serializar()
+    {
+        return new EstadoSerializable
+        {
+            IndiceEstadoActual = IndexState,
+            IndiceSubEstadoActual = IndexSubState
+        };
+    }
+
+    public void Deserializar(EstadoSerializable datos)
+    {
+        CambiarEstado(datos.IndiceEstadoActual);
+        CambiarSubEstado(datos.IndiceSubEstadoActual);
+    }
+
+
+
+    // ***********************( Funciones Estaticas )*********************** //
     /// <summary>
     /// Crea un nuevo estado de tipo T y lo inicializa con la dependencia proporcionada.
     /// Añade al objeto actual el componente del estado.
@@ -352,7 +429,7 @@ public abstract class MachineState /* <O> */ /* : MonoBehaviour*/
     /// <typeparam name="D">Clase de la que se quiera pasar la dependencia</typeparam>
     /// <param name="dependencia">Dependencia que se quiera pasar al nuevo Estado</param>
     /// <returns>Retonar el nuevo Estado agregado y desactivado</returns>
-    public T CrearEstado<T, D>(D dependencia) where T : StateBase where D : class
+    public /*static*/ T CrearEstado<T, D>(D dependencia) where T : StateBase where D : class
     {
         var estado = _go.AddComponent<T>();
         estado.MachineState = this;
@@ -362,6 +439,7 @@ public abstract class MachineState /* <O> */ /* : MonoBehaviour*/
         return estado;
     }
 
+    // ***********************( Constructores )*********************** //
     public MachineState(GameObject goHost, List<StateBase> estadosPosibles)
     {
         if (estadosPosibles == null)
@@ -398,9 +476,11 @@ public abstract class MachineState /* <O> */ /* : MonoBehaviour*/
         if (EstadosPosibles == null)
             EstadosPosibles = new List<StateBase>();
 
-        if (subEstadosPosibles == null)
-            subEstadosPosibles = new List<StateBase>();
+        if (SubEstadosPosibles == null)
+            SubEstadosPosibles = new List<StateBase>();
 
         _go = goHost;
     }
 }
+
+

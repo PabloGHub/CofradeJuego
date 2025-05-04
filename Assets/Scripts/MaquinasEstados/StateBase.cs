@@ -2,6 +2,7 @@
 using System;
 using UnityEngine;
 using static UnityEngine.Rendering.DebugUI;
+using System.Threading.Tasks;
 
 public abstract class StateBase : MonoBehaviour
 {
@@ -35,6 +36,18 @@ public abstract class StateBase : MonoBehaviour
     public abstract void Enter();
     public abstract void Exit();
 
+    
+    public virtual Task EnterAsync()
+    {
+        Enter();
+        return Task.CompletedTask;
+    }
+
+    public virtual Task ExitAsync()
+    {
+        Exit();
+        return Task.CompletedTask;
+    }
 
     // ***********************( Mi Unity )*********************** //
     public virtual void MiAwake() { }

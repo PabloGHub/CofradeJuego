@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using Unity.VisualScripting;
@@ -24,7 +24,7 @@ public class MovimientoCopia : MonoBehaviour
     public bool QuedarteQuieto = false;
 
     // --- Componentes --- //
-    [HideInInspector] 
+    [HideInInspector]
     public Transform v_objetivo_t = null;
     private NavMeshAgent v_agente_NavMeshAgent;
     private Rigidbody2D v_rb_rb2D;
@@ -68,15 +68,21 @@ public class MovimientoCopia : MonoBehaviour
         if (v_rb_rb2D == null)
             Debug.LogError($"****** Entidad: {gameObject.name} NO tiene componente (Rigidbody2D) ******");
 
-
-        Inicializar(gameObject);
-        estadosPosibles = new List<EstadoBase>
+        _maquinaEstados = new MachineState(gameObject);
+        _maquinaEstados.EstadosPosibles = new List<StateBase>
         {
-            CrearEstado<EstadoMoviendose, MovimientoCopia>(this),
-            CrearEstado<EstadoQuieto, MovimientoCopia>(this)
+            _maquinaEstados.CrearEstado<EstadoMoviendose, MovimientoCopia>(this),
+            _maquinaEstados.CrearEstado<EstadoQuieto, MovimientoCopia>(this)
         };
-        AgregarTransicion(() => v_esperando_b == true, 1);
-        AgregarTransicion(() => v_esperando_b == false, 0);
+
+        //Inicializar(gameObject);
+        //estadosPosibles = new List<EstadoBase>
+        //{
+        //    CrearEstado<EstadoMoviendose, MovimientoCopia>(this),
+        //    CrearEstado<EstadoQuieto, MovimientoCopia>(this)
+        //};
+        //AgregarTransicion(() => v_esperando_b == true, 1);
+        //AgregarTransicion(() => v_esperando_b == false, 0);
     }
 
 
@@ -89,7 +95,7 @@ public class MovimientoCopia : MonoBehaviour
             v_agente_NavMeshAgent.updateUpAxis = false;
         }
 
-        ActualizarTransiciones();
+        //ActualizarTransiciones();
         establecerDestino();
 
         v_agente_NavMeshAgent.nextPosition = transform.position;
@@ -99,7 +105,7 @@ public class MovimientoCopia : MonoBehaviour
 
     private void LateUpdate()
     {
-        ActualizarTransiciones();
+        //ActualizarTransiciones();
         establecerDestino();
 
         v_agente_NavMeshAgent.nextPosition = transform.position;
@@ -181,7 +187,7 @@ public class MovimientoCopia : MonoBehaviour
         NavMeshHit hit;
         if (NavMesh.SamplePosition(transform.position, out hit, 5f, NavMesh.AllAreas))
         {
-            // Calcular la dirección hacia el punto más cercano en el NavMesh
+            // Calcular la direcciï¿½n hacia el punto mï¿½s cercano en el NavMesh
             Vector3 direccionHaciaNavMesh = (hit.position - transform.position).normalized;
 
             Rotar(direccionHaciaNavMesh);
@@ -189,7 +195,7 @@ public class MovimientoCopia : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("No se pudo encontrar un punto válido en el NavMesh.");
+            Debug.LogWarning("No se pudo encontrar un punto vï¿½lido en el NavMesh.");
         }
     }
 
@@ -244,7 +250,7 @@ public class MovimientoCopia : MonoBehaviour
         v_agente_NavMeshAgent.nextPosition = transform.position;
     }
 
-    
+
     public void Empujar(float v_fuerza_f, Vector3 v_direccion_v3 = default)
     {
         if (v_direccion_v3 == default)
@@ -276,7 +282,7 @@ public class MovimientoCopia : MonoBehaviour
 
 
     // ***********************( MAQUINA DE ESTADOS )*********************** //
-    class EstadoMoviendose : EstadoBase
+    class EstadoMoviendose : StateBase
     {
         protected MovimientoCopia v_movimiento;
         public override void Init<T>(T dependencia)
@@ -285,11 +291,11 @@ public class MovimientoCopia : MonoBehaviour
         }
 
 
-        public override void Entrar()
+        public override void Enter()
         {
             v_movimiento.Empujar(0.025f, transform.up);
         }
-        public override void Salir()
+        public override void Exit()
         {
 
         }
@@ -303,7 +309,7 @@ public class MovimientoCopia : MonoBehaviour
             {
                 if (!v_movimiento.v_agente_NavMeshAgent.isOnNavMesh)
                 {
-                    Debug.LogWarning("El agente está fuera del NavMesh. Redirigiendo...");
+                    Debug.LogWarning("El agente estï¿½ fuera del NavMesh. Redirigiendo...");
                     v_movimiento.RedirigirHaciaNavMesh();
                     return;
                 }
@@ -313,7 +319,7 @@ public class MovimientoCopia : MonoBehaviour
         }
     }
 
-    class EstadoQuieto : EstadoBase
+    class EstadoQuieto : StateBase
     {
         protected MovimientoCopia v_movimiento;
         public override void Init<T>(T dependencia)
@@ -322,11 +328,11 @@ public class MovimientoCopia : MonoBehaviour
         }
 
 
-        public override void Entrar()
+        public override void Enter()
         {
             v_movimiento.Empujar(0f, -transform.up);
         }
-        public override void Salir()
+        public override void Exit()
         { }
 
         public override void MiFixedUpdate()
@@ -346,8 +352,8 @@ public class MovimientoCopia : MonoBehaviour
         #if UNITY_EDITOR
             Handles.color = Color.red;
             Handles.Label(transform.position + Vector3.up * 0.4f,
-                    "MOVIMIENTO : Angulo_f -> " + Angulo_f + " | " +
-                    "objetivo -> " + v_objetivo_t.name);
+                "MOVIMIENTO : Angulo_f -> " + Angulo_f + " | " +
+                "objetivo -> " + v_objetivo_t.name);
         #endif
     }
 }
