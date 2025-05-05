@@ -6,22 +6,21 @@ using System.Threading.Tasks;
 
 
 /// <summary>
-/// -------------------------------------------------------------- <br />
+/// --------------------------------------------------------------
+/// <br />
 /// Maquina de Estados  
-/// 
-/// <br /> --------------------------------------------------------------
+/// <br />
+/// --------------------------------------------------------------
 /// </summary>
 public class MachineState /* <O> */ /* : MonoBehaviour*/
 {
     // ***********************( Variables/Declaraciones )*********************** //
     private StateBase _estado { get; set; } // Representa el estado actual de la maquina
+    public List<StateBase> EstadosPosibles { get; set; }
+    private List<StateBase> _estadosPersistentes = new List<StateBase>();
 
     private Dictionary<Func<bool>, StateBase> _transiciones;
     private GameObject _go;
-
-    public List<StateBase> EstadosPosibles { get; set; }
-
-    private List<StateBase> _estadosPersistentes = new List<StateBase>();
 
     
     // ***********************( Getters y Setters )*********************** //
@@ -36,17 +35,20 @@ public class MachineState /* <O> */ /* : MonoBehaviour*/
             if (_estado != null)
             {
                 _estado.Exit();
+                _estado.Exit<StateBase>(_estado);
                 _estado.enabled = false;
             }
 
+            var _estadoAnterior = value;
             _estado = value;
             _estado.MachineState = this;
 
             OnEstadoCambiado?.Invoke(_estado);
 
             _estado.enabled = true;
-            _estado.Enter();
 
+            _estado.Enter();
+            _estado.Enter<StateBase>(_estadoAnterior);
 
             ActualizarTransiciones();
         }

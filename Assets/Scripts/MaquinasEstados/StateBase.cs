@@ -36,18 +36,25 @@ public abstract class StateBase : MonoBehaviour
     public abstract void Enter();
     public abstract void Exit();
 
-    public virtual void Enter<T>() where T : StateBase
-    { }
+    /// <summary>
+    /// Solo se llama cuando el estado anterior es igual a T.
+    /// </summary>
+    /// <typeparam name="T">Estado anterior</typeparam>
+    public virtual void Enter<T>() where T : StateBase { }
 
-    public virtual void Exit<T>() where T : StateBase
-    { }
+    /// <summary>
+    /// Solo se llama cuando el estado siguiente es igual a T.
+    /// </summary>
+    /// <typeparam name="T">Estado siguiente</typeparam>
+    public virtual void Exit<T>() where T : StateBase { }
+
+
 
     public virtual Task EnterAsync()
     {
         Enter();
         return Task.CompletedTask;
     }
-
     public virtual Task ExitAsync()
     {
         Exit();
