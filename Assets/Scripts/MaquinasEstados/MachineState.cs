@@ -4,6 +4,13 @@ using UnityEngine;
 using System.Threading.Tasks;
 
 
+
+/// <summary>
+/// -------------------------------------------------------------- <br />
+/// Maquina de Estados  
+/// 
+/// <br /> --------------------------------------------------------------
+/// </summary>
 public class MachineState /* <O> */ /* : MonoBehaviour*/
 {
     // ***********************( Variables/Declaraciones )*********************** //
@@ -418,7 +425,7 @@ public class MachineState /* <O> */ /* : MonoBehaviour*/
 
 
 
-    // ***********************( Funciones Estaticas )*********************** //
+    // ***********************( Funciones Constructores )*********************** //
     /// <summary>
     /// Crea un nuevo estado de tipo T y lo inicializa con la dependencia proporcionada.
     /// Añade al objeto actual el componente del estado.
@@ -432,8 +439,8 @@ public class MachineState /* <O> */ /* : MonoBehaviour*/
     public /*static*/ T CrearEstado<T, D>(D dependencia) where T : StateBase where D : class
     {
         var estado = _go.AddComponent<T>();
-        estado.MachineState = this;
         estado.enabled = false;
+        estado.MachineState = this;
         estado.Source = dependencia; // ORIGINAL
         estado.Init(dependencia);
         return estado;
@@ -482,5 +489,3 @@ public class MachineState /* <O> */ /* : MonoBehaviour*/
         _go = goHost;
     }
 }
-
-

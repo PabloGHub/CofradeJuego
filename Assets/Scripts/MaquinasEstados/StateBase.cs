@@ -12,7 +12,7 @@ public abstract class StateBase : MonoBehaviour
 
     public int MiIndex { get; set; }
     public Component ThisComponent { get; set; }
-    public bool IsSub { get; set; } = false;
+    //public bool IsSub { get; set; } = false;
 
 
     // --- Control
@@ -36,7 +36,12 @@ public abstract class StateBase : MonoBehaviour
     public abstract void Enter();
     public abstract void Exit();
 
-    
+    public virtual void Enter<T>() where T : StateBase
+    { }
+
+    public virtual void Exit<T>() where T : StateBase
+    { }
+
     public virtual Task EnterAsync()
     {
         Enter();
@@ -48,6 +53,7 @@ public abstract class StateBase : MonoBehaviour
         Exit();
         return Task.CompletedTask;
     }
+
 
     // ***********************( Mi Unity )*********************** //
     public virtual void MiAwake() { }
