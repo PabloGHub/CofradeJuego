@@ -15,14 +15,11 @@ public class MachineState /* <O> */ /* : MonoBehaviour*/
 {
     // ***********************( Variables/Declaraciones )*********************** //
     private StateBase _estado { get; set; } // Representa el estado actual de la maquina
-    private StateBase _subEstado { get; set; } // Representa el subEstado actual de la maquina
 
     private Dictionary<Func<bool>, StateBase> _transiciones;
-    private Dictionary<Func<bool>, StateBase> _subTransiciones;
     private GameObject _go;
 
     public List<StateBase> EstadosPosibles { get; set; }
-    public List<StateBase> SubEstadosPosibles { get; set; }
 
     private List<StateBase> _estadosPersistentes = new List<StateBase>();
 
@@ -49,33 +46,6 @@ public class MachineState /* <O> */ /* : MonoBehaviour*/
 
             _estado.enabled = true;
             _estado.Enter();
-
-
-            ActualizarTransiciones();
-        }
-    }
-
-    public StateBase SubEstadoActual
-    {
-        get { return _subEstado; }
-        set
-        {
-            if (_estado == value)
-                return;
-
-            if (_subEstado != null)
-            {
-                _subEstado.Exit();
-                _subEstado.enabled = false;
-            }
-
-            _subEstado = value;
-            _subEstado.MachineState = this;
-
-            OnSubEstadoCambiado?.Invoke(_subEstado);
-
-            _subEstado.enabled = true;
-            _subEstado.Enter();
 
 
             ActualizarTransiciones();
@@ -112,7 +82,7 @@ public class MachineState /* <O> */ /* : MonoBehaviour*/
                 Debug.LogError("(MachineState): El estado proporcionado es null.");
                 return -1;
             }
-            return ObtenerIndiceEstado(_estado);
+            return ObtenerIndice(_estado);
         }
         set
         {
@@ -128,11 +98,7 @@ public class MachineState /* <O> */ /* : MonoBehaviour*/
 
     public int IndexState
     {
-        get { return EstadosPosibles.IndexOf(EstadoActual); }
-    }
-    public int IndexSubState
-    {
-        get { return SubEstadosPosibles.IndexOf(SubEstadoActual); }
+        get { return ObtenerIndice(EstadoActual); }
     }
 
 
@@ -140,14 +106,9 @@ public class MachineState /* <O> */ /* : MonoBehaviour*/
     {
         get { return EstadosPosibles.Count; }
     }
-    public int SubCount
-    {
-        get { return SubEstadosPosibles.Count; }
-    }
 
     // ***********************( Eventos )*********************** //
     public event Action<StateBase> OnEstadoCambiado;
-    public event Action<StateBase> OnSubEstadoCambiado;
 
 
 
@@ -178,24 +139,6 @@ public class MachineState /* <O> */ /* : MonoBehaviour*/
             return;
 
         EstadoActual = _posibleNovoEstado;
-    }
-    /// <summary>
-    /// Cambia el subEstado actual de la máquina de estados.
-    /// </summary>
-    /// <param name="nuevoEstado">Posicion en int del 'subEstadosPosibles'</param>
-    public void CambiarSubEstado(int nuevoEstado)
-    {
-        StateBase _posibleNovoEstado = SubEstadosPosibles[nuevoEstado];
-        if (_posibleNovoEstado == null)
-        {
-            Debug.LogError("*- Intento de cambiar subEstado pasando un 'int' nulo -*");
-            return;
-        }
-
-        if (SubEstadoActual == _posibleNovoEstado)
-            return;
-
-        SubEstadoActual = _posibleNovoEstado;
     }
 
     // ---( Asincronos )--- //
@@ -257,67 +200,21 @@ public class MachineState /* <O> */ /* : MonoBehaviour*/
         _transiciones[condicion] = EstadosPosibles[estadoDestino];
         //Debug.Log($"Transición agregada: {estadosPosibles[estadoDestino].GetType().Name}");
     }
-    /// <summary>
-    /// Agrega una transición a la máquina de estados.  
-    /// Una transicion es una condición que, al cumplirse, cambia el estado actual de la máquina.
-    /// </summary>
-    /// <param name="condicion">Es la condicion en lamda para cambiar '() => _parar_b == true'</param>
-    /// <param name="estadoDestino">Estado al que cambiara pasando el int de la posicion de 'subEstadosPosibles'</param>
-    public void AgregarSubTransicion(Func<bool> condicion, int estadoDestino)
-    {
-        if (_subTransiciones == null)
-            _subTransiciones = new Dictionary<Func<bool>, StateBase>();
-
-        if (estadoDestino < 0 || estadoDestino >= EstadosPosibles.Count)
-        {
-            Debug.LogError("(MachineState): El índice de estado destino es inválido en AgregarTransicion.");
-            return;
-        }
-
-        _subTransiciones[condicion] = SubEstadosPosibles[estadoDestino];
-        //Debug.Log($"SubTransición agregada: {subEstadosPosibles[estadoDestino].GetType().Name}");
-    }
 
 
     /// <summary>
-    /// Actualiza TODAS las transiciones de la máquina de estados.
-    /// llama a ActualizarTrnas() y ActualizarSubTrnas()
+    /// Actualiza las transiciones de la máquina de estados.
     /// </summary>
     public void ActualizarTransiciones()
     {
         if (_transiciones == null)
             return;
 
-        if (_transiciones.Count > 0)
-            ActualizarTrnas();
-
-        if (_subTransiciones.Count > 0)
-            ActualizarSubTrnas();
-    }
-    /// <summary>
-    /// Actualiza las transiciones de la máquina de estados.
-    /// </summary>
-    public void ActualizarTrnas()
-    {
         foreach (var transicion in _transiciones)
         {
             if (transicion.Key.Invoke())
             {
-                CambiarEstado(ObtenerIndiceEstado(transicion.Value));
-                break;
-            }
-        }
-    }
-    /// <summary>
-    /// Actualiza las subtransiciones de la máquina de estados. 
-    /// </summary>
-    public void ActualizarSubTrnas()
-    {
-        foreach (var transicion in _subTransiciones)
-        {
-            if (transicion.Key.Invoke())
-            {
-                CambiarEstado(ObtenerIndiceSubEstado(transicion.Value));
+                CambiarEstado(ObtenerIndice(transicion.Value));
                 break;
             }
         }
@@ -330,29 +227,6 @@ public class MachineState /* <O> */ /* : MonoBehaviour*/
     /// <param name="estado">Estado del que se quiere sacar el indice</param>
     /// <returns>Retona un int del indice</returns>
     public int ObtenerIndice(StateBase estado)
-    {
-        int indice = -1;
-        if (estado == null)
-        {
-            Debug.LogError("(MachineState): El estado proporcionado es null.");
-            return indice;
-        }
-
-        indice = ObtenerIndiceEstado(estado);
-        if (indice == -1)
-        {
-            indice = ObtenerIndiceSubEstado(estado);
-        }
-
-        return indice;
-    }
-
-    /// <summary>
-    /// Obtiene el índice del estado en la lista de estados posibles.
-    /// </summary>
-    /// <param name="estado">Estado del que se quiere sacar el indice</param>
-    /// <returns>Retona un int del indice</returns>
-    public int ObtenerIndiceEstado(StateBase estado)
     {
         if (estado == null)
         {
@@ -368,41 +242,18 @@ public class MachineState /* <O> */ /* : MonoBehaviour*/
 
         return indice;
     }
-    /// <summary>
-    /// Obtiene el índice del subEstado en la lista de subEstados posibles.
-    /// </summary>
-    /// <param name="subEstado">SubEstado del que se quiere sacar el indice</param>
-    /// <returns>Retona un int del indice</returns>
-    public int ObtenerIndiceSubEstado(StateBase subEstado)
-    {
-        if (subEstado == null)
-        {
-            Debug.LogError("(MachineState): El subEstado proporcionado es null.");
-            return -1;
-        }
 
-        int indice = SubEstadosPosibles.IndexOf(subEstado);
-        if (indice == -1)
-        {
-            Debug.LogWarning($"(MachineState): El subEstado {subEstado.GetType().Name} no se encuentra en la lista de subEstados posibles.");
-        }
-
-        return indice;
-    }
-
+    
 
     // ***********************( Serealizacion )*********************** //
     [Serializable]
     public class EstadoSerializable
     {
         public int IndiceEstadoActual;
-        public int IndiceSubEstadoActual;
         private Dictionary<Func<bool>, StateBase> _transiciones;
-        private Dictionary<Func<bool>, StateBase> _subTransiciones;
         private GameObject _go;
 
         public List<StateBase> EstadosPosibles { get; set; }
-        public List<StateBase> SubEstadosPosibles { get; set; }
 
         private List<StateBase> _estadosPersistentes = new List<StateBase>();
         // Agregar más datos según sea necesario
@@ -413,14 +264,12 @@ public class MachineState /* <O> */ /* : MonoBehaviour*/
         return new EstadoSerializable
         {
             IndiceEstadoActual = IndexState,
-            IndiceSubEstadoActual = IndexSubState
         };
     }
 
     public void Deserializar(EstadoSerializable datos)
     {
         CambiarEstado(datos.IndiceEstadoActual);
-        CambiarSubEstado(datos.IndiceSubEstadoActual);
     }
 
 
@@ -477,14 +326,8 @@ public class MachineState /* <O> */ /* : MonoBehaviour*/
         if (_transiciones == null)
             _transiciones = new Dictionary<Func<bool>, StateBase>();
 
-        if (_subTransiciones == null)
-            _subTransiciones = new Dictionary<Func<bool>, StateBase>();
-
         if (EstadosPosibles == null)
             EstadosPosibles = new List<StateBase>();
-
-        if (SubEstadosPosibles == null)
-            SubEstadosPosibles = new List<StateBase>();
 
         _go = goHost;
     }
