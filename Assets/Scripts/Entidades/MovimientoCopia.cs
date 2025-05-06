@@ -69,11 +69,6 @@ public class MovimientoCopia : MonoBehaviour
             Debug.LogError($"****** Entidad: {gameObject.name} NO tiene componente (Rigidbody2D) ******");
 
         _maquinaEstados = new MachineState(gameObject);
-        _maquinaEstados.EstadosPosibles = new List<StateBase>
-        {
-            _maquinaEstados.CrearEstado<EstadoMoviendose, MovimientoCopia>(this),
-            _maquinaEstados.CrearEstado<EstadoQuieto, MovimientoCopia>(this)
-        };
 
         //Inicializar(gameObject);
         //estadosPosibles = new List<EstadoBase>

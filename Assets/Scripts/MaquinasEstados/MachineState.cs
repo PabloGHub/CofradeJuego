@@ -4,6 +4,10 @@ using UnityEngine;
 using System.Threading.Tasks;
 
 
+// TODO: Esta creado lo nombres ahora toca Implentarlo en los demas sistemas.
+// TODO: Agregar un sistema de serializacion para guardar el estado actual de la maquina.
+// TODO: Poder borrar estados de la lista de estados posibles.
+// TODO: Terminar el sistema de transiciones.
 
 /// <summary>
 /// --------------------------------------------------------------
@@ -16,7 +20,8 @@ public class MachineState /* <O> */ /* : MonoBehaviour*/
 {
     // ***********************( Variables/Declaraciones )*********************** //
     private StateBase _estado { get; set; } // Representa el estado actual de la maquina
-    public List<StateBase> EstadosPosibles { get; set; }
+    private List<StateBase> _estadosPosibles { get; set; }
+    private Dictionary<string, int> _nombresEstados = new Dictionary<string, int>();
     private List<StateBase> _estadosPersistentes = new List<StateBase>();
 
     private Dictionary<Func<bool>, StateBase> _transiciones;
@@ -35,7 +40,7 @@ public class MachineState /* <O> */ /* : MonoBehaviour*/
             if (_estado != null)
             {
                 _estado.Exit();
-                _estado.Exit<StateBase>(_estado);
+                //_estado.Exit<StateBase>(_estado);
                 _estado.enabled = false;
             }
 
@@ -48,7 +53,7 @@ public class MachineState /* <O> */ /* : MonoBehaviour*/
             _estado.enabled = true;
 
             _estado.Enter();
-            _estado.Enter<StateBase>(_estadoAnterior);
+            //_estado.Enter<StateBase>(_estadoAnterior);
 
             ActualizarTransiciones();
         }
@@ -58,12 +63,12 @@ public class MachineState /* <O> */ /* : MonoBehaviour*/
     {
         get
         {
-            if (_indice_i < 0 || _indice_i >= EstadosPosibles.Count)
+            if (_indice_i < 0 || _indice_i >= _estadosPosibles.Count)
             {
                 Debug.LogError("(MachineState): El índice de estado es inválido.");
                 return null;
             }
-            return EstadosPosibles[_indice_i];
+            return _estadosPosibles[_indice_i];
         }
         set
         {
@@ -72,7 +77,7 @@ public class MachineState /* <O> */ /* : MonoBehaviour*/
                 Debug.LogError("(MachineState): El índice de estado es inválido.");
                 return;
             }
-            EstadosPosibles[_indice_i] = value;
+            _estadosPosibles[_indice_i] = value;
         }
     }
     public int this[StateBase _estado]
@@ -93,7 +98,7 @@ public class MachineState /* <O> */ /* : MonoBehaviour*/
                 Debug.LogError("(MachineState): El estado proporcionado es null.");
                 return;
             }
-            EstadosPosibles[value] = _estado;
+            _estadosPosibles[value] = _estado;
         }
     }
 
@@ -106,7 +111,7 @@ public class MachineState /* <O> */ /* : MonoBehaviour*/
 
     public int Count
     {
-        get { return EstadosPosibles.Count; }
+        get { return _estadosPosibles.Count; }
     }
 
     // ***********************( Eventos )*********************** //
@@ -121,16 +126,16 @@ public class MachineState /* <O> */ /* : MonoBehaviour*/
     /// <param name="nuevoEstado">Posicion en int del 'estadosPosibles'</param>
     public void CambiarEstado(int nuevoEstado)
     {
-        if (EstadosPosibles == null)
+        if (_estadosPosibles == null)
             return;
 
-        if (nuevoEstado > EstadosPosibles.Count)
+        if (nuevoEstado > _estadosPosibles.Count)
         {
             Debug.LogError("*- El nuevoEstado es mayor a la cantidad de estadosPosibles -*");
             return;
         }
 
-        StateBase _posibleNovoEstado = EstadosPosibles[nuevoEstado];
+        StateBase _posibleNovoEstado = _estadosPosibles[nuevoEstado];
         if (_posibleNovoEstado == null)
         {
             Debug.LogError("*- Intento de cambiar estado pasando un 'int' nulo -*");
@@ -193,13 +198,13 @@ public class MachineState /* <O> */ /* : MonoBehaviour*/
         if (_transiciones == null)
             _transiciones = new Dictionary<Func<bool>, StateBase>();
 
-        if (estadoDestino < 0 || estadoDestino >= EstadosPosibles.Count)
+        if (estadoDestino < 0 || estadoDestino >= _estadosPosibles.Count)
         {
             Debug.LogError("(MachineState): El índice de estado destino es inválido en AgregarTransicion.");
             return;
         }
 
-        _transiciones[condicion] = EstadosPosibles[estadoDestino];
+        _transiciones[condicion] = _estadosPosibles[estadoDestino];
         //Debug.Log($"Transición agregada: {estadosPosibles[estadoDestino].GetType().Name}");
     }
 
@@ -236,7 +241,7 @@ public class MachineState /* <O> */ /* : MonoBehaviour*/
             return -1;
         }
 
-        int indice = EstadosPosibles.IndexOf(estado);
+        int indice = _estadosPosibles.IndexOf(estado);
         if (indice == -1)
         {
             Debug.LogWarning($"(MachineState): El estado {estado.GetType().Name} no se encuentra en la lista de estados posibles.");
@@ -287,13 +292,21 @@ public class MachineState /* <O> */ /* : MonoBehaviour*/
     /// <typeparam name="D">Clase de la que se quiera pasar la dependencia</typeparam>
     /// <param name="dependencia">Dependencia que se quiera pasar al nuevo Estado</param>
     /// <returns>Retonar el nuevo Estado agregado y desactivado</returns>
-    public /*static*/ T CrearEstado<T, D>(D dependencia) where T : StateBase where D : class
+    public T CrearEstado<T, D>(D dependencia) where T : StateBase where D : class
     {
         var estado = _go.AddComponent<T>();
         estado.enabled = false;
         estado.MachineState = this;
         estado.Source = dependencia; // ORIGINAL
         estado.Init(dependencia);
+
+        if (!_estadosPosibles.Contains(estado))
+             _estadosPosibles.Add(estado);
+
+        string _nombreEstado_s = estado.GetType().Name;
+        if (!_nombresEstados.ContainsKey(_nombreEstado_s))
+             _nombresEstados.Add(_nombreEstado_s, ObtenerIndice(estado));
+
         return estado;
     }
 
@@ -303,7 +316,7 @@ public class MachineState /* <O> */ /* : MonoBehaviour*/
         if (estadosPosibles == null)
             estadosPosibles = new List<StateBase>();
 
-        this.EstadosPosibles = estadosPosibles;
+        this._estadosPosibles = estadosPosibles;
 
         inicializar(goHost);
     }
@@ -328,8 +341,8 @@ public class MachineState /* <O> */ /* : MonoBehaviour*/
         if (_transiciones == null)
             _transiciones = new Dictionary<Func<bool>, StateBase>();
 
-        if (EstadosPosibles == null)
-            EstadosPosibles = new List<StateBase>();
+        if (_estadosPosibles == null)
+            _estadosPosibles = new List<StateBase>();
 
         _go = goHost;
     }
