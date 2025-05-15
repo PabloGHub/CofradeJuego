@@ -51,9 +51,9 @@ namespace SuiMachine
                 _estadoActual = value;
                 _estadoActual.MachineState = this;
 
+                _estadoActual.enabled = true;
                 OnEstadoCambiado?.Invoke(_estadoActual);
 
-                _estadoActual.enabled = true;
 
                 // Si no detecta ninguna funcion de entrada, se ejecuta la entrada normal.
                 if (!_estadoActual.f_CambioEnter_b<StateBase>(_estadoAnterior))
@@ -63,6 +63,13 @@ namespace SuiMachine
             }
         }
 
+
+        /// <summary>
+        /// Devuelve el estado en la posicion del indice.<br />
+        /// Guarda el estado en la posicion del indice.<br />
+        /// </summary>
+        /// <param name="_indice_i"></param>
+        /// <returns></returns>
         public StateBase this[int _indice_i]
         {
             get
@@ -84,6 +91,13 @@ namespace SuiMachine
                 _estadosPosibles[_indice_i] = value;
             }
         }
+
+        /// <summary>
+        /// Devuelve el indice del estado.<br />
+        /// Guarda el estado en la posicion del indice.<br />
+        /// </summary>
+        /// <param name="_estado"></param>
+        /// <returns></returns>
         public int this[StateBase _estado]
         {
             get
@@ -118,6 +132,7 @@ namespace SuiMachine
             get { return _estadosPosibles.Count; }
         }
 
+
         // ***********************( Eventos )*********************** //
         public event Action<StateBase> OnEstadoCambiado;
 
@@ -128,28 +143,29 @@ namespace SuiMachine
         /// Cambia el estado actual de la máquina de estados.
         /// </summary>
         /// <param name="nuevoEstado">Posicion en int del 'estadosPosibles'</param>
-        public void CambiarEstado(int nuevoEstado)
+        public StateBase CambiarEstado(int nuevoEstado)
         {
             if (_estadosPosibles == null)
-                return;
+                return null;
 
             if (nuevoEstado > _estadosPosibles.Count)
             {
                 Debug.LogError("*- El nuevoEstado es mayor a la cantidad de estadosPosibles -*");
-                return;
+                return null;
             }
 
             StateBase _posibleNovoEstado = _estadosPosibles[nuevoEstado];
             if (_posibleNovoEstado == null)
             {
                 Debug.LogError("*- Intento de cambiar estado pasando un 'int' nulo -*");
-                return;
+                return null;
             }
 
             if (State == _posibleNovoEstado)
-                return;
+                return null;
 
             State = _posibleNovoEstado;
+            return State;
         }
 
         // ---( Asincronos )--- //

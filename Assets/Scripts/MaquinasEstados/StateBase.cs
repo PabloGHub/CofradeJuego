@@ -82,8 +82,14 @@ namespace SuiMachine
         public abstract void Enter();
         public abstract void Exit();
 
-        //public virtual void Enter<T>() where T : StateBase { }
-        //public virtual void Exit<T>() where T : StateBase { }
+        public virtual StateBase Transition()
+        {
+            return null;
+        }
+        public virtual int TransitionIndex()
+        {
+            return -1;
+        }
 
 
         public virtual Task EnterAsync()
@@ -155,8 +161,22 @@ namespace SuiMachine
             if (InFirstEnter)
                 OnFirtsEnter?.Invoke();
 
-            this.ThisComponent = this.GetComponent(this.GetType());
-            MiIndex = this.MachineState.ObtenerIndice(this);
+            ThisComponent = GetComponent(GetType());
+            MiIndex = MachineState.ObtenerIndice(this);
+
+            StateBase _estado = Transition();
+            if (_estado != null)
+            {
+                MachineState.CambiarEstado(MachineState[_estado]);
+            }
+            else
+            {
+                int _indice_i = TransitionIndex();
+                if (_indice_i >= 0)
+                {
+                    MachineState.CambiarEstado(_indice_i);
+                }
+            }
 
             MiOnEnable();
         }
@@ -188,7 +208,7 @@ namespace SuiMachine
         }
 
 
-        // ***********************( Funciones )*********************** //
+        // ***********************( Metodos Funcionales )*********************** //
         internal bool f_CambioEnter_b<T>(T _estado_T)
         {
             if (_estado_T == null)
