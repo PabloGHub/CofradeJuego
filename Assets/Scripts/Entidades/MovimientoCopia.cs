@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 using Unity.VisualScripting;
+using SuiMachine;
 
 #if UNITY_EDITOR
     using UnityEditor;
